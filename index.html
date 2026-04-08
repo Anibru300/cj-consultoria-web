@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="es-MX">
+<html lang="es-MX" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="CJ Consultoría - Transformamos procesos en resultados sostenibles. Consultoría empresarial para PYMEs y emprendedores.">
+    <meta name="theme-color" content="#0B1F3A">
     <title>CJ Consultoría 🐺 | Transformamos procesos en resultados sostenibles</title>
+    
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐺</text></svg>">
     
     <!-- Fonts -->
@@ -12,10 +14,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
     
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
@@ -23,6 +29,7 @@
                         'cj-silver': '#C0C0C0',
                         'cj-electric': '#2E7DE8',
                         'cj-dark': '#0a1628',
+                        'cj-accent': '#00D4FF',
                     },
                     fontFamily: {
                         'montserrat': ['Montserrat', 'sans-serif'],
@@ -35,10 +42,18 @@
     </script>
     
     <style>
-        body { font-family: 'Open Sans', sans-serif; }
+        :root {
+            --primary: #2E7DE8;
+            --primary-dark: #1a5bbd;
+            --bg-dark: #0a1628;
+            --bg-card: rgba(11, 31, 58, 0.6);
+        }
+        
+        * { font-family: 'Open Sans', sans-serif; }
         h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
         .font-playfair { font-family: 'Playfair Display', serif; }
         
+        /* Animaciones personalizadas */
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-20px); }
@@ -47,84 +62,212 @@
             0%, 100% { box-shadow: 0 0 20px rgba(46, 125, 232, 0.3); }
             50% { box-shadow: 0 0 40px rgba(46, 125, 232, 0.6); }
         }
-        @keyframes slide-up {
-            from { opacity: 0; transform: translateY(30px); }
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        @keyframes count-up {
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        @keyframes number-count {
-            from { opacity: 0; transform: scale(0.5); }
-            to { opacity: 1; transform: scale(1); }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
         }
         
         .animate-float { animation: float 6s ease-in-out infinite; }
         .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
-        .animate-slide-up { animation: slide-up 0.8s ease-out forwards; }
-        .animate-number { animation: number-count 0.5s ease-out; }
+        .animate-marquee { animation: marquee 30s linear infinite; }
+        .animate-gradient { background-size: 200% 200%; animation: gradient-shift 8s ease infinite; }
         
+        /* Scrollbar mejorada */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #0B1F3A; }
-        ::-webkit-scrollbar-thumb { background: #2E7DE8; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #2E7DE8, #00D4FF); border-radius: 4px; }
         
-        html { scroll-behavior: smooth; }
-        
+        /* Glassmorphism mejorado */
         .glass {
-            background: rgba(11, 31, 58, 0.9);
+            background: rgba(11, 31, 58, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .glass-card {
+            background: linear-gradient(135deg, rgba(46, 125, 232, 0.1), rgba(0, 212, 255, 0.05));
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(46, 125, 232, 0.2);
         }
         
+        /* Efectos hover premium */
+        .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(46, 125, 232, 0.2);
+        }
+        
+        /* Botón shimmer */
+        .btn-shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-shimmer::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        /* Bento Grid */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .bento-item { border-radius: 1rem; overflow: hidden; }
+        .bento-large { grid-column: span 2; grid-row: span 2; }
+        .bento-wide { grid-column: span 2; }
+        
+        /* Progress bar */
+        #progress-bar {
+            position: fixed;
+            top: 0; left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #2E7DE8, #00D4FF);
+            z-index: 100;
+            transition: width 0.1s;
+        }
+        
+        /* Accordion */
         .accordion-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease-out;
+            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
         }
         .accordion-content.active {
             max-height: 500px;
+            transition: max-height 0.4s ease-in-out;
         }
         
+        /* Range slider styling */
         input[type=range] {
             -webkit-appearance: none;
             background: transparent;
         }
         input[type=range]::-webkit-slider-thumb {
             -webkit-appearance: none;
-            height: 20px;
-            width: 20px;
+            height: 24px; width: 24px;
             border-radius: 50%;
-            background: #2E7DE8;
+            background: linear-gradient(135deg, #2E7DE8, #00D4FF);
             cursor: pointer;
-            box-shadow: 0 0 10px rgba(46, 125, 232, 0.5);
-            margin-top: -8px;
+            box-shadow: 0 0 15px rgba(46, 125, 232, 0.6);
+            margin-top: -10px;
+            transition: transform 0.2s;
+        }
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
         }
         input[type=range]::-webkit-slider-runnable-track {
-            width: 100%;
-            height: 4px;
+            width: 100%; height: 4px;
             cursor: pointer;
             background: rgba(46, 125, 232, 0.3);
             border-radius: 2px;
         }
+        
+        /* Typing effect */
+        .typing-text::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
+        
+        /* Logo wall */
+        .logo-wall {
+            display: flex;
+            overflow: hidden;
+            mask-image: linear-gradient(90deg, transparent, black 20%, black 80%, transparent);
+        }
+        .logo-wall-inner {
+            display: flex;
+            gap: 4rem;
+            padding: 0 2rem;
+        }
+        
+        /* Sticky mobile CTA */
+        @media (max-width: 768px) {
+            .mobile-sticky-cta {
+                position: fixed;
+                bottom: 0; left: 0; right: 0;
+                background: linear-gradient(90deg, #0B1F3A, #1a365d);
+                padding: 1rem;
+                z-index: 50;
+                border-top: 1px solid rgba(46, 125, 232, 0.3);
+                display: flex;
+                gap: 0.75rem;
+            }
+            body { padding-bottom: 80px; }
+        }
+        @media (min-width: 769px) {
+            .mobile-sticky-cta { display: none; }
+        }
+        
+        /* Dark mode transition */
+        html, body {
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        /* Counter animation */
+        .counter {
+            font-variant-numeric: tabular-nums;
+        }
+        
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #2E7DE8, #00D4FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
     </style>
 </head>
 <body class="bg-cj-dark text-white overflow-x-hidden">
+    <!-- Progress Bar -->
+    <div id="progress-bar" style="width: 0%"></div>
+    
     <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4">
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-4">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between">
-                <a href="#" class="flex items-center gap-3">
-                    <div class="w-12 h-12 rounded-lg overflow-hidden border-2 border-cj-electric bg-white">
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-xl overflow-hidden border-2 border-cj-electric bg-white group-hover:scale-110 transition-transform">
                         <img src="logo-cj.png" alt="CJ Consultoría" class="w-full h-full object-contain">
                     </div>
                     <div>
-                        <span class="text-xl font-black tracking-tight font-montserrat">CJ Consultoría</span>
+                        <span class="text-xl font-black tracking-tight font-montserrat group-hover:text-cj-electric transition-colors">CJ Consultoría</span>
                         <span class="block text-xs text-cj-electric font-medium tracking-wider">TRANSFORMAMOS PROCESOS</span>
                     </div>
                 </a>
                 
                 <div class="hidden md:flex items-center gap-8">
-                    <a href="#servicios" class="text-sm font-medium text-gray-300 hover:text-cj-electric transition-colors">Servicios</a>
-                    <a href="#calculadora" class="text-sm font-medium text-gray-300 hover:text-cj-electric transition-colors">Calculadora</a>
-                    <a href="#casos" class="text-sm font-medium text-gray-300 hover:text-cj-electric transition-colors">Casos</a>
-                    <a href="#stockwolf" class="text-sm font-medium text-cj-electric hover:text-white transition-colors">🐺 StockWolf</a>
-                    <a href="#contacto" class="px-6 py-2.5 bg-cj-electric hover:bg-blue-600 text-white rounded-lg font-semibold transition-all shadow-lg shadow-cj-electric/30">
+                    <a href="#servicios" class="text-sm font-medium text-gray-300 hover:text-cj-electric transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Servicios</a>
+                    <a href="#calculadora" class="text-sm font-medium text-gray-300 hover:text-cj-electric transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Calculadora</a>
+                    <a href="#casos" class="text-sm font-medium text-gray-300 hover:text-cj-electric transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Casos</a>
+                    <a href="#equipo" class="text-sm font-medium text-gray-300 hover:text-cj-electric transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Equipo</a>
+                    <a href="#stockwolf" class="text-sm font-medium text-cj-electric hover:text-cj-accent transition-colors">🐺 StockWolf</a>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="darkModeToggle" class="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors">
+                        <span id="darkModeIcon">🌙</span>
+                    </button>
+                    
+                    <a href="#contacto" class="px-6 py-2.5 bg-gradient-to-r from-cj-electric to-cj-accent text-white rounded-full font-semibold transition-all shadow-lg shadow-cj-electric/30 hover:shadow-cj-electric/50 hover:scale-105 btn-shimmer">
                         Contáctanos
                     </a>
                 </div>
@@ -137,188 +280,301 @@
             </div>
         </div>
         
-        <div id="mobile-menu" class="hidden md:hidden glass mt-4 mx-4 rounded-xl p-4">
-            <div class="flex flex-col gap-3">
-                <a href="#servicios" class="px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Servicios</a>
-                <a href="#calculadora" class="px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Calculadora ROI</a>
-                <a href="#casos" class="px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Casos de Éxito</a>
-                <a href="#stockwolf" class="px-4 py-2 rounded-lg text-cj-electric hover:bg-white/10 transition-colors">🐺 StockWolf</a>
-                <a href="#contacto" class="px-4 py-2 bg-cj-electric rounded-lg text-center font-semibold">Contáctanos</a>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass mt-4 mx-4 rounded-2xl p-4 border border-cj-electric/20">
+            <div class="flex flex-col gap-2">
+                <a href="#servicios" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors">Servicios</a>
+                <a href="#calculadora" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors">Calculadora ROI</a>
+                <a href="#casos" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors">Casos de Éxito</a>
+                <a href="#equipo" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors">Equipo</a>
+                <a href="#stockwolf" class="px-4 py-3 rounded-xl text-cj-electric hover:bg-white/10 transition-colors">🐺 StockWolf</a>
+                <a href="#contacto" class="px-4 py-3 bg-gradient-to-r from-cj-electric to-cj-accent rounded-xl text-center font-semibold mt-2">Contáctanos</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section Mejorada -->
     <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <!-- Background Effects -->
         <div class="absolute inset-0 pointer-events-none">
             <div class="absolute inset-0 bg-gradient-to-br from-cj-blue via-cj-dark to-black"></div>
-            <div class="absolute top-0 left-1/4 w-96 h-96 bg-cj-electric/20 rounded-full blur-3xl animate-float"></div>
-            <div class="absolute bottom-0 right-1/4 w-80 h-80 bg-cj-electric/10 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
-            <div class="absolute inset-0 opacity-5" style="background-image: linear-gradient(rgba(46,125,232,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(46,125,232,0.5) 1px, transparent 1px); background-size: 50px 50px;"></div>
+            <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-cj-electric/20 rounded-full blur-[120px] animate-float"></div>
+            <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-cj-accent/10 rounded-full blur-[100px] animate-float" style="animation-delay: 2s;"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cj-electric/5 rounded-full blur-[150px]"></div>
+            <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 1px 1px, rgba(46,125,232,0.8) 1px, transparent 0); background-size: 40px 40px;"></div>
         </div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="text-center lg:text-left animate-slide-up">
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cj-electric/20 border border-cj-electric/50 mb-6">
-                        <span class="text-2xl">🐺</span>
+                <div class="text-center lg:text-left" data-aos="fade-right" data-aos-duration="1000">
+                    <!-- Badge -->
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-cj-electric/50 mb-6 animate-pulse-glow">
+                        <span class="text-xl">🐺</span>
                         <span class="text-sm font-semibold text-cj-electric">Tu socio estratégico</span>
                     </div>
                     
+                    <!-- Headline con efecto -->
                     <h1 class="text-5xl md:text-6xl lg:text-7xl font-black font-montserrat leading-tight mb-6">
                         Transformamos
-                        <span class="block text-cj-electric">procesos</span>
-                        <span class="font-playfair italic text-4xl md:text-5xl lg:text-6xl font-normal">en resultados sostenibles</span>
+                        <span class="block gradient-text">procesos</span>
+                        <span class="font-playfair italic text-4xl md:text-5xl lg:text-6xl font-normal text-gray-300">en resultados</span>
+                        <span id="typing-text" class="block text-cj-accent mt-2"></span>
                     </h1>
                     
-                    <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl leading-relaxed">
+                    <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl leading-relaxed" data-aos="fade-up" data-aos-delay="200">
                         Somos especialistas en ayudar a <strong class="text-cj-electric">PYMEs y emprendedores</strong> a ordenar sus operaciones, implementar sistemas de gestión y dominar Excel para tomar mejores decisiones.
                     </p>
                     
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <a href="#calculadora" class="px-8 py-4 bg-cj-electric hover:bg-blue-600 text-white rounded-xl font-bold transition-all shadow-xl shadow-cj-electric/30 flex items-center justify-center gap-2">
-                            Calcula tu ahorro
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                            </svg>
+                    <!-- CTAs -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12" data-aos="fade-up" data-aos-delay="400">
+                        <a href="#calculadora" class="px-8 py-4 bg-gradient-to-r from-cj-electric to-cj-accent hover:from-blue-600 hover:to-cyan-500 text-white rounded-xl font-bold transition-all shadow-xl shadow-cj-electric/30 hover:shadow-cj-electric/50 hover:scale-105 flex items-center justify-center gap-2 btn-shimmer">
+                            <span>💰</span> Calcula tu ahorro
                         </a>
-                        <a href="#servicios" class="px-8 py-4 border-2 border-cj-silver text-cj-silver hover:border-cj-electric hover:text-cj-electric rounded-xl font-bold transition-all flex items-center justify-center gap-2">
-                            Conoce nuestros servicios
+                        <a href="#casos" class="px-8 py-4 border-2 border-cj-silver text-cj-silver hover:border-cj-electric hover:text-cj-electric rounded-xl font-bold transition-all flex items-center justify-center gap-2 hover:bg-white/5">
+                            <span>📊</span> Ver casos de éxito
                         </a>
                     </div>
                     
-                    <div class="mt-12 grid grid-cols-3 gap-6">
-                        <div>
-                            <p class="text-3xl md:text-4xl font-black text-cj-electric">+500</p>
-                            <p class="text-sm text-gray-400">PYMEs transformadas</p>
+                    <!-- Stats con animación de contador -->
+                    <div class="grid grid-cols-3 gap-6" data-aos="fade-up" data-aos-delay="600">
+                        <div class="text-center lg:text-left">
+                            <p class="text-4xl md:text-5xl font-black gradient-text counter" data-target="500">0</p>
+                            <p class="text-sm text-gray-400 mt-1">PYMEs transformadas</p>
                         </div>
-                        <div>
-                            <p class="text-3xl md:text-4xl font-black text-cj-electric">+25%</p>
-                            <p class="text-sm text-gray-400">Incremento promedio</p>
+                        <div class="text-center lg:text-left">
+                            <p class="text-4xl md:text-5xl font-black gradient-text counter" data-target="25">0</p>
+                            <p class="text-sm text-gray-400 mt-1">% incremento promedio</p>
                         </div>
-                        <div>
-                            <p class="text-3xl md:text-4xl font-black text-cj-electric">98%</p>
-                            <p class="text-sm text-gray-400">Clientes satisfechos</p>
+                        <div class="text-center lg:text-left">
+                            <p class="text-4xl md:text-5xl font-black gradient-text counter" data-target="98">0</p>
+                            <p class="text-sm text-gray-400 mt-1">% clientes satisfechos</p>
                         </div>
+                    </div>
+                    
+                    <!-- Trust badges -->
+                    <div class="mt-8 flex items-center gap-4 text-sm text-gray-400 justify-center lg:justify-start" data-aos="fade-up" data-aos-delay="800">
+                        <div class="flex -space-x-2">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 border-2 border-cj-dark flex items-center justify-center text-xs">AD</div>
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-orange-600 border-2 border-cj-dark flex items-center justify-center text-xs">CM</div>
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-400 to-teal-600 border-2 border-cj-dark flex items-center justify-center text-xs">DN</div>
+                            <div class="w-8 h-8 rounded-full bg-cj-dark border-2 border-cj-electric flex items-center justify-center text-xs">+</div>
+                        </div>
+                        <span>Se unen a +500 empresas</span>
                     </div>
                 </div>
                 
-                <div class="relative flex justify-center items-center animate-float">
-                    <div class="absolute -inset-4 bg-gradient-to-r from-cj-electric to-cj-silver rounded-full opacity-20 blur-3xl"></div>
-                    <div class="relative w-80 h-80 md:w-96 md:h-96">
+                <!-- Hero Image/Animation -->
+                <div class="relative flex justify-center items-center" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-cj-electric to-cj-accent rounded-full opacity-20 blur-3xl animate-pulse"></div>
+                    <div class="relative w-80 h-80 md:w-96 md:h-96 animate-float">
                         <img src="logo-cj.png" alt="CJ Consultoría" class="w-full h-full object-contain drop-shadow-2xl">
+                        <!-- Floating elements -->
+                        <div class="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-cj-electric to-cj-accent rounded-2xl flex items-center justify-center text-2xl shadow-xl animate-float" style="animation-delay: 1s;">
+                            📈
+                        </div>
+                        <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-cj-accent to-cj-electric rounded-xl flex items-center justify-center text-xl shadow-xl animate-float" style="animation-delay: 2s;">
+                            ⚡
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-cj-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- Logo Wall de Clientes -->
+    <section class="py-12 relative overflow-hidden border-y border-cj-electric/10">
+        <div class="text-center mb-8">
+            <p class="text-sm text-gray-400 uppercase tracking-widest">Empresas que confían en nosotros</p>
+        </div>
+        <div class="logo-wall">
+            <div class="logo-wall-inner animate-marquee">
+                <div class="flex items-center gap-4 px-6 py-3 glass rounded-xl whitespace-nowrap">
+                    <span class="text-xl">🏢</span>
+                    <span class="font-semibold">ADIS Diseño</span>
+                </div>
+                <div class="flex items-center gap-4 px-6 py-3 glass rounded-xl whitespace-nowrap">
+                    <span class="text-xl">🪑</span>
+                    <span class="font-semibold">Caoba Muebles</span>
+                </div>
+                <div class="flex items-center gap-4 px-6 py-3 glass rounded-xl whitespace-nowrap">
+                    <span class="text-xl">🏪</span>
+                    <span class="font-semibold">Decoraciones del Norte</span>
+                </div>
+                <div class="flex items-center gap-4 px-6 py-3 glass rounded-xl whitespace-nowrap">
+                    <span class="text-xl">🏭</span>
+                    <span class="font-semibold">Muebles Río Rico</span>
+                </div>
+                <div class="flex items-center gap-4 px-6 py-3 glass rounded-xl whitespace-nowrap">
+                    <span class="text-xl">📦</span>
+                    <span class="font-semibold">DistriMuebles León</span>
+                </div>
+                <div class="flex items-center gap-4 px-6 py-3 glass rounded-xl whitespace-nowrap">
+                    <span class="text-xl">🛋️</span>
+                    <span class="font-semibold">Muebles Selectos</span>
+                </div>
+                <!-- Duplicado para loop infinito -->
+                <div class="flex items-center gap-4 px-6 py-3 glass rounded-xl whitespace-nowrap">
+                    <span class="text-xl">🏢</span>
+                    <span class="font-semibold">ADIS Diseño</span>
+                </div>
+                <div class="flex items-center gap-4 px-6 py-3 glass rounded-xl whitespace-nowrap">
+                    <span class="text-xl">🪑</span>
+                    <span class="font-semibold">Caoba Muebles</span>
+                </div>
+                <div class="flex items-center gap-4 px-6 py-3 glass rounded-xl whitespace-nowrap">
+                    <span class="text-xl">🏪</span>
+                    <span class="font-semibold">Decoraciones del Norte</span>
+                </div>
+                <div class="flex items-center gap-4 px-6 py-3 glass rounded-xl whitespace-nowrap">
+                    <span class="text-xl">🏭</span>
+                    <span class="font-semibold">Muebles Río Rico</span>
+                </div>
+                <div class="flex items-center gap-4 px-6 py-3 glass rounded-xl whitespace-nowrap">
+                    <span class="text-xl">📦</span>
+                    <span class="font-semibold">DistriMuebles León</span>
+                </div>
+                <div class="flex items-center gap-4 px-6 py-3 glass rounded-xl whitespace-nowrap">
+                    <span class="text-xl">🛋️</span>
+                    <span class="font-semibold">Muebles Selectos</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
+
+    <!-- Servicios Bento Grid -->
     <section id="servicios" class="py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="inline-block px-4 py-1 rounded-full bg-cj-electric/20 border border-cj-electric/50 text-cj-electric text-sm font-semibold mb-4">Nuestros Servicios</span>
-                <h2 class="text-4xl md:text-5xl font-black font-montserrat mb-4">4 Pilares para tu <span class="text-cj-electric">éxito</span></h2>
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric text-sm font-semibold mb-4">Nuestros Servicios</span>
+                <h2 class="text-4xl md:text-5xl font-black font-montserrat mb-4">4 Pilares para tu <span class="gradient-text">éxito</span></h2>
                 <p class="text-lg text-gray-400 max-w-3xl mx-auto">Ofrecemos soluciones integrales que cubren todas las áreas críticas de tu empresa.</p>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="group p-8 rounded-2xl bg-gradient-to-br from-cj-blue/50 to-cj-dark border border-cj-electric/20 hover:border-cj-electric/50 transition-all duration-300 hover:-translate-y-2">
-                    <div class="w-16 h-16 rounded-xl bg-cj-electric/20 flex items-center justify-center mb-6 text-3xl">📋</div>
-                    <h3 class="text-2xl font-bold mb-4 font-montserrat">Procedimientos</h3>
-                    <p class="text-gray-400 mb-6">Documentamos y optimizamos tus procesos para eliminar ineficiencias.</p>
-                    <ul class="space-y-2 text-sm text-gray-300">
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cj-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Mapeo de procesos de negocio</li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cj-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Manuales de procedimientos</li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cj-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Indicadores de desempeño (KPIs)</li>
-                    </ul>
+            <!-- Bento Grid Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[200px]">
+                <!-- Procedimientos - Large -->
+                <div class="lg:col-span-2 lg:row-span-2 group relative overflow-hidden rounded-3xl glass-card hover-lift cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute inset-0 bg-gradient-to-br from-cj-electric/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="p-8 h-full flex flex-col justify-between relative z-10">
+                        <div>
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cj-electric to-cj-accent flex items-center justify-center mb-6 text-3xl shadow-lg group-hover:scale-110 transition-transform">
+                                📋
+                            </div>
+                            <h3 class="text-3xl font-bold mb-4 font-montserrat">Procedimientos</h3>
+                            <p class="text-gray-400 mb-6">Documentamos y optimizamos tus procesos para eliminar ineficiencias y maximizar la productividad.</p>
+                        </div>
+                        <ul class="space-y-3 text-sm text-gray-300">
+                            <li class="flex items-center gap-2"><span class="text-cj-accent">✓</span> Mapeo de procesos de negocio</li>
+                            <li class="flex items-center gap-2"><span class="text-cj-accent">✓</span> Manuales de procedimientos</li>
+                            <li class="flex items-center gap-2"><span class="text-cj-accent">✓</span> Indicadores de desempeño (KPIs)</li>
+                            <li class="flex items-center gap-2"><span class="text-cj-accent">✓</span> Optimización de flujos</li>
+                        </ul>
+                    </div>
                 </div>
                 
-                <div class="group p-8 rounded-2xl bg-gradient-to-br from-cj-blue/50 to-cj-dark border border-cj-electric/20 hover:border-cj-electric/50 transition-all duration-300 hover:-translate-y-2">
-                    <div class="w-16 h-16 rounded-xl bg-cj-electric/20 flex items-center justify-center mb-6 text-3xl">⚙️</div>
-                    <h3 class="text-2xl font-bold mb-4 font-montserrat">Sistemas de Gestión</h3>
-                    <p class="text-gray-400 mb-6">Implementamos normas ISO que mejoran tu competitividad.</p>
-                    <ul class="space-y-2 text-sm text-gray-300">
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cj-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>ISO 9001 (Calidad)</li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cj-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>ISO 14001 (Ambiental)</li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cj-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Auditorías internas</li>
-                    </ul>
+                <!-- ISO - Normal -->
+                <div class="group relative overflow-hidden rounded-3xl glass-card hover-lift cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute inset-0 bg-gradient-to-br from-cj-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="p-6 h-full flex flex-col relative z-10">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cj-accent to-blue-500 flex items-center justify-center mb-4 text-2xl shadow-lg group-hover:scale-110 transition-transform">
+                            ⚙️
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 font-montserrat">Sistemas ISO</h3>
+                        <p class="text-gray-400 text-sm">Implementamos normas ISO 9001, 14001, 45001.</p>
+                    </div>
                 </div>
                 
-                <div class="group p-8 rounded-2xl bg-gradient-to-br from-cj-blue/50 to-cj-dark border border-cj-electric/20 hover:border-cj-electric/50 transition-all duration-300 hover:-translate-y-2">
-                    <div class="w-16 h-16 rounded-xl bg-cj-electric/20 flex items-center justify-center mb-6 text-3xl">📈</div>
-                    <h3 class="text-2xl font-bold mb-4 font-montserrat">Mejora Continua</h3>
-                    <p class="text-gray-400 mb-6">Aplicamos metodologías probadas para optimizar tus operaciones.</p>
-                    <ul class="space-y-2 text-sm text-gray-300">
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cj-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Kaizen y Lean Manufacturing</li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cj-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>5S y organización del trabajo</li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cj-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Six Sigma</li>
-                    </ul>
+                <!-- Mejora Continua - Normal -->
+                <div class="group relative overflow-hidden rounded-3xl glass-card hover-lift cursor-pointer" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute inset-0 bg-gradient-to-br from-green-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="p-6 h-full flex flex-col relative z-10">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center mb-4 text-2xl shadow-lg group-hover:scale-110 transition-transform">
+                            📈
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 font-montserrat">Mejora Continua</h3>
+                        <p class="text-gray-400 text-sm">Kaizen, Lean, 5S, Six Sigma.</p>
+                    </div>
                 </div>
                 
-                <div class="group p-8 rounded-2xl bg-gradient-to-br from-cj-blue/50 to-cj-dark border border-cj-electric/20 hover:border-cj-electric/50 transition-all duration-300 hover:-translate-y-2">
-                    <div class="w-16 h-16 rounded-xl bg-cj-electric/20 flex items-center justify-center mb-6 text-3xl">📊</div>
-                    <h3 class="text-2xl font-bold mb-4 font-montserrat">Excel y Análisis</h3>
-                    <p class="text-gray-400 mb-6">Transformamos tus datos en información valiosa.</p>
-                    <ul class="space-y-2 text-sm text-gray-300">
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cj-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Dashboards ejecutivos</li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cj-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Macros y automatización (VBA)</li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-cj-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Power BI y Business Intelligence</li>
-                    </ul>
+                <!-- Excel y BI - Wide -->
+                <div class="lg:col-span-2 group relative overflow-hidden rounded-3xl glass-card hover-lift cursor-pointer" data-aos="fade-up" data-aos-delay="400">
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="p-6 h-full flex items-center gap-6 relative z-10">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-400 to-pink-600 flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 transition-transform flex-shrink-0">
+                            📊
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2 font-montserrat">Excel y Business Intelligence</h3>
+                            <p class="text-gray-400">Dashboards ejecutivos, macros VBA, Power BI, automatización de reportes.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-
-    <!-- CALCULADORA ROI -->
-    <section id="calculadora" class="py-24 relative bg-gradient-to-b from-cj-dark to-cj-blue">
+    <!-- CALCULADORA ROI Mejorada -->
+    <section id="calculadora" class="py-24 relative bg-gradient-to-b from-cj-dark via-cj-blue to-cj-dark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <span class="inline-block px-4 py-1 rounded-full bg-cj-electric/20 border border-cj-electric/50 text-cj-electric text-sm font-semibold mb-4">Calculadora</span>
-                <h2 class="text-4xl md:text-5xl font-black font-montserrat mb-4">¿Cuánto te cuesta <span class="text-cj-electric">NO</span> tener procesos?</h2>
-                <p class="text-lg text-gray-400 max-w-3xl mx-auto">Descubre cuánto dinero estás dejando de ganar y cuánto podrías ahorrar con nuestra consultoría.</p>
+            <div class="text-center mb-12" data-aos="fade-up">
+                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric text-sm font-semibold mb-4">💰 Calculadora ROI</span>
+                <h2 class="text-4xl md:text-5xl font-black font-montserrat mb-4">¿Cuánto te cuesta <span class="text-red-400">NO</span> tener procesos?</h2>
+                <p class="text-lg text-gray-400 max-w-3xl mx-auto">Descubre cuánto dinero estás dejando de ganar y cuánto podrías ahorrar.</p>
             </div>
             
             <div class="grid lg:grid-cols-2 gap-12">
                 <!-- Inputs -->
-                <div class="p-8 rounded-2xl bg-gradient-to-br from-cj-blue/50 to-cj-dark border border-cj-electric/20">
-                    <h3 class="text-2xl font-bold mb-6 font-montserrat">Datos de tu empresa</h3>
+                <div class="p-8 rounded-3xl glass-card" data-aos="fade-right">
+                    <h3 class="text-2xl font-bold mb-8 font-montserrat">Datos de tu empresa</h3>
                     
-                    <div class="space-y-6">
+                    <div class="space-y-8">
                         <div>
-                            <label class="block text-sm font-semibold text-gray-300 mb-2">Número de empleados</label>
+                            <div class="flex justify-between mb-2">
+                                <label class="text-sm font-semibold text-gray-300">Número de empleados</label>
+                                <span class="text-cj-accent font-bold text-lg" id="empleados-valor">10</span>
+                            </div>
                             <input type="range" id="empleados" min="1" max="100" value="10" class="w-full" oninput="calcularROI()">
-                            <div class="flex justify-between mt-1">
-                                <span class="text-xs text-gray-500">1</span>
-                                <span class="text-cj-electric font-bold" id="empleados-valor">10</span>
-                                <span class="text-xs text-gray-500">100+</span>
+                            <div class="flex justify-between mt-1 text-xs text-gray-500">
+                                <span>1</span>
+                                <span>100+</span>
                             </div>
                         </div>
                         
                         <div>
-                            <label class="block text-sm font-semibold text-gray-300 mb-2">Horas semanales perdidas en tareas manuales</label>
+                            <div class="flex justify-between mb-2">
+                                <label class="text-sm font-semibold text-gray-300">Horas semanales perdidas</label>
+                                <span class="text-cj-accent font-bold text-lg" id="horas-valor">20h</span>
+                            </div>
                             <input type="range" id="horas" min="5" max="80" value="20" class="w-full" oninput="calcularROI()">
-                            <div class="flex justify-between mt-1">
-                                <span class="text-xs text-gray-500">5h</span>
-                                <span class="text-cj-electric font-bold" id="horas-valor">20h</span>
-                                <span class="text-xs text-gray-500">80h</span>
+                            <div class="flex justify-between mt-1 text-xs text-gray-500">
+                                <span>5h</span>
+                                <span>80h</span>
                             </div>
                         </div>
                         
                         <div>
-                            <label class="block text-sm font-semibold text-gray-300 mb-2">Mermas mensuales estimadas ($)</label>
+                            <div class="flex justify-between mb-2">
+                                <label class="text-sm font-semibold text-gray-300">Mermas mensuales ($)</label>
+                                <span class="text-cj-accent font-bold text-lg" id="mermas-valor">$5,000</span>
+                            </div>
                             <input type="range" id="mermas" min="0" max="50000" value="5000" step="500" class="w-full" oninput="calcularROI()">
-                            <div class="flex justify-between mt-1">
-                                <span class="text-xs text-gray-500">$0</span>
-                                <span class="text-cj-electric font-bold" id="mermas-valor">$5,000</span>
-                                <span class="text-xs text-gray-500">$50k</span>
+                            <div class="flex justify-between mt-1 text-xs text-gray-500">
+                                <span>$0</span>
+                                <span>$50k</span>
                             </div>
                         </div>
                         
                         <div>
                             <label class="block text-sm font-semibold text-gray-300 mb-2">¿Tienes procesos documentados?</label>
-                            <select id="procesos" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-cj-electric/30 text-white" onchange="calcularROI()">
+                            <select id="procesos" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-cj-electric/30 text-white focus:border-cj-electric focus:outline-none transition-colors" onchange="calcularROI()">
                                 <option value="0">No, operamos de forma informal</option>
                                 <option value="0.3">Algunos, pero no actualizados</option>
                                 <option value="0.7">Sí, pero pueden mejorar</option>
@@ -328,37 +584,46 @@
                 </div>
                 
                 <!-- Results -->
-                <div class="p-8 rounded-2xl bg-gradient-to-br from-cj-electric/20 to-cj-blue/50 border border-cj-electric/50">
+                <div class="p-8 rounded-3xl bg-gradient-to-br from-cj-electric/20 via-cj-blue/30 to-cj-dark border border-cj-electric/50" data-aos="fade-left">
                     <h3 class="text-2xl font-bold mb-6 font-montserrat">Tu pérdida anual estimada</h3>
                     
-                    <div class="text-center mb-8">
+                    <div class="text-center mb-8 p-6 rounded-2xl bg-white/5">
                         <p class="text-sm text-gray-400 mb-2">Estás perdiendo aproximadamente:</p>
-                        <p class="text-6xl font-black text-cj-electric" id="perdida-total">$78,000</p>
+                        <p class="text-6xl font-black gradient-text" id="perdida-total">$78,000</p>
                         <p class="text-sm text-gray-400">por año</p>
                     </div>
                     
                     <div class="space-y-4 mb-8">
-                        <div class="flex justify-between items-center p-4 rounded-xl bg-white/5">
-                            <span class="text-gray-300">Tiempo desperdiciado</span>
-                            <span class="font-bold text-cj-electric" id="perdida-tiempo">$48,000</span>
+                        <div class="flex justify-between items-center p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
+                            <div class="flex items-center gap-3">
+                                <span class="text-2xl">⏰</span>
+                                <span class="text-gray-300">Tiempo desperdiciado</span>
+                            </div>
+                            <span class="font-bold text-cj-accent text-lg" id="perdida-tiempo">$48,000</span>
                         </div>
-                        <div class="flex justify-between items-center p-4 rounded-xl bg-white/5">
-                            <span class="text-gray-300">Mermas y pérdidas</span>
-                            <span class="font-bold text-cj-electric" id="perdida-mermas">$60,000</span>
+                        <div class="flex justify-between items-center p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
+                            <div class="flex items-center gap-3">
+                                <span class="text-2xl">📉</span>
+                                <span class="text-gray-300">Mermas y pérdidas</span>
+                            </div>
+                            <span class="font-bold text-cj-accent text-lg" id="perdida-mermas">$60,000</span>
                         </div>
-                        <div class="flex justify-between items-center p-4 rounded-xl bg-white/5">
-                            <span class="text-gray-300">Ineficiencia operativa</span>
-                            <span class="font-bold text-cj-electric" id="perdida-eficiencia">$30,000</span>
+                        <div class="flex justify-between items-center p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
+                            <div class="flex items-center gap-3">
+                                <span class="text-2xl">⚠️</span>
+                                <span class="text-gray-300">Ineficiencia operativa</span>
+                            </div>
+                            <span class="font-bold text-cj-accent text-lg" id="perdida-eficiencia">$30,000</span>
                         </div>
                     </div>
                     
-                    <div class="p-6 rounded-xl bg-cj-electric/20 border border-cj-electric/50 text-center">
+                    <div class="p-6 rounded-2xl bg-gradient-to-r from-cj-electric/30 to-cj-accent/20 border border-cj-electric/50 text-center">
                         <p class="text-sm text-gray-300 mb-2">Con CJ Consultoría podrías ahorrar:</p>
-                        <p class="text-4xl font-black text-white mb-2" id="ahorro-potencial">$58,500</p>
-                        <p class="text-sm text-cj-electric">en el primer año</p>
+                        <p class="text-5xl font-black text-white mb-2" id="ahorro-potencial">$58,500</p>
+                        <p class="text-sm text-cj-accent">en el primer año</p>
                     </div>
                     
-                    <a href="#contacto" class="mt-6 block w-full py-4 bg-cj-electric hover:bg-blue-600 text-white rounded-xl font-bold text-center transition-all">
+                    <a href="#contacto" class="mt-6 block w-full py-4 bg-gradient-to-r from-cj-electric to-cj-accent hover:from-blue-600 hover:to-cyan-500 text-white rounded-xl font-bold text-center transition-all shadow-lg hover:shadow-cj-electric/50 btn-shimmer">
                         Quiero recuperar ese dinero →
                     </a>
                 </div>
@@ -366,213 +631,321 @@
         </div>
     </section>
 
-    <!-- CASOS DE ÉXITO -->
+    <!-- CASOS DE ÉXITO con Testimonios Mejorados -->
     <section id="casos" class="py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="inline-block px-4 py-1 rounded-full bg-cj-electric/20 border border-cj-electric/50 text-cj-electric text-sm font-semibold mb-4">Casos de Éxito</span>
-                <h2 class="text-4xl md:text-5xl font-black font-montserrat mb-4">Resultados que hablan por <span class="text-cj-electric">sí solos</span></h2>
-                <p class="text-lg text-gray-400 max-w-3xl mx-auto">Estas son algunas empresas que ya transformaron sus operaciones con nosotros.</p>
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric text-sm font-semibold mb-4">⭐ Casos de Éxito</span>
+                <h2 class="text-4xl md:text-5xl font-black font-montserrat mb-4">Resultados que hablan por <span class="gradient-text">sí solos</span></h2>
+                <p class="text-lg text-gray-400 max-w-3xl mx-auto">Empresas reales que transformaron sus operaciones con nosotros.</p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Caso 1 -->
-                <div class="group rounded-2xl overflow-hidden bg-gradient-to-br from-cj-blue/50 to-cj-dark border border-cj-electric/20 hover:border-cj-electric/50 transition-all duration-300">
-                    <div class="h-2 bg-gradient-to-r from-cj-electric to-blue-600"></div>
+                <!-- Caso 1: ADIS -->
+                <div class="group rounded-3xl overflow-hidden glass-card hover-lift" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-2 bg-gradient-to-r from-cj-electric to-cj-accent"></div>
                     <div class="p-8">
                         <div class="flex items-center gap-4 mb-6">
-                            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-2xl font-bold text-white">AD</div>
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-2xl font-bold text-white shadow-lg">
+                                AD
+                            </div>
                             <div>
                                 <h3 class="text-xl font-bold font-montserrat">ADIS Diseño</h3>
                                 <p class="text-sm text-gray-400">Muebles y decoración</p>
                             </div>
                         </div>
                         
-                        <div class="space-y-4 mb-6">
-                            <div class="flex items-start gap-3">
-                                <span class="text-red-400 font-bold text-sm">ANTES</span>
-                                <p class="text-sm text-gray-400">Pérdidas de inventario sin control, 15h semanales en Excel, sin procesos documentados.</p>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-green-400 font-bold text-sm">DESPUÉS</span>
-                                <p class="text-sm text-gray-300">Implementación de StockWolf + procedimientos ISO.</p>
+                        <blockquote class="text-gray-300 italic mb-6 border-l-4 border-cj-electric pl-4">
+                            "CJ Consultoría nos ayudó a reducir nuestras mermas en un 30%. Su enfoque práctico y cercano marcó la diferencia."
+                        </blockquote>
+                        
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-sm">👤</div>
+                            <div>
+                                <p class="text-sm font-semibold">Andrés Díaz</p>
+                                <p class="text-xs text-gray-400">Director General</p>
                             </div>
                         </div>
                         
                         <div class="grid grid-cols-2 gap-4 pt-6 border-t border-cj-electric/20">
-                            <div class="text-center">
-                                <p class="text-3xl font-black text-cj-electric">-30%</p>
+                            <div class="text-center p-3 rounded-xl bg-white/5">
+                                <p class="text-3xl font-black gradient-text">-30%</p>
                                 <p class="text-xs text-gray-400">Mermas</p>
                             </div>
-                            <div class="text-center">
-                                <p class="text-3xl font-black text-cj-electric">+25%</p>
+                            <div class="text-center p-3 rounded-xl bg-white/5">
+                                <p class="text-3xl font-black gradient-text">+25%</p>
                                 <p class="text-xs text-gray-400">Productividad</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Caso 2 -->
-                <div class="group rounded-2xl overflow-hidden bg-gradient-to-br from-cj-blue/50 to-cj-dark border border-cj-electric/20 hover:border-cj-electric/50 transition-all duration-300">
-                    <div class="h-2 bg-gradient-to-r from-cj-electric to-blue-600"></div>
+                <!-- Caso 2: Caoba -->
+                <div class="group rounded-3xl overflow-hidden glass-card hover-lift" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-2 bg-gradient-to-r from-amber-500 to-orange-600"></div>
                     <div class="p-8">
                         <div class="flex items-center gap-4 mb-6">
-                            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-amber-600 to-orange-600 flex items-center justify-center text-2xl font-bold text-white">CM</div>
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-2xl font-bold text-white shadow-lg">
+                                CM
+                            </div>
                             <div>
                                 <h3 class="text-xl font-bold font-montserrat">Caoba Muebles</h3>
                                 <p class="text-sm text-gray-400">Fabricación de muebles</p>
                             </div>
                         </div>
                         
-                        <div class="space-y-4 mb-6">
-                            <div class="flex items-start gap-3">
-                                <span class="text-red-400 font-bold text-sm">ANTES</span>
-                                <p class="text-sm text-gray-400">Stock-outs frecuentes, clientes insatisfechos, sobreinventario en algunos productos.</p>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-green-400 font-bold text-sm">DESPUÉS</span>
-                                <p class="text-sm text-gray-300">Sistema de gestión de inventario con alertas automáticas.</p>
+                        <blockquote class="text-gray-300 italic mb-6 border-l-4 border-amber-500 pl-4">
+                            "Implementamos StockWolf y eliminamos los stock-outs. Nuestros clientes están más satisfechos que nunca."
+                        </blockquote>
+                        
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center text-sm">👤</div>
+                            <div>
+                                <p class="text-sm font-semibold">Carlos Martínez</p>
+                                <p class="text-xs text-gray-400">Gerente de Operaciones</p>
                             </div>
                         </div>
                         
                         <div class="grid grid-cols-2 gap-4 pt-6 border-t border-cj-electric/20">
-                            <div class="text-center">
-                                <p class="text-3xl font-black text-cj-electric">-85%</p>
+                            <div class="text-center p-3 rounded-xl bg-white/5">
+                                <p class="text-3xl font-black text-amber-400">-85%</p>
                                 <p class="text-xs text-gray-400">Stock-outs</p>
                             </div>
-                            <div class="text-center">
-                                <p class="text-3xl font-black text-cj-electric">+40%</p>
+                            <div class="text-center p-3 rounded-xl bg-white/5">
+                                <p class="text-3xl font-black text-amber-400">+40%</p>
                                 <p class="text-xs text-gray-400">Rotación</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Caso 3 -->
-                <div class="group rounded-2xl overflow-hidden bg-gradient-to-br from-cj-blue/50 to-cj-dark border border-cj-electric/20 hover:border-cj-electric/50 transition-all duration-300">
-                    <div class="h-2 bg-gradient-to-r from-cj-electric to-blue-600"></div>
+                <!-- Caso 3: DecoSonora -->
+                <div class="group rounded-3xl overflow-hidden glass-card hover-lift" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-2 bg-gradient-to-r from-emerald-500 to-teal-600"></div>
                     <div class="p-8">
                         <div class="flex items-center gap-4 mb-6">
-                            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-2xl font-bold text-white">DN</div>
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-2xl font-bold text-white shadow-lg">
+                                DN
+                            </div>
                             <div>
                                 <h3 class="text-xl font-bold font-montserrat">Decoraciones del Norte</h3>
                                 <p class="text-sm text-gray-400">Distribución de artículos</p>
                             </div>
                         </div>
                         
-                        <div class="space-y-4 mb-6">
-                            <div class="flex items-start gap-3">
-                                <span class="text-red-400 font-bold text-sm">ANTES</span>
-                                <p class="text-sm text-gray-400">Procesos manuales, duplicidad de datos, falta de visibilidad en tiempo real.</p>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <span class="text-green-400 font-bold text-sm">DESPUÉS</span>
-                                <p class="text-sm text-gray-300">Digitalización completa con dashboards y automatizaciones.</p>
+                        <blockquote class="text-gray-300 italic mb-6 border-l-4 border-emerald-500 pl-4">
+                            "La digitalización completa de nuestros procesos nos ahorra 20 horas semanales. Inversión que se pagó sola."
+                        </blockquote>
+                        
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-teal-600 flex items-center justify-center text-sm">👤</div>
+                            <div>
+                                <p class="text-sm font-semibold">Diana Núñez</p>
+                                <p class="text-xs text-gray-400">Dueña</p>
                             </div>
                         </div>
                         
                         <div class="grid grid-cols-2 gap-4 pt-6 border-t border-cj-electric/20">
-                            <div class="text-center">
-                                <p class="text-3xl font-black text-cj-electric">-60%</p>
+                            <div class="text-center p-3 rounded-xl bg-white/5">
+                                <p class="text-3xl font-black text-emerald-400">-60%</p>
                                 <p class="text-xs text-gray-400">Tiempo admin</p>
                             </div>
-                            <div class="text-center">
-                                <p class="text-3xl font-black text-cj-electric">ISO</p>
+                            <div class="text-center p-3 rounded-xl bg-white/5">
+                                <p class="text-3xl font-black text-emerald-400">ISO</p>
                                 <p class="text-xs text-gray-400">Certificada</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
+            <!-- CTA de casos -->
+            <div class="mt-12 text-center" data-aos="fade-up">
+                <a href="#contacto" class="inline-flex items-center gap-2 px-8 py-4 rounded-full glass border border-cj-electric/50 text-cj-electric font-semibold hover:bg-cj-electric/10 transition-all">
+                    <span>¿Quieres ser nuestro próximo caso de éxito?</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </a>
+            </div>
         </div>
     </section>
 
+
     <!-- PROCESO DE TRABAJO -->
-    <section class="py-24 relative bg-gradient-to-b from-cj-blue to-cj-dark">
+    <section class="py-24 relative bg-gradient-to-b from-cj-blue via-cj-dark to-cj-blue">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="inline-block px-4 py-1 rounded-full bg-cj-electric/20 border border-cj-electric/50 text-cj-electric text-sm font-semibold mb-4">Metodología</span>
-                <h2 class="text-4xl md:text-5xl font-black font-montserrat mb-4">¿Cómo <span class="text-cj-electric">trabajamos</span>?</h2>
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric text-sm font-semibold mb-4">🔄 Metodología</span>
+                <h2 class="text-4xl md:text-5xl font-black font-montserrat mb-4">¿Cómo <span class="gradient-text">trabajamos</span>?</h2>
                 <p class="text-lg text-gray-400 max-w-3xl mx-auto">Un proceso probado en +500 empresas, adaptado a tu realidad.</p>
             </div>
             
             <div class="grid md:grid-cols-5 gap-4">
-                <div class="relative p-6 rounded-2xl bg-gradient-to-br from-cj-electric/20 to-cj-blue/50 border border-cj-electric/30 text-center">
-                    <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-cj-electric flex items-center justify-center text-2xl font-black text-white">1</div>
-                    <h3 class="font-bold mb-2">Diagnóstico</h3>
-                    <p class="text-sm text-gray-400">Analizamos tu situación actual en una consulta gratuita de 30 minutos.</p>
-                    <div class="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-cj-electric"></div>
+                <div class="relative p-6 rounded-2xl glass-card text-center group hover-lift" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-gradient-to-br from-cj-electric to-cj-accent flex items-center justify-center text-lg font-black text-white shadow-lg">1</div>
+                    <div class="pt-4">
+                        <div class="text-4xl mb-3">🔍</div>
+                        <h3 class="font-bold mb-2">Diagnóstico</h3>
+                        <p class="text-sm text-gray-400">Consulta gratuita de 30 minutos para identificar tus necesidades.</p>
+                    </div>
+                    <div class="hidden md:block absolute top-1/2 -right-2 w-4 h-0.5 bg-cj-electric/50"></div>
                 </div>
                 
-                <div class="relative p-6 rounded-2xl bg-gradient-to-br from-cj-electric/20 to-cj-blue/50 border border-cj-electric/30 text-center">
-                    <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-cj-electric flex items-center justify-center text-2xl font-black text-white">2</div>
-                    <h3 class="font-bold mb-2">Propuesta</h3>
-                    <p class="text-sm text-gray-400">Diseñamos un plan personalizado con objetivos claros e inversión definida.</p>
-                    <div class="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-cj-electric"></div>
+                <div class="relative p-6 rounded-2xl glass-card text-center group hover-lift" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-gradient-to-br from-cj-electric to-cj-accent flex items-center justify-center text-lg font-black text-white shadow-lg">2</div>
+                    <div class="pt-4">
+                        <div class="text-4xl mb-3">📋</div>
+                        <h3 class="font-bold mb-2">Propuesta</h3>
+                        <p class="text-sm text-gray-400">Plan personalizado con objetivos claros e inversión definida.</p>
+                    </div>
+                    <div class="hidden md:block absolute top-1/2 -right-2 w-4 h-0.5 bg-cj-electric/50"></div>
                 </div>
                 
-                <div class="relative p-6 rounded-2xl bg-gradient-to-br from-cj-electric/20 to-cj-blue/50 border border-cj-electric/30 text-center">
-                    <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-cj-electric flex items-center justify-center text-2xl font-black text-white">3</div>
-                    <h3 class="font-bold mb-2">Implementación</h3>
-                    <p class="text-sm text-gray-400">Ejecutamos el proyecto trabajando codo a codo con tu equipo.</p>
-                    <div class="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-cj-electric"></div>
+                <div class="relative p-6 rounded-2xl glass-card text-center group hover-lift" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-gradient-to-br from-cj-electric to-cj-accent flex items-center justify-center text-lg font-black text-white shadow-lg">3</div>
+                    <div class="pt-4">
+                        <div class="text-4xl mb-3">🚀</div>
+                        <h3 class="font-bold mb-2">Implementación</h3>
+                        <p class="text-sm text-gray-400">Ejecutamos el proyecto trabajando codo a codo con tu equipo.</p>
+                    </div>
+                    <div class="hidden md:block absolute top-1/2 -right-2 w-4 h-0.5 bg-cj-electric/50"></div>
                 </div>
                 
-                <div class="relative p-6 rounded-2xl bg-gradient-to-br from-cj-electric/20 to-cj-blue/50 border border-cj-electric/30 text-center">
-                    <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-cj-electric flex items-center justify-center text-2xl font-black text-white">4</div>
-                    <h3 class="font-bold mb-2">Capacitación</h3>
-                    <p class="text-sm text-gray-400">Formamos a tu equipo para que sea autosuficiente en el manejo de los nuevos procesos.</p>
-                    <div class="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-cj-electric"></div>
+                <div class="relative p-6 rounded-2xl glass-card text-center group hover-lift" data-aos="fade-up" data-aos-delay="400">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-gradient-to-br from-cj-electric to-cj-accent flex items-center justify-center text-lg font-black text-white shadow-lg">4</div>
+                    <div class="pt-4">
+                        <div class="text-4xl mb-3">🎓</div>
+                        <h3 class="font-bold mb-2">Capacitación</h3>
+                        <p class="text-sm text-gray-400">Formamos a tu equipo para que sea autosuficiente.</p>
+                    </div>
+                    <div class="hidden md:block absolute top-1/2 -right-2 w-4 h-0.5 bg-cj-electric/50"></div>
                 </div>
                 
-                <div class="p-6 rounded-2xl bg-gradient-to-br from-cj-electric/20 to-cj-blue/50 border border-cj-electric/30 text-center">
-                    <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-cj-electric flex items-center justify-center text-2xl font-black text-white">5</div>
-                    <h3 class="font-bold mb-2">Seguimiento</h3>
-                    <p class="text-sm text-gray-400">Acompañamiento continuo para asegurar resultados sostenibles en el tiempo.</p>
+                <div class="p-6 rounded-2xl glass-card text-center group hover-lift" data-aos="fade-up" data-aos-delay="500">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-gradient-to-br from-cj-electric to-cj-accent flex items-center justify-center text-lg font-black text-white shadow-lg">5</div>
+                    <div class="pt-4">
+                        <div class="text-4xl mb-3">🤝</div>
+                        <h3 class="font-bold mb-2">Seguimiento</h3>
+                        <p class="text-sm text-gray-400">Acompañamiento continuo para resultados sostenibles.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- EQUIPO / QUIÉN ESTÁ DETRÁS -->
+    <section id="equipo" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric text-sm font-semibold mb-4">👤 Conoce al equipo</span>
+                <h2 class="text-4xl md:text-5xl font-black font-montserrat mb-4">El <span class="gradient-text">lobo</span> al mando</h2>
+                <p class="text-lg text-gray-400 max-w-3xl mx-auto">Las consultorías venden personas, no solo servicios. Conoce quién estará a cargo de tu transformación.</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="glass-card rounded-3xl p-8 md:p-12 relative overflow-hidden" data-aos="fade-up">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-cj-electric/10 rounded-full blur-3xl"></div>
+                    
+                    <div class="grid md:grid-cols-3 gap-8 items-center relative z-10">
+                        <!-- Foto -->
+                        <div class="text-center">
+                            <div class="w-48 h-48 mx-auto rounded-3xl bg-gradient-to-br from-cj-electric to-cj-accent p-1 shadow-2xl">
+                                <div class="w-full h-full rounded-3xl bg-cj-dark flex items-center justify-center text-8xl overflow-hidden">
+                                    👨‍💼
+                                </div>
+                            </div>
+                            <div class="mt-4 flex justify-center gap-3">
+                                <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-cj-electric/20 transition-colors">
+                                    <span class="text-lg">💼</span>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-cj-electric/20 transition-colors">
+                                    <span class="text-lg">📧</span>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-cj-electric/20 transition-colors">
+                                    <span class="text-lg">💬</span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Info -->
+                        <div class="md:col-span-2">
+                            <h3 class="text-3xl font-black font-montserrat mb-2">Ing. Carlos J. Urbina</h3>
+                            <p class="text-cj-accent font-semibold mb-4">Fundador & Consultor Principal</p>
+                            
+                            <p class="text-gray-300 mb-6 leading-relaxed">
+                                Con más de <strong class="text-white">10 años de experiencia</strong> en optimización de procesos para PYMEs, he ayudado a más de 500 empresas a transformar su operación. Mi enfoque se basa en la <span class="text-cj-accent">excelencia práctica</span>: soluciones implementables, no teorías complejas.
+                            </p>
+                            
+                            <div class="grid grid-cols-3 gap-4 mb-6">
+                                <div class="text-center p-3 rounded-xl bg-white/5">
+                                    <p class="text-2xl font-black text-cj-accent">+10</p>
+                                    <p class="text-xs text-gray-400">Años exp.</p>
+                                </div>
+                                <div class="text-center p-3 rounded-xl bg-white/5">
+                                    <p class="text-2xl font-black text-cj-accent">+500</p>
+                                    <p class="text-xs text-gray-400">PYMEs</p>
+                                </div>
+                                <div class="text-center p-3 rounded-xl bg-white/5">
+                                    <p class="text-2xl font-black text-cj-accent">ISO</p>
+                                    <p class="text-xs text-gray-400">Auditor</p>
+                                </div>
+                            </div>
+                            
+                            <blockquote class="italic text-gray-400 border-l-4 border-cj-electric pl-4">
+                                "No vendo consultoría, vendo resultados. Lo perfecto es enemigo de lo hecho."
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- FAQ ACORDEÓN -->
-    <section class="py-24 relative">
+    <section class="py-24 relative bg-gradient-to-b from-cj-dark to-cj-blue">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="inline-block px-4 py-1 rounded-full bg-cj-electric/20 border border-cj-electric/50 text-cj-electric text-sm font-semibold mb-4">FAQ</span>
-                <h2 class="text-4xl md:text-5xl font-black font-montserrat mb-4">Preguntas <span class="text-cj-electric">frecuentes</span></h2>
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric text-sm font-semibold mb-4">❓ FAQ</span>
+                <h2 class="text-4xl md:text-5xl font-black font-montserrat mb-4">Preguntas <span class="gradient-text">frecuentes</span></h2>
                 <p class="text-lg text-gray-400">Resolvemos tus dudas para que tomes la mejor decisión.</p>
             </div>
             
             <div class="space-y-4">
-                <div class="accordion-item rounded-xl bg-gradient-to-br from-cj-blue/50 to-cj-dark border border-cj-electric/20 overflow-hidden">
-                    <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleAccordion(this)">
-                        <span class="font-semibold text-lg">¿Cuánto cuesta una consultoría con CJ Consultoría?</span>
-                        <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                <div class="accordion-item rounded-2xl glass-card overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left hover:bg-white/5 transition-colors" onclick="toggleAccordion(this)">
+                        <span class="font-semibold text-lg pr-4">¿Cuánto cuesta una consultoría con CJ Consultoría?</span>
+                        <div class="w-8 h-8 rounded-full bg-cj-electric/20 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </div>
                     </button>
                     <div class="accordion-content">
                         <div class="px-6 pb-5 text-gray-400">
-                            Ofrecemos planes adaptados a cada empresa. Desde proyectos específicos desde $8,000 MXN hasta implementaciones completas de ISO. La primera consulta de diagnóstico es <strong class="text-cj-electric">gratuita</strong>. Contáctanos para una cotización personalizada sin compromiso.
+                            Ofrecemos planes adaptados a cada empresa. Desde proyectos específicos desde <strong class="text-cj-accent">$8,000 MXN</strong> hasta implementaciones completas de ISO. La primera consulta de diagnóstico es <strong class="text-cj-accent">100% gratuita</strong>. Contáctanos para una cotización personalizada sin compromiso.
                         </div>
                     </div>
                 </div>
                 
-                <div class="accordion-item rounded-xl bg-gradient-to-br from-cj-blue/50 to-cj-dark border border-cj-electric/20 overflow-hidden">
-                    <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleAccordion(this)">
-                        <span class="font-semibold text-lg">¿En cuánto tiempo veo resultados?</span>
-                        <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                <div class="accordion-item rounded-2xl glass-card overflow-hidden" data-aos="fade-up" data-aos-delay="150">
+                    <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left hover:bg-white/5 transition-colors" onclick="toggleAccordion(this)">
+                        <span class="font-semibold text-lg pr-4">¿En cuánto tiempo veo resultados?</span>
+                        <div class="w-8 h-8 rounded-full bg-cj-electric/20 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </div>
                     </button>
                     <div class="accordion-content">
                         <div class="px-6 pb-5 text-gray-400">
-                            Depende del alcance, pero típicamente los primeros resultados visibles aparecen en <strong class="text-cj-electric">4-8 semanas</strong>. Proyectos de Excel y dashboards pueden mostrar impacto en días. Implementaciones ISO toman 3-6 meses pero generan valor desde la primera auditoría.
+                            Depende del alcance, pero típicamente los primeros resultados visibles aparecen en <strong class="text-cj-accent">4-8 semanas</strong>. Proyectos de Excel y dashboards pueden mostrar impacto en días. Implementaciones ISO toman 3-6 meses pero generan valor desde la primera auditoría.
                         </div>
                     </div>
                 </div>
                 
-                <div class="accordion-item rounded-xl bg-gradient-to-br from-cj-blue/50 to-cj-dark border border-cj-electric/20 overflow-hidden">
-                    <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleAccordion(this)">
-                        <span class="font-semibold text-lg">¿Trabajan con empresas de cualquier tamaño?</span>
-                        <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                <div class="accordion-item rounded-2xl glass-card overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left hover:bg-white/5 transition-colors" onclick="toggleAccordion(this)">
+                        <span class="font-semibold text-lg pr-4">¿Trabajan con empresas de cualquier tamaño?</span>
+                        <div class="w-8 h-8 rounded-full bg-cj-electric/20 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </div>
                     </button>
                     <div class="accordion-content">
                         <div class="px-6 pb-5 text-gray-400">
@@ -581,34 +954,40 @@
                     </div>
                 </div>
                 
-                <div class="accordion-item rounded-xl bg-gradient-to-br from-cj-blue/50 to-cj-dark border border-cj-electric/20 overflow-hidden">
-                    <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleAccordion(this)">
-                        <span class="font-semibold text-lg">¿Qué diferencia a CJ Consultoría de otras consultoras?</span>
-                        <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                <div class="accordion-item rounded-2xl glass-card overflow-hidden" data-aos="fade-up" data-aos-delay="250">
+                    <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left hover:bg-white/5 transition-colors" onclick="toggleAccordion(this)">
+                        <span class="font-semibold text-lg pr-4">¿Qué diferencia a CJ Consultoría de otras consultoras?</span>
+                        <div class="w-8 h-8 rounded-full bg-cj-electric/20 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </div>
                     </button>
                     <div class="accordion-content">
                         <div class="px-6 pb-5 text-gray-400">
-                            Tres diferencias clave: 1) <strong class="text-cj-electric">Excelencia Práctica</strong> - "Lo perfecto es enemigo de lo hecho", 2) <strong class="text-cj-electric">Tecnología propia</strong> con StockWolf, 3) <strong class="text-cj-electric">Cercanía real</strong> - no somos proveedores, somos socios estratégicos.
+                            Tres diferencias clave: 1) <strong class="text-cj-accent">Excelencia Práctica</strong> - "Lo perfecto es enemigo de lo hecho", 2) <strong class="text-cj-accent">Tecnología propia</strong> con StockWolf, 3) <strong class="text-cj-accent">Cercanía real</strong> - no somos proveedores, somos socios estratégicos.
                         </div>
                     </div>
                 </div>
                 
-                <div class="accordion-item rounded-xl bg-gradient-to-br from-cj-blue/50 to-cj-dark border border-cj-electric/20 overflow-hidden">
-                    <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleAccordion(this)">
-                        <span class="font-semibold text-lg">¿Qué necesito para empezar?</span>
-                        <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                <div class="accordion-item rounded-2xl glass-card overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left hover:bg-white/5 transition-colors" onclick="toggleAccordion(this)">
+                        <span class="font-semibold text-lg pr-4">¿Qué necesito para empezar?</span>
+                        <div class="w-8 h-8 rounded-full bg-cj-electric/20 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </div>
                     </button>
                     <div class="accordion-content">
                         <div class="px-6 pb-5 text-gray-400">
-                            Solo 30 minutos de tu tiempo para una llamada de diagnóstico gratuita. Durante esta sesión identificamos tus principales dolores y te proponemos un plan de acción. Sin compromiso, sin costo.
+                            Solo <strong class="text-cj-accent">30 minutos</strong> de tu tiempo para una llamada de diagnóstico gratuita. Durante esta sesión identificamos tus principales dolores y te proponemos un plan de acción. Sin compromiso, sin costo.
                         </div>
                     </div>
                 </div>
                 
-                <div class="accordion-item rounded-xl bg-gradient-to-br from-cj-blue/50 to-cj-dark border border-cj-electric/20 overflow-hidden">
-                    <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleAccordion(this)">
-                        <span class="font-semibold text-lg">¿Ofrecen garantía?</span>
-                        <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                <div class="accordion-item rounded-2xl glass-card overflow-hidden" data-aos="fade-up" data-aos-delay="350">
+                    <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left hover:bg-white/5 transition-colors" onclick="toggleAccordion(this)">
+                        <span class="font-semibold text-lg pr-4">¿Ofrecen garantía?</span>
+                        <div class="w-8 h-8 rounded-full bg-cj-electric/20 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </div>
                     </button>
                     <div class="accordion-content">
                         <div class="px-6 pb-5 text-gray-400">
@@ -620,36 +999,70 @@
         </div>
     </section>
 
+
     <!-- LEAD MAGNET -->
-    <section class="py-24 relative bg-gradient-to-br from-cj-electric/20 via-cj-blue to-cj-dark">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="py-24 relative bg-gradient-to-br from-cj-electric/20 via-cj-blue to-cj-dark overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-cj-accent/10 rounded-full blur-[100px]"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-cj-electric/10 rounded-full blur-[80px]"></div>
+        
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <span class="inline-block px-4 py-1 rounded-full bg-white/10 border border-cj-electric/50 text-cj-electric text-sm font-semibold mb-4">🎁 Descargable Gratuito</span>
-                    <h2 class="text-4xl md:text-5xl font-black font-montserrat mb-4">Checklist ISO 9001 <span class="text-cj-electric">2024</span></h2>
-                    <p class="text-lg text-gray-300 mb-6">¿Quieres certificar tu empresa en ISO 9001 pero no sabes por dónde empezar? Descarga nuestra lista de verificación completa con:</p>
-                    <ul class="space-y-3 text-gray-300">
-                        <li class="flex items-center gap-3"><span class="text-cj-electric text-xl">✓</span>Requisitos obligatorios y opcionales</li>
-                        <li class="flex items-center gap-3"><span class="text-cj-electric text-xl">✓</span>Documentación necesaria</li>
-                        <li class="flex items-center gap-3"><span class="text-cj-electric text-xl">✓</span>Cronograma sugerido de implementación</li>
-                        <li class="flex items-center gap-3"><span class="text-cj-electric text-xl">✓</span>Errores comunes a evitar</li>
+                <div data-aos="fade-right">
+                    <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-accent text-sm font-semibold mb-4">🎁 Descargable Gratis</span>
+                    <h2 class="text-4xl md:text-5xl font-black font-montserrat mb-4">Checklist ISO 9001 <span class="gradient-text">2024</span></h2>
+                    <p class="text-lg text-gray-300 mb-6">¿Quieres certificar tu empresa en ISO 9001 pero no sabes por dónde empezar? Descarga nuestra guía completa paso a paso.</p>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3 p-3 rounded-xl bg-white/5">
+                            <span class="w-8 h-8 rounded-full bg-cj-electric/20 flex items-center justify-center text-cj-accent">✓</span>
+                            <span class="text-gray-300">Requisitos obligatorios y opcionales explicados</span>
+                        </li>
+                        <li class="flex items-center gap-3 p-3 rounded-xl bg-white/5">
+                            <span class="w-8 h-8 rounded-full bg-cj-electric/20 flex items-center justify-center text-cj-accent">✓</span>
+                            <span class="text-gray-300">Lista completa de documentación necesaria</span>
+                        </li>
+                        <li class="flex items-center gap-3 p-3 rounded-xl bg-white/5">
+                            <span class="w-8 h-8 rounded-full bg-cj-electric/20 flex items-center justify-center text-cj-accent">✓</span>
+                            <span class="text-gray-300">Cronograma de implementación (6 meses)</span>
+                        </li>
+                        <li class="flex items-center gap-3 p-3 rounded-xl bg-white/5">
+                            <span class="w-8 h-8 rounded-full bg-cj-electric/20 flex items-center justify-center text-cj-accent">✓</span>
+                            <span class="text-gray-300">Errores comunes y cómo evitarlos</span>
+                        </li>
                     </ul>
+                    
+                    <div class="flex items-center gap-4 text-sm text-gray-400">
+                        <span class="flex items-center gap-1">📄 PDF de 15 páginas</span>
+                        <span>•</span>
+                        <span class="flex items-center gap-1">⚡ Descarga inmediata</span>
+                        <span>•</span>
+                        <span class="flex items-center gap-1">💯 Gratis</span>
+                    </div>
                 </div>
                 
-                <div class="p-8 rounded-2xl bg-white/5 backdrop-blur border border-cj-electric/30">
-                    <div class="text-center mb-6">
-                        <div class="w-20 h-20 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-cj-electric to-blue-600 flex items-center justify-center text-4xl">📋</div>
-                        <p class="text-sm text-gray-400">PDF de 15 páginas • Descarga inmediata</p>
+                <div data-aos="fade-left">
+                    <div class="p-8 rounded-3xl glass-card border border-cj-electric/30 relative overflow-hidden">
+                        <div class="absolute -top-10 -right-10 w-40 h-40 bg-cj-electric/20 rounded-full blur-3xl"></div>
+                        
+                        <div class="text-center mb-8 relative z-10">
+                            <div class="w-24 h-24 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-cj-electric to-cj-accent flex items-center justify-center text-5xl shadow-xl">
+                                📋
+                            </div>
+                            <p class="text-2xl font-bold">Valor: $299 USD</p>
+                            <p class="text-4xl font-black gradient-text">Gratis para ti</p>
+                        </div>
+                        
+                        <form id="lead-form" class="space-y-4 relative z-10">
+                            <input type="text" placeholder="Tu nombre completo" class="w-full px-5 py-4 rounded-xl bg-white/5 border border-cj-electric/30 text-white placeholder-gray-500 focus:outline-none focus:border-cj-electric focus:ring-2 focus:ring-cj-electric/20 transition-all" required>
+                            <input type="email" placeholder="Tu correo electrónico" class="w-full px-5 py-4 rounded-xl bg-white/5 border border-cj-electric/30 text-white placeholder-gray-500 focus:outline-none focus:border-cj-electric focus:ring-2 focus:ring-cj-electric/20 transition-all" required>
+                            <input type="text" placeholder="Nombre de tu empresa" class="w-full px-5 py-4 rounded-xl bg-white/5 border border-cj-electric/30 text-white placeholder-gray-500 focus:outline-none focus:border-cj-electric focus:ring-2 focus:ring-cj-electric/20 transition-all">
+                            <button type="submit" class="w-full py-4 bg-gradient-to-r from-cj-electric to-cj-accent hover:from-blue-600 hover:to-cyan-500 text-white rounded-xl font-bold transition-all shadow-lg hover:shadow-cj-electric/50 btn-shimmer">
+                                Descargar Checklist Ahora →
+                            </button>
+                        </form>
+                        
+                        <p class="text-xs text-gray-500 text-center mt-4 relative z-10">🔒 Tu información está segura. No enviamos spam.</p>
                     </div>
-                    <form id="lead-form" class="space-y-4">
-                        <input type="text" placeholder="Tu nombre completo" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-cj-electric/30 text-white placeholder-gray-500 focus:outline-none focus:border-cj-electric" required>
-                        <input type="email" placeholder="Tu correo electrónico" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-cj-electric/30 text-white placeholder-gray-500 focus:outline-none focus:border-cj-electric" required>
-                        <input type="text" placeholder="Nombre de tu empresa" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-cj-electric/30 text-white placeholder-gray-500 focus:outline-none focus:border-cj-electric">
-                        <button type="submit" class="w-full py-4 bg-cj-electric hover:bg-blue-600 text-white rounded-xl font-bold transition-all shadow-xl shadow-cj-electric/30">
-                            Descargar Checklist Gratis →
-                        </button>
-                    </form>
-                    <p class="text-xs text-gray-500 text-center mt-4">🔒 Tu información está segura. No enviamos spam.</p>
                 </div>
             </div>
         </div>
@@ -658,61 +1071,80 @@
     <!-- StockWolf Promo -->
     <section id="stockwolf" class="py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="rounded-3xl overflow-hidden bg-gradient-to-br from-cj-electric/30 to-cj-blue border border-cj-electric/50">
-                <div class="grid lg:grid-cols-2 gap-12 p-8 md:p-12">
+            <div class="rounded-3xl overflow-hidden bg-gradient-to-br from-cj-electric/40 via-cj-blue/80 to-cj-dark border border-cj-electric/50" data-aos="fade-up">
+                <div class="grid lg:grid-cols-2 gap-12 p-8 md:p-16">
                     <div>
-                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 mb-6">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 mb-6 border border-white/20">
                             <span class="text-2xl">🐺</span>
                             <span class="font-semibold">Nuestro Producto Estrella</span>
                         </div>
-                        <h2 class="text-4xl md:text-5xl font-black font-montserrat mb-4">StockWolf ERP</h2>
-                        <p class="text-xl text-gray-300 mb-6">El sistema de inventario diseñado para PYMEs ambiciosas. Control total, mínima curva de aprendizaje.</p>
-                        <ul class="space-y-3 mb-8">
-                            <li class="flex items-center gap-3"><svg class="w-6 h-6 text-cj-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Control de inventario en tiempo real</li>
-                            <li class="flex items-center gap-3"><svg class="w-6 h-6 text-cj-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Múltiples bodegas y ubicaciones</li>
-                            <li class="flex items-center gap-3"><svg class="w-6 h-6 text-cj-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Alertas de stock bajo y vencimientos</li>
-                            <li class="flex items-center gap-3"><svg class="w-6 h-6 text-cj-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Reportes y análisis de rotación</li>
+                        <h2 class="text-4xl md:text-6xl font-black font-montserrat mb-4">StockWolf ERP</h2>
+                        <p class="text-xl text-gray-200 mb-8">El sistema de inventario diseñado para PYMEs ambiciosas. Control total, mínima curva de aprendizaje.</p>
+                        
+                        <ul class="space-y-4 mb-10">
+                            <li class="flex items-center gap-3 text-gray-200">
+                                <span class="w-6 h-6 rounded-full bg-cj-accent/20 flex items-center justify-center text-cj-accent">✓</span>
+                                Control de inventario en tiempo real
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-200">
+                                <span class="w-6 h-6 rounded-full bg-cj-accent/20 flex items-center justify-center text-cj-accent">✓</span>
+                                Múltiples bodegas y ubicaciones
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-200">
+                                <span class="w-6 h-6 rounded-full bg-cj-accent/20 flex items-center justify-center text-cj-accent">✓</span>
+                                Alertas de stock bajo y vencimientos
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-200">
+                                <span class="w-6 h-6 rounded-full bg-cj-accent/20 flex items-center justify-center text-cj-accent">✓</span>
+                                Reportes y análisis de rotación
+                            </li>
                         </ul>
+                        
                         <div class="flex flex-col sm:flex-row gap-4">
-                            <a href="https://inventory-pro-z81e.onrender.com/" target="_blank" class="px-8 py-4 bg-cj-electric hover:bg-blue-600 text-white rounded-xl font-bold text-center transition-all shadow-lg shadow-cj-electric/30">Probar Gratis →</a>
-                            <a href="#contacto" class="px-8 py-4 border-2 border-white/30 hover:border-cj-electric text-white rounded-xl font-bold text-center transition-all">Solicitar Demo</a>
+                            <a href="https://inventory-pro-z81e.onrender.com/" target="_blank" class="px-8 py-4 bg-white text-cj-electric rounded-xl font-bold text-center transition-all shadow-xl hover:shadow-2xl hover:scale-105 btn-shimmer">
+                                Probar Gratis →
+                            </a>
+                            <a href="#contacto" class="px-8 py-4 border-2 border-white/50 hover:border-white text-white rounded-xl font-bold text-center transition-all hover:bg-white/10">
+                                Solicitar Demo
+                            </a>
                         </div>
                     </div>
+                    
                     <div class="relative flex items-center justify-center">
-                        <div class="absolute inset-0 bg-gradient-to-r from-cj-electric to-cj-silver rounded-full opacity-20 blur-3xl"></div>
-                        <div class="relative bg-cj-dark/80 rounded-2xl p-6 border border-cj-electric/30 shadow-2xl">
-                            <div class="flex items-center justify-between mb-4">
+                        <div class="absolute inset-0 bg-gradient-to-r from-cj-accent to-cj-silver rounded-full opacity-20 blur-3xl animate-pulse"></div>
+                        <div class="relative bg-cj-dark/90 rounded-3xl p-8 border border-cj-electric/30 shadow-2xl w-full max-w-md">
+                            <div class="flex items-center justify-between mb-6">
                                 <span class="text-sm text-gray-400">Dashboard StockWolf</span>
-                                <span class="px-2 py-1 text-xs bg-green-500/20 text-green-400 rounded">En vivo</span>
+                                <span class="px-3 py-1 text-xs bg-green-500/20 text-green-400 rounded-full border border-green-500/30">● En vivo</span>
                             </div>
-                            <div class="grid grid-cols-2 gap-4 mb-4">
-                                <div class="p-4 rounded-xl bg-cj-blue/50">
-                                    <p class="text-2xl font-black text-cj-electric">1,247</p>
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                                    <p class="text-3xl font-black text-cj-accent">1,247</p>
                                     <p class="text-xs text-gray-400">Productos activos</p>
                                 </div>
-                                <div class="p-4 rounded-xl bg-cj-blue/50">
-                                    <p class="text-2xl font-black text-green-400">94.3%</p>
+                                <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                                    <p class="text-3xl font-black text-green-400">94.3%</p>
                                     <p class="text-xs text-gray-400">Precisión inventario</p>
                                 </div>
                             </div>
-                            <div class="space-y-2">
-                                <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-2 h-2 rounded-full bg-green-400"></div>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-3 h-3 rounded-full bg-green-400 animate-pulse"></div>
                                         <span class="text-sm">Stock óptimo</span>
                                     </div>
                                     <span class="text-sm font-bold">892</span>
                                 </div>
-                                <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-2 h-2 rounded-full bg-yellow-400"></div>
+                                <div class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
                                         <span class="text-sm">Stock bajo</span>
                                     </div>
                                     <span class="text-sm font-bold">23</span>
                                 </div>
-                                <div class="flex items-center justify-between p-3 rounded-lg bg-white/5">
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-2 h-2 rounded-full bg-red-400"></div>
+                                <div class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-3 h-3 rounded-full bg-red-400"></div>
                                         <span class="text-sm">Sin stock</span>
                                     </div>
                                     <span class="text-sm font-bold">5</span>
@@ -728,50 +1160,46 @@
     <!-- NOSOTROS -->
     <section class="py-24 relative bg-gradient-to-b from-cj-dark to-cj-blue">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="inline-block px-4 py-1 rounded-full bg-cj-electric/20 border border-cj-electric/50 text-cj-electric text-sm font-semibold mb-4">Nosotros</span>
-                <h2 class="text-4xl md:text-5xl font-black font-montserrat mb-4">Filosofía de <span class="text-cj-electric">trabajo</span></h2>
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric text-sm font-semibold mb-4">🎯 Nosotros</span>
+                <h2 class="text-4xl md:text-5xl font-black font-montserrat mb-4">Filosofía de <span class="gradient-text">trabajo</span></h2>
                 <p class="text-lg text-gray-400 max-w-3xl mx-auto">Principios que guían cada proyecto que emprendemos.</p>
             </div>
             
             <div class="grid md:grid-cols-2 gap-8 mb-16">
-                <div class="p-8 rounded-2xl bg-gradient-to-br from-cj-blue/50 to-cj-dark border border-cj-electric/20">
-                    <h3 class="text-2xl font-bold mb-4 flex items-center gap-3">
-                        <span class="w-10 h-10 rounded-lg bg-cj-electric/20 flex items-center justify-center">🎯</span>
-                        Misión
-                    </h3>
+                <div class="p-8 rounded-3xl glass-card hover-lift" data-aos="fade-right">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cj-electric to-cj-accent flex items-center justify-center text-3xl mb-6 shadow-lg">🎯</div>
+                    <h3 class="text-2xl font-bold mb-4 font-montserrat">Misión</h3>
                     <p class="text-gray-400 leading-relaxed">Transformar la operación de PYMEs y emprendedores mediante consultoría práctica y herramientas tecnológicas que generen resultados medibles desde el primer día.</p>
                 </div>
                 
-                <div class="p-8 rounded-2xl bg-gradient-to-br from-cj-blue/50 to-cj-dark border border-cj-electric/20">
-                    <h3 class="text-2xl font-bold mb-4 flex items-center gap-3">
-                        <span class="w-10 h-10 rounded-lg bg-cj-electric/20 flex items-center justify-center">👁️</span>
-                        Visión
-                    </h3>
+                <div class="p-8 rounded-3xl glass-card hover-lift" data-aos="fade-left">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cj-accent to-cj-electric flex items-center justify-center text-3xl mb-6 shadow-lg">👁️</div>
+                    <h3 class="text-2xl font-bold mb-4 font-montserrat">Visión</h3>
                     <p class="text-gray-400 leading-relaxed">Ser la consultora líder en transformación operativa para PYMEs hispanohablantes, reconocida por resultados tangibles y relaciones de largo plazo.</p>
                 </div>
             </div>
             
-            <div class="text-center mb-12">
+            <div class="text-center mb-12" data-aos="fade-up">
                 <h3 class="text-3xl font-bold font-montserrat">Nuestros Valores 🐺</h3>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center p-6 rounded-2xl bg-gradient-to-br from-cj-blue/30 to-cj-dark border border-cj-electric/10">
-                    <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-cj-electric/20 flex items-center justify-center text-4xl">⚡</div>
-                    <h4 class="text-xl font-bold mb-2">Excelencia Práctica</h4>
+                <div class="text-center p-8 rounded-3xl glass-card hover-lift" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-cj-electric/20 to-cj-accent/20 flex items-center justify-center text-5xl shadow-lg">⚡</div>
+                    <h4 class="text-xl font-bold mb-3">Excelencia Práctica</h4>
                     <p class="text-gray-400 text-sm">"Lo perfecto es enemigo de lo hecho". Priorizamos soluciones implementables sobre teorías complejas.</p>
                 </div>
                 
-                <div class="text-center p-6 rounded-2xl bg-gradient-to-br from-cj-blue/30 to-cj-dark border border-cj-electric/10">
-                    <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-cj-electric/20 flex items-center justify-center text-4xl">🤝</div>
-                    <h4 class="text-xl font-bold mb-2">Cercanía Real</h4>
+                <div class="text-center p-8 rounded-3xl glass-card hover-lift" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-cj-electric/20 to-cj-accent/20 flex items-center justify-center text-5xl shadow-lg">🤝</div>
+                    <h4 class="text-xl font-bold mb-3">Cercanía Real</h4>
                     <p class="text-gray-400 text-sm">Nos integramos a tu equipo. No somos proveedores externos, somos socios estratégicos.</p>
                 </div>
                 
-                <div class="text-center p-6 rounded-2xl bg-gradient-to-br from-cj-blue/30 to-cj-dark border border-cj-electric/10">
-                    <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-cj-electric/20 flex items-center justify-center text-4xl">🐺</div>
-                    <h4 class="text-xl font-bold mb-2">Integridad del Lobo</h4>
+                <div class="text-center p-8 rounded-3xl glass-card hover-lift" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-cj-electric/20 to-cj-accent/20 flex items-center justify-center text-5xl shadow-lg">🐺</div>
+                    <h4 class="text-xl font-bold mb-3">Integridad del Lobo</h4>
                     <p class="text-gray-400 text-sm">Trabajo en equipo, lealtad y transparencia en cada interacción. Como una manada.</p>
                 </div>
             </div>
@@ -782,127 +1210,139 @@
     <section id="contacto" class="py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-16">
-                <div>
-                    <span class="inline-block px-4 py-1 rounded-full bg-cj-electric/20 border border-cj-electric/50 text-cj-electric text-sm font-semibold mb-4">Contacto</span>
-                    <h2 class="text-4xl md:text-5xl font-black font-montserrat mb-4">Hablemos de tu <span class="text-cj-electric">proyecto</span></h2>
+                <div data-aos="fade-right">
+                    <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric text-sm font-semibold mb-4">📞 Contacto</span>
+                    <h2 class="text-4xl md:text-5xl font-black font-montserrat mb-4">Hablemos de tu <span class="gradient-text">proyecto</span></h2>
                     <p class="text-lg text-gray-400 mb-8">Primera consulta gratuita. Sin compromiso, sin costo. Solo 30 minutos para identificar tus oportunidades de mejora.</p>
                     
-                    <div class="space-y-6">
-                        <a href="https://wa.me/524776940272" target="_blank" class="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-cj-electric/20 transition-all group">
-                            <div class="w-12 h-12 rounded-lg bg-green-500 flex items-center justify-center text-2xl">📱</div>
+                    <div class="space-y-4">
+                        <a href="https://wa.me/524776940272" target="_blank" class="flex items-center gap-4 p-5 rounded-2xl glass hover:bg-cj-electric/10 transition-all group hover-lift">
+                            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-2xl shadow-lg group-hover:scale-110 transition-transform">📱</div>
                             <div>
                                 <p class="text-sm text-gray-400">WhatsApp</p>
-                                <p class="font-semibold group-hover:text-cj-electric transition-colors">+52 477 694 0272</p>
+                                <p class="font-semibold text-lg group-hover:text-cj-accent transition-colors">+52 477 694 0272</p>
                             </div>
                         </a>
                         
-                        <a href="mailto:ing.carlosurbina@gmail.com" class="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-cj-electric/20 transition-all group">
-                            <div class="w-12 h-12 rounded-lg bg-cj-electric/30 flex items-center justify-center text-2xl">✉️</div>
+                        <a href="mailto:ing.carlosurbina@gmail.com" class="flex items-center gap-4 p-5 rounded-2xl glass hover:bg-cj-electric/10 transition-all group hover-lift">
+                            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cj-electric to-cj-accent flex items-center justify-center text-2xl shadow-lg group-hover:scale-110 transition-transform">✉️</div>
                             <div>
                                 <p class="text-sm text-gray-400">Email</p>
-                                <p class="font-semibold group-hover:text-cj-electric transition-colors">ing.carlosurbina@gmail.com</p>
+                                <p class="font-semibold text-lg group-hover:text-cj-accent transition-colors">ing.carlosurbina@gmail.com</p>
                             </div>
                         </a>
                         
-                        <div class="flex items-center gap-4 p-4 rounded-xl bg-white/5">
-                            <div class="w-12 h-12 rounded-lg bg-cj-electric/30 flex items-center justify-center text-2xl">📍</div>
+                        <div class="flex items-center gap-4 p-5 rounded-2xl glass">
+                            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cj-accent to-cj-electric flex items-center justify-center text-2xl shadow-lg">📍</div>
                             <div>
                                 <p class="text-sm text-gray-400">Ubicación</p>
-                                <p class="font-semibold">León, Guanajuato, México</p>
-                                <p class="text-xs text-gray-500">Atendemos a toda Latinoamérica vía remota</p>
+                                <p class="font-semibold text-lg">León, Guanajuato, México</p>
+                                <p class="text-xs text-gray-500 mt-1">Atendemos a toda Latinoamérica vía remota</p>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="mt-8 p-6 rounded-xl bg-gradient-to-r from-cj-electric/20 to-cj-blue/30 border border-cj-electric/30">
-                        <p class="text-sm font-semibold text-cj-electric mb-2">🎁 Bono especial</p>
+                    <div class="mt-8 p-6 rounded-2xl bg-gradient-to-r from-cj-electric/20 to-cj-accent/10 border border-cj-electric/30">
+                        <p class="text-sm font-semibold text-cj-accent mb-2">🎁 Bono especial</p>
                         <p class="text-sm text-gray-300">Menciona que viste esta página y obtén <strong class="text-white">20% de descuento</strong> en tu primer proyecto.</p>
                     </div>
                 </div>
                 
-                <div class="p-8 rounded-2xl bg-gradient-to-br from-cj-blue/50 to-cj-dark border border-cj-electric/20">
-                    <h3 class="text-2xl font-bold mb-6 font-montserrat">Envíanos un mensaje</h3>
-                    <form id="contact-form" class="space-y-4">
-                        <div class="grid sm:grid-cols-2 gap-4">
-                            <input type="text" placeholder="Nombre" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-cj-electric/30 text-white placeholder-gray-500 focus:outline-none focus:border-cj-electric" required>
-                            <input type="email" placeholder="Email" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-cj-electric/30 text-white placeholder-gray-500 focus:outline-none focus:border-cj-electric" required>
-                        </div>
-                        <input type="text" placeholder="Empresa" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-cj-electric/30 text-white placeholder-gray-500 focus:outline-none focus:border-cj-electric">
-                        <select class="w-full px-4 py-3 rounded-xl bg-white/5 border border-cj-electric/30 text-gray-300 focus:outline-none focus:border-cj-electric">
-                            <option value="">¿Qué servicio te interesa?</option>
-                            <option value="procedimientos">Procedimientos y Procesos</option>
-                            <option value="iso">Sistemas de Gestión ISO</option>
-                            <option value="mejora">Mejora Continua</option>
-                            <option value="excel">Excel y Análisis de Datos</option>
-                            <option value="stockwolf">StockWolf ERP</option>
-                        </select>
-                        <textarea rows="4" placeholder="Cuéntanos sobre tu proyecto..." class="w-full px-4 py-3 rounded-xl bg-white/5 border border-cj-electric/30 text-white placeholder-gray-500 focus:outline-none focus:border-cj-electric resize-none"></textarea>
-                        <button type="submit" class="w-full py-4 bg-cj-electric hover:bg-blue-600 text-white rounded-xl font-bold transition-all shadow-xl shadow-cj-electric/30">
-                            Enviar mensaje →
-                        </button>
-                    </form>
+                <div data-aos="fade-left">
+                    <div class="p-8 rounded-3xl glass-card border border-cj-electric/20">
+                        <h3 class="text-2xl font-bold mb-6 font-montserrat">Envíanos un mensaje</h3>
+                        <form id="contact-form" class="space-y-4">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <input type="text" placeholder="Nombre" class="w-full px-5 py-4 rounded-xl bg-white/5 border border-cj-electric/30 text-white placeholder-gray-500 focus:outline-none focus:border-cj-electric focus:ring-2 focus:ring-cj-electric/20 transition-all" required>
+                                <input type="email" placeholder="Email" class="w-full px-5 py-4 rounded-xl bg-white/5 border border-cj-electric/30 text-white placeholder-gray-500 focus:outline-none focus:border-cj-electric focus:ring-2 focus:ring-cj-electric/20 transition-all" required>
+                            </div>
+                            <input type="text" placeholder="Empresa" class="w-full px-5 py-4 rounded-xl bg-white/5 border border-cj-electric/30 text-white placeholder-gray-500 focus:outline-none focus:border-cj-electric focus:ring-2 focus:ring-cj-electric/20 transition-all">
+                            <select class="w-full px-5 py-4 rounded-xl bg-white/5 border border-cj-electric/30 text-gray-300 focus:outline-none focus:border-cj-electric focus:ring-2 focus:ring-cj-electric/20 transition-all">
+                                <option value="">¿Qué servicio te interesa?</option>
+                                <option value="procedimientos">Procedimientos y Procesos</option>
+                                <option value="iso">Sistemas de Gestión ISO</option>
+                                <option value="mejora">Mejora Continua</option>
+                                <option value="excel">Excel y Análisis de Datos</option>
+                                <option value="stockwolf">StockWolf ERP</option>
+                            </select>
+                            <textarea rows="4" placeholder="Cuéntanos sobre tu proyecto..." class="w-full px-5 py-4 rounded-xl bg-white/5 border border-cj-electric/30 text-white placeholder-gray-500 focus:outline-none focus:border-cj-electric focus:ring-2 focus:ring-cj-electric/20 transition-all resize-none"></textarea>
+                            <button type="submit" class="w-full py-4 bg-gradient-to-r from-cj-electric to-cj-accent hover:from-blue-600 hover:to-cyan-500 text-white rounded-xl font-bold transition-all shadow-lg hover:shadow-cj-electric/50 btn-shimmer">
+                                Enviar mensaje →
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="py-12 border-t border-cj-electric/20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
+    <footer class="py-16 border-t border-cj-electric/20 relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-cj-dark/50 pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
                 <div>
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 rounded-lg overflow-hidden border border-cj-electric bg-white">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 rounded-xl overflow-hidden border-2 border-cj-electric bg-white">
                             <img src="logo-cj.png" alt="CJ Consultoría" class="w-full h-full object-contain">
                         </div>
-                        <span class="font-bold text-lg">CJ Consultoría</span>
+                        <div>
+                            <span class="font-bold text-lg">CJ Consultoría</span>
+                            <span class="block text-xs text-cj-electric">TRANSFORMAMOS PROCESOS</span>
+                        </div>
                     </div>
-                    <p class="text-sm text-gray-400">Transformamos procesos en resultados sostenibles para PYMEs y emprendedores.</p>
+                    <p class="text-sm text-gray-400 leading-relaxed">Transformamos procesos en resultados sostenibles para PYMEs y emprendedores. Tu socio estratégico en consultoría empresarial.</p>
                 </div>
                 
                 <div>
-                    <h4 class="font-semibold mb-4">Servicios</h4>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="#servicios" class="hover:text-cj-electric transition-colors">Procedimientos</a></li>
-                        <li><a href="#servicios" class="hover:text-cj-electric transition-colors">ISO y Sistemas</a></li>
-                        <li><a href="#servicios" class="hover:text-cj-electric transition-colors">Mejora Continua</a></li>
-                        <li><a href="#servicios" class="hover:text-cj-electric transition-colors">Excel y BI</a></li>
+                    <h4 class="font-semibold mb-6 text-lg">Servicios</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="#servicios" class="hover:text-cj-accent transition-colors flex items-center gap-2"><span class="text-cj-electric">→</span> Procedimientos</a></li>
+                        <li><a href="#servicios" class="hover:text-cj-accent transition-colors flex items-center gap-2"><span class="text-cj-electric">→</span> ISO y Sistemas</a></li>
+                        <li><a href="#servicios" class="hover:text-cj-accent transition-colors flex items-center gap-2"><span class="text-cj-electric">→</span> Mejora Continua</a></li>
+                        <li><a href="#servicios" class="hover:text-cj-accent transition-colors flex items-center gap-2"><span class="text-cj-electric">→</span> Excel y BI</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="font-semibold mb-4">Enlaces</h4>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="#calculadora" class="hover:text-cj-electric transition-colors">Calculadora ROI</a></li>
-                        <li><a href="#casos" class="hover:text-cj-electric transition-colors">Casos de Éxito</a></li>
-                        <li><a href="https://inventory-pro-z81e.onrender.com/" target="_blank" class="hover:text-cj-electric transition-colors">StockWolf ERP</a></li>
-                        <li><a href="#" class="hover:text-cj-electric transition-colors">Blog (Próximamente)</a></li>
+                    <h4 class="font-semibold mb-6 text-lg">Enlaces</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="#calculadora" class="hover:text-cj-accent transition-colors flex items-center gap-2"><span class="text-cj-electric">→</span> Calculadora ROI</a></li>
+                        <li><a href="#casos" class="hover:text-cj-accent transition-colors flex items-center gap-2"><span class="text-cj-electric">→</span> Casos de Éxito</a></li>
+                        <li><a href="#equipo" class="hover:text-cj-accent transition-colors flex items-center gap-2"><span class="text-cj-electric">→</span> Nuestro Equipo</a></li>
+                        <li><a href="https://inventory-pro-z81e.onrender.com/" target="_blank" class="hover:text-cj-accent transition-colors flex items-center gap-2"><span class="text-cj-electric">→</span> 🐺 StockWolf ERP</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="font-semibold mb-4">Contacto</h4>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li>📱 +52 477 694 0272</li>
-                        <li>✉️ ing.carlosurbina@gmail.com</li>
-                        <li>📍 León, Gto., México</li>
+                    <h4 class="font-semibold mb-6 text-lg">Contacto</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-center gap-2"><span>📱</span> +52 477 694 0272</li>
+                        <li class="flex items-center gap-2"><span>✉️</span> ing.carlosurbina@gmail.com</li>
+                        <li class="flex items-center gap-2"><span>📍</span> León, Gto., México</li>
                     </ul>
+                    
+                    <div class="mt-6 flex gap-3">
+                        <a href="#" class="w-10 h-10 rounded-xl glass flex items-center justify-center hover:bg-cj-electric/20 transition-colors">💼</a>
+                        <a href="#" class="w-10 h-10 rounded-xl glass flex items-center justify-center hover:bg-cj-electric/20 transition-colors">📧</a>
+                        <a href="#" class="w-10 h-10 rounded-xl glass flex items-center justify-center hover:bg-cj-electric/20 transition-colors">💬</a>
+                    </div>
                 </div>
             </div>
             
             <div class="pt-8 border-t border-cj-electric/20 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-sm text-gray-500">© 2024 CJ Consultoría. Todos los derechos reservados.</p>
-                <div class="flex gap-4">
-                    <a href="#" class="text-gray-400 hover:text-cj-electric transition-colors">Privacidad</a>
-                    <a href="#" class="text-gray-400 hover:text-cj-electric transition-colors">Términos</a>
+                <div class="flex gap-6">
+                    <a href="#" class="text-sm text-gray-500 hover:text-cj-accent transition-colors">Privacidad</a>
+                    <a href="#" class="text-sm text-gray-500 hover:text-cj-accent transition-colors">Términos</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <!-- WHATSAPP CHAT FLOAT -->
-    <div id="whatsapp-chat" class="fixed bottom-6 right-6 z-50">
-        <a href="https://wa.me/524776940272?text=Hola%20CJ%20Consultoría!%20Vengo%20de%20su%20página%20web%20y%20me%20gustaría%20agendar%20una%20consulta%20gratuita." target="_blank" class="flex items-center justify-center w-16 h-16 rounded-full bg-green-500 hover:bg-green-600 text-white shadow-2xl transition-all hover:scale-110 animate-pulse-glow">
+    <div id="whatsapp-chat" class="fixed bottom-24 md:bottom-6 right-6 z-50">
+        <a href="https://wa.me/524776940272?text=Hola%20CJ%20Consultoría!%20Vengo%20de%20su%20página%20web%20y%20me%20gustaría%20agendar%20una%20consulta%20gratuita." target="_blank" class="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-green-500 to-green-600 text-white shadow-2xl transition-all hover:scale-110 animate-pulse-glow">
             <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
             </svg>
@@ -912,23 +1352,134 @@
         </div>
     </div>
 
+    <!-- MOBILE STICKY CTA -->
+    <div class="mobile-sticky-cta md:hidden">
+        <a href="https://wa.me/524776940272" target="_blank" class="flex-1 py-3 bg-green-500 hover:bg-green-600 text-white rounded-xl font-semibold text-center flex items-center justify-center gap-2 transition-colors">
+            <span>💬</span> WhatsApp
+        </a>
+        <a href="#contacto" class="flex-1 py-3 bg-gradient-to-r from-cj-electric to-cj-accent text-white rounded-xl font-semibold text-center flex items-center justify-center gap-2">
+            <span>📅</span> Agendar
+        </a>
+    </div>
+
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
     <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+            easing: 'ease-out-cubic'
+        });
+
+        // Progress Bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progress-bar').style.width = scrolled + '%';
+        });
+
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 navbar.classList.add('glass');
+                navbar.classList.add('py-2');
+                navbar.classList.remove('py-4');
             } else {
                 navbar.classList.remove('glass');
+                navbar.classList.remove('py-2');
+                navbar.classList.add('py-4');
             }
         });
 
-        // Mobile menu
+        // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Typing effect
+        const words = ['sostenibles', 'medibles', 'reales', 'duraderos'];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingElement = document.getElementById('typing-text');
+
+        function type() {
+            const currentWord = words[wordIndex];
+            
+            if (isDeleting) {
+                typingElement.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+        
+        // Start typing after a delay
+        setTimeout(type, 1000);
+
+        // Counter animation
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+
+        const animateCounter = (counter) => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            const inc = target / speed;
+
+            if (count < target) {
+                counter.innerText = Math.ceil(count + inc);
+                setTimeout(() => animateCounter(counter), 20);
+            } else {
+                counter.innerText = target;
+                // Add + for numbers that need it
+                if (counter.parentElement.innerText.includes('PYMEs')) {
+                    counter.innerText = '+' + target;
+                } else if (counter.parentElement.innerText.includes('%')) {
+                    counter.innerText = '+' + target;
+                }
+            }
+        };
+
+        // Trigger counters when in view
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => counterObserver.observe(counter));
 
         // CALCULADORA ROI
         function calcularROI() {
@@ -962,9 +1513,13 @@
             const icon = button.querySelector('svg');
             const isActive = content.classList.contains('active');
             
+            // Close all accordions
             document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('active'));
-            document.querySelectorAll('.accordion-btn svg').forEach(i => i.style.transform = 'rotate(0deg)');
+            document.querySelectorAll('.accordion-btn svg').forEach(i => {
+                i.style.transform = 'rotate(0deg)';
+            });
             
+            // Open clicked if wasn't active
             if (!isActive) {
                 content.classList.add('active');
                 icon.style.transform = 'rotate(180deg)';
@@ -983,12 +1538,50 @@
         // Form submissions
         document.getElementById('lead-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('¡Gracias! El checklist ha sido enviado a tu correo.');
+            alert('🎉 ¡Gracias por tu interés! El checklist ha sido enviado a tu correo.');
+            e.target.reset();
         });
 
         document.getElementById('contact-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('¡Mensaje enviado! Te contactaremos en menos de 24 horas.');
+            alert('✅ ¡Mensaje enviado! Te contactaremos en menos de 24 horas.');
+            e.target.reset();
+        });
+
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const darkModeIcon = document.getElementById('darkModeIcon');
+        const html = document.documentElement;
+
+        darkModeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            if (html.classList.contains('dark')) {
+                darkModeIcon.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                darkModeIcon.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Check for saved theme preference
+        if (localStorage.getItem('theme') === 'light') {
+            html.classList.remove('dark');
+            darkModeIcon.textContent = '🌙';
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
 
         // Initialize calculator
