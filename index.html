@@ -123,25 +123,47 @@
             }
         }
         
-        /* FONDO PROFESIONAL CON CUADRÍCULA VISIBLE */
+        /* FONDO LLAMATIVO CON CUADRÍCULA AZUL NEON */
         .bg-consulting {
             background-color: #0a1628;
             background-image: 
-                /* Gradiente radial superior */
-                radial-gradient(ellipse 80% 50% at 50% -10%, rgba(46, 125, 232, 0.2), transparent),
-                /* Gradiente radial inferior */
-                radial-gradient(ellipse 60% 40% at 80% 100%, rgba(0, 212, 255, 0.15), transparent),
-                /* Cuadrícula de consultoría - LÍNEAS MÁS VISIBLES */
-                linear-gradient(rgba(46, 125, 232, 0.08) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(46, 125, 232, 0.08) 1px, transparent 1px),
-                /* Fondo base */
-                linear-gradient(180deg, #0B1F3A 0%, #0a1628 50%, #0B1F3A 100%);
-            background-size: 
-                100% 100%,
-                100% 100%,
-                60px 60px,
-                60px 60px,
-                100% 100%;
+                /* Gradiente superior brillante */
+                radial-gradient(ellipse 100% 60% at 50% -5%, rgba(46, 125, 232, 0.4), transparent 60%),
+                /* Gradiente inferior */
+                radial-gradient(ellipse 80% 50% at 80% 100%, rgba(0, 212, 255, 0.25), transparent 50%),
+                /* CUADRÍCULA PRINCIPAL - LÍNEAS GRUESAS Y VISIBLES */
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 79px,
+                    rgba(46, 125, 232, 0.25) 79px,
+                    rgba(46, 125, 232, 0.25) 80px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 79px,
+                    rgba(46, 125, 232, 0.25) 79px,
+                    rgba(46, 125, 232, 0.25) 80px
+                ),
+                /* Cuadrícula secundaria más sutil */
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 39px,
+                    rgba(46, 125, 232, 0.1) 39px,
+                    rgba(46, 125, 232, 0.1) 40px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 39px,
+                    rgba(46, 125, 232, 0.1) 39px,
+                    rgba(46, 125, 232, 0.1) 40px
+                ),
+                /* Fondo base oscuro */
+                linear-gradient(180deg, #0B1F3A 0%, #061020 30%, #0a1628 70%, #0B1F3A 100%);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
             background-attachment: fixed;
             min-height: 100vh;
         }
