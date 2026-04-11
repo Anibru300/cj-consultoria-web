@@ -27,7 +27,7 @@ Página web profesional de CJ Consultoría, especialistas en transformar proceso
 ## 📞 Contacto
 
 - WhatsApp: +52 477 694 0272
-- Email: ing.carlosurbina@gmail.com
+- Email: cj.consultoria.sgc@gmail.com
 - Ubicación: León, Guanajuato, México
 
 ## 🐺 Producto
