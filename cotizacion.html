@@ -26,13 +26,12 @@
                 extend: {
                     colors: {
                         'cj-blue': '#0B1F3A',
+                        'cj-blue-dark': '#071225',
                         'cj-silver': '#C0C0C0',
                         'cj-electric': '#2E7DE8',
+                        'cj-electric-light': '#00D4FF',
                         'cj-dark': '#0a1628',
-                        'cj-accent': '#00D4FF',
-                        'cj-gold': '#D4AF37',
-                        'cj-gold-light': '#F4D03F',
-                        'cj-platinum': '#E5E4E2',
+                        'cj-gray': '#6B7280',
                     },
                     fontFamily: {
                         'montserrat': ['Montserrat', 'sans-serif'],
@@ -60,7 +59,9 @@
         @media (max-width: 640px) { html { font-size: 15px; } }
         
         h1, h2, h3, h4, h5, h6 { 
-            font-family: 'Montserrat', sans-serif; 
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: white;
         }
         
         .font-playfair { 
@@ -76,14 +77,105 @@
         @media (min-width: 640px) { .container-main { padding-left: 1.5rem; padding-right: 1.5rem; } }
         @media (min-width: 1024px) { .container-main { padding-left: 2rem; padding-right: 2rem; max-width: 1200px; } }
         
+        /* FONDO ESPECTACULAR CON PARTÍCULAS Y DIAGRAMAS ANIMADOS */
         .bg-consulting {
             background-color: #0a1628;
             background-image: 
-                radial-gradient(ellipse 800px 600px at 100% 0%, rgba(212, 175, 55, 0.15), transparent 60%),
-                radial-gradient(ellipse 600px 500px at 0% 100%, rgba(46, 125, 232, 0.3), transparent 60%),
+                /* Blob superior derecho brillante */
+                radial-gradient(ellipse 800px 600px at 100% 0%, rgba(46, 125, 232, 0.5), transparent 60%),
+                /* Blob inferior izquierdo */
+                radial-gradient(ellipse 600px 500px at 0% 100%, rgba(0, 212, 255, 0.4), transparent 60%),
+                /* Centro iluminado */
+                radial-gradient(ellipse 400px 300px at 50% 50%, rgba(46, 125, 232, 0.15), transparent),
+                /* Fondo base */
                 linear-gradient(180deg, #0B1F3A 0%, #071225 50%, #0a1628 100%);
             background-attachment: fixed;
             min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* PARTÍCULAS BRILLANTES FLOTANTES */
+        .particles-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 0; overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute; width: 4px; height: 4px;
+            background: #2E7DE8; border-radius: 50%;
+            box-shadow: 0 0 10px #2E7DE8, 0 0 20px #2E7DE8, 0 0 30px #00D4FF;
+            animation: float-particle 15s infinite;
+        }
+        
+        .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; animation-duration: 12s; }
+        .particle:nth-child(2) { left: 20%; top: 80%; animation-delay: 1s; animation-duration: 18s; width: 6px; height: 6px; }
+        .particle:nth-child(3) { left: 30%; top: 40%; animation-delay: 2s; animation-duration: 14s; }
+        .particle:nth-child(4) { left: 40%; top: 60%; animation-delay: 3s; animation-duration: 16s; width: 5px; height: 5px; }
+        .particle:nth-child(5) { left: 50%; top: 30%; animation-delay: 4s; animation-duration: 13s; }
+        .particle:nth-child(6) { left: 60%; top: 70%; animation-delay: 5s; animation-duration: 17s; width: 7px; height: 7px; }
+        .particle:nth-child(7) { left: 70%; top: 50%; animation-delay: 6s; animation-duration: 15s; }
+        .particle:nth-child(8) { left: 80%; top: 25%; animation-delay: 7s; animation-duration: 19s; width: 5px; height: 5px; }
+        .particle:nth-child(9) { left: 90%; top: 75%; animation-delay: 8s; animation-duration: 14s; }
+        .particle:nth-child(10) { left: 15%; top: 55%; animation-delay: 9s; animation-duration: 16s; width: 6px; height: 6px; }
+        .particle:nth-child(11) { left: 25%; top: 15%; animation-delay: 10s; animation-duration: 12s; }
+        .particle:nth-child(12) { left: 35%; top: 85%; animation-delay: 11s; animation-duration: 18s; width: 4px; height: 4px; }
+        .particle:nth-child(13) { left: 45%; top: 45%; animation-delay: 12s; animation-duration: 15s; }
+        .particle:nth-child(14) { left: 55%; top: 65%; animation-delay: 13s; animation-duration: 17s; width: 6px; height: 6px; }
+        .particle:nth-child(15) { left: 65%; top: 35%; animation-delay: 14s; animation-duration: 13s; }
+        
+        @keyframes float-particle {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+        }
+        
+        /* LÍNEAS DE CONEXIÓN TIPO DIAGRAMA */
+        .connection-lines {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 0;
+        }
+        
+        .connection-line {
+            position: absolute; height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(46, 125, 232, 0.4), rgba(0, 212, 255, 0.6), rgba(46, 125, 232, 0.4), transparent);
+            transform-origin: left center;
+            animation: pulse-line 4s ease-in-out infinite;
+        }
+        
+        .connection-line:nth-child(1) { width: 300px; top: 20%; left: 5%; transform: rotate(25deg); animation-delay: 0s; }
+        .connection-line:nth-child(2) { width: 250px; top: 40%; right: 10%; transform: rotate(-15deg); animation-delay: 1s; }
+        .connection-line:nth-child(3) { width: 350px; top: 60%; left: 15%; transform: rotate(10deg); animation-delay: 2s; }
+        .connection-line:nth-child(4) { width: 280px; top: 80%; right: 20%; transform: rotate(-30deg); animation-delay: 3s; }
+        .connection-line:nth-child(5) { width: 320px; top: 30%; left: 40%; transform: rotate(45deg); animation-delay: 1.5s; }
+        .connection-line:nth-child(6) { width: 200px; top: 70%; left: 60%; transform: rotate(-20deg); animation-delay: 2.5s; }
+        
+        @keyframes pulse-line {
+            0%, 100% { opacity: 0.2; box-shadow: 0 0 5px rgba(46, 125, 232, 0.3); }
+            50% { opacity: 0.8; box-shadow: 0 0 20px rgba(46, 125, 232, 0.6), 0 0 40px rgba(0, 212, 255, 0.4); }
+        }
+        
+        /* CÍRCULOS PULSANTES */
+        .pulse-circles {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 0;
+        }
+        
+        .pulse-circle {
+            position: absolute; border: 2px solid rgba(46, 125, 232, 0.3);
+            border-radius: 50%;
+            animation: pulse-ring 4s ease-out infinite;
+        }
+        
+        .pulse-circle:nth-child(1) { width: 100px; height: 100px; top: 15%; left: 10%; animation-delay: 0s; }
+        .pulse-circle:nth-child(2) { width: 150px; height: 150px; top: 60%; right: 15%; animation-delay: 1.5s; }
+        .pulse-circle:nth-child(3) { width: 80px; height: 80px; top: 40%; left: 70%; animation-delay: 3s; }
+        .pulse-circle:nth-child(4) { width: 120px; height: 120px; bottom: 20%; left: 30%; animation-delay: 2s; }
+        
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.8; border-color: rgba(46, 125, 232, 0.6); }
+            100% { transform: scale(2); opacity: 0; border-color: rgba(0, 212, 255, 0); }
         }
         
         .glass { 
@@ -92,19 +184,12 @@
         }
         
         .glass-card {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08), rgba(46, 125, 232, 0.04));
+            background: linear-gradient(135deg, rgba(46, 125, 232, 0.08), rgba(0, 212, 255, 0.04));
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(46, 125, 232, 0.15);
         }
         
         .gradient-text {
-            background: linear-gradient(135deg, #D4AF37, #F4D03F);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .gradient-blue {
             background: linear-gradient(135deg, #2E7DE8, #00D4FF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -119,58 +204,42 @@
         }
         @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
         
-        .particles-container {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 0; overflow: hidden;
-        }
-        .particle {
-            position: absolute; width: 4px; height: 4px;
-            background: #D4AF37; border-radius: 50%;
-            box-shadow: 0 0 10px #D4AF37, 0 0 20px rgba(212, 175, 55, 0.5);
-            animation: float 15s infinite;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); opacity: 0; }
-            10%, 90% { opacity: 1; }
-            100% { transform: translateY(-100vh); }
-        }
-        
         .mobile-sticky-cta { display: none; }
         @media (max-width: 768px) {
             .mobile-sticky-cta {
                 display: flex; position: fixed; bottom: 0; left: 0; right: 0;
                 background: linear-gradient(90deg, #0B1F3A, #1a365d);
                 padding: 0.75rem 1rem; z-index: 9998; gap: 0.75rem;
-                border-top: 1px solid rgba(212, 175, 55, 0.3);
+                border-top: 1px solid rgba(46, 125, 232, 0.3);
             }
             body { padding-bottom: 70px; }
         }
         
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #0B1F3A; }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #D4AF37, #2E7DE8); border-radius: 5px; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #2E7DE8, #00D4FF); border-radius: 5px; }
         
         /* Form styles */
         input, select, textarea {
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 1px solid rgba(46, 125, 232, 0.3);
             color: white;
             transition: all 0.3s;
         }
         input:focus, select:focus, textarea:focus {
             outline: none;
-            border-color: #D4AF37;
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+            border-color: #2E7DE8;
+            box-shadow: 0 0 0 3px rgba(46, 125, 232, 0.2);
         }
         input::placeholder, textarea::placeholder { color: rgba(255, 255, 255, 0.4); }
         
         .checkbox-custom {
             appearance: none; width: 20px; height: 20px;
-            border: 2px solid rgba(212, 175, 55, 0.5);
+            border: 2px solid rgba(46, 125, 232, 0.5);
             border-radius: 4px; cursor: pointer; position: relative;
         }
         .checkbox-custom:checked {
-            background: linear-gradient(135deg, #D4AF37, #F4D03F);
+            background: linear-gradient(135deg, #2E7DE8, #00D4FF);
             border-color: transparent;
         }
         .checkbox-custom:checked::after {
@@ -180,12 +249,41 @@
     </style>
 </head>
 <body class="bg-consulting text-white overflow-x-hidden">
-    <!-- Partículas -->
+    <!-- Partículas brillantes -->
     <div class="particles-container">
-        <div class="particle" style="left: 10%; top: 80%; animation-delay: 0s;"></div>
-        <div class="particle" style="left: 30%; top: 90%; animation-delay: 2s;"></div>
-        <div class="particle" style="left: 70%; top: 85%; animation-delay: 4s;"></div>
-        <div class="particle" style="left: 90%; top: 95%; animation-delay: 6s;"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+    
+    <!-- Líneas de conexión tipo diagrama -->
+    <div class="connection-lines">
+        <div class="connection-line"></div>
+        <div class="connection-line"></div>
+        <div class="connection-line"></div>
+        <div class="connection-line"></div>
+        <div class="connection-line"></div>
+        <div class="connection-line"></div>
+    </div>
+    
+    <!-- Círculos pulsantes -->
+    <div class="pulse-circles">
+        <div class="pulse-circle"></div>
+        <div class="pulse-circle"></div>
+        <div class="pulse-circle"></div>
+        <div class="pulse-circle"></div>
     </div>
 
     <!-- Navigation -->
@@ -193,28 +291,28 @@
         <div class="container-main">
             <div class="flex items-center justify-between">
                 <a href="index.html" class="flex items-center gap-3 group">
-                    <div class="w-12 h-12 rounded-xl overflow-hidden border-2 border-cj-gold bg-white group-hover:scale-110 transition-transform">
+                    <div class="w-12 h-12 rounded-xl overflow-hidden border-2 border-cj-electric bg-white group-hover:scale-110 transition-transform">
                         <img src="logo-cj.png" alt="CJ Consultoría" class="w-full h-full object-contain">
                     </div>
                     <div>
-                        <span class="text-lg lg:text-xl font-black tracking-tight font-montserrat group-hover:text-cj-gold transition-colors">CJ Consultoría</span>
-                        <span class="block text-xs text-cj-gold font-medium tracking-wider">TRANSFORMAMOS PROCESOS</span>
+                        <span class="text-lg lg:text-xl font-black tracking-tight font-montserrat text-white group-hover:text-cj-electric transition-colors">CJ Consultoría</span>
+                        <span class="block text-xs text-cj-electric font-medium tracking-wider">TRANSFORMAMOS PROCESOS</span>
                     </div>
                 </a>
                 
                 <div class="hidden lg:flex items-center gap-5 xl:gap-6">
-                    <a href="index.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-cj-gold transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-gold after:transition-all hover:after:w-full">Inicio</a>
-                    <a href="servicios.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-cj-gold transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-gold after:transition-all hover:after:w-full">Servicios</a>
-                    <a href="cotizacion.html" class="text-sm xl:text-base font-medium text-cj-gold relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-cj-gold">Cotización</a>
-                    <a href="nosotros.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-cj-gold transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-gold after:transition-all hover:after:w-full">Nosotros</a>
-                    <a href="blog.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-cj-gold transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-gold after:transition-all hover:after:w-full">Blog</a>
+                    <a href="index.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Inicio</a>
+                    <a href="servicios.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Servicios</a>
+                    <a href="cotizacion.html" class="text-sm xl:text-base font-medium text-white relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-cj-electric">Cotización</a>
+                    <a href="nosotros.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Nosotros</a>
+                    <a href="blog.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Blog</a>
                     
                     <a href="https://wa.me/524776940272" target="_blank" class="px-5 py-2.5 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-full font-semibold text-sm transition-all hover:scale-105 shadow-lg">
                         💬 WhatsApp
                     </a>
                 </div>
                 
-                <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-white hover:bg-white/10">
+                <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-white hover:bg-white/10" aria-label="Menú">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
@@ -223,11 +321,11 @@
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden glass mt-4 mx-4 rounded-2xl p-4 border border-cj-gold/20">
+        <div id="mobile-menu" class="hidden lg:hidden glass mt-4 mx-4 rounded-2xl p-4 border border-cj-electric/20">
             <div class="flex flex-col gap-2">
                 <a href="index.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">🏠 Inicio</a>
                 <a href="servicios.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">🔧 Servicios</a>
-                <a href="cotizacion.html" class="px-4 py-3 rounded-xl bg-cj-gold/20 text-cj-gold transition-colors text-base font-semibold">💰 Cotización</a>
+                <a href="cotizacion.html" class="px-4 py-3 rounded-xl bg-cj-electric/20 text-cj-electric-light transition-colors text-base font-semibold">💰 Cotización</a>
                 <a href="nosotros.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">👤 Nosotros</a>
                 <a href="blog.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">📚 Blog</a>
                 <a href="https://wa.me/524776940272" target="_blank" class="px-4 py-3 bg-gradient-to-r from-green-500 to-green-600 rounded-xl text-center font-semibold text-base mt-2">💬 WhatsApp</a>
@@ -239,9 +337,9 @@
     <section class="relative min-h-[50vh] flex items-center pt-24 pb-12">
         <div class="container-main relative z-10">
             <div class="text-center" data-aos="fade-up">
-                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-cj-gold/50 mb-6">
+                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-cj-electric/50 mb-6">
                     <span class="text-xl">💰</span>
-                    <span class="text-sm font-semibold text-cj-gold">Cotización gratuita</span>
+                    <span class="text-sm font-semibold text-cj-electric-light">Cotización gratuita</span>
                 </span>
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black font-montserrat mb-6">
                     Solicita tu <span class="gradient-text">presupuesto</span>
@@ -282,8 +380,8 @@
                 </div>
                 
                 <!-- ISO -->
-                <div class="glass-card rounded-2xl p-6 text-center border-2 border-cj-gold relative" data-aos="fade-up" data-aos-delay="300">
-                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-cj-gold to-cj-gold-light text-cj-blue text-xs px-3 py-1 rounded-full font-bold">MÁS POPULAR</span>
+                <div class="glass-card rounded-2xl p-6 text-center border-2 border-cj-electric relative" data-aos="fade-up" data-aos-delay="300">
+                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white text-xs px-3 py-1 rounded-full font-bold">MÁS POPULAR</span>
                     <div class="text-4xl mb-4">⚙️</div>
                     <h3 class="font-bold text-lg mb-2">ISO & Sistemas</h3>
                     <p class="text-3xl font-black gradient-text mb-2">$15k</p>
@@ -393,22 +491,22 @@
                             <label class="block text-sm font-medium mb-2">¿Cómo prefieres que te contactemos?</label>
                             <div class="flex gap-4">
                                 <label class="flex items-center gap-2 cursor-pointer">
-                                    <input type="radio" name="contacto_pref" value="whatsapp" checked class="accent-cj-gold">
+                                    <input type="radio" name="contacto_pref" value="whatsapp" checked class="accent-cj-electric">
                                     <span class="text-sm">WhatsApp</span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer">
-                                    <input type="radio" name="contacto_pref" value="email" class="accent-cj-gold">
+                                    <input type="radio" name="contacto_pref" value="email" class="accent-cj-electric">
                                     <span class="text-sm">Email</span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer">
-                                    <input type="radio" name="contacto_pref" value="llamada" class="accent-cj-gold">
+                                    <input type="radio" name="contacto_pref" value="llamada" class="accent-cj-electric">
                                     <span class="text-sm">Llamada</span>
                                 </label>
                             </div>
                         </div>
                         
                         <!-- Submit -->
-                        <button type="submit" class="w-full py-4 bg-gradient-to-r from-cj-gold to-cj-gold-light text-cj-blue rounded-xl font-bold text-lg hover:scale-[1.02] transition-transform shadow-xl btn-shimmer">
+                        <button type="submit" class="w-full py-4 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-xl font-bold text-lg hover:scale-[1.02] transition-transform shadow-xl btn-shimmer">
                             📩 Enviar solicitud de cotización
                         </button>
                         
@@ -423,7 +521,7 @@
     </section>
 
     <!-- Info Section -->
-    <section class="py-12 border-t border-cj-gold/20">
+    <section class="py-12 border-t border-cj-electric/20">
         <div class="container-main">
             <div class="grid md:grid-cols-3 gap-8 text-center">
                 <div data-aos="fade-up" data-aos-delay="0">
@@ -446,32 +544,32 @@
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-cj-gold/20 pt-12 pb-6">
+    <footer class="border-t border-cj-electric/20 pt-12 pb-6">
         <div class="container-main">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
                 <div class="col-span-2 md:col-span-1">
                     <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 rounded-lg overflow-hidden border border-cj-gold bg-white">
+                        <div class="w-10 h-10 rounded-lg overflow-hidden border border-cj-electric bg-white">
                             <img src="logo-cj.png" alt="CJ Consultoría" class="w-full h-full object-contain">
                         </div>
                         <div>
-                            <span class="font-bold text-base">CJ Consultoría</span>
-                            <span class="block text-xs text-cj-gold">TRANSFORMAMOS PROCESOS</span>
+                            <span class="font-bold text-base text-white">CJ Consultoría</span>
+                            <span class="block text-xs text-cj-electric">TRANSFORMAMOS PROCESOS</span>
                         </div>
                     </div>
                     <p class="text-xs text-cj-silver">Transformamos procesos en resultados sostenibles.</p>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4 text-sm">Enlaces</h4>
+                    <h4 class="font-semibold mb-4 text-sm text-white">Enlaces</h4>
                     <ul class="space-y-2 text-xs text-cj-silver">
-                        <li><a href="index.html" class="hover:text-cj-gold transition-colors">Inicio</a></li>
-                        <li><a href="servicios.html" class="hover:text-cj-gold transition-colors">Servicios</a></li>
-                        <li><a href="nosotros.html" class="hover:text-cj-gold transition-colors">Nosotros</a></li>
-                        <li><a href="blog.html" class="hover:text-cj-gold transition-colors">Blog</a></li>
+                        <li><a href="index.html" class="hover:text-cj-electric transition-colors">Inicio</a></li>
+                        <li><a href="servicios.html" class="hover:text-cj-electric transition-colors">Servicios</a></li>
+                        <li><a href="nosotros.html" class="hover:text-cj-electric transition-colors">Nosotros</a></li>
+                        <li><a href="blog.html" class="hover:text-cj-electric transition-colors">Blog</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4 text-sm">Contacto</h4>
+                    <h4 class="font-semibold mb-4 text-sm text-white">Contacto</h4>
                     <ul class="space-y-2 text-xs text-cj-silver">
                         <li>📱 +52 477 694 0272</li>
                         <li>✉️ cj.consultoria.sgc@gmail.com</li>
@@ -479,8 +577,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="pt-6 border-t border-cj-gold/20 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-xs text-gray-500">© 2024 CJ Consultoría</p>
+            <div class="pt-6 border-t border-cj-electric/20 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-cj-gray">© 2024 CJ Consultoría</p>
             </div>
         </div>
     </footer>

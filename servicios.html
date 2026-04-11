@@ -26,13 +26,12 @@
                 extend: {
                     colors: {
                         'cj-blue': '#0B1F3A',
+                        'cj-blue-dark': '#071225',
                         'cj-silver': '#C0C0C0',
                         'cj-electric': '#2E7DE8',
+                        'cj-electric-light': '#00D4FF',
                         'cj-dark': '#0a1628',
-                        'cj-accent': '#00D4FF',
-                        'cj-gold': '#D4AF37',
-                        'cj-gold-light': '#F4D03F',
-                        'cj-platinum': '#E5E4E2',
+                        'cj-gray': '#6B7280',
                     },
                     fontFamily: {
                         'montserrat': ['Montserrat', 'sans-serif'],
@@ -47,7 +46,7 @@
     <style>
         /* TIPOGRAFÍA: Solo 3 fuentes */
         * { font-family: 'Open Sans', sans-serif; box-sizing: border-box; }
-        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; font-weight: 700; color: white; }
         .font-playfair { font-family: 'Playfair Display', serif; font-weight: 400; }
         
         html { font-size: 16px; scroll-behavior: smooth; }
@@ -62,36 +61,114 @@
         @media (min-width: 640px) { .container-main { padding-left: 1.5rem; padding-right: 1.5rem; } }
         @media (min-width: 1024px) { .container-main { padding-left: 2rem; padding-right: 2rem; max-width: 1200px; } }
         
+        /* FONDO ESPECTACULAR CON PARTÍCULAS Y DIAGRAMAS ANIMADOS */
         .bg-consulting {
             background-color: #0a1628;
             background-image: 
-                radial-gradient(ellipse 800px 600px at 100% 0%, rgba(46, 125, 232, 0.4), transparent 60%),
-                radial-gradient(ellipse 600px 500px at 0% 100%, rgba(212, 175, 55, 0.15), transparent 60%),
+                radial-gradient(ellipse 800px 600px at 100% 0%, rgba(46, 125, 232, 0.5), transparent 60%),
+                radial-gradient(ellipse 600px 500px at 0% 100%, rgba(0, 212, 255, 0.4), transparent 60%),
+                radial-gradient(ellipse 400px 300px at 50% 50%, rgba(46, 125, 232, 0.15), transparent),
                 linear-gradient(180deg, #0B1F3A 0%, #071225 50%, #0a1628 100%);
             background-attachment: fixed;
             min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
         }
         
-        .glass { background: rgba(11, 31, 58, 0.85); backdrop-filter: blur(20px); }
-        .glass-card {
-            background: linear-gradient(135deg, rgba(46, 125, 232, 0.1), rgba(212, 175, 55, 0.05));
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(46, 125, 232, 0.2);
+        /* PARTÍCULAS BRILLANTES FLOTANTES */
+        .particles-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 0; overflow: hidden;
         }
-        .glass-card-gold {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(46, 125, 232, 0.05));
+        
+        .particle {
+            position: absolute; width: 4px; height: 4px;
+            background: #2E7DE8; border-radius: 50%;
+            box-shadow: 0 0 10px #2E7DE8, 0 0 20px #2E7DE8, 0 0 30px #00D4FF;
+            animation: float-particle 15s infinite;
+        }
+        
+        .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; animation-duration: 12s; }
+        .particle:nth-child(2) { left: 20%; top: 80%; animation-delay: 1s; animation-duration: 18s; width: 6px; height: 6px; }
+        .particle:nth-child(3) { left: 30%; top: 40%; animation-delay: 2s; animation-duration: 14s; }
+        .particle:nth-child(4) { left: 40%; top: 60%; animation-delay: 3s; animation-duration: 16s; width: 5px; height: 5px; }
+        .particle:nth-child(5) { left: 50%; top: 30%; animation-delay: 4s; animation-duration: 13s; }
+        .particle:nth-child(6) { left: 60%; top: 70%; animation-delay: 5s; animation-duration: 17s; width: 7px; height: 7px; }
+        .particle:nth-child(7) { left: 70%; top: 50%; animation-delay: 6s; animation-duration: 15s; }
+        .particle:nth-child(8) { left: 80%; top: 25%; animation-delay: 7s; animation-duration: 19s; width: 5px; height: 5px; }
+        .particle:nth-child(9) { left: 90%; top: 75%; animation-delay: 8s; animation-duration: 14s; }
+        .particle:nth-child(10) { left: 15%; top: 55%; animation-delay: 9s; animation-duration: 16s; width: 6px; height: 6px; }
+        
+        @keyframes float-particle {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+        }
+        
+        /* LÍNEAS DE CONEXIÓN TIPO DIAGRAMA */
+        .connection-lines {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 0;
+        }
+        
+        .connection-line {
+            position: absolute; height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(46, 125, 232, 0.4), rgba(0, 212, 255, 0.6), rgba(46, 125, 232, 0.4), transparent);
+            transform-origin: left center;
+            animation: pulse-line 4s ease-in-out infinite;
+        }
+        
+        .connection-line:nth-child(1) { width: 300px; top: 20%; left: 5%; transform: rotate(25deg); animation-delay: 0s; }
+        .connection-line:nth-child(2) { width: 250px; top: 40%; right: 10%; transform: rotate(-15deg); animation-delay: 1s; }
+        .connection-line:nth-child(3) { width: 350px; top: 60%; left: 15%; transform: rotate(10deg); animation-delay: 2s; }
+        .connection-line:nth-child(4) { width: 280px; top: 80%; right: 20%; transform: rotate(-30deg); animation-delay: 3s; }
+        .connection-line:nth-child(5) { width: 320px; top: 30%; left: 40%; transform: rotate(45deg); animation-delay: 1.5s; }
+        .connection-line:nth-child(6) { width: 200px; top: 70%; left: 60%; transform: rotate(-20deg); animation-delay: 2.5s; }
+        
+        @keyframes pulse-line {
+            0%, 100% { opacity: 0.2; box-shadow: 0 0 5px rgba(46, 125, 232, 0.3); }
+            50% { opacity: 0.8; box-shadow: 0 0 20px rgba(46, 125, 232, 0.6), 0 0 40px rgba(0, 212, 255, 0.4); }
+        }
+        
+        /* CÍRCULOS PULSANTES */
+        .pulse-circles {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 0;
+        }
+        
+        .pulse-circle {
+            position: absolute; border: 2px solid rgba(46, 125, 232, 0.3);
+            border-radius: 50%;
+            animation: pulse-ring 4s ease-out infinite;
+        }
+        
+        .pulse-circle:nth-child(1) { width: 100px; height: 100px; top: 15%; left: 10%; animation-delay: 0s; }
+        .pulse-circle:nth-child(2) { width: 150px; height: 150px; top: 60%; right: 15%; animation-delay: 1.5s; }
+        .pulse-circle:nth-child(3) { width: 80px; height: 80px; top: 40%; left: 70%; animation-delay: 3s; }
+        .pulse-circle:nth-child(4) { width: 120px; height: 120px; bottom: 20%; left: 30%; animation-delay: 2s; }
+        
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.8; border-color: rgba(46, 125, 232, 0.6); }
+            100% { transform: scale(2); opacity: 0; border-color: rgba(0, 212, 255, 0); }
+        }
+        
+        .glass { background: rgba(11, 31, 58, 0.9); backdrop-filter: blur(20px); }
+        
+        .glass-card {
+            background: linear-gradient(135deg, rgba(46, 125, 232, 0.08), rgba(0, 212, 255, 0.04));
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            border: 1px solid rgba(46, 125, 232, 0.15);
+        }
+        
+        .glass-card-silver {
+            background: linear-gradient(135deg, rgba(192, 192, 192, 0.08), rgba(46, 125, 232, 0.04));
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(192, 192, 192, 0.15);
         }
         
         .gradient-text {
             background: linear-gradient(135deg, #2E7DE8, #00D4FF);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .gradient-gold {
-            background: linear-gradient(135deg, #D4AF37, #F4D03F);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -119,22 +196,11 @@
         }
         .animate-float { animation: float 5s ease-in-out infinite; }
         
-        .particles-container {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 0; overflow: hidden;
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(46, 125, 232, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(46, 125, 232, 0.6); }
         }
-        .particle {
-            position: absolute; width: 4px; height: 4px;
-            background: #D4AF37; border-radius: 50%;
-            box-shadow: 0 0 10px #D4AF37, 0 0 20px rgba(212, 175, 55, 0.5);
-            animation: float-particle 15s infinite;
-        }
-        @keyframes float-particle {
-            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
-        }
+        .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
         
         .mobile-sticky-cta { display: none; }
         @media (max-width: 768px) {
@@ -142,23 +208,47 @@
                 display: flex; position: fixed; bottom: 0; left: 0; right: 0;
                 background: linear-gradient(90deg, #0B1F3A, #1a365d);
                 padding: 0.75rem 1rem; z-index: 9998; gap: 0.75rem;
-                border-top: 1px solid rgba(212, 175, 55, 0.3);
+                border-top: 1px solid rgba(46, 125, 232, 0.3);
             }
             body { padding-bottom: 70px; }
         }
         
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #0B1F3A; }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #2E7DE8, #D4AF37); border-radius: 5px; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #2E7DE8, #00D4FF); border-radius: 5px; }
     </style>
 </head>
 <body class="bg-consulting text-white overflow-x-hidden">
-    <!-- Partículas doradas -->
+    <!-- Partículas brillantes -->
     <div class="particles-container">
-        <div class="particle" style="left: 10%; top: 20%; animation-delay: 0s;"></div>
-        <div class="particle" style="left: 30%; top: 60%; animation-delay: 2s;"></div>
-        <div class="particle" style="left: 70%; top: 40%; animation-delay: 4s;"></div>
-        <div class="particle" style="left: 90%; top: 80%; animation-delay: 6s;"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+    
+    <!-- Líneas de conexión tipo diagrama -->
+    <div class="connection-lines">
+        <div class="connection-line"></div>
+        <div class="connection-line"></div>
+        <div class="connection-line"></div>
+        <div class="connection-line"></div>
+        <div class="connection-line"></div>
+        <div class="connection-line"></div>
+    </div>
+    
+    <!-- Círculos pulsantes -->
+    <div class="pulse-circles">
+        <div class="pulse-circle"></div>
+        <div class="pulse-circle"></div>
+        <div class="pulse-circle"></div>
+        <div class="pulse-circle"></div>
     </div>
 
     <!-- Navigation -->
@@ -166,24 +256,23 @@
         <div class="container-main">
             <div class="flex items-center justify-between">
                 <a href="index.html" class="flex items-center gap-3 group">
-                    <div class="w-12 h-12 rounded-xl overflow-hidden border-2 border-cj-gold bg-white group-hover:scale-110 transition-transform">
+                    <div class="w-12 h-12 rounded-xl overflow-hidden border-2 border-cj-electric bg-white group-hover:scale-110 transition-transform">
                         <img src="logo-cj.png" alt="CJ Consultoría" class="w-full h-full object-contain">
                     </div>
                     <div>
-                        <span class="text-lg lg:text-xl font-black tracking-tight font-montserrat group-hover:text-cj-gold transition-colors">CJ Consultoría</span>
-                        <span class="block text-xs text-cj-gold font-medium tracking-wider">TRANSFORMAMOS PROCESOS</span>
+                        <span class="text-lg lg:text-xl font-black tracking-tight font-montserrat text-white group-hover:text-cj-electric transition-colors">CJ Consultoría</span>
+                        <span class="block text-xs text-cj-electric font-medium tracking-wider">TRANSFORMAMOS PROCESOS</span>
                     </div>
                 </a>
                 
                 <div class="hidden lg:flex items-center gap-5 xl:gap-6">
-                    <a href="index.html" class="text-sm xl:text-base font-medium text-gray-300 hover:text-cj-gold transition-colors">Inicio</a>
-                    <a href="servicios.html" class="text-sm xl:text-base font-medium text-cj-gold relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-cj-gold">Servicios</a>
-                    <a href="cotizacion.html" class="text-sm xl:text-base font-medium text-gray-300 hover:text-cj-gold transition-colors">Cotización</a>
-                    <a href="nosotros.html" class="text-sm xl:text-base font-medium text-gray-300 hover:text-cj-gold transition-colors">Nosotros</a>
-                    <a href="blog.html" class="text-sm xl:text-base font-medium text-gray-300 hover:text-cj-gold transition-colors">Blog</a>
-                    <a href="index.html#contacto" class="text-sm xl:text-base font-medium text-cj-gold hover:text-cj-gold-light transition-colors">Contacto</a>
+                    <a href="index.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Inicio</a>
+                    <a href="servicios.html" class="text-sm xl:text-base font-medium text-white relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-cj-electric">Servicios</a>
+                    <a href="cotizacion.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Cotización</a>
+                    <a href="nosotros.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Nosotros</a>
+                    <a href="blog.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Blog</a>
                     
-                    <a href="cotizacion.html" class="px-5 py-2.5 xl:px-6 xl:py-3 bg-gradient-to-r from-cj-gold to-cj-gold-light text-cj-blue rounded-full font-semibold text-sm xl:text-base transition-all shadow-lg shadow-cj-gold/30 hover:shadow-cj-gold/50 hover:scale-105 btn-shimmer">
+                    <a href="cotizacion.html" class="px-5 py-2.5 xl:px-6 xl:py-3 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-full font-semibold text-sm xl:text-base transition-all shadow-lg shadow-cj-electric/30 hover:shadow-cj-electric/50 hover:scale-105 btn-shimmer">
                         Cotizar Ahora
                     </a>
                 </div>
@@ -197,14 +286,14 @@
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden glass mt-4 mx-4 rounded-2xl p-4 border border-cj-gold/20">
+        <div id="mobile-menu" class="hidden lg:hidden glass mt-4 mx-4 rounded-2xl p-4 border border-cj-electric/20">
             <div class="flex flex-col gap-2">
                 <a href="index.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">🏠 Inicio</a>
-                <a href="servicios.html" class="px-4 py-3 rounded-xl bg-cj-gold/20 text-cj-gold transition-colors text-base font-semibold">🔧 Servicios</a>
+                <a href="servicios.html" class="px-4 py-3 rounded-xl bg-cj-electric/20 text-cj-electric-light transition-colors text-base font-semibold">🔧 Servicios</a>
                 <a href="cotizacion.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">💰 Cotización</a>
                 <a href="nosotros.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">👤 Nosotros</a>
                 <a href="blog.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">📚 Blog</a>
-                <a href="cotizacion.html" class="px-4 py-3 bg-gradient-to-r from-cj-gold to-cj-gold-light text-cj-blue rounded-xl text-center font-semibold text-base mt-2">📝 Cotizar Ahora</a>
+                <a href="cotizacion.html" class="px-4 py-3 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-xl text-center font-semibold text-base mt-2">📝 Cotizar Ahora</a>
             </div>
         </div>
     </nav>
@@ -213,18 +302,18 @@
     <section class="relative min-h-[60vh] flex items-center pt-24 pb-12 overflow-hidden">
         <div class="container-main relative z-10">
             <div class="text-center" data-aos="fade-up">
-                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-cj-gold/50 mb-6">
+                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-cj-electric/50 mb-6">
                     <span class="text-xl">🛠️</span>
-                    <span class="text-sm font-semibold text-cj-gold">Nuestros Servicios</span>
+                    <span class="text-sm font-semibold text-cj-electric-light">Nuestros Servicios</span>
                 </span>
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black font-montserrat mb-6">
-                    Soluciones <span class="gradient-gold">integrales</span> para tu empresa
+                    Soluciones <span class="gradient-text">integrales</span> para tu empresa
                 </h1>
                 <p class="text-lg lg:text-xl text-cj-silver max-w-3xl mx-auto mb-8">
                     Desde la documentación de procesos hasta la implementación de sistemas de gestión, 
                     te ayudamos a transformar tu operación en una máquina eficiente.
                 </p>
-                <a href="cotizacion.html" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cj-gold to-cj-gold-light text-cj-blue rounded-xl font-bold hover:scale-105 transition-transform shadow-xl">
+                <a href="cotizacion.html" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-xl font-bold hover:scale-105 transition-transform shadow-xl btn-shimmer">
                     <span>📋</span> Solicitar cotización
                 </a>
             </div>
@@ -239,35 +328,35 @@
             <div class="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-10 mb-8 hover-lift" data-aos="fade-up">
                 <div class="grid lg:grid-cols-2 gap-8 items-center">
                     <div>
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cj-electric to-cj-accent flex items-center justify-center text-3xl mb-6 shadow-lg">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cj-electric to-cj-electric-light flex items-center justify-center text-3xl mb-6 shadow-lg">
                             📋
                         </div>
-                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold font-montserrat mb-4">Procedimientos y Procesos</h2>
+                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold font-montserrat mb-4 text-white">Procedimientos y Procesos</h2>
                         <p class="text-cj-silver mb-6 leading-relaxed">
                             Documentamos y optimizamos tus procesos para eliminar ineficiencias. 
                             Creamos manuales claros, mapas de procesos y flujos de trabajo que tu equipo podrá seguir fácilmente.
                         </p>
                         <ul class="space-y-3 mb-6">
                             <li class="flex items-center gap-3 text-cj-silver">
-                                <span class="text-cj-gold">✓</span> Mapeo de procesos actuales
+                                <span class="text-cj-electric">✓</span> Mapeo de procesos actuales
                             </li>
                             <li class="flex items-center gap-3 text-cj-silver">
-                                <span class="text-cj-gold">✓</span> Manuales de procedimientos documentados
+                                <span class="text-cj-electric">✓</span> Manuales de procedimientos documentados
                             </li>
                             <li class="flex items-center gap-3 text-cj-silver">
-                                <span class="text-cj-gold">✓</span> Indicadores KPI de desempeño
+                                <span class="text-cj-electric">✓</span> Indicadores KPI de desempeño
                             </li>
                             <li class="flex items-center gap-3 text-cj-silver">
-                                <span class="text-cj-gold">✓</span> Optimización de flujos de trabajo
+                                <span class="text-cj-electric">✓</span> Optimización de flujos de trabajo
                             </li>
                         </ul>
                         <div class="flex flex-wrap gap-4">
                             <span class="px-4 py-2 rounded-lg bg-white/5 text-sm text-cj-silver">Desde $8,000 MXN</span>
-                            <a href="cotizacion.html" class="px-6 py-2 bg-gradient-to-r from-cj-gold to-cj-gold-light text-cj-blue rounded-lg font-semibold hover:scale-105 transition-transform">Cotizar</a>
+                            <a href="cotizacion.html" class="px-6 py-2 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-lg font-semibold hover:scale-105 transition-transform">Cotizar</a>
                         </div>
                     </div>
                     <div class="relative">
-                        <div class="absolute -inset-4 bg-gradient-to-r from-cj-electric/20 to-cj-accent/20 rounded-3xl blur-2xl"></div>
+                        <div class="absolute -inset-4 bg-gradient-to-r from-cj-electric/20 to-cj-electric-light/20 rounded-3xl blur-2xl"></div>
                         <div class="relative glass-card rounded-2xl p-8 text-center">
                             <span class="text-8xl">📋</span>
                             <p class="mt-4 text-cj-silver text-sm">Procesos claros = menos errores</p>
@@ -277,41 +366,41 @@
             </div>
 
             <!-- ISO -->
-            <div class="glass-card-gold rounded-2xl sm:rounded-3xl p-6 sm:p-10 mb-8 hover-lift" data-aos="fade-up" data-aos-delay="100">
+            <div class="glass-card-silver rounded-2xl sm:rounded-3xl p-6 sm:p-10 mb-8 hover-lift" data-aos="fade-up" data-aos-delay="100">
                 <div class="grid lg:grid-cols-2 gap-8 items-center">
                     <div class="order-2 lg:order-1 relative">
-                        <div class="absolute -inset-4 bg-gradient-to-r from-cj-gold/20 to-cj-gold-light/20 rounded-3xl blur-2xl"></div>
-                        <div class="relative glass-card-gold rounded-2xl p-8 text-center">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-cj-silver/20 to-white/20 rounded-3xl blur-2xl"></div>
+                        <div class="relative glass-card-silver rounded-2xl p-8 text-center">
                             <span class="text-8xl">⚙️</span>
                             <p class="mt-4 text-cj-silver text-sm">Certificación internacional</p>
                         </div>
                     </div>
                     <div class="order-1 lg:order-2">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cj-gold to-cj-gold-light flex items-center justify-center text-3xl mb-6 shadow-lg">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cj-silver to-white flex items-center justify-center text-3xl mb-6 shadow-lg text-cj-blue">
                             ⚙️
                         </div>
-                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold font-montserrat mb-4">Sistemas de Gestión ISO</h2>
+                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold font-montserrat mb-4 text-white">Sistemas de Gestión ISO</h2>
                         <p class="text-cj-silver mb-6 leading-relaxed">
                             Implementamos normas ISO 9001, 14001 y 45001 para llevar tu empresa al siguiente nivel. 
                             Te preparamos para auditorías y certificaciones.
                         </p>
                         <ul class="space-y-3 mb-6">
                             <li class="flex items-center gap-3 text-cj-silver">
-                                <span class="text-cj-gold">✓</span> ISO 9001 - Calidad
+                                <span class="text-cj-electric">✓</span> ISO 9001 - Calidad
                             </li>
                             <li class="flex items-center gap-3 text-cj-silver">
-                                <span class="text-cj-gold">✓</span> ISO 14001 - Medio Ambiente
+                                <span class="text-cj-electric">✓</span> ISO 14001 - Medio Ambiente
                             </li>
                             <li class="flex items-center gap-3 text-cj-silver">
-                                <span class="text-cj-gold">✓</span> ISO 45001 - Seguridad y Salud
+                                <span class="text-cj-electric">✓</span> ISO 45001 - Seguridad y Salud
                             </li>
                             <li class="flex items-center gap-3 text-cj-silver">
-                                <span class="text-cj-gold">✓</span> Preparación para auditorías
+                                <span class="text-cj-electric">✓</span> Preparación para auditorías
                             </li>
                         </ul>
                         <div class="flex flex-wrap gap-4">
                             <span class="px-4 py-2 rounded-lg bg-white/5 text-sm text-cj-silver">Desde $15,000 MXN</span>
-                            <a href="cotizacion.html" class="px-6 py-2 bg-gradient-to-r from-cj-gold to-cj-gold-light text-cj-blue rounded-lg font-semibold hover:scale-105 transition-transform">Cotizar</a>
+                            <a href="cotizacion.html" class="px-6 py-2 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-lg font-semibold hover:scale-105 transition-transform">Cotizar</a>
                         </div>
                     </div>
                 </div>
@@ -324,23 +413,23 @@
                         <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center text-3xl mb-6 shadow-lg">
                             📈
                         </div>
-                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold font-montserrat mb-4">Mejora Continua</h2>
+                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold font-montserrat mb-4 text-white">Mejora Continua</h2>
                         <p class="text-cj-silver mb-6 leading-relaxed">
                             Implementamos metodologías Kaizen, Lean Manufacturing y 5S para eliminar desperdicios 
                             y maximizar la eficiencia de tu operación.
                         </p>
                         <ul class="space-y-3 mb-6">
                             <li class="flex items-center gap-3 text-cj-silver">
-                                <span class="text-cj-gold">✓</span> Metodología Kaizen
+                                <span class="text-cj-electric">✓</span> Metodología Kaizen
                             </li>
                             <li class="flex items-center gap-3 text-cj-silver">
-                                <span class="text-cj-gold">✓</span> Lean Manufacturing
+                                <span class="text-cj-electric">✓</span> Lean Manufacturing
                             </li>
                             <li class="flex items-center gap-3 text-cj-silver">
-                                <span class="text-cj-gold">✓</span> 5S - Organización del workplace
+                                <span class="text-cj-electric">✓</span> 5S - Organización del workplace
                             </li>
                             <li class="flex items-center gap-3 text-cj-silver">
-                                <span class="text-cj-gold">✓</span> Eliminar desperdicios (Muda)
+                                <span class="text-cj-electric">✓</span> Eliminar desperdicios (Muda)
                             </li>
                         </ul>
                         <div class="flex flex-wrap gap-4">
@@ -359,11 +448,11 @@
             </div>
 
             <!-- Excel y BI -->
-            <div class="glass-card-gold rounded-2xl sm:rounded-3xl p-6 sm:p-10 hover-lift" data-aos="fade-up" data-aos-delay="300">
+            <div class="glass-card-silver rounded-2xl sm:rounded-3xl p-6 sm:p-10 hover-lift" data-aos="fade-up" data-aos-delay="300">
                 <div class="grid lg:grid-cols-2 gap-8 items-center">
                     <div class="order-2 lg:order-1 relative">
                         <div class="absolute -inset-4 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-3xl blur-2xl"></div>
-                        <div class="relative glass-card-gold rounded-2xl p-8 text-center">
+                        <div class="relative glass-card-silver rounded-2xl p-8 text-center">
                             <span class="text-8xl">📊</span>
                             <p class="mt-4 text-cj-silver text-sm">Datos que impulsan decisiones</p>
                         </div>
@@ -372,23 +461,23 @@
                         <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-400 to-pink-600 flex items-center justify-center text-3xl mb-6 shadow-lg">
                             📊
                         </div>
-                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold font-montserrat mb-4">Excel y Business Intelligence</h2>
+                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold font-montserrat mb-4 text-white">Excel y Business Intelligence</h2>
                         <p class="text-cj-silver mb-6 leading-relaxed">
                             Transformamos tus datos en información valiosa. Dashboards automáticos, macros en VBA 
                             y capacitación para que tu equipo domine el análisis de datos.
                         </p>
                         <ul class="space-y-3 mb-6">
                             <li class="flex items-center gap-3 text-cj-silver">
-                                <span class="text-cj-gold">✓</span> Dashboards interactivos
+                                <span class="text-cj-electric">✓</span> Dashboards interactivos
                             </li>
                             <li class="flex items-center gap-3 text-cj-silver">
-                                <span class="text-cj-gold">✓</span> Automatización con VBA
+                                <span class="text-cj-electric">✓</span> Automatización con VBA
                             </li>
                             <li class="flex items-center gap-3 text-cj-silver">
-                                <span class="text-cj-gold">✓</span> Power BI y análisis de datos
+                                <span class="text-cj-electric">✓</span> Power BI y análisis de datos
                             </li>
                             <li class="flex items-center gap-3 text-cj-silver">
-                                <span class="text-cj-gold">✓</span> Capacitación para tu equipo
+                                <span class="text-cj-electric">✓</span> Capacitación para tu equipo
                             </li>
                         </ul>
                         <div class="flex flex-wrap gap-4">
@@ -404,20 +493,20 @@
     <!-- StockWolf Section -->
     <section class="py-16 sm:py-20 relative bg-gradient-to-b from-cj-dark via-cj-blue to-cj-dark">
         <div class="container-main">
-            <div class="glass-card-gold rounded-2xl sm:rounded-3xl p-8 sm:p-12 text-center" data-aos="fade-up">
+            <div class="glass-card-silver rounded-2xl sm:rounded-3xl p-8 sm:p-12 text-center" data-aos="fade-up">
                 <span class="text-6xl mb-4 block">🐺</span>
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-montserrat mb-4">
-                    Conoce <span class="gradient-gold">StockWolf</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-montserrat mb-4 text-white">
+                    Conoce <span class="gradient-text">StockWolf</span>
                 </h2>
                 <p class="text-lg text-cj-silver max-w-2xl mx-auto mb-8">
                     Nuestro sistema ERP de gestión de inventarios diseñado específicamente para PYMEs. 
                     Control total de tu almacén desde cualquier dispositivo.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="https://inventory-pro-z81e.onrender.com/" target="_blank" class="px-8 py-4 bg-gradient-to-r from-cj-gold to-cj-gold-light text-cj-blue rounded-xl font-bold hover:scale-105 transition-transform shadow-xl">
+                    <a href="https://inventory-pro-z81e.onrender.com/" target="_blank" class="px-8 py-4 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-xl font-bold hover:scale-105 transition-transform shadow-xl btn-shimmer">
                         🚀 Ver StockWolf
                     </a>
-                    <a href="cotizacion.html" class="px-8 py-4 border-2 border-cj-gold text-cj-gold hover:bg-cj-gold hover:text-cj-blue rounded-xl font-bold transition-all">
+                    <a href="cotizacion.html" class="px-8 py-4 border-2 border-cj-electric text-cj-electric-light hover:bg-cj-electric hover:text-white rounded-xl font-bold transition-all">
                         📅 Demo gratuita
                     </a>
                 </div>
@@ -428,57 +517,57 @@
     <!-- CTA Section -->
     <section class="py-16 sm:py-20">
         <div class="container-main text-center" data-aos="fade-up">
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-montserrat mb-6">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-montserrat mb-6 text-white">
                 ¿Listo para transformar tu empresa?
             </h2>
             <p class="text-lg text-cj-silver max-w-2xl mx-auto mb-8">
                 Agenda una consulta gratuita de 30 minutos y descubre cómo podemos ayudarte.
             </p>
-            <a href="cotizacion.html" class="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-cj-gold to-cj-gold-light text-cj-blue rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-2xl shadow-cj-gold/30">
+            <a href="cotizacion.html" class="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-2xl shadow-cj-electric/30">
                 <span>📅</span> Agendar consulta gratuita
             </a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-cj-gold/20 pt-12 pb-6 relative">
+    <footer class="border-t border-cj-electric/20 pt-12 pb-6 relative">
         <div class="container-main">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8">
                 <div class="col-span-2 md:col-span-1">
                     <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 rounded-lg overflow-hidden border border-cj-gold bg-white">
+                        <div class="w-10 h-10 rounded-lg overflow-hidden border border-cj-electric bg-white">
                             <img src="logo-cj.png" alt="CJ Consultoría" class="w-full h-full object-contain">
                         </div>
                         <div>
-                            <span class="font-bold text-base">CJ Consultoría</span>
-                            <span class="block text-xs text-cj-gold">TRANSFORMAMOS PROCESOS</span>
+                            <span class="font-bold text-base text-white">CJ Consultoría</span>
+                            <span class="block text-xs text-cj-electric">TRANSFORMAMOS PROCESOS</span>
                         </div>
                     </div>
                     <p class="text-xs text-cj-silver leading-relaxed">Transformamos procesos en resultados sostenibles para PYMEs.</p>
                 </div>
                 
                 <div>
-                    <h4 class="font-semibold mb-4 text-sm">Servicios</h4>
+                    <h4 class="font-semibold mb-4 text-sm text-white">Servicios</h4>
                     <ul class="space-y-2 text-xs text-cj-silver">
-                        <li><a href="servicios.html" class="hover:text-cj-gold transition-colors">Todos los servicios</a></li>
-                        <li><a href="procedimientos.html" class="hover:text-cj-gold transition-colors">Procedimientos</a></li>
-                        <li><a href="iso.html" class="hover:text-cj-gold transition-colors">ISO y Sistemas</a></li>
-                        <li><a href="excel.html" class="hover:text-cj-gold transition-colors">Excel y BI</a></li>
+                        <li><a href="servicios.html" class="hover:text-cj-electric transition-colors">Todos los servicios</a></li>
+                        <li><a href="procedimientos.html" class="hover:text-cj-electric transition-colors">Procedimientos</a></li>
+                        <li><a href="iso.html" class="hover:text-cj-electric transition-colors">ISO y Sistemas</a></li>
+                        <li><a href="excel.html" class="hover:text-cj-electric transition-colors">Excel y BI</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="font-semibold mb-4 text-sm">Enlaces</h4>
+                    <h4 class="font-semibold mb-4 text-sm text-white">Enlaces</h4>
                     <ul class="space-y-2 text-xs text-cj-silver">
-                        <li><a href="index.html" class="hover:text-cj-gold transition-colors">Inicio</a></li>
-                        <li><a href="nosotros.html" class="hover:text-cj-gold transition-colors">Nosotros</a></li>
-                        <li><a href="blog.html" class="hover:text-cj-gold transition-colors">Blog</a></li>
-                        <li><a href="cotizacion.html" class="hover:text-cj-gold transition-colors">Cotizar</a></li>
+                        <li><a href="index.html" class="hover:text-cj-electric transition-colors">Inicio</a></li>
+                        <li><a href="nosotros.html" class="hover:text-cj-electric transition-colors">Nosotros</a></li>
+                        <li><a href="blog.html" class="hover:text-cj-electric transition-colors">Blog</a></li>
+                        <li><a href="cotizacion.html" class="hover:text-cj-electric transition-colors">Cotizar</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="font-semibold mb-4 text-sm">Contacto</h4>
+                    <h4 class="font-semibold mb-4 text-sm text-white">Contacto</h4>
                     <ul class="space-y-2 text-xs text-cj-silver">
                         <li>📱 +52 477 694 0272</li>
                         <li>✉️ cj.consultoria.sgc@gmail.com</li>
@@ -487,11 +576,11 @@
                 </div>
             </div>
             
-            <div class="pt-6 border-t border-cj-gold/20 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-xs text-gray-500">© 2024 CJ Consultoría - Ing. Carlos Urbina</p>
+            <div class="pt-6 border-t border-cj-electric/20 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-cj-gray">© 2024 CJ Consultoría - Ing. Carlos Urbina</p>
                 <div class="flex gap-4">
-                    <a href="#" class="text-xs text-gray-500 hover:text-cj-gold transition-colors">Privacidad</a>
-                    <a href="#" class="text-xs text-gray-500 hover:text-cj-gold transition-colors">Términos</a>
+                    <a href="#" class="text-xs text-cj-gray hover:text-cj-electric transition-colors">Privacidad</a>
+                    <a href="#" class="text-xs text-cj-gray hover:text-cj-electric transition-colors">Términos</a>
                 </div>
             </div>
         </div>
@@ -499,7 +588,7 @@
 
     <!-- WhatsApp Float -->
     <div class="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-[9996]">
-        <a href="https://wa.me/524776940272?text=Hola%20CJ%20Consultoría!" target="_blank" class="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-r from-green-500 to-green-600 text-white shadow-2xl transition-all hover:scale-110" style="animation: pulse-glow 3s ease-in-out infinite;">
+        <a href="https://wa.me/524776940272?text=Hola%20CJ%20Consultoría!" target="_blank" class="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-r from-green-500 to-green-600 text-white shadow-2xl transition-all hover:scale-110 animate-pulse-glow">
             <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         </a>
     </div>
@@ -509,7 +598,7 @@
         <a href="https://wa.me/524776940272" target="_blank" class="flex-1 py-3 bg-green-500 hover:bg-green-600 text-white rounded-xl font-semibold text-center flex items-center justify-center gap-2 text-sm">
             <span>💬</span> WhatsApp
         </a>
-        <a href="cotizacion.html" class="flex-1 py-3 bg-gradient-to-r from-cj-gold to-cj-gold-light text-cj-blue rounded-xl font-semibold text-center flex items-center justify-center gap-2 text-sm">
+        <a href="cotizacion.html" class="flex-1 py-3 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-xl font-semibold text-center flex items-center justify-center gap-2 text-sm">
             <span>📅</span> Cotizar
         </a>
     </div>
