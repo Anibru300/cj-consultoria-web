@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="CJ Consultoría - Transformamos procesos en resultados sostenibles. Consultoría empresarial para PYMEs y emprendedores.">
+    <meta name="description" content="CJ Consultoría - Reducimos las mermas de tu empresa hasta 25%. Consultoría en procesos, ISO 9001, Excel y mejora continua para PYMEs manufactureras.">
     <meta name="theme-color" content="#0B1F3A">
-    <title>CJ Consultoría 🐺 | Transformamos procesos en resultados sostenibles</title>
+    <title>CJ Consultoría | Reducimos mermas hasta 25% - Consultoría para PYMEs</title>
     
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐺</text></svg>">
     
-    <!-- Fonts: Solo 3 tipografías -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
     
-    <!-- AOS Animation Library -->
+    <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <!-- Tailwind CSS -->
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -32,7 +32,6 @@
                         'cj-electric-light': '#00D4FF',
                         'cj-dark': '#0a1628',
                         'cj-gray': '#6B7280',
-                        'cj-light-gray': '#9CA3AF',
                     },
                     fontFamily: {
                         'montserrat': ['Montserrat', 'sans-serif'],
@@ -45,73 +44,24 @@
     </script>
     
     <style>
-        /* TIPOGRAFÍA: Solo 3 fuentes permitidas */
-        /* 1. Montserrat: Títulos y headings */
-        /* 2. Open Sans: Cuerpo de texto */
-        /* 3. Playfair Display: Cursivas y énfasis especial */
-        
-        * { 
-            font-family: 'Open Sans', sans-serif; 
-            box-sizing: border-box;
-        }
-        
-        h1, h2, h3, h4, h5, h6 { 
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-        }
-        
-        .font-playfair { 
-            font-family: 'Playfair Display', serif;
-            font-weight: 400;
-        }
-        
-        /* Tamaño base responsive */
-        html {
-            font-size: 16px;
-            scroll-behavior: smooth;
-        }
-        
+        * { font-family: 'Open Sans', sans-serif; box-sizing: border-box; }
+        html { font-size: 16px; scroll-behavior: smooth; }
         @media (min-width: 1400px) { html { font-size: 17px; } }
-        @media (min-width: 1600px) { html { font-size: 18px; } }
         @media (max-width: 640px) { html { font-size: 15px; } }
-        @media (max-width: 380px) { html { font-size: 14px; } }
         
-        /* Contenedor principal */
-        .container-main {
-            width: 100%;
-            max-width: 1280px;
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; font-weight: 700; color: white; }
+        .font-playfair { font-family: 'Playfair Display', serif; }
         
-        @media (min-width: 640px) {
-            .container-main {
-                padding-left: 1.5rem;
-                padding-right: 1.5rem;
-            }
-        }
+        .container-main { width: 100%; max-width: 1280px; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
+        @media (min-width: 640px) { .container-main { padding-left: 1.5rem; padding-right: 1.5rem; } }
+        @media (min-width: 1024px) { .container-main { padding-left: 2rem; padding-right: 2rem; max-width: 1200px; } }
         
-        @media (min-width: 1024px) {
-            .container-main {
-                padding-left: 2rem;
-                padding-right: 2rem;
-                max-width: 1200px;
-            }
-        }
-        
-        /* FONDO ESPECTACULAR CON PARTÍCULAS Y DIAGRAMAS ANIMADOS */
         .bg-consulting {
             background-color: #0a1628;
             background-image: 
-                /* Blob superior derecho brillante */
                 radial-gradient(ellipse 800px 600px at 100% 0%, rgba(46, 125, 232, 0.5), transparent 60%),
-                /* Blob inferior izquierdo */
                 radial-gradient(ellipse 600px 500px at 0% 100%, rgba(0, 212, 255, 0.4), transparent 60%),
-                /* Centro iluminado */
                 radial-gradient(ellipse 400px 300px at 50% 50%, rgba(46, 125, 232, 0.15), transparent),
-                /* Fondo base */
                 linear-gradient(180deg, #0B1F3A 0%, #071225 50%, #0a1628 100%);
             background-attachment: fixed;
             min-height: 100vh;
@@ -119,28 +69,8 @@
             overflow-x: hidden;
         }
         
-        /* PARTÍCULAS BRILLANTES FLOTANTES - 20 partículas */
-        .particles-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
-        
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #2E7DE8;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #2E7DE8, 0 0 20px #2E7DE8, 0 0 30px #00D4FF;
-            animation: float-particle 15s infinite;
-        }
-        
+        .particles-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
+        .particle { position: absolute; width: 4px; height: 4px; background: #2E7DE8; border-radius: 50%; box-shadow: 0 0 10px #2E7DE8, 0 0 20px #2E7DE8, 0 0 30px #00D4FF; animation: float-particle 15s infinite; }
         .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; animation-duration: 12s; }
         .particle:nth-child(2) { left: 20%; top: 80%; animation-delay: 1s; animation-duration: 18s; width: 6px; height: 6px; }
         .particle:nth-child(3) { left: 30%; top: 40%; animation-delay: 2s; animation-duration: 14s; }
@@ -156,334 +86,77 @@
         .particle:nth-child(13) { left: 45%; top: 45%; animation-delay: 12s; animation-duration: 15s; }
         .particle:nth-child(14) { left: 55%; top: 65%; animation-delay: 13s; animation-duration: 17s; width: 6px; height: 6px; }
         .particle:nth-child(15) { left: 65%; top: 35%; animation-delay: 14s; animation-duration: 13s; }
-        .particle:nth-child(16) { left: 75%; top: 90%; animation-delay: 0.5s; animation-duration: 16s; width: 5px; height: 5px; }
-        .particle:nth-child(17) { left: 85%; top: 10%; animation-delay: 1.5s; animation-duration: 14s; }
-        .particle:nth-child(18) { left: 5%; top: 45%; animation-delay: 2.5s; animation-duration: 18s; width: 7px; height: 7px; }
-        .particle:nth-child(19) { left: 95%; top: 55%; animation-delay: 3.5s; animation-duration: 15s; }
-        .particle:nth-child(20) { left: 50%; top: 95%; animation-delay: 4.5s; animation-duration: 17s; width: 6px; height: 6px; }
         
         @keyframes float-particle {
-            0%, 100% {
-                transform: translateY(0) translateX(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) translateX(50px);
-                opacity: 0;
-            }
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
         }
         
-        /* LÍNEAS DE CONEXIÓN TIPO DIAGRAMA */
-        .connection-lines {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        .connection-line {
-            position: absolute;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(46, 125, 232, 0.4), rgba(0, 212, 255, 0.6), rgba(46, 125, 232, 0.4), transparent);
-            transform-origin: left center;
-            animation: pulse-line 4s ease-in-out infinite;
-        }
-        
-        .connection-line:nth-child(1) {
-            width: 300px;
-            top: 20%;
-            left: 5%;
-            transform: rotate(25deg);
-            animation-delay: 0s;
-        }
-        .connection-line:nth-child(2) {
-            width: 250px;
-            top: 40%;
-            right: 10%;
-            transform: rotate(-15deg);
-            animation-delay: 1s;
-        }
-        .connection-line:nth-child(3) {
-            width: 350px;
-            top: 60%;
-            left: 15%;
-            transform: rotate(10deg);
-            animation-delay: 2s;
-        }
-        .connection-line:nth-child(4) {
-            width: 280px;
-            top: 80%;
-            right: 20%;
-            transform: rotate(-30deg);
-            animation-delay: 3s;
-        }
-        .connection-line:nth-child(5) {
-            width: 320px;
-            top: 30%;
-            left: 40%;
-            transform: rotate(45deg);
-            animation-delay: 1.5s;
-        }
-        .connection-line:nth-child(6) {
-            width: 200px;
-            top: 70%;
-            left: 60%;
-            transform: rotate(-20deg);
-            animation-delay: 2.5s;
-        }
+        .connection-lines { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+        .connection-line { position: absolute; height: 2px; background: linear-gradient(90deg, transparent, rgba(46, 125, 232, 0.4), rgba(0, 212, 255, 0.6), rgba(46, 125, 232, 0.4), transparent); transform-origin: left center; animation: pulse-line 4s ease-in-out infinite; }
+        .connection-line:nth-child(1) { width: 300px; top: 20%; left: 5%; transform: rotate(25deg); animation-delay: 0s; }
+        .connection-line:nth-child(2) { width: 250px; top: 40%; right: 10%; transform: rotate(-15deg); animation-delay: 1s; }
+        .connection-line:nth-child(3) { width: 350px; top: 60%; left: 15%; transform: rotate(10deg); animation-delay: 2s; }
+        .connection-line:nth-child(4) { width: 280px; top: 80%; right: 20%; transform: rotate(-30deg); animation-delay: 3s; }
+        .connection-line:nth-child(5) { width: 320px; top: 30%; left: 40%; transform: rotate(45deg); animation-delay: 1.5s; }
+        .connection-line:nth-child(6) { width: 200px; top: 70%; left: 60%; transform: rotate(-20deg); animation-delay: 2.5s; }
         
         @keyframes pulse-line {
-            0%, 100% {
-                opacity: 0.2;
-                box-shadow: 0 0 5px rgba(46, 125, 232, 0.3);
-            }
-            50% {
-                opacity: 0.8;
-                box-shadow: 0 0 20px rgba(46, 125, 232, 0.6), 0 0 40px rgba(0, 212, 255, 0.4);
-            }
+            0%, 100% { opacity: 0.2; box-shadow: 0 0 5px rgba(46, 125, 232, 0.3); }
+            50% { opacity: 0.8; box-shadow: 0 0 20px rgba(46, 125, 232, 0.6), 0 0 40px rgba(0, 212, 255, 0.4); }
         }
         
-        /* CÍRCULOS PULSANTES */
-        .pulse-circles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        .pulse-circle {
-            position: absolute;
-            border: 2px solid rgba(46, 125, 232, 0.3);
-            border-radius: 50%;
-            animation: pulse-ring 4s ease-out infinite;
-        }
-        
-        .pulse-circle:nth-child(1) {
-            width: 100px;
-            height: 100px;
-            top: 15%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-        .pulse-circle:nth-child(2) {
-            width: 150px;
-            height: 150px;
-            top: 60%;
-            right: 15%;
-            animation-delay: 1.5s;
-        }
-        .pulse-circle:nth-child(3) {
-            width: 80px;
-            height: 80px;
-            top: 40%;
-            left: 70%;
-            animation-delay: 3s;
-        }
-        .pulse-circle:nth-child(4) {
-            width: 120px;
-            height: 120px;
-            bottom: 20%;
-            left: 30%;
-            animation-delay: 2s;
-        }
+        .pulse-circles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+        .pulse-circle { position: absolute; border: 2px solid rgba(46, 125, 232, 0.3); border-radius: 50%; animation: pulse-ring 4s ease-out infinite; }
+        .pulse-circle:nth-child(1) { width: 100px; height: 100px; top: 15%; left: 10%; animation-delay: 0s; }
+        .pulse-circle:nth-child(2) { width: 150px; height: 150px; top: 60%; right: 15%; animation-delay: 1.5s; }
+        .pulse-circle:nth-child(3) { width: 80px; height: 80px; top: 40%; left: 70%; animation-delay: 3s; }
+        .pulse-circle:nth-child(4) { width: 120px; height: 120px; bottom: 20%; left: 30%; animation-delay: 2s; }
         
         @keyframes pulse-ring {
-            0% {
-                transform: scale(0.8);
-                opacity: 0.8;
-                border-color: rgba(46, 125, 232, 0.6);
-            }
-            100% {
-                transform: scale(2);
-                opacity: 0;
-                border-color: rgba(0, 212, 255, 0);
-            }
+            0% { transform: scale(0.8); opacity: 0.8; border-color: rgba(46, 125, 232, 0.6); }
+            100% { transform: scale(2); opacity: 0; border-color: rgba(0, 212, 255, 0); }
         }
         
-        /* Glassmorphism */
-        .glass {
-            background: rgba(11, 31, 58, 0.9);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
+        .glass { background: rgba(11, 31, 58, 0.9); backdrop-filter: blur(20px); }
+        .glass-card { background: linear-gradient(135deg, rgba(46, 125, 232, 0.08), rgba(0, 212, 255, 0.04)); backdrop-filter: blur(12px); border: 1px solid rgba(46, 125, 232, 0.15); }
+        .glass-card-silver { background: linear-gradient(135deg, rgba(192, 192, 192, 0.08), rgba(46, 125, 232, 0.04)); backdrop-filter: blur(12px); border: 1px solid rgba(192, 192, 192, 0.15); }
         
-        .glass-card {
-            background: linear-gradient(135deg, rgba(46, 125, 232, 0.08), rgba(0, 212, 255, 0.04));
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(46, 125, 232, 0.15);
-        }
+        .gradient-text { background: linear-gradient(135deg, #2E7DE8, #00D4FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         
-        .glass-card-silver {
-            background: linear-gradient(135deg, rgba(192, 192, 192, 0.08), rgba(46, 125, 232, 0.04));
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(192, 192, 192, 0.15);
-        }
+        .hover-lift { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .hover-lift:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(46, 125, 232, 0.15); }
         
-        /* Gradient text - AZUL ELECTRICO */
-        .gradient-text {
-            background: linear-gradient(135deg, #2E7DE8, #00D4FF);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+        .btn-shimmer { position: relative; overflow: hidden; }
+        .btn-shimmer::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); animation: shimmer 2s infinite; }
+        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
         
-        /* Animaciones */
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
+        .metric-card { background: linear-gradient(135deg, rgba(46, 125, 232, 0.1), rgba(0, 212, 232, 0.05)); border: 1px solid rgba(46, 125, 232, 0.2); }
         
-        .animate-float { animation: float 5s ease-in-out infinite; }
+        .mobile-sticky-cta { display: none; }
+        @media (max-width: 768px) { .mobile-sticky-cta { display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: linear-gradient(90deg, #0B1F3A, #1a365d); padding: 0.75rem 1rem; z-index: 9998; gap: 0.75rem; border-top: 1px solid rgba(46, 125, 232, 0.3); } body { padding-bottom: 70px; } }
         
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(46, 125, 232, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(46, 125, 232, 0.6); }
-        }
-        
-        .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
-        
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-        
-        .btn-shimmer {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn-shimmer::after {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            animation: shimmer 2s infinite;
-        }
-        
-        /* Hover effects */
-        .hover-lift {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .hover-lift:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(46, 125, 232, 0.15);
-        }
-        
-        /* Scrollbar */
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #0B1F3A; }
-        ::-webkit-scrollbar-thumb { 
-            background: linear-gradient(180deg, #2E7DE8, #00D4FF); 
-            border-radius: 5px;
-            border: 2px solid #0B1F3A;
-        }
-        
-        /* Mobile sticky CTA */
-        .mobile-sticky-cta {
-            display: none;
-        }
-        
-        @media (max-width: 768px) {
-            .mobile-sticky-cta {
-                display: flex;
-                position: fixed;
-                bottom: 0; left: 0; right: 0;
-                background: linear-gradient(90deg, #0B1F3A, #1a365d);
-                padding: 0.75rem 1rem;
-                z-index: 9998;
-                gap: 0.75rem;
-                border-top: 1px solid rgba(46, 125, 232, 0.3);
-            }
-            body {
-                padding-bottom: 70px;
-            }
-        }
-        
-        /* Timeline */
-        .timeline-line {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, #2E7DE8, #00D4FF);
-            transform: translateX(-50%);
-        }
-        
-        @media (max-width: 768px) {
-            .timeline-line { left: 20px; }
-        }
-        
-        /* Progress bar */
-        #progress-bar {
-            position: fixed;
-            top: 0; left: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #2E7DE8, #00D4FF);
-            z-index: 9999;
-            transition: width 0.1s;
-        }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #2E7DE8, #00D4FF); border-radius: 5px; }
     </style>
 </head>
 <body class="bg-consulting text-white overflow-x-hidden">
-    <!-- Partículas brillantes -->
+    <!-- Fondo animado -->
     <div class="particles-container">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
     </div>
-    
-    <!-- Líneas de conexión tipo diagrama -->
     <div class="connection-lines">
-        <div class="connection-line"></div>
-        <div class="connection-line"></div>
-        <div class="connection-line"></div>
-        <div class="connection-line"></div>
-        <div class="connection-line"></div>
-        <div class="connection-line"></div>
+        <div class="connection-line"></div><div class="connection-line"></div><div class="connection-line"></div>
+        <div class="connection-line"></div><div class="connection-line"></div><div class="connection-line"></div>
     </div>
-    
-    <!-- Círculos pulsantes -->
     <div class="pulse-circles">
-        <div class="pulse-circle"></div>
-        <div class="pulse-circle"></div>
-        <div class="pulse-circle"></div>
-        <div class="pulse-circle"></div>
+        <div class="pulse-circle"></div><div class="pulse-circle"></div><div class="pulse-circle"></div><div class="pulse-circle"></div>
     </div>
-
-    <!-- Progress Bar -->
-    <div id="progress-bar" style="width: 0%"></div>
 
     <!-- Navigation -->
     <nav id="navbar" class="fixed w-full z-[9997] transition-all duration-500 py-4">
@@ -501,97 +174,125 @@
                 
                 <div class="hidden lg:flex items-center gap-6 xl:gap-8">
                     <a href="#inicio" class="text-sm xl:text-base font-medium text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-cj-electric">Inicio</a>
+                    <a href="casos.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Casos de Éxito</a>
                     <a href="servicios.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Servicios</a>
                     <a href="cotizacion.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Cotización</a>
                     <a href="nosotros.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Nosotros</a>
-                    <a href="blog.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Blog</a>
                     
-                    <a href="#contacto" class="px-5 py-2.5 xl:px-6 xl:py-3 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-full font-semibold text-sm xl:text-base transition-all shadow-lg shadow-cj-electric/30 hover:shadow-cj-electric/50 hover:scale-105 btn-shimmer">
-                        Contáctanos
+                    <a href="cotizacion.html" class="px-5 py-2.5 xl:px-6 xl:py-3 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-full font-semibold text-sm xl:text-base transition-all shadow-lg shadow-cj-electric/30 hover:shadow-cj-electric/50 hover:scale-105 btn-shimmer">
+                        Cotizar Ahora
                     </a>
                 </div>
                 
                 <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-white hover:bg-white/10" aria-label="Menú">
-                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
                 </button>
             </div>
         </div>
         
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden lg:hidden glass mt-4 mx-4 rounded-2xl p-4 border border-cj-electric/20">
             <div class="flex flex-col gap-2">
-                <a href="#inicio" class="px-4 py-3 rounded-xl bg-cj-electric/20 text-white transition-colors text-base font-semibold">🏠 Inicio</a>
+                <a href="#inicio" class="px-4 py-3 rounded-xl bg-cj-electric/20 text-cj-electric-light transition-colors text-base font-semibold">🏠 Inicio</a>
+                <a href="casos.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">📊 Casos de Éxito</a>
                 <a href="servicios.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">🔧 Servicios</a>
                 <a href="cotizacion.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">💰 Cotización</a>
                 <a href="nosotros.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">👤 Nosotros</a>
-                <a href="blog.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">📚 Blog</a>
-                <a href="#contacto" class="px-4 py-3 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-xl text-center font-semibold text-base mt-2">📞 Contáctanos</a>
+                <a href="cotizacion.html" class="px-4 py-3 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-xl text-center font-semibold text-base mt-2">📝 Cotizar Ahora</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- HERO PROFESIONAL -->
     <section id="inicio" class="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
-        <div class="absolute inset-0 pointer-events-none">
-            <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-cj-electric/20 rounded-full blur-[100px] animate-float"></div>
-            <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-cj-electric-light/10 rounded-full blur-[80px] animate-float" style="animation-delay: 2s;"></div>
-        </div>
-        
         <div class="container-main relative z-10">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <!-- Columna izquierda: Contenido -->
                 <div class="text-center lg:text-left" data-aos="fade-right" data-aos-duration="1000">
+                    <!-- Badge de confianza -->
                     <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-cj-electric/50 mb-6">
-                        <span class="text-xl">🐺</span>
-                        <span class="text-sm font-semibold text-cj-electric-light">Tu socio estratégico</span>
+                        <span class="text-xl">🏆</span>
+                        <span class="text-sm font-semibold text-cj-electric-light">+500 PYMEs transformadas</span>
                     </div>
                     
+                    <!-- Headline principal -->
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black font-montserrat leading-tight mb-6 text-white">
-                        Transformamos
-                        <span class="block text-white">procesos</span>
-                        <span class="font-playfair italic text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-normal text-cj-silver">en resultados</span>
-                        <span id="typing-text" class="block text-cj-electric-light mt-2 text-2xl sm:text-3xl lg:text-4xl"></span>
+                        Reducimos las <span class="gradient-text">mermas</span> de tu empresa hasta <span class="text-cj-electric-light">25%</span>
                     </h1>
                     
-                    <p class="text-lg lg:text-xl text-cj-silver mb-8 max-w-2xl leading-relaxed" data-aos="fade-up" data-aos-delay="200">
-                        Somos especialistas en ayudar a <strong class="text-white">PYMEs y emprendedores</strong> a ordenar sus operaciones, implementar sistemas de gestión y dominar Excel para tomar mejores decisiones.
+                    <!-- Subheadline -->
+                    <p class="text-lg lg:text-xl text-cj-silver mb-6 max-w-2xl leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+                        Consultoría en procesos, <strong class="text-white">ISO 9001</strong>, Excel y mejora continua para <strong class="text-white">PYMEs manufactureras</strong> en León y Celaya.
                     </p>
                     
+                    <!-- Bullet points de valor -->
+                    <ul class="space-y-2 mb-8 text-cj-silver text-left inline-block lg:block" data-aos="fade-up" data-aos-delay="300">
+                        <li class="flex items-center gap-2"><span class="text-cj-electric">✓</span> Procesos documentados en 30 días</li>
+                        <li class="flex items-center gap-2"><span class="text-cj-electric">✓</span> Resultados medibles garantizados</li>
+                        <li class="flex items-center gap-2"><span class="text-cj-electric">✓</span> Primera consulta diagnóstica gratuita</li>
+                    </ul>
+                    
+                    <!-- CTAs -->
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10" data-aos="fade-up" data-aos-delay="400">
                         <a href="cotizacion.html" class="px-8 py-4 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-xl font-bold transition-all shadow-xl shadow-cj-electric/30 hover:shadow-cj-electric/50 hover:scale-105 flex items-center justify-center gap-2 btn-shimmer text-base lg:text-lg">
-                            <span>💰</span> Solicita tu cotización
+                            <span>📅</span> Agendar consulta gratuita
                         </a>
-                        <a href="servicios.html" class="px-8 py-4 border-2 border-cj-silver text-white hover:border-cj-electric hover:text-white rounded-xl font-bold transition-all flex items-center justify-center gap-2 hover:bg-white/5 text-base lg:text-lg">
-                            <span>📋</span> Conoce nuestros servicios
+                        <a href="casos.html" class="px-8 py-4 border-2 border-cj-silver text-white hover:border-cj-electric hover:text-white rounded-xl font-bold transition-all flex items-center justify-center gap-2 hover:bg-white/5 text-base lg:text-lg">
+                            <span>📊</span> Ver casos de éxito
                         </a>
                     </div>
                     
-                    <div class="grid grid-cols-3 gap-4 sm:gap-6" data-aos="fade-up" data-aos-delay="600">
-                        <div class="text-center lg:text-left">
-                            <p class="text-3xl sm:text-4xl lg:text-5xl font-black text-white counter" data-target="500">0</p>
-                            <p class="text-xs sm:text-sm text-cj-silver mt-1">PYMEs transformadas</p>
-                        </div>
-                        <div class="text-center lg:text-left">
-                            <p class="text-3xl sm:text-4xl lg:text-5xl font-black text-white counter" data-target="25">0</p>
-                            <p class="text-xs sm:text-sm text-cj-silver mt-1">% incremento promedio</p>
-                        </div>
-                        <div class="text-center lg:text-left">
-                            <p class="text-3xl sm:text-4xl lg:text-5xl font-black text-white counter" data-target="98">0</p>
-                            <p class="text-xs sm:text-sm text-cj-silver mt-1">% satisfacción</p>
+                    <!-- Logos de clientes -->
+                    <div class="text-center lg:text-left" data-aos="fade-up" data-aos-delay="500">
+                        <p class="text-xs text-cj-silver mb-3">EMPRESAS QUE CONFÍAN EN NOSOTROS</p>
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 opacity-70">
+                            <span class="px-3 py-1 glass rounded-lg text-xs">🪑 Caoba Muebles</span>
+                            <span class="px-3 py-1 glass rounded-lg text-xs">📦 DistriMuebles</span>
+                            <span class="px-3 py-1 glass rounded-lg text-xs">🏢 ADIS Diseño</span>
+                            <span class="px-3 py-1 glass rounded-lg text-xs">+497 más</span>
                         </div>
                     </div>
                 </div>
                 
+                <!-- Columna derecha: Imagen/Visual -->
                 <div class="relative flex justify-center items-center" data-aos="fade-left" data-aos-duration="1000">
                     <div class="absolute -inset-4 bg-gradient-to-r from-cj-electric to-cj-electric-light rounded-full opacity-20 blur-3xl"></div>
-                    <div class="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 animate-float">
-                        <img src="logo-cj.png" alt="CJ Consultoría" class="w-full h-full object-contain drop-shadow-2xl">
-                        <div class="absolute -top-2 -right-2 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-cj-electric to-cj-electric-light rounded-xl flex items-center justify-center text-2xl shadow-xl animate-float" style="animation-delay: 1s;">
+                    <div class="relative w-full max-w-md">
+                        <!-- Card principal -->
+                        <div class="glass-card rounded-3xl p-6 lg:p-8 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-32 h-32 bg-cj-electric/20 rounded-full blur-3xl"></div>
+                            
+                            <!-- Métrica destacada -->
+                            <div class="text-center mb-6">
+                                <p class="text-6xl lg:text-7xl font-black text-white">65%</p>
+                                <p class="text-cj-electric-light font-semibold">REDUCCIÓN PROMEDIO</p>
+                                <p class="text-sm text-cj-silver">en mermas de producción</p>
+                            </div>
+                            
+                            <!-- Stats secundarias -->
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="metric-card rounded-xl p-4 text-center">
+                                    <p class="text-2xl font-bold text-white">95%</p>
+                                    <p class="text-xs text-cj-silver">Entregas a tiempo</p>
+                                </div>
+                                <div class="metric-card rounded-xl p-4 text-center">
+                                    <p class="text-2xl font-bold text-white">+40%</p>
+                                    <p class="text-xs text-cj-silver">Rentabilidad</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Quote -->
+                            <div class="mt-6 pt-6 border-t border-cj-electric/20">
+                                <p class="text-sm text-cj-silver italic">"La inversión se recuperó en 2.5 meses"</p>
+                                <p class="text-xs text-cj-electric mt-1">— Roberto H., Mueblería Caoba</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating badges -->
+                        <div class="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-cj-electric to-cj-electric-light rounded-2xl flex items-center justify-center text-2xl shadow-xl animate-float" style="animation-delay: 1s;">
                             📈
                         </div>
-                        <div class="absolute -bottom-2 -left-2 w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-cj-silver to-white rounded-lg flex items-center justify-center text-xl shadow-xl animate-float" style="animation-delay: 2s;">
-                            ⚡
+                        <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center text-xl shadow-xl animate-float" style="animation-delay: 2s;">
+                            ✅
                         </div>
                     </div>
                 </div>
@@ -599,87 +300,235 @@
         </div>
         
         <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <svg class="w-6 h-6 text-cj-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
+            <svg class="w-6 h-6 text-cj-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
         </div>
     </section>
 
-    <!-- Logo Wall -->
-    <section class="py-10 sm:py-12 relative overflow-hidden border-y border-cj-electric/10">
-        <div class="text-center mb-6">
-            <p class="text-xs sm:text-sm text-cj-silver uppercase tracking-widest">Empresas que confían en nosotros</p>
+    <!-- SECCIÓN: Problemas que resolvemos -->
+    <section class="py-20 bg-gradient-to-b from-cj-dark via-cj-blue to-cj-dark">
+        <div class="container-main">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric-light text-sm font-semibold mb-4">¿TE SIENTES IDENTIFICADO?</span>
+                <h2 class="text-4xl sm:text-5xl font-black font-montserrat mb-4 text-white">Problemas que <span class="gradient-text">eliminamos</span></h2>
+                <p class="text-lg text-cj-silver max-w-3xl mx-auto">Si enfrentas alguno de estos desafíos, tenemos la solución probada.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass-card rounded-2xl p-6 hover-lift" data-aos="fade-up" data-aos-delay="0">
+                    <div class="text-4xl mb-4">📉</div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Mermas que te quitan utilidad</h3>
+                    <p class="text-cj-silver mb-4">Más del 15% de tu producción termina en la basura por errores evitables.</p>
+                    <p class="text-sm text-cj-electric">→ Reducción garantizada del 40-65%</p>
+                </div>
+                
+                <div class="glass-card rounded-2xl p-6 hover-lift" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-4xl mb-4">⏰</div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Retrasos en entregas</h3>
+                    <p class="text-cj-silver mb-4">Tus clientes se enojan porque no cumples las fechas prometidas.</p>
+                    <p class="text-sm text-cj-electric">→ 95% de entregas a tiempo</p>
+                </div>
+                
+                <div class="glass-card rounded-2xl p-6 hover-lift" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-4xl mb-4">📊</div>
+                    <h3 class="text-xl font-bold mb-3 text-white">No sabes si ganas o pierdes</h3>
+                    <p class="text-cj-silver mb-4">Cotizas "al ojo" sin saber tus costos reales de producción.</p>
+                    <p class="text-sm text-cj-electric">→ Visibilidad total de rentabilidad</p>
+                </div>
+                
+                <div class="glass-card rounded-2xl p-6 hover-lift" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-4xl mb-4">🤷‍♂️</div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Todo depende de ti</h3>
+                    <p class="text-cj-silver mb-4">No puedes ausentarte porque nadie más sabe cómo funcionan las cosas.</p>
+                    <p class="text-sm text-cj-electric">→ Procesos documentados</p>
+                </div>
+                
+                <div class="glass-card rounded-2xl p-6 hover-lift" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-4xl mb-4">📦</div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Inventario descontrolado</h3>
+                    <p class="text-cj-silver mb-4">"Creías" tener material pero no lo encuentras cuando lo necesitas.</p>
+                    <p class="text-sm text-cj-electric">→ 100% precisión de inventario</p>
+                </div>
+                
+                <div class="glass-card rounded-2xl p-6 hover-lift" data-aos="fade-up" data-aos-delay="500">
+                    <div class="text-4xl mb-4">📋</div>
+                    <h3 class="text-xl font-bold mb-3 text-white">No puedes facturar a grandes</h3>
+                    <p class="text-cj-silver mb-4">Te descalifican de licitaciones por no tener certificaciones ISO.</p>
+                    <p class="text-sm text-cj-electric">→ Certificación ISO 9001</p>
+                </div>
+            </div>
         </div>
-        <div class="flex overflow-hidden mask-image-gradient">
-            <div class="flex gap-8 animate-marquee">
-                <div class="flex items-center gap-3 px-6 py-3 glass-card-silver rounded-xl whitespace-nowrap">
-                    <span class="text-xl">🏢</span>
-                    <span class="font-semibold text-sm text-white">ADIS Diseño</span>
+    </section>
+
+    <!-- SECCIÓN: Casos Destacados -->
+    <section class="py-20 relative">
+        <div class="container-main">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric-light text-sm font-semibold mb-4">RESULTADOS REALES</span>
+                <h2 class="text-4xl sm:text-5xl font-black font-montserrat mb-4 text-white">Casos de <span class="gradient-text">Éxito</span></h2>
+                <p class="text-lg text-cj-silver max-w-3xl mx-auto">PYMEs mexicanas que transformaron sus operaciones con nuestra consultoría.</p>
+            </div>
+            
+            <!-- Caso Destacado 1 -->
+            <div class="glass-card rounded-3xl p-8 lg:p-12 mb-8" data-aos="fade-up">
+                <div class="grid lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center text-xl">🪑</div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-white">Mueblería Caoba</h3>
+                                <p class="text-sm text-cj-silver">Fabricación de muebles · León, Gto.</p>
+                            </div>
+                        </div>
+                        <p class="text-cj-silver mb-6">Implementación de ISO 9001 y dashboard de producción. Redujeron mermas del 18% al 6.3% en 4 meses.</p>
+                        <div class="grid grid-cols-3 gap-4 mb-6">
+                            <div class="metric-card rounded-xl p-4 text-center">
+                                <p class="text-2xl font-bold text-white">-65%</p>
+                                <p class="text-xs text-cj-silver">Mermas</p>
+                            </div>
+                            <div class="metric-card rounded-xl p-4 text-center">
+                                <p class="text-2xl font-bold gradient-text">+95%</p>
+                                <p class="text-xs text-cj-silver">Entregas</p>
+                            </div>
+                            <div class="metric-card rounded-xl p-4 text-center">
+                                <p class="text-2xl font-bold text-white">$180k</p>
+                                <p class="text-xs text-cj-silver">Ahorro/año</p>
+                            </div>
+                        </div>
+                        <a href="casos.html" class="inline-flex items-center gap-2 text-cj-electric hover:text-cj-electric-light font-medium transition-colors">
+                            Ver caso completo <span>→</span>
+                        </a>
+                    </div>
+                    <div class="glass-card-silver rounded-2xl p-6">
+                        <svg class="w-8 h-8 text-cj-electric mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                        <p class="text-white italic mb-4">"Antes éramos caóticos. No sabíamos cuánto nos costaba producir ni por qué fallábamos. Hoy tenemos control total."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-cj-electric to-cj-electric-light flex items-center justify-center">👨‍💼</div>
+                            <div>
+                                <p class="font-semibold text-white text-sm">Roberto Hernández</p>
+                                <p class="text-xs text-cj-silver">Director General</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex items-center gap-3 px-6 py-3 glass-card rounded-xl whitespace-nowrap">
-                    <span class="text-xl">🪑</span>
-                    <span class="font-semibold text-sm text-white">Caoba Muebles</span>
+            </div>
+            
+            <!-- Más casos en grid -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center text-lg">📦</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">DistriMuebles del Centro</h3>
+                            <p class="text-xs text-cj-silver">Distribución · Celaya, Gto.</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-cj-silver mb-4">Implementación de StockWolf ERP. Dejaron de perder $45,000 mensuales por control de inventario.</p>
+                    <div class="flex gap-3">
+                        <span class="px-3 py-1 rounded-full text-xs bg-cj-electric/20 text-cj-electric-light">100% precisión</span>
+                        <span class="px-3 py-1 rounded-full text-xs bg-cj-electric/20 text-cj-electric-light">-80% tiempo</span>
+                    </div>
                 </div>
-                <div class="flex items-center gap-3 px-6 py-3 glass-card-silver rounded-xl whitespace-nowrap">
-                    <span class="text-xl">🏪</span>
-                    <span class="font-semibold text-sm text-white">Decoraciones del Norte</span>
+                
+                <div class="glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center text-lg">🏢</div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">ADIS Diseño Interior</h3>
+                            <p class="text-xs text-cj-silver">Mobiliario corporativo · León, Gto.</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-cj-silver mb-4">Dashboard financiero en Excel. Reportes que tomaban 5 días ahora se generan en 2 horas.</p>
+                    <div class="flex gap-3">
+                        <span class="px-3 py-1 rounded-full text-xs bg-cj-electric/20 text-cj-electric-light">-95% tiempo</span>
+                        <span class="px-3 py-1 rounded-full text-xs bg-cj-electric/20 text-cj-electric-light">+40% rentabilidad</span>
+                    </div>
                 </div>
-                <div class="flex items-center gap-3 px-6 py-3 glass-card rounded-xl whitespace-nowrap">
-                    <span class="text-xl">🏭</span>
-                    <span class="font-semibold text-sm text-white">Muebles Río Rico</span>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="casos.html" class="inline-flex items-center gap-2 px-8 py-4 border-2 border-cj-electric text-cj-electric-light hover:bg-cj-electric hover:text-white rounded-xl font-bold transition-all">
+                    Ver todos los casos de éxito <span>→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: Cómo trabajamos -->
+    <section class="py-20 bg-gradient-to-b from-cj-dark via-cj-blue to-cj-dark">
+        <div class="container-main">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric-light text-sm font-semibold mb-4">NUESTRO PROCESO</span>
+                <h2 class="text-4xl sm:text-5xl font-black font-montserrat mb-4 text-white">De caos a <span class="gradient-text">control</span> en 4 pasos</h2>
+                <p class="text-lg text-cj-silver max-w-3xl mx-auto">Metodología probada con +500 PYMEs mexicanas.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="glass-card rounded-2xl p-6 text-center relative" data-aos="fade-up" data-aos-delay="0">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-cj-electric flex items-center justify-center font-bold text-white">1</div>
+                    <div class="text-4xl mb-4 mt-2">🔍</div>
+                    <h3 class="text-lg font-bold mb-2 text-white">Diagnóstico Gratuito</h3>
+                    <p class="text-sm text-cj-silver">Analizamos tus procesos actuales y identificamos oportunidades de mejora en 30 minutos.</p>
                 </div>
-                <div class="flex items-center gap-3 px-6 py-3 glass-card-silver rounded-xl whitespace-nowrap">
-                    <span class="text-xl">📦</span>
-                    <span class="font-semibold text-sm text-white">DistriMuebles</span>
+                
+                <div class="glass-card rounded-2xl p-6 text-center relative" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-cj-electric flex items-center justify-center font-bold text-white">2</div>
+                    <div class="text-4xl mb-4 mt-2">📋</div>
+                    <h3 class="text-lg font-bold mb-2 text-white">Propuesta Personalizada</h3>
+                    <p class="text-sm text-cj-silver">Diseñamos un plan de acción específico para tu empresa con ROI proyectado.</p>
                 </div>
-                <div class="flex items-center gap-3 px-6 py-3 glass-card rounded-xl whitespace-nowrap">
-                    <span class="text-xl">🛋️</span>
-                    <span class="font-semibold text-sm text-white">Muebles Selectos</span>
+                
+                <div class="glass-card rounded-2xl p-6 text-center relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-cj-electric flex items-center justify-center font-bold text-white">3</div>
+                    <div class="text-4xl mb-4 mt-2">🚀</div>
+                    <h3 class="text-lg font-bold mb-2 text-white">Implementación</h3>
+                    <p class="text-sm text-cj-silver">Ejecutamos el proyecto con acompañamiento semanal y capacitación a tu equipo.</p>
+                </div>
+                
+                <div class="glass-card rounded-2xl p-6 text-center relative" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-cj-electric flex items-center justify-center font-bold text-white">4</div>
+                    <div class="text-4xl mb-4 mt-2">📈</div>
+                    <h3 class="text-lg font-bold mb-2 text-white">Seguimiento</h3>
+                    <p class="text-sm text-cj-silver">Medimos resultados y ajustamos para asegurar que logres los objetivos propuestos.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Servicios Preview -->
-    <section id="servicios" class="py-20 sm:py-24 relative">
+    <section class="py-20 relative">
         <div class="container-main">
-            <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
-                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric-light text-sm font-semibold mb-4">Nuestros Servicios</span>
-                <h2 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black font-montserrat mb-4 text-white">¿Cómo podemos <span class="gradient-text">ayudarte?</span></h2>
-                <p class="text-lg text-cj-silver max-w-3xl mx-auto">Explora nuestras áreas de especialización y descubre cómo transformamos tu empresa.</p>
+            <div class="text-center mb-12" data-aos="fade-up">
+                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric-light text-sm font-semibold mb-4">SERVICIOS</span>
+                <h2 class="text-4xl sm:text-5xl font-black font-montserrat mb-4 text-white">¿Cómo podemos <span class="gradient-text">ayudarte</span>?</h2>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <a href="procedimientos.html" class="glass-card rounded-2xl p-6 hover-lift text-center group" data-aos="fade-up" data-aos-delay="0">
-                    <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-cj-electric to-cj-electric-light flex items-center justify-center text-3xl mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                        📋
-                    </div>
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-cj-electric to-cj-electric-light flex items-center justify-center text-3xl mb-4 shadow-lg group-hover:scale-110 transition-transform">📋</div>
                     <h3 class="text-xl font-bold mb-2 text-white">Procedimientos</h3>
-                    <p class="text-sm text-cj-silver">Documentación y optimización de procesos</p>
+                    <p class="text-sm text-cj-silver">Documentación y optimización de procesos de producción</p>
+                    <p class="text-cj-electric text-sm mt-3">Desde $8,000 MXN →</p>
                 </a>
                 
                 <a href="iso.html" class="glass-card-silver rounded-2xl p-6 hover-lift text-center group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-cj-silver to-white flex items-center justify-center text-3xl mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                        ⚙️
-                    </div>
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-cj-silver to-white flex items-center justify-center text-3xl mb-4 shadow-lg group-hover:scale-110 transition-transform">⚙️</div>
                     <h3 class="text-xl font-bold mb-2 text-white">Sistemas ISO</h3>
-                    <p class="text-sm text-cj-silver">ISO 9001, 14001, 45001</p>
+                    <p class="text-sm text-cj-silver">ISO 9001, 14001, 45001 para certificación</p>
+                    <p class="text-cj-electric text-sm mt-3">Desde $15,000 MXN →</p>
                 </a>
                 
                 <a href="mejora.html" class="glass-card rounded-2xl p-6 hover-lift text-center group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center text-3xl mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                        📈
-                    </div>
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center text-3xl mb-4 shadow-lg group-hover:scale-110 transition-transform">📈</div>
                     <h3 class="text-xl font-bold mb-2 text-white">Mejora Continua</h3>
-                    <p class="text-sm text-cj-silver">Kaizen, Lean, 5S</p>
+                    <p class="text-sm text-cj-silver">Kaizen, Lean Manufacturing, 5S</p>
+                    <p class="text-cj-electric text-sm mt-3">Desde $10,000 MXN →</p>
                 </a>
                 
                 <a href="excel.html" class="glass-card-silver rounded-2xl p-6 hover-lift text-center group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-purple-400 to-pink-600 flex items-center justify-center text-3xl mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                        📊
-                    </div>
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-purple-400 to-pink-600 flex items-center justify-center text-3xl mb-4 shadow-lg group-hover:scale-110 transition-transform">📊</div>
                     <h3 class="text-xl font-bold mb-2 text-white">Excel y BI</h3>
-                    <p class="text-sm text-cj-silver">Dashboards, VBA, Power BI</p>
+                    <p class="text-sm text-cj-silver">Dashboards, VBA, Power BI, automatización</p>
+                    <p class="text-cj-electric text-sm mt-3">Desde $5,000 MXN →</p>
                 </a>
             </div>
             
@@ -691,56 +540,8 @@
         </div>
     </section>
 
-    <!-- Por qué elegirnos -->
-    <section class="py-20 sm:py-24 relative bg-gradient-to-b from-cj-dark via-cj-blue to-cj-dark">
-        <div class="container-main">
-            <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
-                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric-light text-sm font-semibold mb-4">¿Por qué elegirnos?</span>
-                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black font-montserrat mb-4 text-white">La diferencia <span class="gradient-text">CJ</span></h2>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="glass-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="0">
-                    <div class="text-4xl mb-4">🎯</div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Enfoque práctico</h3>
-                    <p class="text-cj-silver">No vendemos teorías. Implementamos soluciones que tu equipo puede usar desde el día uno.</p>
-                </div>
-                
-                <div class="glass-card-silver rounded-2xl p-8" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-4xl mb-4">💰</div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Precios accesibles</h3>
-                    <p class="text-cj-silver">Consultoría de calidad empresarial a precios que las PYMEs pueden pagar. Desde $5,000 MXN.</p>
-                </div>
-                
-                <div class="glass-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-4xl mb-4">⚡</div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Resultados rápidos</h3>
-                    <p class="text-cj-silver">Primera consulta gratuita en 24 horas. Implementación ágil sin burocracia innecesaria.</p>
-                </div>
-                
-                <div class="glass-card-silver rounded-2xl p-8" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-4xl mb-4">👨‍💼</div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Experiencia real</h3>
-                    <p class="text-cj-silver">Más de 10 años ayudando a PYMEs. Conocemos los problemas reales porque los hemos vivido.</p>
-                </div>
-                
-                <div class="glass-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="400">
-                    <div class="text-4xl mb-4">📞</div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Acompañamiento continuo</h3>
-                    <p class="text-cj-silver">No te dejamos solo. Seguimiento post-implementación para asegurar resultados.</p>
-                </div>
-                
-                <div class="glass-card-silver rounded-2xl p-8" data-aos="fade-up" data-aos-delay="500">
-                    <div class="text-4xl mb-4">🎓</div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Capacitación incluida</h3>
-                    <p class="text-cj-silver">Tu equipo aprende a mantener los procesos. Independencia, no dependencia.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Principal -->
-    <section class="py-20 sm:py-24 relative">
+    <!-- CTA Final -->
+    <section class="py-20 bg-gradient-to-b from-cj-dark via-cj-blue to-cj-dark">
         <div class="container-main">
             <div class="glass-card-silver rounded-3xl p-8 sm:p-12 lg:p-16 text-center relative overflow-hidden" data-aos="fade-up">
                 <div class="absolute top-0 right-0 w-64 h-64 bg-cj-electric/20 rounded-full blur-3xl"></div>
@@ -748,12 +549,11 @@
                 
                 <div class="relative z-10">
                     <span class="text-6xl mb-6 block">🐺</span>
-                    <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black font-montserrat mb-6 text-white">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-montserrat mb-6 text-white">
                         ¿Listo para transformar tu <span class="gradient-text">empresa</span>?
                     </h2>
                     <p class="text-lg text-cj-silver max-w-2xl mx-auto mb-8">
-                        Agenda una consulta gratuita de 30 minutos. Sin compromiso, sin costo. 
-                        Solo una conversación para entender tus necesidades.
+                        Agenda una consulta diagnóstica gratuita de 30 minutos. Sin compromiso, sin costo. Solo una conversación para entender tus necesidades y proponerte soluciones.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <a href="cotizacion.html" class="px-10 py-5 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-xl btn-shimmer">
@@ -763,46 +563,9 @@
                             <span>💬</span> WhatsApp directo
                         </a>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contacto -->
-    <section id="contacto" class="py-20 sm:py-24 relative bg-gradient-to-b from-cj-dark via-cj-blue to-cj-dark">
-        <div class="container-main">
-            <div class="text-center mb-12" data-aos="fade-up">
-                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric-light text-sm font-semibold mb-4">Contacto</span>
-                <h2 class="text-4xl sm:text-5xl font-black font-montserrat mb-4 text-white">Hablemos de tu <span class="gradient-text">proyecto</span></h2>
-                <p class="text-lg text-cj-silver">Elige la forma más cómoda de contactarnos.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                <a href="https://wa.me/524776940272" target="_blank" class="glass-card rounded-2xl p-6 text-center hover-lift group" data-aos="fade-up" data-aos-delay="0">
-                    <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center text-3xl mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                        💬
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 text-white">WhatsApp</h3>
-                    <p class="text-cj-silver text-sm">+52 477 694 0272</p>
-                    <p class="text-xs text-cj-electric mt-2">Respuesta inmediata</p>
-                </a>
-                
-                <a href="mailto:cj.consultoria.sgc@gmail.com" class="glass-card-silver rounded-2xl p-6 text-center hover-lift group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-cj-electric to-cj-electric-light flex items-center justify-center text-3xl mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                        📧
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 text-white">Email</h3>
-                    <p class="text-cj-silver text-sm">cj.consultoria.sgc@gmail.com</p>
-                    <p class="text-xs text-cj-electric mt-2">Respuesta en 24h</p>
-                </a>
-                
-                <div class="glass-card rounded-2xl p-6 text-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-cj-electric to-cj-electric-light flex items-center justify-center text-3xl mb-4 shadow-lg">
-                        📍
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 text-white">Ubicación</h3>
-                    <p class="text-cj-silver text-sm">León, Guanajuato, México</p>
-                    <p class="text-xs text-cj-electric mt-2">Atención nacional</p>
+                    <p class="text-sm text-cj-silver mt-6">
+                        Respuesta garantizada en menos de 24 horas hábiles.
+                    </p>
                 </div>
             </div>
         </div>
@@ -822,27 +585,26 @@
                             <span class="block text-xs text-cj-electric">TRANSFORMAMOS PROCESOS</span>
                         </div>
                     </div>
-                    <p class="text-xs sm:text-sm text-cj-silver leading-relaxed">Transformamos procesos en resultados sostenibles para PYMEs y emprendedores.</p>
+                    <p class="text-xs sm:text-sm text-cj-silver leading-relaxed">Reducimos las mermas de tu empresa hasta 25%. Consultoría práctica y orientada a resultados para PYMEs manufactureras.</p>
                 </div>
                 
                 <div>
                     <h4 class="font-semibold mb-4 text-sm sm:text-base text-white">Servicios</h4>
                     <ul class="space-y-2 text-xs sm:text-sm text-cj-silver">
-                        <li><a href="procedimientos.html" class="hover:text-white transition-colors">Procedimientos</a></li>
-                        <li><a href="iso.html" class="hover:text-white transition-colors">ISO y Sistemas</a></li>
-                        <li><a href="mejora.html" class="hover:text-white transition-colors">Mejora Continua</a></li>
-                        <li><a href="excel.html" class="hover:text-white transition-colors">Excel y BI</a></li>
+                        <li><a href="procedimientos.html" class="hover:text-cj-electric transition-colors">Procedimientos</a></li>
+                        <li><a href="iso.html" class="hover:text-cj-electric transition-colors">ISO y Sistemas</a></li>
+                        <li><a href="mejora.html" class="hover:text-cj-electric transition-colors">Mejora Continua</a></li>
+                        <li><a href="excel.html" class="hover:text-cj-electric transition-colors">Excel y BI</a></li>
                     </ul>
                 </div>
                 
                 <div>
                     <h4 class="font-semibold mb-4 text-sm sm:text-base text-white">Enlaces</h4>
                     <ul class="space-y-2 text-xs sm:text-sm text-cj-silver">
-                        <li><a href="index.html" class="hover:text-white transition-colors">Inicio</a></li>
-                        <li><a href="servicios.html" class="hover:text-white transition-colors">Servicios</a></li>
-                        <li><a href="nosotros.html" class="hover:text-white transition-colors">Nosotros</a></li>
-                        <li><a href="blog.html" class="hover:text-white transition-colors">Blog</a></li>
-                        <li><a href="cotizacion.html" class="hover:text-white transition-colors">Cotizar</a></li>
+                        <li><a href="casos.html" class="hover:text-cj-electric transition-colors">Casos de Éxito</a></li>
+                        <li><a href="servicios.html" class="hover:text-cj-electric transition-colors">Servicios</a></li>
+                        <li><a href="nosotros.html" class="hover:text-cj-electric transition-colors">Nosotros</a></li>
+                        <li><a href="cotizacion.html" class="hover:text-cj-electric transition-colors">Cotizar</a></li>
                     </ul>
                 </div>
                 
@@ -866,135 +628,32 @@
         </div>
     </footer>
 
-    <!-- WhatsApp Float -->
-    <div id="whatsapp-chat" class="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-[9996]">
-        <a href="https://wa.me/524776940272?text=Hola%20CJ%20Consultoría!%20Vengo%20de%20su%20página%20web%20y%20me%20gustaría%20agendar%20una%20consulta%20gratuita." target="_blank" class="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-r from-green-500 to-green-600 text-white shadow-2xl transition-all hover:scale-110 animate-pulse-glow">
-            <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
+    <!-- WhatsApp -->
+    <div class="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-[9996]">
+        <a href="https://wa.me/524776940272?text=Hola%20CJ%20Consultoría!%20Vengo%20de%20su%20página%20web%20y%20me%20gustaría%20agendar%20una%20consulta%20gratuita." target="_blank" class="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-r from-green-500 to-green-600 text-white shadow-2xl transition-all hover:scale-110 animate-pulse">
+            <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         </a>
     </div>
 
-    <!-- Mobile Sticky CTA -->
+    <!-- Mobile Sticky -->
     <div class="mobile-sticky-cta">
-        <a href="https://wa.me/524776940272" target="_blank" class="flex-1 py-3 bg-green-500 hover:bg-green-600 text-white rounded-xl font-semibold text-center flex items-center justify-center gap-2 transition-colors text-sm">
-            <span>💬</span> WhatsApp
-        </a>
-        <a href="cotizacion.html" class="flex-1 py-3 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-xl font-semibold text-center flex items-center justify-center gap-2 text-sm">
-            <span>📅</span> Cotizar
-        </a>
+        <a href="https://wa.me/524776940272" target="_blank" class="flex-1 py-3 bg-green-500 hover:bg-green-600 text-white rounded-xl font-semibold text-center flex items-center justify-center gap-2 transition-colors text-sm"><span>💬</span> WhatsApp</a>
+        <a href="cotizacion.html" class="flex-1 py-3 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-xl font-semibold text-center flex items-center justify-center gap-2 text-sm"><span>📅</span> Cotizar</a>
     </div>
 
-    <!-- AOS Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
     <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 50,
-            easing: 'ease-out-cubic',
-            disable: window.innerWidth < 768 ? true : false
-        });
+        AOS.init({ duration: 800, once: true, offset: 50, easing: 'ease-out-cubic', disable: window.innerWidth < 768 ? true : false });
 
-        // Progress Bar
-        window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('progress-bar').style.width = scrolled + '%';
-        });
-
-        // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('glass');
-                navbar.classList.remove('py-4');
-                navbar.classList.add('py-2');
-            } else {
-                navbar.classList.remove('glass');
-                navbar.classList.remove('py-2');
-                navbar.classList.add('py-4');
-            }
+            if (window.scrollY > 50) { navbar.classList.add('glass'); navbar.classList.remove('py-4'); navbar.classList.add('py-2'); }
+            else { navbar.classList.remove('glass'); navbar.classList.remove('py-2'); navbar.classList.add('py-4'); }
         });
 
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
         });
-
-        // Close mobile menu on link click
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Typing effect
-        const words = ['sostenibles', 'medibles', 'reales', 'duraderos'];
-        let wordIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typingElement = document.getElementById('typing-text');
-
-        function type() {
-            const currentWord = words[wordIndex];
-            
-            if (isDeleting) {
-                typingElement.textContent = currentWord.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typingElement.textContent = currentWord.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            let typeSpeed = isDeleting ? 50 : 100;
-
-            if (!isDeleting && charIndex === currentWord.length) {
-                typeSpeed = 2000;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
-                typeSpeed = 500;
-            }
-
-            setTimeout(type, typeSpeed);
-        }
-        setTimeout(type, 1000);
-
-        // Counter animation
-        const counters = document.querySelectorAll('.counter');
-        const animateCounter = (counter) => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.innerText;
-            const inc = target / 100;
-
-            if (count < target) {
-                counter.innerText = Math.ceil(count + inc);
-                setTimeout(() => animateCounter(counter), 15);
-            } else {
-                counter.innerText = target;
-                if (counter.parentElement.innerText.includes('PYMEs') || counter.parentElement.innerText.includes('%')) {
-                    counter.innerText = '+' + target;
-                }
-            }
-        };
-
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounter(entry.target);
-                    counterObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        counters.forEach(counter => counterObserver.observe(counter));
     </script>
 </body>
 </html>
