@@ -3,21 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Consultoría especializada para empresas manufactureras en León y Celaya. Reducimos mermas, implementamos ISO 9001 y optimizamos procesos de producción.">
+    <meta name="description" content="Consultoría especializada en logística y cadena de suministro para León y Celaya. Optimización de bodegas, rutas y flujos de transporte.">
     <meta name="theme-color" content="#0B1F3A">
-    <title>Consultoría para Manufactureras | CJ Consultoría - León, Gto.</title>
+    <title>Consultoría en Logística y Cadena de Suministro | CJ Consultoría - León, Gto.</title>
     
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐺</text></svg>">
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
     
-    <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -76,11 +73,6 @@
         .particle:nth-child(3) { left: 30%; top: 40%; animation-delay: 2s; animation-duration: 14s; }
         .particle:nth-child(4) { left: 40%; top: 60%; animation-delay: 3s; animation-duration: 16s; width: 5px; height: 5px; }
         .particle:nth-child(5) { left: 50%; top: 30%; animation-delay: 4s; animation-duration: 13s; }
-        .particle:nth-child(6) { left: 60%; top: 70%; animation-delay: 5s; animation-duration: 17s; width: 7px; height: 7px; }
-        .particle:nth-child(7) { left: 70%; top: 50%; animation-delay: 6s; animation-duration: 15s; }
-        .particle:nth-child(8) { left: 80%; top: 25%; animation-delay: 7s; animation-duration: 19s; width: 5px; height: 5px; }
-        .particle:nth-child(9) { left: 90%; top: 75%; animation-delay: 8s; animation-duration: 14s; }
-        .particle:nth-child(10) { left: 15%; top: 55%; animation-delay: 9s; animation-duration: 16s; width: 6px; height: 6px; }
         
         @keyframes float-particle {
             0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
@@ -94,9 +86,6 @@
         .connection-line:nth-child(1) { width: 300px; top: 20%; left: 5%; transform: rotate(25deg); animation-delay: 0s; }
         .connection-line:nth-child(2) { width: 250px; top: 40%; right: 10%; transform: rotate(-15deg); animation-delay: 1s; }
         .connection-line:nth-child(3) { width: 350px; top: 60%; left: 15%; transform: rotate(10deg); animation-delay: 2s; }
-        .connection-line:nth-child(4) { width: 280px; top: 80%; right: 20%; transform: rotate(-30deg); animation-delay: 3s; }
-        .connection-line:nth-child(5) { width: 320px; top: 30%; left: 40%; transform: rotate(45deg); animation-delay: 1.5s; }
-        .connection-line:nth-child(6) { width: 200px; top: 70%; left: 60%; transform: rotate(-20deg); animation-delay: 2.5s; }
         
         @keyframes pulse-line {
             0%, 100% { opacity: 0.2; box-shadow: 0 0 5px rgba(46, 125, 232, 0.3); }
@@ -107,8 +96,6 @@
         .pulse-circle { position: absolute; border: 2px solid rgba(46, 125, 232, 0.3); border-radius: 50%; animation: pulse-ring 4s ease-out infinite; }
         .pulse-circle:nth-child(1) { width: 100px; height: 100px; top: 15%; left: 10%; animation-delay: 0s; }
         .pulse-circle:nth-child(2) { width: 150px; height: 150px; top: 60%; right: 15%; animation-delay: 1.5s; }
-        .pulse-circle:nth-child(3) { width: 80px; height: 80px; top: 40%; left: 70%; animation-delay: 3s; }
-        .pulse-circle:nth-child(4) { width: 120px; height: 120px; bottom: 20%; left: 30%; animation-delay: 2s; }
         
         @keyframes pulse-ring {
             0% { transform: scale(0.8); opacity: 0.8; border-color: rgba(46, 125, 232, 0.6); }
@@ -143,14 +130,12 @@
     <!-- Fondo animado -->
     <div class="particles-container">
         <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
-        <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
     </div>
     <div class="connection-lines">
         <div class="connection-line"></div><div class="connection-line"></div><div class="connection-line"></div>
-        <div class="connection-line"></div><div class="connection-line"></div><div class="connection-line"></div>
     </div>
     <div class="pulse-circles">
-        <div class="pulse-circle"></div><div class="pulse-circle"></div><div class="pulse-circle"></div><div class="pulse-circle"></div>
+        <div class="pulse-circle"></div><div class="pulse-circle"></div>
     </div>
 
     <!-- Navigation -->
@@ -174,14 +159,14 @@
                             Industrias <span class="text-xs">▼</span>
                         </button>
                         <div class="absolute top-full left-0 mt-2 w-56 glass rounded-xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                            <a href="industria-manufactura.html" class="block px-4 py-2 rounded-lg hover:bg-white/10 text-white text-sm">🏭 Manufactura</a>
+                            <a href="industria-manufactura.html" class="block px-4 py-2 rounded-lg hover:bg-white/10 text-cj-silver text-sm">🏭 Manufactura</a>
                             <a href="industria-retail.html" class="block px-4 py-2 rounded-lg hover:bg-white/10 text-cj-silver text-sm">🛒 Retail y Comercio</a>
-                            <a href="industria-logistica.html" class="block px-4 py-2 rounded-lg hover:bg-white/10 text-cj-silver text-sm">📦 Logística</a>
+                            <a href="industria-logistica.html" class="block px-4 py-2 rounded-lg hover:bg-white/10 text-white text-sm">📦 Logística</a>
                         </div>
                     </div>
                     <a href="casos.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Casos</a>
                     <a href="recursos.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Recursos</a>
-                    <a href="cotizacion.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Cotización</a>
+                    <a href="cotizacion.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Cotizar</a>
                     
                     <a href="cotizacion.html" class="px-5 py-2.5 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-full font-semibold text-sm transition-all hover:scale-105 shadow-lg shadow-cj-electric/30 btn-shimmer">Cotizar</a>
                 </div>
@@ -195,9 +180,9 @@
         <div id="mobile-menu" class="hidden lg:hidden glass mt-4 mx-4 rounded-2xl p-4 border border-cj-electric/20">
             <div class="flex flex-col gap-2">
                 <a href="index.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">🏠 Inicio</a>
-                <a href="industria-manufactura.html" class="px-4 py-3 rounded-xl bg-cj-electric/20 text-cj-electric-light transition-colors text-base font-semibold">🏭 Manufactura</a>
+                <a href="industria-manufactura.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">🏭 Manufactura</a>
                 <a href="industria-retail.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">🛒 Retail</a>
-                <a href="industria-logistica.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">📦 Logística</a>
+                <a href="industria-logistica.html" class="px-4 py-3 rounded-xl bg-cj-electric/20 text-cj-electric-light transition-colors text-base font-semibold">📦 Logística</a>
                 <a href="casos.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">📊 Casos</a>
                 <a href="recursos.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">📚 Recursos</a>
                 <a href="cotizacion.html" class="px-4 py-3 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-xl text-center font-semibold text-base mt-2">📝 Cotizar</a>
@@ -205,54 +190,54 @@
         </div>
     </nav>
 
-    <!-- Hero Específico -->
+    <!-- Hero -->
     <section class="relative min-h-[70vh] flex items-center pt-24 pb-12">
         <div class="container-main relative z-10">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div data-aos="fade-right">
                     <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-cj-electric/50 mb-6">
-                        <span class="text-xl">🏭</span>
-                        <span class="text-sm font-semibold text-cj-electric-light">Especialistas en Manufactura</span>
+                        <span class="text-xl">📦</span>
+                        <span class="text-sm font-semibold text-cj-electric-light">Especialistas en Logística</span>
                     </span>
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black font-montserrat mb-6 text-white">
-                        Deja de perder dinero con <span class="gradient-text">mermas de producción</span>
+                        Bodegas eficientes y <span class="gradient-text">rutas optimizadas</span>
                     </h1>
                     <p class="text-lg text-cj-silver mb-6">
-                        Reducimos las mermas de empresas manufactureras en León y Celaya hasta un 65%. Especialistas en mueblerías, metalmecánica y textiles.
+                        Reduce costos de almacenamiento y transporte. Diseñamos flujos de carga, layout de bodegas y sistemas de rastreo para empresas de logística en León, Celaya y Guanajuato.
                     </p>
                     <ul class="space-y-3 mb-8 text-cj-silver">
-                        <li class="flex items-center gap-2"><span class="text-cj-electric">✓</span> Control de calidad ISO 9001</li>
-                        <li class="flex items-center gap-2"><span class="text-cj-electric">✓</span> Sistemas de producción Lean</li>
-                        <li class="flex items-center gap-2"><span class="text-cj-electric">✓</span> Dashboards de producción en tiempo real</li>
+                        <li class="flex items-center gap-2"><span class="text-cj-electric">✓</span> Optimización de espacios de almacén</li>
+                        <li class="flex items-center gap-2"><span class="text-cj-electric">✓</span> Rutas de distribución eficientes</li>
+                        <li class="flex items-center gap-2"><span class="text-cj-electric">✓</span> Sistemas de trazabilidad WMS</li>
                     </ul>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="cotizacion.html" class="px-8 py-4 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-xl font-bold transition-all shadow-xl hover:scale-105 btn-shimmer text-center">
                             📅 Diagnóstico gratuito
                         </a>
                         <a href="#casos" class="px-8 py-4 border-2 border-cj-silver text-white hover:border-cj-electric rounded-xl font-bold transition-all text-center">
-                            📊 Ver casos en manufactura
+                            📊 Ver casos en logística
                         </a>
                     </div>
                 </div>
                 <div class="relative" data-aos="fade-left">
                     <div class="glass-card rounded-3xl p-8">
                         <div class="text-center mb-6">
-                            <p class="text-7xl font-black text-white">-65%</p>
-                            <p class="text-cj-electric-light font-semibold">PROMEDIO DE REDUCCIÓN</p>
-                            <p class="text-sm text-cj-silver">en mermas de producción</p>
+                            <p class="text-7xl font-black text-white">40%</p>
+                            <p class="text-cj-electric-light font-semibold">REDUCCIÓN EN COSTOS</p>
+                            <p class="text-sm text-cj-silver">operativos después de implementación</p>
                         </div>
                         <div class="space-y-4">
                             <div class="flex items-center justify-between p-4 rounded-xl bg-white/5">
-                                <span class="text-cj-silver">Mueblerías</span>
-                                <span class="text-white font-bold">-68%</span>
+                                <span class="text-cj-silver">Tiempos de picking</span>
+                                <span class="text-white font-bold">-60%</span>
                             </div>
                             <div class="flex items-center justify-between p-4 rounded-xl bg-white/5">
-                                <span class="text-cj-silver">Metal-mecánica</span>
-                                <span class="text-white font-bold">-62%</span>
+                                <span class="text-cj-silver">Eficiencia de espacio</span>
+                                <span class="text-white font-bold">+35%</span>
                             </div>
                             <div class="flex items-center justify-between p-4 rounded-xl bg-white/5">
-                                <span class="text-cj-silver">Textiles</span>
-                                <span class="text-white font-bold">-58%</span>
+                                <span class="text-cj-silver">Precisión de envíos</span>
+                                <span class="text-white font-bold">99.5%</span>
                             </div>
                         </div>
                     </div>
@@ -261,133 +246,133 @@
         </div>
     </section>
 
-    <!-- Problemas específicos de manufactura -->
+    <!-- Problemas específicos -->
     <section class="py-20 bg-gradient-to-b from-cj-dark via-cj-blue to-cj-dark">
         <div class="container-main">
             <div class="text-center mb-16" data-aos="fade-up">
-                <span class="inline-block px-4 py-1 rounded-full glass border border-red-500/50 text-red-400 text-sm font-semibold mb-4">DIORES DE LA INDUSTRIA</span>
-                <h2 class="text-4xl sm:text-5xl font-black font-montserrat mb-4 text-white">Problemas en <span class="gradient-text">manufactura</span> que resolvemos</h2>
+                <span class="inline-block px-4 py-1 rounded-full glass border border-red-500/50 text-red-400 text-sm font-semibold mb-4">DIORES DEL SECTOR LOGÍSTICA</span>
+                <h2 class="text-4xl sm:text-5xl font-black font-montserrat mb-4 text-white">Problemas en <span class="gradient-text">logística</span> que resolvemos</h2>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="pain-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="0">
-                    <div class="text-4xl mb-4">📉</div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Mermas por error humano</h3>
-                    <p class="text-cj-silver text-sm mb-4">Piezas defectuosas que se acumulan porque no hay checkpoints de calidad.</p>
-                    <p class="text-red-400 text-sm font-semibold">→ Solución: Checkpoints ISO 9001</p>
+                    <div class="text-4xl mb-4">🏭</div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Bodega caótica</h3>
+                    <p class="text-cj-silver text-sm mb-4">No sabes dónde está cada producto. Los operadores pierden tiempo buscando mercancía.</p>
+                    <p class="text-red-400 text-sm font-semibold">→ Solución: Sistema de ubicaciones (location system)</p>
                 </div>
                 
                 <div class="pain-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-4xl mb-4">⏱️</div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Tiempos muertos en producción</h3>
-                    <p class="text-cj-silver text-sm mb-4">Operarios esperando material o instrucciones. Falta de planeación.</p>
-                    <p class="text-red-400 text-sm font-semibold">→ Solución: Sistema Kanban + 5S</p>
+                    <div class="text-4xl mb-4">🚚</div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Rutas ineficientes</h3>
+                    <p class="text-cj-silver text-sm mb-4">Los choferes recorren más de lo necesario. Combustible y tiempo desperdiciado.</p>
+                    <p class="text-red-400 text-sm font-semibold">→ Solución: Optimización de rutas con software</p>
                 </div>
                 
                 <div class="pain-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-4xl mb-4">📋</div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Sin control de costos por lote</h3>
-                    <p class="text-cj-silver text-sm mb-4">No saben cuánto cuesta producir cada pieza ni cuál es la rentable.</p>
-                    <p class="text-red-400 text-sm font-semibold">→ Solución: Dashboard de costos</p>
+                    <div class="text-4xl mb-4">📦</div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Errores en envíos</h3>
+                    <p class="text-cj-silver text-sm mb-4">Clientes reciben lo que no pidieron. Devoluciones y costos de reenvío.</p>
+                    <p class="text-red-400 text-sm font-semibold">→ Solución: Verificación múltiple con lectores</p>
                 </div>
                 
                 <div class="pain-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-4xl mb-4">🔄</div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Reprocesos constantes</h3>
-                    <p class="text-cj-silver text-sm mb-4">Trabajo doble porque la primera vez no salió bien. Sin estandarización.</p>
-                    <p class="text-red-400 text-sm font-semibold">→ Solución: Fichas técnicas estandarizadas</p>
+                    <div class="text-4xl mb-4">⏱️</div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Picking muy lento</h3>
+                    <p class="text-cj-silver text-sm mb-4">Operadores caminan kilómetros al día. Pedidos pequeños toman demasiado tiempo.</p>
+                    <p class="text-red-400 text-sm font-semibold">→ Solución: Layout optimizado + zonas de picking</p>
                 </div>
                 
                 <div class="pain-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="text-4xl mb-4">📦</div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Inventario descontrolado</h3>
-                    <p class="text-cj-silver text-sm mb-4">Falta material para producir o sobra ocupando espacio y capital.</p>
-                    <p class="text-red-400 text-sm font-semibold">→ Solución: StockWolf ERP</p>
+                    <div class="text-4xl mb-4">🤷</div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Sin visibilidad</h3>
+                    <p class="text-cj-silver text-sm mb-4">No sabes dónde está un pedido específico. Clientes llaman constantemente.</p>
+                    <p class="text-red-400 text-sm font-semibold">→ Solución: Sistema de trazabilidad en tiempo real</p>
                 </div>
                 
                 <div class="pain-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="500">
-                    <div class="text-4xl mb-4">🏭</div>
-                    <h3 class="text-xl font-bold mb-3 text-white">No pueden vender a grandes</h3>
-                    <p class="text-cj-silver text-sm mb-4">Los descalifican de licitaciones por no tener ISO 9001.</p>
-                    <p class="text-red-400 text-sm font-semibold">→ Solución: Certificación ISO 9001:2015</p>
+                    <div class="text-4xl mb-4">💸</div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Espacio desperdiciado</h3>
+                    <p class="text-cj-silver text-sm mb-4">Tu almacén está lleno pero no tienes productos que venden. Productos muertos ocupan lugar.</p>
+                    <p class="text-red-400 text-sm font-semibold">→ Solución: Rotación ABC + reubicación dinámica</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Soluciones específicas -->
+    <!-- Soluciones -->
     <section class="py-20 relative">
         <div class="container-main">
             <div class="text-center mb-16" data-aos="fade-up">
                 <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric-light text-sm font-semibold mb-4">SOLUCIONES</span>
-                <h2 class="text-4xl sm:text-5xl font-black font-montserrat mb-4 text-white">Servicios para <span class="gradient-text">manufactureras</span></h2>
+                <h2 class="text-4xl sm:text-5xl font-black font-montserrat mb-4 text-white">Servicios para <span class="gradient-text">logística</span></h2>
             </div>
             
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="solution-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="0">
                     <div class="flex items-center gap-4 mb-6">
-                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cj-electric to-cj-electric-light flex items-center justify-center text-2xl">📋</div>
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cj-electric to-cj-electric-light flex items-center justify-center text-2xl">🏭</div>
                         <div>
-                            <h3 class="text-xl font-bold text-white">Procesos de Producción</h3>
-                            <p class="text-cj-electric text-sm">Desde $8,000 MXN</p>
+                            <h3 class="text-xl font-bold text-white">Diseño de Almacén</h3>
+                            <p class="text-cj-electric text-sm">Desde $15,000 MXN</p>
                         </div>
                     </div>
                     <ul class="space-y-3 text-cj-silver mb-6">
-                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Mapeo de procesos productivos</li>
-                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Fichas técnicas de operación</li>
-                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Control de calidad en línea</li>
-                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Capacitación a operarios</li>
+                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Layout optimizado de bodega</li>
+                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Sistema de ubicaciones (A01-B02)</li>
+                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Zonas de picking rápido</li>
+                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Flujo de materiales sin contracorriente</li>
                     </ul>
                     <a href="cotizacion.html" class="block w-full py-3 bg-cj-electric/20 text-cj-electric-light rounded-xl text-center font-semibold hover:bg-cj-electric hover:text-white transition-all">Cotizar este servicio →</a>
                 </div>
                 
                 <div class="solution-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="100">
                     <div class="flex items-center gap-4 mb-6">
-                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cj-silver to-white flex items-center justify-center text-2xl text-cj-blue">⚙️</div>
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-2xl">🚚</div>
                         <div>
-                            <h3 class="text-xl font-bold text-white">ISO 9001 para Manufactura</h3>
-                            <p class="text-cj-electric text-sm">Desde $15,000 MXN</p>
+                            <h3 class="text-xl font-bold text-white">Rutas de Distribución</h3>
+                            <p class="text-cj-electric text-sm">Desde $12,000 MXN</p>
                         </div>
                     </div>
                     <ul class="space-y-3 text-cj-silver mb-6">
-                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Documentación del sistema de calidad</li>
-                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Preparación para auditoría</li>
-                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Checkpoints de control de calidad</li>
-                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Certificación en 3-4 meses</li>
+                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Análisis de rutas actuales</li>
+                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Propuesta de rutas optimizadas</li>
+                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Asignación de vehículos por zona</li>
+                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> KPIs de entrega</li>
                     </ul>
                     <a href="cotizacion.html" class="block w-full py-3 bg-cj-electric/20 text-cj-electric-light rounded-xl text-center font-semibold hover:bg-cj-electric hover:text-white transition-all">Cotizar este servicio →</a>
                 </div>
                 
                 <div class="solution-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="200">
                     <div class="flex items-center gap-4 mb-6">
-                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-2xl">📈</div>
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-2xl">🐺</div>
                         <div>
-                            <h3 class="text-xl font-bold text-white">Lean Manufacturing</h3>
-                            <p class="text-cj-electric text-sm">Desde $10,000 MXN</p>
+                            <h3 class="text-xl font-bold text-white">StockWolf WMS</h3>
+                            <p class="text-cj-electric text-sm">Desde $20,000 MXN</p>
                         </div>
                     </div>
                     <ul class="space-y-3 text-cj-silver mb-6">
-                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Identificación de 7 desperdicios</li>
-                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Implementación de Kanban</li>
-                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> 5S en área de producción</li>
-                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Mejora continua (Kaizen)</li>
+                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Sistema WMS completo</li>
+                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Control de recepción y envío</li>
+                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Trazabilidad de lotes</li>
+                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Dashboard de operaciones</li>
                     </ul>
                     <a href="cotizacion.html" class="block w-full py-3 bg-cj-electric/20 text-cj-electric-light rounded-xl text-center font-semibold hover:bg-cj-electric hover:text-white transition-all">Cotizar este servicio →</a>
                 </div>
                 
                 <div class="solution-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="300">
                     <div class="flex items-center gap-4 mb-6">
-                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-2xl">📊</div>
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cj-silver to-white flex items-center justify-center text-2xl text-cj-blue">⚙️</div>
                         <div>
-                            <h3 class="text-xl font-bold text-white">Control de Producción (Excel)</h3>
-                            <p class="text-cj-electric text-sm">Desde $5,000 MXN</p>
+                            <h3 class="text-xl font-bold text-white">Procesos Logísticos</h3>
+                            <p class="text-cj-electric text-sm">Desde $10,000 MXN</p>
                         </div>
                     </div>
                     <ul class="space-y-3 text-cj-silver mb-6">
-                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Dashboard de producción diaria</li>
-                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Control de mermas por lote</li>
-                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Costos por pieza/producto</li>
-                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Alertas de desviaciones</li>
+                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Manuales de operación bodega</li>
+                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Procedimientos de picking</li>
+                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Recepción y almacenamiento</li>
+                        <li class="flex items-start gap-2"><span class="text-cj-electric">✓</span> Capacitación de operadores</li>
                     </ul>
                     <a href="cotizacion.html" class="block w-full py-3 bg-cj-electric/20 text-cj-electric-light rounded-xl text-center font-semibold hover:bg-cj-electric hover:text-white transition-all">Cotizar este servicio →</a>
                 </div>
@@ -395,102 +380,23 @@
         </div>
     </section>
 
-    <!-- Casos de éxito en manufactura -->
-    <section id="casos" class="py-20 bg-gradient-to-b from-cj-dark via-cj-blue to-cj-dark">
-        <div class="container-main">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric-light text-sm font-semibold mb-4">RESULTADOS REALES</span>
-                <h2 class="text-4xl sm:text-5xl font-black font-montserrat mb-4 text-white">Casos en <span class="gradient-text">manufactura</span></h2>
-            </div>
-            
-            <div class="glass-card rounded-3xl p-8 lg:p-12" data-aos="fade-up">
-                <div class="grid lg:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center text-xl">🪑</div>
-                            <div>
-                                <h3 class="text-2xl font-bold text-white">Mueblería Caoba</h3>
-                                <p class="text-sm text-cj-silver">Fabricación de muebles · León, Gto.</p>
-                            </div>
-                        </div>
-                        <p class="text-cj-silver mb-6">Implementación de ISO 9001 y control de calidad en línea. Reducción drástica de piezas defectuosas.</p>
-                        <div class="grid grid-cols-3 gap-4 mb-6">
-                            <div class="text-center">
-                                <p class="text-3xl font-bold text-white">-65%</p>
-                                <p class="text-xs text-cj-silver">Mermas</p>
-                            </div>
-                            <div class="text-center">
-                                <p class="text-3xl font-bold gradient-text">+95%</p>
-                                <p class="text-xs text-cj-silver">Entregas</p>
-                            </div>
-                            <div class="text-center">
-                                <p class="text-3xl font-bold text-white">$180k</p>
-                                <p class="text-xs text-cj-silver">Ahorro/año</p>
-                            </div>
-                        </div>
-                        <a href="casos.html" class="inline-flex items-center gap-2 text-cj-electric hover:text-cj-electric-light font-medium">Ver caso completo →</a>
-                    </div>
-                    <div class="glass-card-silver rounded-2xl p-6">
-                        <h4 class="font-bold text-white mb-4">Antes vs Después</h4>
-                        <div class="space-y-4">
-                            <div>
-                                <div class="flex justify-between text-sm mb-1">
-                                    <span class="text-cj-silver">Mermas mensuales</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="text-red-400 text-sm">18%</span>
-                                    <div class="flex-1 h-2 bg-white/10 rounded-full overflow-hidden">
-                                        <div class="h-full bg-red-500 rounded-full" style="width: 90%"></div>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-2 mt-1">
-                                    <span class="text-green-400 text-sm">6.3%</span>
-                                    <div class="flex-1 h-2 bg-white/10 rounded-full overflow-hidden">
-                                        <div class="h-full bg-green-500 rounded-full" style="width: 31%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between text-sm mb-1">
-                                    <span class="text-cj-silver">Entregas a tiempo</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="text-red-400 text-sm">60%</span>
-                                    <div class="flex-1 h-2 bg-white/10 rounded-full overflow-hidden">
-                                        <div class="h-full bg-red-500 rounded-full" style="width: 60%"></div>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-2 mt-1">
-                                    <span class="text-green-400 text-sm">95%</span>
-                                    <div class="flex-1 h-2 bg-white/10 rounded-full overflow-hidden">
-                                        <div class="h-full bg-green-500 rounded-full" style="width: 95%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- CTA -->
-    <section class="py-20">
+    <section class="py-20 bg-gradient-to-b from-cj-dark via-cj-blue to-cj-dark">
         <div class="container-main">
             <div class="glass-card-silver rounded-3xl p-8 lg:p-16 text-center" data-aos="fade-up">
-                <span class="text-6xl mb-6 block">🏭</span>
+                <span class="text-6xl mb-6 block">📦</span>
                 <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-montserrat mb-6 text-white">
-                    ¿Eres fabricante en <span class="gradient-text">León o Celaya</span>?
+                    ¿Tienes una bodega en <span class="gradient-text">León o Celaya</span>?
                 </h2>
                 <p class="text-lg text-cj-silver max-w-2xl mx-auto mb-8">
-                    Conocemos los problemas específicos de la industria manufacturera de Guanajuato. Agenda un diagnóstico gratuito y te mostramos oportunidades de mejora en tu planta.
+                    Sabemos que en logística cada segundo cuenta. Agenda una visita a tu bodega y te mostramos cómo optimizar tus operaciones en 30 minutos.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="cotizacion.html" class="px-10 py-5 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-xl btn-shimmer">
-                        📅 Agendar visita a planta
+                        📅 Agendar visita a tu bodega
                     </a>
                     <a href="recursos.html" class="px-10 py-5 border-2 border-cj-electric text-cj-electric-light hover:bg-cj-electric hover:text-white rounded-xl font-bold transition-all">
-                        📚 Descargar checklist ISO
+                        📚 Descargar plantilla de layout
                     </a>
                 </div>
             </div>
@@ -511,7 +417,7 @@
                             <span class="block text-xs text-cj-electric">TRANSFORMAMOS PROCESOS</span>
                         </div>
                     </div>
-                    <p class="text-xs text-cj-silver">Especialistas en PYMEs manufactureras de León y Celaya.</p>
+                    <p class="text-xs text-cj-silver">Especialistas en logística y cadena de suministro en León y Celaya.</p>
                 </div>
                 <div>
                     <h4 class="font-semibold mb-4 text-sm text-white">Industrias</h4>
@@ -522,19 +428,11 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4 text-sm text-white">Recursos</h4>
-                    <ul class="space-y-2 text-xs text-cj-silver">
-                        <li><a href="recursos.html" class="hover:text-cj-electric transition-colors">📚 Descargables</a></li>
-                        <li><a href="casos.html" class="hover:text-cj-electric transition-colors">📊 Casos de éxito</a></li>
-                        <li><a href="blog.html" class="hover:text-cj-electric transition-colors">📝 Blog</a></li>
-                    </ul>
-                </div>
-                <div>
                     <h4 class="font-semibold mb-4 text-sm text-white">Contacto</h4>
                     <ul class="space-y-2 text-xs text-cj-silver">
                         <li>📱 +52 477 694 0272</li>
                         <li>✉️ cj.consultoria.sgc@gmail.com</li>
-                        <li>📍 León, Gto.</li>
+                        <li>📍 León, Gto., México</li>
                     </ul>
                 </div>
             </div>
