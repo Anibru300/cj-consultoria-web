@@ -9,7 +9,7 @@
     
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐺</text></svg>">
     
-    <!-- Fonts -->
+    <!-- Fonts: Solo 3 tipografías -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
@@ -30,14 +30,14 @@
                         'cj-electric': '#2E7DE8',
                         'cj-dark': '#0a1628',
                         'cj-accent': '#00D4FF',
+                        'cj-gold': '#D4AF37',
+                        'cj-gold-light': '#F4D03F',
+                        'cj-platinum': '#E5E4E2',
                     },
                     fontFamily: {
                         'montserrat': ['Montserrat', 'sans-serif'],
                         'opensans': ['Open Sans', 'sans-serif'],
                         'playfair': ['Playfair Display', 'serif'],
-                    },
-                    fontSize: {
-                        'xxs': '0.625rem',
                     }
                 }
             }
@@ -45,52 +45,38 @@
     </script>
     
     <style>
-        :root {
-            --primary: #2E7DE8;
-            --primary-dark: #1a5bbd;
-            --bg-dark: #0a1628;
-            --bg-card: rgba(11, 31, 58, 0.6);
-        }
+        /* TIPOGRAFÍA: Solo 3 fuentes permitidas */
+        /* 1. Montserrat: Títulos y headings */
+        /* 2. Open Sans: Cuerpo de texto */
+        /* 3. Playfair Display: Cursivas y énfasis especial */
         
         * { 
             font-family: 'Open Sans', sans-serif; 
             box-sizing: border-box;
         }
         
-        /* SCALING PROFESIONAL - Base 16px con escalado fluido */
+        h1, h2, h3, h4, h5, h6 { 
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .font-playfair { 
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+        }
+        
+        /* Tamaño base responsive */
         html {
             font-size: 16px;
-            -webkit-text-size-adjust: 100%;
-            -ms-text-size-adjust: 100%;
             scroll-behavior: smooth;
         }
         
-        /* Escalado fluido basado en viewport width */
-        @media (min-width: 1400px) {
-            html { font-size: 17px; }
-        }
-        @media (min-width: 1600px) {
-            html { font-size: 18px; }
-        }
-        @media (min-width: 1920px) {
-            html { font-size: 19px; }
-        }
-        @media (min-width: 2560px) {
-            html { font-size: 21px; }
-        }
+        @media (min-width: 1400px) { html { font-size: 17px; } }
+        @media (min-width: 1600px) { html { font-size: 18px; } }
+        @media (max-width: 640px) { html { font-size: 15px; } }
+        @media (max-width: 380px) { html { font-size: 14px; } }
         
-        /* Vista móvil optimizada */
-        @media (max-width: 640px) {
-            html { font-size: 15px; }
-        }
-        @media (max-width: 380px) {
-            html { font-size: 14px; }
-        }
-        
-        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
-        .font-playfair { font-family: 'Playfair Display', serif; }
-        
-        /* CONTENEDOR MAX-WIDTH ESCALABLE */
+        /* Contenedor principal */
         .container-main {
             width: 100%;
             max-width: 1280px;
@@ -99,12 +85,14 @@
             padding-left: 1rem;
             padding-right: 1rem;
         }
+        
         @media (min-width: 640px) {
             .container-main {
                 padding-left: 1.5rem;
                 padding-right: 1.5rem;
             }
         }
+        
         @media (min-width: 1024px) {
             .container-main {
                 padding-left: 2rem;
@@ -112,36 +100,20 @@
                 max-width: 1200px;
             }
         }
-        @media (min-width: 1400px) {
-            .container-main {
-                max-width: 1350px;
-            }
-        }
-        @media (min-width: 1920px) {
-            .container-main {
-                max-width: 1500px;
-            }
-        }
         
-        /* FONDO ESPECTACULAR CON PARTÍCULAS Y DIAGRAMAS ANIMADOS */
+        /* Fondo con gradiente */
         .bg-consulting {
             background-color: #0a1628;
             background-image: 
-                /* Blob superior derecho brillante */
-                radial-gradient(ellipse 800px 600px at 100% 0%, rgba(46, 125, 232, 0.5), transparent 60%),
-                /* Blob inferior izquierdo */
-                radial-gradient(ellipse 600px 500px at 0% 100%, rgba(0, 212, 255, 0.4), transparent 60%),
-                /* Centro iluminado */
-                radial-gradient(ellipse 400px 300px at 50% 50%, rgba(46, 125, 232, 0.15), transparent),
-                /* Fondo base */
+                radial-gradient(ellipse 800px 600px at 100% 0%, rgba(46, 125, 232, 0.4), transparent 60%),
+                radial-gradient(ellipse 600px 500px at 0% 100%, rgba(212, 175, 55, 0.15), transparent 60%),
+                radial-gradient(ellipse 400px 300px at 50% 50%, rgba(46, 125, 232, 0.1), transparent),
                 linear-gradient(180deg, #0B1F3A 0%, #071225 50%, #0a1628 100%);
             background-attachment: fixed;
             min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
         }
         
-        /* PARTÍCULAS BRILLANTES FLOTANTES */
+        /* Partículas */
         .particles-container {
             position: fixed;
             top: 0;
@@ -157,333 +129,36 @@
             position: absolute;
             width: 4px;
             height: 4px;
-            background: #2E7DE8;
+            background: #D4AF37;
             border-radius: 50%;
-            box-shadow: 0 0 10px #2E7DE8, 0 0 20px #2E7DE8, 0 0 30px #00D4FF;
+            box-shadow: 0 0 10px #D4AF37, 0 0 20px rgba(212, 175, 55, 0.5);
             animation: float-particle 15s infinite;
         }
         
-        .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; animation-duration: 12s; }
-        .particle:nth-child(2) { left: 20%; top: 80%; animation-delay: 1s; animation-duration: 18s; width: 6px; height: 6px; }
-        .particle:nth-child(3) { left: 30%; top: 40%; animation-delay: 2s; animation-duration: 14s; }
-        .particle:nth-child(4) { left: 40%; top: 60%; animation-delay: 3s; animation-duration: 16s; width: 5px; height: 5px; }
-        .particle:nth-child(5) { left: 50%; top: 30%; animation-delay: 4s; animation-duration: 13s; }
-        .particle:nth-child(6) { left: 60%; top: 70%; animation-delay: 5s; animation-duration: 17s; width: 7px; height: 7px; }
-        .particle:nth-child(7) { left: 70%; top: 50%; animation-delay: 6s; animation-duration: 15s; }
-        .particle:nth-child(8) { left: 80%; top: 25%; animation-delay: 7s; animation-duration: 19s; width: 5px; height: 5px; }
-        .particle:nth-child(9) { left: 90%; top: 75%; animation-delay: 8s; animation-duration: 14s; }
-        .particle:nth-child(10) { left: 15%; top: 55%; animation-delay: 9s; animation-duration: 16s; width: 6px; height: 6px; }
-        .particle:nth-child(11) { left: 25%; top: 15%; animation-delay: 10s; animation-duration: 12s; }
-        .particle:nth-child(12) { left: 35%; top: 85%; animation-delay: 11s; animation-duration: 18s; width: 4px; height: 4px; }
-        .particle:nth-child(13) { left: 45%; top: 45%; animation-delay: 12s; animation-duration: 15s; }
-        .particle:nth-child(14) { left: 55%; top: 65%; animation-delay: 13s; animation-duration: 17s; width: 6px; height: 6px; }
-        .particle:nth-child(15) { left: 65%; top: 35%; animation-delay: 14s; animation-duration: 13s; }
-        .particle:nth-child(16) { left: 75%; top: 90%; animation-delay: 0.5s; animation-duration: 16s; width: 5px; height: 5px; }
-        .particle:nth-child(17) { left: 85%; top: 10%; animation-delay: 1.5s; animation-duration: 14s; }
-        .particle:nth-child(18) { left: 5%; top: 45%; animation-delay: 2.5s; animation-duration: 18s; width: 7px; height: 7px; }
-        .particle:nth-child(19) { left: 95%; top: 55%; animation-delay: 3.5s; animation-duration: 15s; }
-        .particle:nth-child(20) { left: 50%; top: 95%; animation-delay: 4.5s; animation-duration: 17s; width: 6px; height: 6px; }
-        
         @keyframes float-particle {
-            0%, 100% {
-                transform: translateY(0) translateX(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) translateX(50px);
-                opacity: 0;
-            }
-        }
-        
-        /* LÍNEAS DE CONEXIÓN TIPO DIAGRAMA */
-        .connection-lines {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        .connection-line {
-            position: absolute;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(46, 125, 232, 0.4), rgba(0, 212, 255, 0.6), rgba(46, 125, 232, 0.4), transparent);
-            transform-origin: left center;
-            animation: pulse-line 4s ease-in-out infinite;
-        }
-        
-        .connection-line:nth-child(1) {
-            width: 300px;
-            top: 20%;
-            left: 5%;
-            transform: rotate(25deg);
-            animation-delay: 0s;
-        }
-        .connection-line:nth-child(2) {
-            width: 250px;
-            top: 40%;
-            right: 10%;
-            transform: rotate(-15deg);
-            animation-delay: 1s;
-        }
-        .connection-line:nth-child(3) {
-            width: 350px;
-            top: 60%;
-            left: 15%;
-            transform: rotate(10deg);
-            animation-delay: 2s;
-        }
-        .connection-line:nth-child(4) {
-            width: 280px;
-            top: 80%;
-            right: 20%;
-            transform: rotate(-30deg);
-            animation-delay: 3s;
-        }
-        .connection-line:nth-child(5) {
-            width: 320px;
-            top: 30%;
-            left: 40%;
-            transform: rotate(45deg);
-            animation-delay: 1.5s;
-        }
-        .connection-line:nth-child(6) {
-            width: 200px;
-            top: 70%;
-            left: 60%;
-            transform: rotate(-20deg);
-            animation-delay: 2.5s;
-        }
-        
-        @keyframes pulse-line {
-            0%, 100% {
-                opacity: 0.2;
-                box-shadow: 0 0 5px rgba(46, 125, 232, 0.3);
-            }
-            50% {
-                opacity: 0.8;
-                box-shadow: 0 0 20px rgba(46, 125, 232, 0.6), 0 0 40px rgba(0, 212, 255, 0.4);
-            }
-        }
-        
-        /* CÍRCULOS PULSANTES */
-        .pulse-circles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        .pulse-circle {
-            position: absolute;
-            border: 2px solid rgba(46, 125, 232, 0.3);
-            border-radius: 50%;
-            animation: pulse-ring 4s ease-out infinite;
-        }
-        
-        .pulse-circle:nth-child(1) {
-            width: 100px;
-            height: 100px;
-            top: 15%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-        .pulse-circle:nth-child(2) {
-            width: 150px;
-            height: 150px;
-            top: 60%;
-            right: 15%;
-            animation-delay: 1.5s;
-        }
-        .pulse-circle:nth-child(3) {
-            width: 80px;
-            height: 80px;
-            top: 40%;
-            left: 70%;
-            animation-delay: 3s;
-        }
-        .pulse-circle:nth-child(4) {
-            width: 120px;
-            height: 120px;
-            bottom: 20%;
-            left: 30%;
-            animation-delay: 2s;
-        }
-        
-        @keyframes pulse-ring {
-            0% {
-                transform: scale(0.8);
-                opacity: 0.8;
-                border-color: rgba(46, 125, 232, 0.6);
-            }
-            100% {
-                transform: scale(2);
-                opacity: 0;
-                border-color: rgba(0, 212, 255, 0);
-            }
-        }
-        
-        /* Patrón de puntos decorativo */
-        .bg-dots {
-            position: relative;
-        }
-        .bg-dots::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: radial-gradient(circle, rgba(46, 125, 232, 0.08) 1.5px, transparent 1.5px);
-            background-size: 30px 30px;
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        /* Animaciones */
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(46, 125, 232, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(46, 125, 232, 0.6); }
-        }
-        @keyframes gradient-shift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-        
-        .animate-float { animation: float 5s ease-in-out infinite; }
-        .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
-        .animate-marquee { animation: marquee 35s linear infinite; }
-        
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: #0B1F3A; }
-        ::-webkit-scrollbar-thumb { 
-            background: linear-gradient(180deg, #2E7DE8, #00D4FF); 
-            border-radius: 5px;
-            border: 2px solid #0B1F3A;
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
         }
         
         /* Glassmorphism */
         .glass {
-            background: rgba(11, 31, 58, 0.9);
+            background: rgba(11, 31, 58, 0.85);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
         }
+        
         .glass-card {
-            background: linear-gradient(135deg, rgba(46, 125, 232, 0.08), rgba(0, 212, 255, 0.04));
+            background: linear-gradient(135deg, rgba(46, 125, 232, 0.1), rgba(212, 175, 55, 0.05));
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(46, 125, 232, 0.15);
+            border: 1px solid rgba(46, 125, 232, 0.2);
         }
         
-        /* Hover effects */
-        .hover-lift {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .hover-lift:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(46, 125, 232, 0.15);
-        }
-        
-        .btn-shimmer {
-            position: relative;
-            overflow: hidden;
-        }
-        .btn-shimmer::after {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            animation: shimmer 2s infinite;
-        }
-        
-        /* Progress bar */
-        #progress-bar {
-            position: fixed;
-            top: 0; left: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #2E7DE8, #00D4FF);
-            z-index: 9999;
-            transition: width 0.1s;
-        }
-        
-        /* Accordion */
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
-        }
-        .accordion-content.active {
-            max-height: 600px;
-            transition: max-height 0.4s ease-in-out;
-        }
-        
-        /* Range slider */
-        input[type=range] {
-            -webkit-appearance: none;
-            background: transparent;
-        }
-        input[type=range]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            height: 22px; width: 22px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #2E7DE8, #00D4FF);
-            cursor: pointer;
-            box-shadow: 0 0 15px rgba(46, 125, 232, 0.6);
-            margin-top: -9px;
-            transition: transform 0.2s;
-        }
-        input[type=range]::-webkit-slider-thumb:hover {
-            transform: scale(1.2);
-        }
-        input[type=range]::-webkit-slider-runnable-track {
-            width: 100%; height: 4px;
-            cursor: pointer;
-            background: rgba(46, 125, 232, 0.3);
-            border-radius: 2px;
-        }
-        
-        /* Typing effect */
-        .typing-text::after {
-            content: '|';
-            animation: blink 1s infinite;
-        }
-        @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
-        
-        /* Logo wall */
-        .logo-wall {
-            display: flex;
-            overflow: hidden;
-            mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
-        }
-        .logo-wall-inner {
-            display: flex;
-            gap: 3rem;
-            padding: 0 1.5rem;
+        .glass-card-gold {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(46, 125, 232, 0.05));
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
         
         /* Gradient text */
@@ -494,20 +169,71 @@
             background-clip: text;
         }
         
-        /* Counter */
-        .counter {
-            font-variant-numeric: tabular-nums;
+        .gradient-gold {
+            background: linear-gradient(135deg, #D4AF37, #F4D03F);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
-        /* Typografía mejorada */
-        p, li {
-            line-height: 1.7;
+        /* Animaciones */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .animate-float { animation: float 5s ease-in-out infinite; }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(46, 125, 232, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(46, 125, 232, 0.6); }
+        }
+        
+        .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        .btn-shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-shimmer::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        /* Hover effects */
+        .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(46, 125, 232, 0.15);
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0B1F3A; }
+        ::-webkit-scrollbar-thumb { 
+            background: linear-gradient(180deg, #2E7DE8, #D4AF37); 
+            border-radius: 5px;
+            border: 2px solid #0B1F3A;
         }
         
         /* Mobile sticky CTA */
         .mobile-sticky-cta {
             display: none;
         }
+        
         @media (max-width: 768px) {
             .mobile-sticky-cta {
                 display: flex;
@@ -517,105 +243,54 @@
                 padding: 0.75rem 1rem;
                 z-index: 9998;
                 gap: 0.75rem;
-                border-top: 1px solid rgba(46, 125, 232, 0.3);
+                border-top: 1px solid rgba(212, 175, 55, 0.3);
             }
             body {
                 padding-bottom: 70px;
             }
         }
         
-        /* Mejoras de accesibilidad */
-        a:focus-visible,
-        button:focus-visible {
-            outline: 2px solid #2E7DE8;
-            outline-offset: 2px;
-        }
-        
-        /* Asegurar imágenes responsivas */
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        
-        /* ESTILOS PARA FOTO PROFESIONAL */
-        .photo-frame {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .photo-frame::before {
-            content: '';
+        /* Timeline */
+        .timeline-line {
             position: absolute;
-            inset: -3px;
-            background: linear-gradient(135deg, #2E7DE8, #00D4FF, #2E7DE8);
-            border-radius: inherit;
-            z-index: -1;
-            animation: gradient-rotate 3s linear infinite;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #2E7DE8, #D4AF37);
+            transform: translateX(-50%);
         }
         
-        @keyframes gradient-rotate {
-            0% { filter: hue-rotate(0deg); }
-            100% { filter: hue-rotate(360deg); }
+        @media (max-width: 768px) {
+            .timeline-line { left: 20px; }
         }
         
-        .photo-glow {
-            box-shadow: 
-                0 0 40px rgba(46, 125, 232, 0.4),
-                0 0 80px rgba(0, 212, 255, 0.2),
-                0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-        
-        .photo-glow:hover {
-            box-shadow: 
-                0 0 60px rgba(46, 125, 232, 0.6),
-                0 0 120px rgba(0, 212, 255, 0.3),
-                0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        /* Progress bar */
+        #progress-bar {
+            position: fixed;
+            top: 0; left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #2E7DE8, #D4AF37);
+            z-index: 9999;
+            transition: width 0.1s;
         }
     </style>
 </head>
 <body class="bg-consulting text-white overflow-x-hidden">
-    <!-- Partículas brillantes flotantes -->
+    <!-- Partículas doradas -->
     <div class="particles-container">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
+        <div class="particle" style="left: 10%; top: 20%; animation-delay: 0s; animation-duration: 12s;"></div>
+        <div class="particle" style="left: 20%; top: 80%; animation-delay: 1s; animation-duration: 18s; width: 6px; height: 6px;"></div>
+        <div class="particle" style="left: 30%; top: 40%; animation-delay: 2s; animation-duration: 14s;"></div>
+        <div class="particle" style="left: 40%; top: 60%; animation-delay: 3s; animation-duration: 16s; width: 5px; height: 5px;"></div>
+        <div class="particle" style="left: 50%; top: 30%; animation-delay: 4s; animation-duration: 13s;"></div>
+        <div class="particle" style="left: 60%; top: 70%; animation-delay: 5s; animation-duration: 17s; width: 7px; height: 7px;"></div>
+        <div class="particle" style="left: 70%; top: 50%; animation-delay: 6s; animation-duration: 15s;"></div>
+        <div class="particle" style="left: 80%; top: 25%; animation-delay: 7s; animation-duration: 19s; width: 5px; height: 5px;"></div>
+        <div class="particle" style="left: 90%; top: 75%; animation-delay: 8s; animation-duration: 14s;"></div>
+        <div class="particle" style="left: 15%; top: 55%; animation-delay: 9s; animation-duration: 16s; width: 6px; height: 6px;"></div>
     </div>
-    
-    <!-- Líneas de conexión tipo diagrama -->
-    <div class="connection-lines">
-        <div class="connection-line"></div>
-        <div class="connection-line"></div>
-        <div class="connection-line"></div>
-        <div class="connection-line"></div>
-        <div class="connection-line"></div>
-        <div class="connection-line"></div>
-    </div>
-    
-    <!-- Círculos pulsantes -->
-    <div class="pulse-circles">
-        <div class="pulse-circle"></div>
-        <div class="pulse-circle"></div>
-        <div class="pulse-circle"></div>
-        <div class="pulse-circle"></div>
-    </div>
-    
+
     <!-- Progress Bar -->
     <div id="progress-bar" style="width: 0%"></div>
 
@@ -624,29 +299,24 @@
         <div class="container-main">
             <div class="flex items-center justify-between">
                 <a href="#" class="flex items-center gap-3 group">
-                    <div class="w-12 h-12 rounded-xl overflow-hidden border-2 border-cj-electric bg-white group-hover:scale-110 transition-transform">
+                    <div class="w-12 h-12 rounded-xl overflow-hidden border-2 border-cj-gold bg-white group-hover:scale-110 transition-transform">
                         <img src="logo-cj.png" alt="CJ Consultoría" class="w-full h-full object-contain">
                     </div>
                     <div>
-                        <span class="text-lg lg:text-xl font-black tracking-tight font-montserrat group-hover:text-cj-electric transition-colors">CJ Consultoría</span>
-                        <span class="block text-xs text-cj-electric font-medium tracking-wider">TRANSFORMAMOS PROCESOS</span>
+                        <span class="text-lg lg:text-xl font-black tracking-tight font-montserrat group-hover:text-cj-gold transition-colors">CJ Consultoría</span>
+                        <span class="block text-xs text-cj-gold font-medium tracking-wider">TRANSFORMAMOS PROCESOS</span>
                     </div>
                 </a>
                 
-                <div class="hidden lg:flex items-center gap-5 xl:gap-6">
-                    <a href="index.html" class="text-sm xl:text-base font-medium text-cj-electric transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-cj-electric">Inicio</a>
-                    <a href="servicios.html" class="text-sm xl:text-base font-medium text-gray-300 hover:text-cj-electric transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Servicios</a>
-                    <a href="cotizacion.html" class="text-sm xl:text-base font-medium text-gray-300 hover:text-cj-electric transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Cotización</a>
-                    <a href="nosotros.html" class="text-sm xl:text-base font-medium text-gray-300 hover:text-cj-electric transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Nosotros</a>
-                    <a href="blog.html" class="text-sm xl:text-base font-medium text-gray-300 hover:text-cj-electric transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Blog</a>
-                    <a href="#contacto" class="text-sm xl:text-base font-medium text-cj-electric hover:text-cj-accent transition-colors">Contacto</a>
+                <div class="hidden lg:flex items-center gap-6 xl:gap-8">
+                    <a href="#inicio" class="text-sm xl:text-base font-medium text-cj-gold transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-cj-gold">Inicio</a>
+                    <a href="servicios.html" class="text-sm xl:text-base font-medium text-gray-300 hover:text-cj-gold transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-gold after:transition-all hover:after:w-full">Servicios</a>
+                    <a href="cotizacion.html" class="text-sm xl:text-base font-medium text-gray-300 hover:text-cj-gold transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-gold after:transition-all hover:after:w-full">Cotización</a>
+                    <a href="nosotros.html" class="text-sm xl:text-base font-medium text-gray-300 hover:text-cj-gold transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-gold after:transition-all hover:after:w-full">Nosotros</a>
+                    <a href="blog.html" class="text-sm xl:text-base font-medium text-gray-300 hover:text-cj-gold transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-gold after:transition-all hover:after:w-full">Blog</a>
                     
-                    <button id="darkModeToggle" class="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors" aria-label="Cambiar tema">
-                        <span id="darkModeIcon">🌙</span>
-                    </button>
-                    
-                    <a href="cotizacion.html" class="px-5 py-2.5 xl:px-6 xl:py-3 bg-gradient-to-r from-cj-electric to-cj-accent text-white rounded-full font-semibold text-sm xl:text-base transition-all shadow-lg shadow-cj-electric/30 hover:shadow-cj-electric/50 hover:scale-105 btn-shimmer">
-                        Cotizar Ahora
+                    <a href="#contacto" class="px-5 py-2.5 xl:px-6 xl:py-3 bg-gradient-to-r from-cj-gold to-cj-gold-light text-cj-blue rounded-full font-semibold text-sm xl:text-base transition-all shadow-lg shadow-cj-gold/30 hover:shadow-cj-gold/50 hover:scale-105 btn-shimmer">
+                        Contáctanos
                     </a>
                 </div>
                 
@@ -659,85 +329,77 @@
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden glass mt-4 mx-4 rounded-2xl p-4 border border-cj-electric/20">
+        <div id="mobile-menu" class="hidden lg:hidden glass mt-4 mx-4 rounded-2xl p-4 border border-cj-gold/20">
             <div class="flex flex-col gap-2">
-                <a href="index.html" class="px-4 py-3 rounded-xl bg-cj-electric/20 text-cj-electric transition-colors text-base font-semibold">🏠 Inicio</a>
+                <a href="#inicio" class="px-4 py-3 rounded-xl bg-cj-gold/20 text-cj-gold transition-colors text-base font-semibold">🏠 Inicio</a>
                 <a href="servicios.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">🔧 Servicios</a>
                 <a href="cotizacion.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">💰 Cotización</a>
                 <a href="nosotros.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">👤 Nosotros</a>
                 <a href="blog.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">📚 Blog</a>
-                <a href="#contacto" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">📞 Contacto</a>
-                <a href="cotizacion.html" class="px-4 py-3 bg-gradient-to-r from-cj-electric to-cj-accent rounded-xl text-center font-semibold text-base mt-2">📋 Cotizar Ahora</a>
+                <a href="#contacto" class="px-4 py-3 bg-gradient-to-r from-cj-gold to-cj-gold-light text-cj-blue rounded-xl text-center font-semibold text-base mt-2">📞 Contáctanos</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
-        <!-- Background Effects -->
+    <section id="inicio" class="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
         <div class="absolute inset-0 pointer-events-none">
             <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-cj-electric/20 rounded-full blur-[100px] animate-float"></div>
-            <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-cj-accent/10 rounded-full blur-[80px] animate-float" style="animation-delay: 2s;"></div>
+            <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-cj-gold/10 rounded-full blur-[80px] animate-float" style="animation-delay: 2s;"></div>
         </div>
         
         <div class="container-main relative z-10">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 <div class="text-center lg:text-left" data-aos="fade-right" data-aos-duration="1000">
-                    <!-- Badge -->
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-cj-electric/50 mb-6">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-cj-gold/50 mb-6">
                         <span class="text-xl">🐺</span>
-                        <span class="text-sm font-semibold text-cj-electric">Tu socio estratégico</span>
+                        <span class="text-sm font-semibold text-cj-gold">Tu socio estratégico</span>
                     </div>
                     
-                    <!-- Headline -->
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black font-montserrat leading-tight mb-6">
                         Transformamos
-                        <span class="block gradient-text">procesos</span>
-                        <span class="font-playfair italic text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-normal text-gray-300">en resultados</span>
+                        <span class="block gradient-gold">procesos</span>
+                        <span class="font-playfair italic text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-normal text-cj-silver">en resultados</span>
                         <span id="typing-text" class="block text-cj-accent mt-2 text-2xl sm:text-3xl lg:text-4xl"></span>
                     </h1>
                     
-                    <p class="text-lg lg:text-xl text-gray-300 mb-8 max-w-2xl leading-relaxed" data-aos="fade-up" data-aos-delay="200">
-                        Somos especialistas en ayudar a <strong class="text-cj-electric">PYMEs y emprendedores</strong> a ordenar sus operaciones, implementar sistemas de gestión y dominar Excel para tomar mejores decisiones.
+                    <p class="text-lg lg:text-xl text-cj-silver mb-8 max-w-2xl leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+                        Somos especialistas en ayudar a <strong class="text-cj-gold">PYMEs y emprendedores</strong> a ordenar sus operaciones, implementar sistemas de gestión y dominar Excel para tomar mejores decisiones.
                     </p>
                     
-                    <!-- CTAs -->
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10" data-aos="fade-up" data-aos-delay="400">
-                        <a href="#calculadora" class="px-8 py-4 bg-gradient-to-r from-cj-electric to-cj-accent hover:from-blue-600 hover:to-cyan-500 text-white rounded-xl font-bold transition-all shadow-xl shadow-cj-electric/30 hover:shadow-cj-electric/50 hover:scale-105 flex items-center justify-center gap-2 btn-shimmer text-base lg:text-lg">
-                            <span>💰</span> Calcula tu ahorro
+                        <a href="cotizacion.html" class="px-8 py-4 bg-gradient-to-r from-cj-gold to-cj-gold-light text-cj-blue rounded-xl font-bold transition-all shadow-xl shadow-cj-gold/30 hover:shadow-cj-gold/50 hover:scale-105 flex items-center justify-center gap-2 btn-shimmer text-base lg:text-lg">
+                            <span>💰</span> Solicita tu cotización
                         </a>
-                        <a href="#casos" class="px-8 py-4 border-2 border-cj-silver text-cj-silver hover:border-cj-electric hover:text-cj-electric rounded-xl font-bold transition-all flex items-center justify-center gap-2 hover:bg-white/5 text-base lg:text-lg">
-                            <span>📊</span> Ver casos
+                        <a href="servicios.html" class="px-8 py-4 border-2 border-cj-silver text-cj-silver hover:border-cj-gold hover:text-cj-gold rounded-xl font-bold transition-all flex items-center justify-center gap-2 hover:bg-white/5 text-base lg:text-lg">
+                            <span>📋</span> Conoce nuestros servicios
                         </a>
                     </div>
                     
-                    <!-- Stats -->
                     <div class="grid grid-cols-3 gap-4 sm:gap-6" data-aos="fade-up" data-aos-delay="600">
                         <div class="text-center lg:text-left">
-                            <p class="text-3xl sm:text-4xl lg:text-5xl font-black gradient-text counter" data-target="500">0</p>
-                            <p class="text-xs sm:text-sm text-gray-400 mt-1">PYMEs transformadas</p>
+                            <p class="text-3xl sm:text-4xl lg:text-5xl font-black gradient-gold counter" data-target="500">0</p>
+                            <p class="text-xs sm:text-sm text-cj-silver mt-1">PYMEs transformadas</p>
                         </div>
                         <div class="text-center lg:text-left">
-                            <p class="text-3xl sm:text-4xl lg:text-5xl font-black gradient-text counter" data-target="25">0</p>
-                            <p class="text-xs sm:text-sm text-gray-400 mt-1">% incremento</p>
+                            <p class="text-3xl sm:text-4xl lg:text-5xl font-black gradient-gold counter" data-target="25">0</p>
+                            <p class="text-xs sm:text-sm text-cj-silver mt-1">% incremento promedio</p>
                         </div>
                         <div class="text-center lg:text-left">
-                            <p class="text-3xl sm:text-4xl lg:text-5xl font-black gradient-text counter" data-target="98">0</p>
-                            <p class="text-xs sm:text-sm text-gray-400 mt-1">% satisfacción</p>
+                            <p class="text-3xl sm:text-4xl lg:text-5xl font-black gradient-gold counter" data-target="98">0</p>
+                            <p class="text-xs sm:text-sm text-cj-silver mt-1">% satisfacción</p>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Hero Image -->
                 <div class="relative flex justify-center items-center" data-aos="fade-left" data-aos-duration="1000">
-                    <div class="absolute -inset-4 bg-gradient-to-r from-cj-electric to-cj-accent rounded-full opacity-20 blur-3xl"></div>
+                    <div class="absolute -inset-4 bg-gradient-to-r from-cj-gold to-cj-electric rounded-full opacity-20 blur-3xl"></div>
                     <div class="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 animate-float">
                         <img src="logo-cj.png" alt="CJ Consultoría" class="w-full h-full object-contain drop-shadow-2xl">
-                        <!-- Floating elements -->
-                        <div class="absolute -top-2 -right-2 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-cj-electric to-cj-accent rounded-xl flex items-center justify-center text-2xl shadow-xl animate-float" style="animation-delay: 1s;">
+                        <div class="absolute -top-2 -right-2 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-cj-gold to-cj-gold-light rounded-xl flex items-center justify-center text-2xl shadow-xl animate-float" style="animation-delay: 1s;">
                             📈
                         </div>
-                        <div class="absolute -bottom-2 -left-2 w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-cj-accent to-cj-electric rounded-lg flex items-center justify-center text-xl shadow-xl animate-float" style="animation-delay: 2s;">
+                        <div class="absolute -bottom-2 -left-2 w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-cj-electric to-cj-accent rounded-lg flex items-center justify-center text-xl shadow-xl animate-float" style="animation-delay: 2s;">
                             ⚡
                         </div>
                     </div>
@@ -745,897 +407,257 @@
             </div>
         </div>
         
-        <!-- Scroll indicator -->
         <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <svg class="w-6 h-6 text-cj-electric" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-6 h-6 text-cj-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
         </div>
     </section>
 
     <!-- Logo Wall -->
-    <section class="py-10 sm:py-12 relative overflow-hidden border-y border-cj-electric/10">
+    <section class="py-10 sm:py-12 relative overflow-hidden border-y border-cj-gold/10">
         <div class="text-center mb-6">
-            <p class="text-xs sm:text-sm text-gray-400 uppercase tracking-widest">Empresas que confían en nosotros</p>
+            <p class="text-xs sm:text-sm text-cj-silver uppercase tracking-widest">Empresas que confían en nosotros</p>
         </div>
-        <div class="logo-wall">
-            <div class="logo-wall-inner animate-marquee">
-                <div class="flex items-center gap-3 px-5 py-2 glass rounded-xl whitespace-nowrap">
+        <div class="flex overflow-hidden mask-image-gradient">
+            <div class="flex gap-8 animate-marquee">
+                <div class="flex items-center gap-3 px-6 py-3 glass-card-gold rounded-xl whitespace-nowrap">
                     <span class="text-xl">🏢</span>
-                    <span class="font-semibold text-sm">ADIS Diseño</span>
+                    <span class="font-semibold text-sm text-cj-silver">ADIS Diseño</span>
                 </div>
-                <div class="flex items-center gap-3 px-5 py-2 glass rounded-xl whitespace-nowrap">
+                <div class="flex items-center gap-3 px-6 py-3 glass-card rounded-xl whitespace-nowrap">
                     <span class="text-xl">🪑</span>
-                    <span class="font-semibold text-sm">Caoba Muebles</span>
+                    <span class="font-semibold text-sm text-cj-silver">Caoba Muebles</span>
                 </div>
-                <div class="flex items-center gap-3 px-5 py-2 glass rounded-xl whitespace-nowrap">
+                <div class="flex items-center gap-3 px-6 py-3 glass-card-gold rounded-xl whitespace-nowrap">
                     <span class="text-xl">🏪</span>
-                    <span class="font-semibold text-sm">Decoraciones del Norte</span>
+                    <span class="font-semibold text-sm text-cj-silver">Decoraciones del Norte</span>
                 </div>
-                <div class="flex items-center gap-3 px-5 py-2 glass rounded-xl whitespace-nowrap">
+                <div class="flex items-center gap-3 px-6 py-3 glass-card rounded-xl whitespace-nowrap">
                     <span class="text-xl">🏭</span>
-                    <span class="font-semibold text-sm">Muebles Río Rico</span>
+                    <span class="font-semibold text-sm text-cj-silver">Muebles Río Rico</span>
                 </div>
-                <div class="flex items-center gap-3 px-5 py-2 glass rounded-xl whitespace-nowrap">
+                <div class="flex items-center gap-3 px-6 py-3 glass-card-gold rounded-xl whitespace-nowrap">
                     <span class="text-xl">📦</span>
-                    <span class="font-semibold text-sm">DistriMuebles</span>
+                    <span class="font-semibold text-sm text-cj-silver">DistriMuebles</span>
                 </div>
-                <div class="flex items-center gap-3 px-5 py-2 glass rounded-xl whitespace-nowrap">
+                <div class="flex items-center gap-3 px-6 py-3 glass-card rounded-xl whitespace-nowrap">
                     <span class="text-xl">🛋️</span>
-                    <span class="font-semibold text-sm">Muebles Selectos</span>
-                </div>
-                <!-- Duplicado para loop -->
-                <div class="flex items-center gap-3 px-5 py-2 glass rounded-xl whitespace-nowrap">
-                    <span class="text-xl">🏢</span>
-                    <span class="font-semibold text-sm">ADIS Diseño</span>
-                </div>
-                <div class="flex items-center gap-3 px-5 py-2 glass rounded-xl whitespace-nowrap">
-                    <span class="text-xl">🪑</span>
-                    <span class="font-semibold text-sm">Caoba Muebles</span>
-                </div>
-                <div class="flex items-center gap-3 px-5 py-2 glass rounded-xl whitespace-nowrap">
-                    <span class="text-xl">🏪</span>
-                    <span class="font-semibold text-sm">Decoraciones del Norte</span>
-                </div>
-                <div class="flex items-center gap-3 px-5 py-2 glass rounded-xl whitespace-nowrap">
-                    <span class="text-xl">🏭</span>
-                    <span class="font-semibold text-sm">Muebles Río Rico</span>
-                </div>
-                <div class="flex items-center gap-3 px-5 py-2 glass rounded-xl whitespace-nowrap">
-                    <span class="text-xl">📦</span>
-                    <span class="font-semibold text-sm">DistriMuebles</span>
-                </div>
-                <div class="flex items-center gap-3 px-5 py-2 glass rounded-xl whitespace-nowrap">
-                    <span class="text-xl">🛋️</span>
-                    <span class="font-semibold text-sm">Muebles Selectos</span>
+                    <span class="font-semibold text-sm text-cj-silver">Muebles Selectos</span>
                 </div>
             </div>
         </div>
     </section>
 
-
-    <!-- Servicios Bento Grid -->
+    <!-- Servicios Preview -->
     <section id="servicios" class="py-20 sm:py-24 relative">
         <div class="container-main">
             <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
-                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric text-sm font-semibold mb-4">Nuestros Servicios</span>
-                <h2 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black font-montserrat mb-4">4 Pilares para tu <span class="gradient-text">éxito</span></h2>
-                <p class="text-lg text-gray-400 max-w-3xl mx-auto">Soluciones integrales que cubren todas las áreas críticas de tu empresa.</p>
+                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-gold/50 text-cj-gold text-sm font-semibold mb-4">Nuestros Servicios</span>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black font-montserrat mb-4">¿Cómo podemos <span class="gradient-gold">ayudarte?</span></h2>
+                <p class="text-lg text-cj-silver max-w-3xl mx-auto">Explora nuestras áreas de especialización y descubre cómo transformamos tu empresa.</p>
             </div>
             
-            <!-- Bento Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[180px] sm:auto-rows-[200px]">
-                <!-- Procedimientos - Large -->
-                <a href="procedimientos.html" class="lg:col-span-2 lg:row-span-2 group relative overflow-hidden rounded-2xl sm:rounded-3xl glass-card hover-lift cursor-pointer block" data-aos="fade-up" data-aos-delay="100">
-                    <div class="absolute inset-0 bg-gradient-to-br from-cj-electric/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div class="p-6 sm:p-8 h-full flex flex-col justify-between relative z-10">
-                        <div>
-                            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-cj-electric to-cj-accent flex items-center justify-center mb-4 sm:mb-6 text-2xl sm:text-3xl shadow-lg group-hover:scale-110 transition-transform">
-                                📋
-                            </div>
-                            <h3 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 font-montserrat">Procedimientos</h3>
-                            <p class="text-gray-400 text-sm sm:text-base mb-4 sm:mb-6">Documentamos y optimizamos tus procesos para eliminar ineficiencias.</p>
-                        </div>
-                        <ul class="space-y-2 text-sm text-gray-300">
-                            <li class="flex items-center gap-2"><span class="text-cj-accent">✓</span> Mapeo de procesos</li>
-                            <li class="flex items-center gap-2"><span class="text-cj-accent">✓</span> Manuales de procedimientos</li>
-                            <li class="flex items-center gap-2"><span class="text-cj-accent">✓</span> Indicadores KPI</li>
-                            <li class="flex items-center gap-2"><span class="text-cj-accent">✓</span> Optimización</li>
-                        </ul>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <a href="procedimientos.html" class="glass-card rounded-2xl p-6 hover-lift text-center group" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-cj-electric to-cj-accent flex items-center justify-center text-3xl mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                        📋
                     </div>
+                    <h3 class="text-xl font-bold mb-2">Procedimientos</h3>
+                    <p class="text-sm text-cj-silver">Documentación y optimización de procesos</p>
                 </a>
                 
-                <!-- ISO -->
-                <a href="iso.html" class="group relative overflow-hidden rounded-2xl sm:rounded-3xl glass-card hover-lift cursor-pointer block" data-aos="fade-up" data-aos-delay="200">
-                    <div class="absolute inset-0 bg-gradient-to-br from-cj-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div class="p-5 sm:p-6 h-full flex flex-col relative z-10">
-                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cj-accent to-blue-500 flex items-center justify-center mb-4 text-2xl shadow-lg group-hover:scale-110 transition-transform">
-                            ⚙️
-                        </div>
-                        <h3 class="text-lg sm:text-xl font-bold mb-2 font-montserrat">Sistemas ISO</h3>
-                        <p class="text-gray-400 text-xs sm:text-sm">ISO 9001, 14001, 45001.</p>
+                <a href="iso.html" class="glass-card-gold rounded-2xl p-6 hover-lift text-center group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-cj-gold to-cj-gold-light flex items-center justify-center text-3xl mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                        ⚙️
                     </div>
+                    <h3 class="text-xl font-bold mb-2">Sistemas ISO</h3>
+                    <p class="text-sm text-cj-silver">ISO 9001, 14001, 45001</p>
                 </a>
                 
-                <!-- Mejora Continua -->
-                <a href="mejora.html" class="group relative overflow-hidden rounded-2xl sm:rounded-3xl glass-card hover-lift cursor-pointer block" data-aos="fade-up" data-aos-delay="300">
-                    <div class="absolute inset-0 bg-gradient-to-br from-green-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div class="p-5 sm:p-6 h-full flex flex-col relative z-10">
-                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center mb-4 text-2xl shadow-lg group-hover:scale-110 transition-transform">
-                            📈
-                        </div>
-                        <h3 class="text-lg sm:text-xl font-bold mb-2 font-montserrat">Mejora Continua</h3>
-                        <p class="text-gray-400 text-xs sm:text-sm">Kaizen, Lean, 5S.</p>
+                <a href="mejora.html" class="glass-card rounded-2xl p-6 hover-lift text-center group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center text-3xl mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                        📈
                     </div>
+                    <h3 class="text-xl font-bold mb-2">Mejora Continua</h3>
+                    <p class="text-sm text-cj-silver">Kaizen, Lean, 5S</p>
                 </a>
                 
-                <!-- Excel y BI -->
-                <a href="excel.html" class="lg:col-span-2 group relative overflow-hidden rounded-2xl sm:rounded-3xl glass-card hover-lift cursor-pointer block" data-aos="fade-up" data-aos-delay="400">
-                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div class="p-5 sm:p-6 h-full flex items-center gap-4 sm:gap-6 relative z-10">
-                        <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-purple-400 to-pink-600 flex items-center justify-center text-2xl sm:text-3xl shadow-lg group-hover:scale-110 transition-transform flex-shrink-0">
-                            📊
-                        </div>
-                        <div>
-                            <h3 class="text-xl sm:text-2xl font-bold mb-1 sm:mb-2 font-montserrat">Excel y Business Intelligence</h3>
-                            <p class="text-gray-400 text-sm">Dashboards, VBA, Power BI.</p>
-                        </div>
+                <a href="excel.html" class="glass-card-gold rounded-2xl p-6 hover-lift text-center group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-purple-400 to-pink-600 flex items-center justify-center text-3xl mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                        📊
                     </div>
+                    <h3 class="text-xl font-bold mb-2">Excel y BI</h3>
+                    <p class="text-sm text-cj-silver">Dashboards, VBA, Power BI</p>
+                </a>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="servicios.html" class="inline-flex items-center gap-2 px-8 py-4 border-2 border-cj-gold text-cj-gold hover:bg-cj-gold hover:text-cj-blue rounded-xl font-bold transition-all">
+                    Ver todos los servicios <span>→</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Calculadora ROI -->
-    <section id="calculadora" class="py-20 sm:py-24 relative bg-gradient-to-b from-cj-dark via-cj-blue to-cj-dark">
-        <div class="container-main">
-            <div class="text-center mb-10 sm:mb-12" data-aos="fade-up">
-                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric text-sm font-semibold mb-4">💰 Calculadora ROI</span>
-                <h2 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black font-montserrat mb-4">¿Cuánto te cuesta <span class="text-red-400">NO</span> tener procesos?</h2>
-                <p class="text-lg text-gray-400 max-w-3xl mx-auto">Descubre cuánto dinero estás dejando de ganar.</p>
-            </div>
-            
-            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
-                <!-- Inputs -->
-                <div class="p-6 sm:p-8 rounded-2xl sm:rounded-3xl glass-card" data-aos="fade-right">
-                    <h3 class="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 font-montserrat">Datos de tu empresa</h3>
-                    
-                    <div class="space-y-6 sm:space-y-8">
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <label class="text-sm font-semibold text-gray-300">Empleados</label>
-                                <span class="text-cj-accent font-bold text-lg" id="empleados-valor">10</span>
-                            </div>
-                            <input type="range" id="empleados" min="1" max="100" value="10" class="w-full" oninput="calcularROI()">
-                            <div class="flex justify-between mt-1 text-xs text-gray-500">
-                                <span>1</span>
-                                <span>100+</span>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <label class="text-sm font-semibold text-gray-300">Horas perdidas/semana</label>
-                                <span class="text-cj-accent font-bold text-lg" id="horas-valor">20h</span>
-                            </div>
-                            <input type="range" id="horas" min="5" max="80" value="20" class="w-full" oninput="calcularROI()">
-                            <div class="flex justify-between mt-1 text-xs text-gray-500">
-                                <span>5h</span>
-                                <span>80h</span>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <label class="text-sm font-semibold text-gray-300">Mermas mensuales ($)</label>
-                                <span class="text-cj-accent font-bold text-lg" id="mermas-valor">$5,000</span>
-                            </div>
-                            <input type="range" id="mermas" min="0" max="50000" value="5000" step="500" class="w-full" oninput="calcularROI()">
-                            <div class="flex justify-between mt-1 text-xs text-gray-500">
-                                <span>$0</span>
-                                <span>$50k</span>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-300 mb-2">¿Procesos documentados?</label>
-                            <select id="procesos" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-cj-electric/30 text-white focus:border-cj-electric focus:outline-none" onchange="calcularROI()">
-                                <option value="0">No, operamos informal</option>
-                                <option value="0.3">Algunos, desactualizados</option>
-                                <option value="0.7">Sí, pero mejorables</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Results -->
-                <div class="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-cj-electric/20 to-cj-blue/50 border border-cj-electric/50" data-aos="fade-left">
-                    <h3 class="text-xl sm:text-2xl font-bold mb-6 font-montserrat">Tu pérdida anual estimada</h3>
-                    
-                    <div class="text-center mb-6 sm:mb-8 p-4 sm:p-6 rounded-2xl bg-white/5">
-                        <p class="text-sm text-gray-400 mb-2">Estás perdiendo:</p>
-                        <p class="text-4xl sm:text-5xl lg:text-6xl font-black gradient-text" id="perdida-total">$78,000</p>
-                        <p class="text-sm text-gray-400">por año</p>
-                    </div>
-                    
-                    <div class="space-y-3 mb-6 sm:mb-8">
-                        <div class="flex justify-between items-center p-3 sm:p-4 rounded-xl bg-white/5">
-                            <span class="text-gray-300 text-sm">Tiempo desperdiciado</span>
-                            <span class="font-bold text-cj-accent text-base sm:text-lg" id="perdida-tiempo">$48,000</span>
-                        </div>
-                        <div class="flex justify-between items-center p-3 sm:p-4 rounded-xl bg-white/5">
-                            <span class="text-gray-300 text-sm">Mermas y pérdidas</span>
-                            <span class="font-bold text-cj-accent text-base sm:text-lg" id="perdida-mermas">$60,000</span>
-                        </div>
-                        <div class="flex justify-between items-center p-3 sm:p-4 rounded-xl bg-white/5">
-                            <span class="text-gray-300 text-sm">Ineficiencia operativa</span>
-                            <span class="font-bold text-cj-accent text-base sm:text-lg" id="perdida-eficiencia">$30,000</span>
-                        </div>
-                    </div>
-                    
-                    <div class="p-4 sm:p-6 rounded-xl bg-gradient-to-r from-cj-electric/30 to-cj-accent/20 border border-cj-electric/50 text-center">
-                        <p class="text-sm text-gray-300 mb-2">Con CJ Consultoría ahorras:</p>
-                        <p class="text-3xl sm:text-4xl font-black text-white mb-2" id="ahorro-potencial">$58,500</p>
-                        <p class="text-sm text-cj-accent">en el primer año</p>
-                    </div>
-                    
-                    <a href="#contacto" class="mt-6 block w-full py-4 bg-gradient-to-r from-cj-electric to-cj-accent hover:from-blue-600 hover:to-cyan-500 text-white rounded-xl font-bold text-center transition-all text-base">
-                        Quiero recuperar ese dinero →
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Casos de Éxito -->
-    <section id="casos" class="py-20 sm:py-24 relative">
+    <!-- Por qué elegirnos -->
+    <section class="py-20 sm:py-24 relative bg-gradient-to-b from-cj-dark via-cj-blue to-cj-dark">
         <div class="container-main">
             <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
-                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric text-sm font-semibold mb-4">⭐ Casos de Éxito</span>
-                <h2 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black font-montserrat mb-4">Resultados que hablan por <span class="gradient-text">sí solos</span></h2>
-                <p class="text-lg text-gray-400 max-w-3xl mx-auto">Empresas reales que transformaron sus operaciones.</p>
+                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-gold/50 text-cj-gold text-sm font-semibold mb-4">¿Por qué elegirnos?</span>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black font-montserrat mb-4">La diferencia <span class="gradient-gold">CJ</span></h2>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                <!-- Caso 1: ADIS -->
-                <div class="group rounded-2xl sm:rounded-3xl overflow-hidden glass-card hover-lift" data-aos="fade-up" data-aos-delay="100">
-                    <div class="h-2 bg-gradient-to-r from-cj-electric to-cj-accent"></div>
-                    <div class="p-6 sm:p-8">
-                        <div class="flex items-center gap-4 mb-6">
-                            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-xl font-bold text-white shadow-lg">
-                                AD
-                            </div>
-                            <div>
-                                <h3 class="text-lg sm:text-xl font-bold font-montserrat">ADIS Diseño</h3>
-                                <p class="text-xs sm:text-sm text-gray-400">Muebles y decoración</p>
-                            </div>
-                        </div>
-                        
-                        <blockquote class="text-gray-300 italic mb-6 border-l-4 border-cj-electric pl-4 text-sm">
-                            "Redujimos nuestras mermas en 30%. Su enfoque práctico marcó la diferencia."
-                        </blockquote>
-                        
-                        <div class="flex items-center gap-3 mb-6">
-                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-sm">👤</div>
-                            <div>
-                                <p class="text-sm font-semibold">Andrés Díaz</p>
-                                <p class="text-xs text-gray-400">Director General</p>
-                            </div>
-                        </div>
-                        
-                        <div class="grid grid-cols-2 gap-3 pt-6 border-t border-cj-electric/20">
-                            <div class="text-center p-3 rounded-xl bg-white/5">
-                                <p class="text-2xl sm:text-3xl font-black gradient-text">-30%</p>
-                                <p class="text-xs text-gray-400">Mermas</p>
-                            </div>
-                            <div class="text-center p-3 rounded-xl bg-white/5">
-                                <p class="text-2xl sm:text-3xl font-black gradient-text">+25%</p>
-                                <p class="text-xs text-gray-400">Productividad</p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="0">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="text-xl font-bold mb-3">Enfoque práctico</h3>
+                    <p class="text-cj-silver">No vendemos teorías. Implementamos soluciones que tu equipo puede usar desde el día uno.</p>
                 </div>
                 
-                <!-- Caso 2: Caoba -->
-                <div class="group rounded-2xl sm:rounded-3xl overflow-hidden glass-card hover-lift" data-aos="fade-up" data-aos-delay="200">
-                    <div class="h-2 bg-gradient-to-r from-amber-500 to-orange-600"></div>
-                    <div class="p-6 sm:p-8">
-                        <div class="flex items-center gap-4 mb-6">
-                            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-xl font-bold text-white shadow-lg">
-                                CM
-                            </div>
-                            <div>
-                                <h3 class="text-lg sm:text-xl font-bold font-montserrat">Caoba Muebles</h3>
-                                <p class="text-xs sm:text-sm text-gray-400">Fabricación</p>
-                            </div>
-                        </div>
-                        
-                        <blockquote class="text-gray-300 italic mb-6 border-l-4 border-amber-500 pl-4 text-sm">
-                            "Implementamos StockWolf y eliminamos los stock-outs. Clientes más satisfechos."
-                        </blockquote>
-                        
-                        <div class="flex items-center gap-3 mb-6">
-                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center text-sm">👤</div>
-                            <div>
-                                <p class="text-sm font-semibold">Carlos Martínez</p>
-                                <p class="text-xs text-gray-400">Gerente Operaciones</p>
-                            </div>
-                        </div>
-                        
-                        <div class="grid grid-cols-2 gap-3 pt-6 border-t border-cj-electric/20">
-                            <div class="text-center p-3 rounded-xl bg-white/5">
-                                <p class="text-2xl sm:text-3xl font-black text-amber-400">-85%</p>
-                                <p class="text-xs text-gray-400">Stock-outs</p>
-                            </div>
-                            <div class="text-center p-3 rounded-xl bg-white/5">
-                                <p class="text-2xl sm:text-3xl font-black text-amber-400">+40%</p>
-                                <p class="text-xs text-gray-400">Rotación</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="glass-card-gold rounded-2xl p-8" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-4xl mb-4">💰</div>
+                    <h3 class="text-xl font-bold mb-3">Precios accesibles</h3>
+                    <p class="text-cj-silver">Consultoría de calidad empresarial a precios que las PYMEs pueden pagar. Desde $5,000 MXN.</p>
                 </div>
                 
-                <!-- Caso 3: DecoSonora -->
-                <div class="group rounded-2xl sm:rounded-3xl overflow-hidden glass-card hover-lift" data-aos="fade-up" data-aos-delay="300">
-                    <div class="h-2 bg-gradient-to-r from-emerald-500 to-teal-600"></div>
-                    <div class="p-6 sm:p-8">
-                        <div class="flex items-center gap-4 mb-6">
-                            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-xl font-bold text-white shadow-lg">
-                                DN
-                            </div>
-                            <div>
-                                <h3 class="text-lg sm:text-xl font-bold font-montserrat">Decoraciones del Norte</h3>
-                                <p class="text-xs sm:text-sm text-gray-400">Distribución</p>
-                            </div>
-                        </div>
-                        
-                        <blockquote class="text-gray-300 italic mb-6 border-l-4 border-emerald-500 pl-4 text-sm">
-                            "La digitalización nos ahorra 20 horas semanales. Inversión que se pagó sola."
-                        </blockquote>
-                        
-                        <div class="flex items-center gap-3 mb-6">
-                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-teal-600 flex items-center justify-center text-sm">👤</div>
-                            <div>
-                                <p class="text-sm font-semibold">Diana Núñez</p>
-                                <p class="text-xs text-gray-400">Dueña</p>
-                            </div>
-                        </div>
-                        
-                        <div class="grid grid-cols-2 gap-3 pt-6 border-t border-cj-electric/20">
-                            <div class="text-center p-3 rounded-xl bg-white/5">
-                                <p class="text-2xl sm:text-3xl font-black text-emerald-400">-60%</p>
-                                <p class="text-xs text-gray-400">Tiempo admin</p>
-                            </div>
-                            <div class="text-center p-3 rounded-xl bg-white/5">
-                                <p class="text-2xl sm:text-3xl font-black text-emerald-400">ISO</p>
-                                <p class="text-xs text-gray-400">Certificada</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="glass-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="text-xl font-bold mb-3">Resultados rápidos</h3>
+                    <p class="text-cj-silver">Primera consulta gratuita en 24 horas. Implementación ágil sin burocracia innecesaria.</p>
                 </div>
-            </div>
-            
-            <div class="mt-10 sm:mt-12 text-center" data-aos="fade-up">
-                <a href="#contacto" class="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full glass border border-cj-electric/50 text-cj-electric font-semibold hover:bg-cj-electric/10 transition-all text-sm sm:text-base">
-                    ¿Quieres ser nuestro próximo caso de éxito?
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                </a>
+                
+                <div class="glass-card-gold rounded-2xl p-8" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-4xl mb-4">👨‍💼</div>
+                    <h3 class="text-xl font-bold mb-3">Experiencia real</h3>
+                    <p class="text-cj-silver">Más de 10 años ayudando a PYMEs. Conocemos los problemas reales porque los hemos vivido.</p>
+                </div>
+                
+                <div class="glass-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-4xl mb-4">📞</div>
+                    <h3 class="text-xl font-bold mb-3">Acompañamiento continuo</h3>
+                    <p class="text-cj-silver">No te dejamos solo. Seguimiento post-implementación para asegurar resultados.</p>
+                </div>
+                
+                <div class="glass-card-gold rounded-2xl p-8" data-aos="fade-up" data-aos-delay="500">
+                    <div class="text-4xl mb-4">🎓</div>
+                    <h3 class="text-xl font-bold mb-3">Capacitación incluida</h3>
+                    <p class="text-cj-silver">Tu equipo aprende a mantener los procesos. Independencia, no dependencia.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Proceso de Trabajo -->
-    <section class="py-20 sm:py-24 relative bg-gradient-to-b from-cj-blue via-cj-dark to-cj-blue">
+    <!-- CTA Principal -->
+    <section class="py-20 sm:py-24 relative">
         <div class="container-main">
-            <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
-                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric text-sm font-semibold mb-4">🔄 Metodología</span>
-                <h2 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black font-montserrat mb-4">¿Cómo <span class="gradient-text">trabajamos</span>?</h2>
-                <p class="text-lg text-gray-400 max-w-3xl mx-auto">Proceso probado en +500 empresas.</p>
-            </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 sm:gap-6">
-                <div class="relative p-4 sm:p-6 rounded-xl sm:rounded-2xl glass-card text-center group hover-lift" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-10 h-10 sm:w-14 sm:h-14 mx-auto mb-3 sm:mb-4 rounded-full bg-gradient-to-br from-cj-electric to-cj-accent flex items-center justify-center text-lg sm:text-xl font-black text-white shadow-lg">1</div>
-                    <h3 class="font-bold mb-1 sm:mb-2 text-sm sm:text-base">Diagnóstico</h3>
-                    <p class="text-xs text-gray-400 hidden sm:block">Consulta gratuita 30 min</p>
-                </div>
+            <div class="glass-card-gold rounded-3xl p-8 sm:p-12 lg:p-16 text-center relative overflow-hidden" data-aos="fade-up">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-cj-gold/20 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-cj-electric/20 rounded-full blur-3xl"></div>
                 
-                <div class="relative p-4 sm:p-6 rounded-xl sm:rounded-2xl glass-card text-center group hover-lift" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-10 h-10 sm:w-14 sm:h-14 mx-auto mb-3 sm:mb-4 rounded-full bg-gradient-to-br from-cj-electric to-cj-accent flex items-center justify-center text-lg sm:text-xl font-black text-white shadow-lg">2</div>
-                    <h3 class="font-bold mb-1 sm:mb-2 text-sm sm:text-base">Propuesta</h3>
-                    <p class="text-xs text-gray-400 hidden sm:block">Plan personalizado</p>
-                </div>
-                
-                <div class="relative p-4 sm:p-6 rounded-xl sm:rounded-2xl glass-card text-center group hover-lift" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-10 h-10 sm:w-14 sm:h-14 mx-auto mb-3 sm:mb-4 rounded-full bg-gradient-to-br from-cj-electric to-cj-accent flex items-center justify-center text-lg sm:text-xl font-black text-white shadow-lg">3</div>
-                    <h3 class="font-bold mb-1 sm:mb-2 text-sm sm:text-base">Implementación</h3>
-                    <p class="text-xs text-gray-400 hidden sm:block">Trabajo codo a codo</p>
-                </div>
-                
-                <div class="relative p-4 sm:p-6 rounded-xl sm:rounded-2xl glass-card text-center group hover-lift" data-aos="fade-up" data-aos-delay="400">
-                    <div class="w-10 h-10 sm:w-14 sm:h-14 mx-auto mb-3 sm:mb-4 rounded-full bg-gradient-to-br from-cj-electric to-cj-accent flex items-center justify-center text-lg sm:text-xl font-black text-white shadow-lg">4</div>
-                    <h3 class="font-bold mb-1 sm:mb-2 text-sm sm:text-base">Capacitación</h3>
-                    <p class="text-xs text-gray-400 hidden sm:block">Tu equipo autónomo</p>
-                </div>
-                
-                <div class="p-4 sm:p-6 rounded-xl sm:rounded-2xl glass-card text-center group hover-lift col-span-2 md:col-span-1" data-aos="fade-up" data-aos-delay="500">
-                    <div class="w-10 h-10 sm:w-14 sm:h-14 mx-auto mb-3 sm:mb-4 rounded-full bg-gradient-to-br from-cj-electric to-cj-accent flex items-center justify-center text-lg sm:text-xl font-black text-white shadow-lg">5</div>
-                    <h3 class="font-bold mb-1 sm:mb-2 text-sm sm:text-base">Seguimiento</h3>
-                    <p class="text-xs text-gray-400 hidden sm:block">Resultados sostenibles</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Equipo -->
-    <section id="equipo" class="py-20 sm:py-24 relative">
-        <div class="container-main">
-            <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
-                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric text-sm font-semibold mb-4">👤 Tu Consultor</span>
-                <h2 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black font-montserrat mb-4">Quién está <span class="gradient-text">detrás</span> de todo</h2>
-                <p class="text-lg text-gray-400 max-w-3xl mx-auto">Las consultorías venden personas, no solo servicios. Conoce a quién confiarás tu empresa.</p>
-            </div>
-            
-            <div class="max-w-5xl mx-auto">
-                <div class="glass-card rounded-2xl sm:rounded-3xl p-8 sm:p-12 lg:p-16 relative overflow-hidden" data-aos="fade-up">
-                    <div class="absolute top-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-cj-electric/10 rounded-full blur-3xl"></div>
-                    <div class="absolute bottom-0 left-0 w-48 h-48 sm:w-72 sm:h-72 bg-cj-accent/10 rounded-full blur-3xl"></div>
-                    
-                    <div class="grid md:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center relative z-10">
-                        <!-- FOTO PROFESIONAL EN GRANDE -->
-                        <div class="text-center md:text-left">
-                            <div class="relative mx-auto md:mx-0 inline-block">
-                                <!-- Marco con gradiente animado -->
-                                <div class="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-3xl sm:rounded-[2rem] lg:rounded-[2.5rem] bg-gradient-to-br from-cj-electric via-cj-accent to-cj-electric p-1 sm:p-1.5 shadow-2xl animate-pulse-glow">
-                                    <div class="w-full h-full rounded-[1.7rem] sm:rounded-[1.9rem] lg:rounded-[2.3rem] overflow-hidden bg-cj-dark">
-                                        <img src="foto porfesional.jpeg" alt="Ing. Carlos Urbina - Fundador de CJ Consultoría" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700">
-                                    </div>
-                                </div>
-                                <!-- Badge de certificación flotante -->
-                                <div class="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-gradient-to-br from-cj-electric to-cj-accent text-white px-4 py-2 sm:px-6 sm:py-3 rounded-xl sm:rounded-2xl shadow-xl">
-                                    <span class="text-xs sm:text-sm font-bold">✓ Verificado</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- INFO -->
-                        <div class="text-center md:text-left">
-                            <h3 class="text-3xl sm:text-4xl lg:text-5xl font-black font-montserrat mb-2">Ing. Carlos Urbina</h3>
-                            <p class="text-cj-accent font-bold mb-6 text-lg sm:text-xl">Fundador & Consultor Principal</p>
-                            
-                            <p class="text-gray-300 mb-8 leading-relaxed text-base sm:text-lg">
-                                Con más de <strong class="text-white">10 años de experiencia</strong> en optimización de procesos para PYMEs, he ayudado a más de 500 empresas a transformar su operación y aumentar su rentabilidad.
-                            </p>
-                            
-                            <!-- Stats más grandes -->
-                            <div class="grid grid-cols-3 gap-4 mb-8">
-                                <div class="text-center p-3 sm:p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
-                                    <p class="text-2xl sm:text-3xl lg:text-4xl font-black text-cj-accent">+10</p>
-                                    <p class="text-xs sm:text-sm text-gray-400 mt-1">Años exp.</p>
-                                </div>
-                                <div class="text-center p-3 sm:p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
-                                    <p class="text-2xl sm:text-3xl lg:text-4xl font-black text-cj-accent">+500</p>
-                                    <p class="text-xs sm:text-sm text-gray-400 mt-1">PYMEs</p>
-                                </div>
-                                <div class="text-center p-3 sm:p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
-                                    <p class="text-2xl sm:text-3xl lg:text-4xl font-black text-cj-accent">ISO</p>
-                                    <p class="text-xs sm:text-sm text-gray-400 mt-1">Auditor</p>
-                                </div>
-                            </div>
-                            
-                            <blockquote class="italic text-gray-400 border-l-4 border-cj-electric pl-4 text-base sm:text-lg">
-                                "No vendo consultoría, vendo resultados. Lo perfecto es enemigo de lo hecho."
-                            </blockquote>
-                            
-                            <!-- Botón CTA -->
-                            <div class="mt-8">
-                                <a href="#contacto" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cj-electric to-cj-accent text-white rounded-xl font-bold hover:scale-105 transition-transform shadow-lg shadow-cj-electric/30">
-                                    <span>📅</span> Agendar consulta gratuita
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="py-20 sm:py-24 relative bg-gradient-to-b from-cj-dark to-cj-blue">
-        <div class="container-main max-w-4xl">
-            <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
-                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric text-sm font-semibold mb-4">❓ FAQ</span>
-                <h2 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black font-montserrat mb-4">Preguntas <span class="gradient-text">frecuentes</span></h2>
-            </div>
-            
-            <div class="space-y-4">
-                <div class="accordion-item rounded-xl sm:rounded-2xl glass-card overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                    <button class="accordion-btn w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left hover:bg-white/5 transition-colors" onclick="toggleAccordion(this)">
-                        <span class="font-semibold text-base sm:text-lg pr-4">¿Cuánto cuesta una consultoría?</span>
-                        <div class="w-8 h-8 rounded-full bg-cj-electric/20 flex items-center justify-center flex-shrink-0">
-                            <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-                        </div>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="px-5 sm:px-6 pb-4 sm:pb-5 text-gray-400 text-sm">
-                            Desde <strong class="text-cj-accent">$8,000 MXN</strong> para proyectos específicos. La primera consulta de diagnóstico es <strong class="text-cj-accent">100% gratuita</strong>.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="accordion-item rounded-xl sm:rounded-2xl glass-card overflow-hidden" data-aos="fade-up" data-aos-delay="150">
-                    <button class="accordion-btn w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left hover:bg-white/5 transition-colors" onclick="toggleAccordion(this)">
-                        <span class="font-semibold text-base sm:text-lg pr-4">¿En cuánto tiempo veo resultados?</span>
-                        <div class="w-8 h-8 rounded-full bg-cj-electric/20 flex items-center justify-center flex-shrink-0">
-                            <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-                        </div>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="px-5 sm:px-6 pb-4 sm:pb-5 text-gray-400 text-sm">
-                            Primeros resultados visibles en <strong class="text-cj-accent">4-8 semanas</strong>. Proyectos de Excel muestran impacto en días.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="accordion-item rounded-xl sm:rounded-2xl glass-card overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                    <button class="accordion-btn w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left hover:bg-white/5 transition-colors" onclick="toggleAccordion(this)">
-                        <span class="font-semibold text-base sm:text-lg pr-4">¿Trabajan con cualquier empresa?</span>
-                        <div class="w-8 h-8 rounded-full bg-cj-electric/20 flex items-center justify-center flex-shrink-0">
-                            <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-                        </div>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="px-5 sm:px-6 pb-4 sm:pb-5 text-gray-400 text-sm">
-                            Sí, desde emprendedores hasta empresas con 100+ empleados. Adaptamos nuestra metodología a tus recursos.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="accordion-item rounded-xl sm:rounded-2xl glass-card overflow-hidden" data-aos="fade-up" data-aos-delay="250">
-                    <button class="accordion-btn w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left hover:bg-white/5 transition-colors" onclick="toggleAccordion(this)">
-                        <span class="font-semibold text-base sm:text-lg pr-4">¿Qué diferencia a CJ Consultoría?</span>
-                        <div class="w-8 h-8 rounded-full bg-cj-electric/20 flex items-center justify-center flex-shrink-0">
-                            <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-                        </div>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="px-5 sm:px-6 pb-4 sm:pb-5 text-gray-400 text-sm">
-                            <strong class="text-cj-accent">Excelencia Práctica</strong>, tecnología propia con StockWolf, y <strong class="text-cj-accent">cercanía real</strong>.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="accordion-item rounded-xl sm:rounded-2xl glass-card overflow-hidden" data-aos="fade-up" data-aos-delay="300">
-                    <button class="accordion-btn w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left hover:bg-white/5 transition-colors" onclick="toggleAccordion(this)">
-                        <span class="font-semibold text-base sm:text-lg pr-4">¿Ofrecen garantía?</span>
-                        <div class="w-8 h-8 rounded-full bg-cj-electric/20 flex items-center justify-center flex-shrink-0">
-                            <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-                        </div>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="px-5 sm:px-6 pb-4 sm:pb-5 text-gray-400 text-sm">
-                            Sí. Si no estás conforme, ajustamos sin costo hasta cumplir lo acordado.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Presentación Descargable -->
-    <section class="py-20 sm:py-24 relative bg-gradient-to-br from-cj-blue via-cj-dark to-cj-blue overflow-hidden">
-        <div class="container-main">
-            <div class="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-12 border border-cj-electric/30" data-aos="fade-up">
-                <div class="grid md:grid-cols-3 gap-8 items-center">
-                    <div class="text-center md:text-left md:col-span-2">
-                        <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-accent text-sm font-semibold mb-4">📑 Presentación</span>
-                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-montserrat mb-4">Conoce más sobre <span class="gradient-text">CJ Consultoría</span></h2>
-                        <p class="text-base sm:text-lg text-gray-300 mb-6">Descarga nuestra presentación ejecutiva con información detallada sobre servicios, metodología y casos de éxito.</p>
-                        <a href="presentacion-cj-consultoria.pdf" download class="inline-flex items-center gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-cj-electric to-cj-accent text-white rounded-xl font-bold hover:shadow-lg hover:shadow-cj-electric/30 transition-all text-sm sm:text-base">
-                            <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                            </svg>
-                            Descargar PDF (1.8 MB)
+                <div class="relative z-10">
+                    <span class="text-6xl mb-6 block">🐺</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black font-montserrat mb-6 text-cj-blue">
+                        ¿Listo para transformar tu <span class="text-cj-electric">empresa</span>?
+                    </h2>
+                    <p class="text-lg text-cj-blue/80 max-w-2xl mx-auto mb-8">
+                        Agenda una consulta gratuita de 30 minutos. Sin compromiso, sin costo. 
+                        Solo una conversación para entender tus necesidades.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="cotizacion.html" class="px-10 py-5 bg-gradient-to-r from-cj-blue to-cj-electric text-white rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-xl btn-shimmer">
+                            📅 Agendar consulta gratuita
                         </a>
-                        <p class="text-xs sm:text-sm text-gray-500 mt-4">📄 12 páginas • Actualizado 2024</p>
-                    </div>
-                    <div class="flex justify-center">
-                        <div class="w-40 h-52 sm:w-48 sm:h-64 rounded-xl bg-gradient-to-br from-cj-electric/30 to-cj-accent/20 border-2 border-cj-electric/50 flex items-center justify-center transform rotate-3 hover:rotate-0 transition-transform duration-500">
-                            <div class="text-center">
-                                <span class="text-5xl sm:text-6xl">📑</span>
-                                <p class="mt-4 font-bold text-cj-accent text-sm sm:text-base">Presentación</p>
-                                <p class="text-xs text-gray-400">Ejecutiva 2024</p>
-                            </div>
-                        </div>
+                        <a href="https://wa.me/524776940272" target="_blank" class="px-10 py-5 bg-white text-cj-blue rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-xl flex items-center justify-center gap-2">
+                            <span>💬</span> WhatsApp directo
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Lead Magnet -->
-    <section class="py-20 sm:py-24 relative bg-gradient-to-br from-cj-electric/20 via-cj-blue to-cj-dark overflow-hidden">
-        <div class="container-main">
-            <div class="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
-                <div data-aos="fade-right">
-                    <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-accent text-sm font-semibold mb-4">🎁 Gratis</span>
-                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-montserrat mb-4">Checklist ISO 9001 <span class="gradient-text">2024</span></h2>
-                    <p class="text-base sm:text-lg text-gray-300 mb-6">¿Quieres certificar tu empresa? Descarga nuestra guía completa.</p>
-                    
-                    <ul class="space-y-3 sm:space-y-4 mb-8">
-                        <li class="flex items-center gap-3 p-3 rounded-xl bg-white/5 text-sm sm:text-base">
-                            <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-cj-electric/20 flex items-center justify-center text-cj-accent text-sm">✓</span>
-                            <span class="text-gray-300">Requisitos obligatorios explicados</span>
-                        </li>
-                        <li class="flex items-center gap-3 p-3 rounded-xl bg-white/5 text-sm sm:text-base">
-                            <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-cj-electric/20 flex items-center justify-center text-cj-accent text-sm">✓</span>
-                            <span class="text-gray-300">Documentación necesaria</span>
-                        </li>
-                        <li class="flex items-center gap-3 p-3 rounded-xl bg-white/5 text-sm sm:text-base">
-                            <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-cj-electric/20 flex items-center justify-center text-cj-accent text-sm">✓</span>
-                            <span class="text-gray-300">Cronograma 6 meses</span>
-                        </li>
-                    </ul>
-                    
-                    <p class="text-xs sm:text-sm text-gray-500">📄 PDF • Descarga inmediata • Gratis</p>
-                </div>
-                
-                <div data-aos="fade-left">
-                    <div class="p-6 sm:p-8 rounded-2xl sm:rounded-3xl glass-card border border-cj-electric/30">
-                        <div class="text-center mb-6 sm:mb-8">
-                            <div class="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 rounded-xl sm:rounded-2xl bg-gradient-to-br from-cj-electric to-cj-accent flex items-center justify-center text-3xl sm:text-4xl shadow-xl">
-                                📋
-                            </div>
-                            <p class="text-sm text-cj-accent mb-1">CHECKLIST BÁSICO</p>
-                            <p class="text-3xl sm:text-4xl font-black gradient-text">Gratis</p>
-                        </div>
-                        
-                        <form id="lead-form" class="space-y-4">
-                            <input type="text" name="nombre" placeholder="Tu nombre" class="w-full px-4 sm:px-5 py-3 sm:py-4 rounded-xl bg-white/5 border border-cj-electric/30 text-white placeholder-gray-500 focus:outline-none focus:border-cj-electric text-sm sm:text-base" required>
-                            <input type="email" name="email" placeholder="Tu correo" class="w-full px-4 sm:px-5 py-3 sm:py-4 rounded-xl bg-white/5 border border-cj-electric/30 text-white placeholder-gray-500 focus:outline-none focus:border-cj-electric text-sm sm:text-base" required>
-                            <button type="submit" class="w-full py-3 sm:py-4 bg-gradient-to-r from-cj-electric to-cj-accent hover:from-blue-600 hover:to-cyan-500 text-white rounded-xl font-bold transition-all shadow-lg text-sm sm:text-base">
-                                Descargar Ahora →
-                            </button>
-                        </form>
-                        
-                        <!-- Guía Completa con Precios -->
-                        <div class="mt-6 pt-6 border-t border-cj-electric/20">
-                            <p class="text-center text-sm text-gray-400 mb-4">¿Necesitas la <strong class="text-white">Guía Completa</strong>?</p>
-                            <div class="p-4 rounded-xl bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/30">
-                                <p class="text-sm text-gray-300 mb-2">📚 Guía Paso a Paso + Asesoría</p>
-                                <div class="flex items-center justify-center gap-3 mb-2">
-                                    <span class="text-base sm:text-lg text-gray-500 line-through">$1,999</span>
-                                    <span class="text-2xl sm:text-3xl font-black text-amber-400">$699</span>
-                                </div>
-                                
-                                <div class="p-2 rounded-lg bg-green-500/20 border border-green-500/30 mb-3">
-                                    <p class="text-xs text-center text-green-400">💬 Menciona "LO VI EN LA PÁGINA"</p>
-                                    <p class="text-xl sm:text-2xl text-center font-black text-white">$499 MXN</p>
-                                </div>
-                                
-                                <ul class="text-xs text-gray-400 space-y-1 mb-4">
-                                    <li>✓ Cronograma 6 meses detallado</li>
-                                    <li>✓ Formatos editables</li>
-                                    <li>✓ Videos explicativos</li>
-                                    <li>✓ 2 horas asesoría incluida</li>
-                                </ul>
-                                <button onclick="mostrarDatosPago()" class="w-full py-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white rounded-xl font-bold transition-all text-sm">
-                                    Pagar por Transferencia →
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <p class="text-xs text-gray-500 text-center mt-4">🔒 Información segura. No spam.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- StockWolf -->
-    <section id="stockwolf" class="py-20 sm:py-24 relative">
-        <div class="container-main">
-            <div class="rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-cj-electric/40 via-cj-blue/80 to-cj-dark border border-cj-electric/50" data-aos="fade-up">
-                <div class="grid lg:grid-cols-2 gap-8 sm:gap-12 p-6 sm:p-8 lg:p-12">
-                    <div>
-                        <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/10 mb-4 sm:mb-6 border border-white/20">
-                            <span class="text-xl">🐺</span>
-                            <span class="font-semibold text-sm sm:text-base">Nuestro Producto</span>
-                        </div>
-                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-montserrat mb-4">StockWolf ERP</h2>
-                        <p class="text-base sm:text-lg lg:text-xl text-gray-200 mb-6 sm:mb-8">Sistema de inventario diseñado para PYMEs ambiciosas.</p>
-                        
-                        <ul class="space-y-3 mb-8 sm:mb-10">
-                            <li class="flex items-center gap-3 text-gray-200 text-sm sm:text-base">
-                                <span class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-cj-accent/20 flex items-center justify-center text-cj-accent text-xs sm:text-sm">✓</span>
-                                Control de inventario en tiempo real
-                            </li>
-                            <li class="flex items-center gap-3 text-gray-200 text-sm sm:text-base">
-                                <span class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-cj-accent/20 flex items-center justify-center text-cj-accent text-xs sm:text-sm">✓</span>
-                                Múltiples bodegas y ubicaciones
-                            </li>
-                            <li class="flex items-center gap-3 text-gray-200 text-sm sm:text-base">
-                                <span class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-cj-accent/20 flex items-center justify-center text-cj-accent text-xs sm:text-sm">✓</span>
-                                Alertas de stock bajo
-                            </li>
-                            <li class="flex items-center gap-3 text-gray-200 text-sm sm:text-base">
-                                <span class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-cj-accent/20 flex items-center justify-center text-cj-accent text-xs sm:text-sm">✓</span>
-                                Reportes y análisis
-                            </li>
-                        </ul>
-                        
-                        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                            <a href="https://inventory-pro-z81e.onrender.com/" target="_blank" class="px-6 sm:px-8 py-3 sm:py-4 bg-white text-cj-electric rounded-xl font-bold text-center transition-all shadow-xl hover:shadow-2xl hover:scale-105 text-sm sm:text-base">
-                                Probar Gratis →
-                            </a>
-                            <a href="#contacto" class="px-6 sm:px-8 py-3 sm:py-4 border-2 border-white/50 hover:border-white text-white rounded-xl font-bold text-center transition-all hover:bg-white/10 text-sm sm:text-base">
-                                Solicitar Demo
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="relative flex items-center justify-center">
-                        <div class="relative bg-cj-dark/90 rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-cj-electric/30 shadow-2xl w-full max-w-sm">
-                            <div class="flex items-center justify-between mb-4 sm:mb-6">
-                                <span class="text-xs sm:text-sm text-gray-400">Dashboard</span>
-                                <span class="px-2 py-1 text-xs bg-green-500/20 text-green-400 rounded">● En vivo</span>
-                            </div>
-                            <div class="grid grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
-                                <div class="p-3 sm:p-4 rounded-xl bg-white/5 border border-white/10">
-                                    <p class="text-xl sm:text-2xl font-black text-cj-accent">1,247</p>
-                                    <p class="text-xs text-gray-400">Productos</p>
-                                </div>
-                                <div class="p-3 sm:p-4 rounded-xl bg-white/5 border border-white/10">
-                                    <p class="text-xl sm:text-2xl font-black text-green-400">94.3%</p>
-                                    <p class="text-xs text-gray-400">Precisión</p>
-                                </div>
-                            </div>
-                            <div class="space-y-2 sm:space-y-3">
-                                <div class="flex items-center justify-between p-2.5 sm:p-3 rounded-lg bg-white/5">
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-2 h-2 rounded-full bg-green-400"></div>
-                                        <span class="text-xs sm:text-sm">Stock óptimo</span>
-                                    </div>
-                                    <span class="text-xs sm:text-sm font-bold">892</span>
-                                </div>
-                                <div class="flex items-center justify-between p-2.5 sm:p-3 rounded-lg bg-white/5">
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-2 h-2 rounded-full bg-yellow-400"></div>
-                                        <span class="text-xs sm:text-sm">Stock bajo</span>
-                                    </div>
-                                    <span class="text-xs sm:text-sm font-bold">23</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
 
     <!-- Contacto -->
-    <section id="contacto" class="py-20 sm:py-24 relative bg-gradient-to-b from-cj-dark to-cj-blue">
+    <section id="contacto" class="py-20 sm:py-24 relative bg-gradient-to-b from-cj-dark via-cj-blue to-cj-dark">
         <div class="container-main">
-            <div class="grid lg:grid-cols-2 gap-12 sm:gap-16">
-                <div data-aos="fade-right">
-                    <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric text-sm font-semibold mb-4">📞 Contacto</span>
-                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black font-montserrat mb-4">Hablemos de tu <span class="gradient-text">proyecto</span></h2>
-                    <p class="text-base sm:text-lg text-gray-400 mb-8">Primera consulta gratuita. Sin compromiso.</p>
-                    
-                    <div class="space-y-4">
-                        <a href="https://wa.me/524776940272" target="_blank" class="flex items-center gap-4 p-4 sm:p-5 rounded-xl sm:rounded-2xl glass hover:bg-cj-electric/10 transition-all group hover-lift">
-                            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-2xl shadow-lg group-hover:scale-110 transition-transform">
-                                📱
-                            </div>
-                            <div>
-                                <p class="text-xs sm:text-sm text-gray-400">WhatsApp</p>
-                                <p class="font-semibold text-base sm:text-lg group-hover:text-cj-accent transition-colors">+52 477 694 0272</p>
-                            </div>
-                        </a>
-                        
-                        <a href="mailto:cj.consultoria.sgc@gmail.com" class="flex items-center gap-4 p-4 sm:p-5 rounded-xl sm:rounded-2xl glass hover:bg-cj-electric/10 transition-all group hover-lift">
-                            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-cj-electric to-cj-accent flex items-center justify-center text-2xl shadow-lg group-hover:scale-110 transition-transform">
-                                ✉️
-                            </div>
-                            <div>
-                                <p class="text-xs sm:text-sm text-gray-400">Email</p>
-                                <p class="font-semibold text-base sm:text-lg group-hover:text-cj-accent transition-colors">cj.consultoria.sgc@gmail.com</p>
-                            </div>
-                        </a>
-                        
-                        <div class="flex items-center gap-4 p-4 sm:p-5 rounded-xl sm:rounded-2xl glass">
-                            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-cj-accent to-cj-electric flex items-center justify-center text-2xl shadow-lg">
-                                📍
-                            </div>
-                            <div>
-                                <p class="text-xs sm:text-sm text-gray-400">Ubicación</p>
-                                <p class="font-semibold text-base sm:text-lg">León, Guanajuato, México</p>
-                                <p class="text-xs text-gray-500 mt-1">Atendemos Latinoamérica vía remota</p>
-                            </div>
-                        </div>
+            <div class="text-center mb-12" data-aos="fade-up">
+                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-gold/50 text-cj-gold text-sm font-semibold mb-4">Contacto</span>
+                <h2 class="text-4xl sm:text-5xl font-black font-montserrat mb-4">Hablemos de tu <span class="gradient-gold">proyecto</span></h2>
+                <p class="text-lg text-cj-silver">Elige la forma más cómoda de contactarnos.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <a href="https://wa.me/524776940272" target="_blank" class="glass-card rounded-2xl p-6 text-center hover-lift group" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center text-3xl mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                        💬
                     </div>
-                    
-                    <div class="mt-6 sm:mt-8 p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-gradient-to-r from-cj-electric/20 to-cj-blue/30 border border-cj-electric/30">
-                        <p class="text-sm font-semibold text-cj-accent mb-1">🎁 Bono especial</p>
-                        <p class="text-sm text-gray-300">Menciona que viste esta página y obtén <strong class="text-white">20% de descuento</strong>.</p>
-                    </div>
-                </div>
+                    <h3 class="text-lg font-bold mb-2">WhatsApp</h3>
+                    <p class="text-cj-silver text-sm">+52 477 694 0272</p>
+                    <p class="text-xs text-cj-gold mt-2">Respuesta inmediata</p>
+                </a>
                 
-                <div data-aos="fade-left">
-                    <div class="p-6 sm:p-8 rounded-2xl sm:rounded-3xl glass-card border border-cj-electric/20">
-                        <h3 class="text-xl sm:text-2xl font-bold mb-6 font-montserrat">Envíanos un mensaje</h3>
-                        <form id="contact-form" class="space-y-4">
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <input type="text" placeholder="Nombre" class="w-full px-4 sm:px-5 py-3 sm:py-4 rounded-xl bg-white/5 border border-cj-electric/30 text-white placeholder-gray-500 focus:outline-none focus:border-cj-electric text-sm sm:text-base" required>
-                                <input type="email" placeholder="Email" class="w-full px-4 sm:px-5 py-3 sm:py-4 rounded-xl bg-white/5 border border-cj-electric/30 text-white placeholder-gray-500 focus:outline-none focus:border-cj-electric text-sm sm:text-base" required>
-                            </div>
-                            <input type="text" placeholder="Empresa" class="w-full px-4 sm:px-5 py-3 sm:py-4 rounded-xl bg-white/5 border border-cj-electric/30 text-white placeholder-gray-500 focus:outline-none focus:border-cj-electric text-sm sm:text-base">
-                            <select class="w-full px-4 sm:px-5 py-3 sm:py-4 rounded-xl bg-white/5 border border-cj-electric/30 text-gray-300 focus:outline-none focus:border-cj-electric text-sm sm:text-base">
-                                <option value="">¿Qué servicio te interesa?</option>
-                                <option value="procedimientos">Procedimientos</option>
-                                <option value="iso">Sistemas ISO</option>
-                                <option value="mejora">Mejora Continua</option>
-                                <option value="excel">Excel y BI</option>
-                                <option value="stockwolf">StockWolf ERP</option>
-                            </select>
-                            <textarea rows="4" placeholder="Cuéntanos sobre tu proyecto..." class="w-full px-4 sm:px-5 py-3 sm:py-4 rounded-xl bg-white/5 border border-cj-electric/30 text-white placeholder-gray-500 focus:outline-none focus:border-cj-electric resize-none text-sm sm:text-base"></textarea>
-                            <button type="submit" class="w-full py-3 sm:py-4 bg-gradient-to-r from-cj-electric to-cj-accent hover:from-blue-600 hover:to-cyan-500 text-white rounded-xl font-bold transition-all shadow-lg text-sm sm:text-base">
-                                Enviar mensaje →
-                            </button>
-                        </form>
+                <a href="mailto:cj.consultoria.sgc@gmail.com" class="glass-card-gold rounded-2xl p-6 text-center hover-lift group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-cj-gold to-cj-gold-light flex items-center justify-center text-3xl mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                        📧
                     </div>
+                    <h3 class="text-lg font-bold mb-2 text-cj-blue">Email</h3>
+                    <p class="text-cj-blue/70 text-sm">cj.consultoria.sgc@gmail.com</p>
+                    <p class="text-xs text-cj-blue/50 mt-2">Respuesta en 24h</p>
+                </a>
+                
+                <div class="glass-card rounded-2xl p-6 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-cj-electric to-cj-accent flex items-center justify-center text-3xl mb-4 shadow-lg">
+                        📍
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Ubicación</h3>
+                    <p class="text-cj-silver text-sm">León, Guanajuato, México</p>
+                    <p class="text-xs text-cj-gold mt-2">Atención nacional</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 sm:py-16 border-t border-cj-electric/20 relative">
-        <div class="container-main relative z-10">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 mb-10 sm:mb-12">
+    <footer class="border-t border-cj-gold/20 pt-12 pb-6 relative">
+        <div class="container-main">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8">
                 <div class="col-span-2 md:col-span-1">
                     <div class="flex items-center gap-3 mb-4 sm:mb-6">
-                        <div class="w-10 h-10 rounded-lg overflow-hidden border border-cj-electric bg-white">
+                        <div class="w-10 h-10 rounded-lg overflow-hidden border border-cj-gold bg-white">
                             <img src="logo-cj.png" alt="CJ Consultoría" class="w-full h-full object-contain">
                         </div>
                         <div>
-                            <span class="font-bold text-base sm:text-lg">CJ Consultoría</span>
-                            <span class="block text-xs text-cj-electric">TRANSFORMAMOS PROCESOS</span>
+                            <span class="font-bold text-base">CJ Consultoría</span>
+                            <span class="block text-xs text-cj-gold">TRANSFORMAMOS PROCESOS</span>
                         </div>
                     </div>
-                    <p class="text-xs sm:text-sm text-gray-400 leading-relaxed">Transformamos procesos en resultados sostenibles para PYMEs y emprendedores.</p>
+                    <p class="text-xs sm:text-sm text-cj-silver leading-relaxed">Transformamos procesos en resultados sostenibles para PYMEs y emprendedores.</p>
                 </div>
                 
                 <div>
                     <h4 class="font-semibold mb-4 text-sm sm:text-base">Servicios</h4>
-                    <ul class="space-y-2 text-xs sm:text-sm text-gray-400">
-                        <li><a href="procedimientos.html" class="hover:text-cj-accent transition-colors">Procedimientos</a></li>
-                        <li><a href="iso.html" class="hover:text-cj-accent transition-colors">ISO y Sistemas</a></li>
-                        <li><a href="mejora.html" class="hover:text-cj-accent transition-colors">Mejora Continua</a></li>
-                        <li><a href="excel.html" class="hover:text-cj-accent transition-colors">Excel y BI</a></li>
+                    <ul class="space-y-2 text-xs sm:text-sm text-cj-silver">
+                        <li><a href="procedimientos.html" class="hover:text-cj-gold transition-colors">Procedimientos</a></li>
+                        <li><a href="iso.html" class="hover:text-cj-gold transition-colors">ISO y Sistemas</a></li>
+                        <li><a href="mejora.html" class="hover:text-cj-gold transition-colors">Mejora Continua</a></li>
+                        <li><a href="excel.html" class="hover:text-cj-gold transition-colors">Excel y BI</a></li>
                     </ul>
                 </div>
                 
                 <div>
                     <h4 class="font-semibold mb-4 text-sm sm:text-base">Enlaces</h4>
-                    <ul class="space-y-2 text-xs sm:text-sm text-gray-400">
-                        <li><a href="index.html" class="hover:text-cj-accent transition-colors">Inicio</a></li>
-                        <li><a href="servicios.html" class="hover:text-cj-accent transition-colors">Servicios</a></li>
-                        <li><a href="nosotros.html" class="hover:text-cj-accent transition-colors">Nosotros</a></li>
-                        <li><a href="blog.html" class="hover:text-cj-accent transition-colors">Blog</a></li>
-                        <li><a href="cotizacion.html" class="hover:text-cj-accent transition-colors">Cotizar</a></li>
+                    <ul class="space-y-2 text-xs sm:text-sm text-cj-silver">
+                        <li><a href="index.html" class="hover:text-cj-gold transition-colors">Inicio</a></li>
+                        <li><a href="servicios.html" class="hover:text-cj-gold transition-colors">Servicios</a></li>
+                        <li><a href="nosotros.html" class="hover:text-cj-gold transition-colors">Nosotros</a></li>
+                        <li><a href="blog.html" class="hover:text-cj-gold transition-colors">Blog</a></li>
+                        <li><a href="cotizacion.html" class="hover:text-cj-gold transition-colors">Cotizar</a></li>
                     </ul>
                 </div>
                 
                 <div>
                     <h4 class="font-semibold mb-4 text-sm sm:text-base">Contacto</h4>
-                    <ul class="space-y-2 text-xs sm:text-sm text-gray-400">
+                    <ul class="space-y-2 text-xs sm:text-sm text-cj-silver">
                         <li>📱 +52 477 694 0272</li>
                         <li>✉️ cj.consultoria.sgc@gmail.com</li>
                         <li>📍 León, Gto., México</li>
@@ -1643,11 +665,11 @@
                 </div>
             </div>
             
-            <div class="pt-6 sm:pt-8 border-t border-cj-electric/20 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="pt-6 sm:pt-8 border-t border-cj-gold/20 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-xs sm:text-sm text-gray-500">© 2024 CJ Consultoría - Ing. Carlos Urbina. Todos los derechos reservados.</p>
                 <div class="flex gap-4 sm:gap-6">
-                    <a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-cj-accent transition-colors">Privacidad</a>
-                    <a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-cj-accent transition-colors">Términos</a>
+                    <a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-cj-gold transition-colors">Privacidad</a>
+                    <a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-cj-gold transition-colors">Términos</a>
                 </div>
             </div>
         </div>
@@ -1660,9 +682,6 @@
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
             </svg>
         </a>
-        <div class="absolute bottom-14 sm:bottom-16 right-0 bg-white text-gray-800 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg shadow-lg whitespace-nowrap text-xs sm:text-sm font-medium opacity-0 transition-opacity duration-300" id="chat-tooltip">
-            ¿Hablamos? 💬
-        </div>
     </div>
 
     <!-- Mobile Sticky CTA -->
@@ -1670,8 +689,8 @@
         <a href="https://wa.me/524776940272" target="_blank" class="flex-1 py-3 bg-green-500 hover:bg-green-600 text-white rounded-xl font-semibold text-center flex items-center justify-center gap-2 transition-colors text-sm">
             <span>💬</span> WhatsApp
         </a>
-        <a href="#contacto" class="flex-1 py-3 bg-gradient-to-r from-cj-electric to-cj-accent text-white rounded-xl font-semibold text-center flex items-center justify-center gap-2 text-sm">
-            <span>📅</span> Agendar
+        <a href="cotizacion.html" class="flex-1 py-3 bg-gradient-to-r from-cj-gold to-cj-gold-light text-cj-blue rounded-xl font-semibold text-center flex items-center justify-center gap-2 text-sm">
+            <span>📅</span> Cotizar
         </a>
     </div>
 
@@ -1785,127 +804,6 @@
         }, { threshold: 0.5 });
 
         counters.forEach(counter => counterObserver.observe(counter));
-
-        // Calculadora ROI
-        function calcularROI() {
-            const empleados = parseInt(document.getElementById('empleados').value);
-            const horas = parseInt(document.getElementById('horas').value);
-            const mermas = parseInt(document.getElementById('mermas').value);
-            const procesosFactor = parseFloat(document.getElementById('procesos').value);
-            
-            document.getElementById('empleados-valor').textContent = empleados;
-            document.getElementById('horas-valor').textContent = horas + 'h';
-            document.getElementById('mermas-valor').textContent = '$' + mermas.toLocaleString();
-            
-            const costoHora = 100;
-            const perdidaTiempo = horas * 52 * costoHora * (empleados * 0.3);
-            const perdidaMermas = mermas * 12;
-            const perdidaEficiencia = (empleados * 5000) * (1 - procesosFactor);
-            
-            const perdidaTotal = perdidaTiempo + perdidaMermas + perdidaEficiencia;
-            const ahorroPotencial = perdidaTotal * 0.75;
-            
-            document.getElementById('perdida-total').textContent = '$' + Math.round(perdidaTotal).toLocaleString();
-            document.getElementById('perdida-tiempo').textContent = '$' + Math.round(perdidaTiempo).toLocaleString();
-            document.getElementById('perdida-mermas').textContent = '$' + Math.round(perdidaMermas).toLocaleString();
-            document.getElementById('perdida-eficiencia').textContent = '$' + Math.round(perdidaEficiencia).toLocaleString();
-            document.getElementById('ahorro-potencial').textContent = '$' + Math.round(ahorroPotencial).toLocaleString();
-        }
-
-        // Accordion
-        function toggleAccordion(button) {
-            const content = button.nextElementSibling;
-            const icon = button.querySelector('svg');
-            const isActive = content.classList.contains('active');
-            
-            document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('active'));
-            document.querySelectorAll('.accordion-btn svg').forEach(i => {
-                i.style.transform = 'rotate(0deg)';
-            });
-            
-            if (!isActive) {
-                content.classList.add('active');
-                icon.style.transform = 'rotate(180deg)';
-            }
-        }
-
-        // WhatsApp tooltip
-        const chatTooltip = document.getElementById('chat-tooltip');
-        setTimeout(() => {
-            chatTooltip.style.opacity = '1';
-            setTimeout(() => {
-                chatTooltip.style.opacity = '0';
-            }, 5000);
-        }, 3000);
-
-        // Form submissions
-        document.getElementById('lead-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const formData = new FormData(e.target);
-            const nombre = formData.get('nombre');
-            alert(`🎉 ¡Gracias ${nombre}! El checklist ha sido enviado a tu correo.`);
-            e.target.reset();
-        });
-
-        document.getElementById('contact-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('✅ ¡Mensaje enviado! Te contactaremos en menos de 24 horas.');
-            e.target.reset();
-        });
-
-        // Datos de pago
-        function mostrarDatosPago() {
-            const mensaje = `🏦 DATOS PARA TRANSFERENCIA
-
-Banco: BBVA
-Titular: Carlos Alberto Urbina Muñoz
-Cuenta: 4152 3138 6840 XXXX
-Clabe: 0125 2001 2345 6789 01
-
-💰 Precios:
-• Regular: $699 MXN
-• Especial: $499 MXN (menciona "LO VI EN LA PÁGINA")
-
-📧 Concepto: Guia ISO - [Tu nombre]
-
-📩 Envía tu comprobante a:
-• Email: cj.consultoria.sgc@gmail.com
-• WhatsApp: +52 477 694 0272
-
-Recibirás la guía en menos de 24 horas.`;
-            
-            alert(mensaje);
-        }
-
-        // Dark Mode Toggle
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const darkModeIcon = document.getElementById('darkModeIcon');
-        const html = document.documentElement;
-
-        darkModeToggle.addEventListener('click', () => {
-            html.classList.toggle('dark');
-            darkModeIcon.textContent = html.classList.contains('dark') ? '☀️' : '🌙';
-            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
-        });
-
-        if (localStorage.getItem('theme') === 'light') {
-            html.classList.remove('dark');
-            darkModeIcon.textContent = '🌙';
-        }
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // Initialize
-        calcularROI();
     </script>
 </body>
 </html>

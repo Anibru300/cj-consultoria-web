@@ -20,6 +20,8 @@
                         'cj-electric': '#2E7DE8',
                         'cj-dark': '#0a1628',
                         'cj-accent': '#00D4FF',
+                        'cj-gold': '#D4AF37',
+                        'cj-gold-light': '#F4D03F',
                     },
                     fontFamily: {
                         'montserrat': ['Montserrat', 'sans-serif'],
@@ -33,7 +35,7 @@
         body { font-family: 'Open Sans', sans-serif; }
         h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
         .gradient-text {
-            background: linear-gradient(135deg, #2E7DE8, #00D4FF);
+            background: linear-gradient(135deg, #D4AF37, #F4D03F);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -43,9 +45,9 @@
             backdrop-filter: blur(20px);
         }
         .glass-card {
-            background: linear-gradient(135deg, rgba(46, 125, 232, 0.1), rgba(0, 212, 255, 0.05));
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(46, 125, 232, 0.05));
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(46, 125, 232, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
     </style>
 </head>
@@ -55,20 +57,22 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between">
                 <a href="index.html" class="flex items-center gap-3 group">
-                    <div class="w-10 h-10 rounded-lg overflow-hidden border-2 border-cj-electric bg-white group-hover:scale-110 transition-transform">
+                    <div class="w-10 h-10 rounded-lg overflow-hidden border-2 border-cj-gold bg-white group-hover:scale-110 transition-transform">
                         <img src="logo-cj.png" alt="CJ Consultoría" class="w-full h-full object-contain">
                     </div>
-                    <span class="text-lg font-black font-montserrat group-hover:text-cj-electric transition-colors">CJ Consultoría</span>
+                    <div>
+                        <span class="text-lg font-black font-montserrat group-hover:text-cj-gold transition-colors">CJ Consultoría</span>
+                        <span class="block text-xs text-cj-gold font-medium tracking-wider">TRANSFORMAMOS PROCESOS</span>
+                    </div>
                 </a>
                 
                 <div class="hidden lg:flex items-center gap-5">
-                    <a href="index.html" class="text-sm font-medium text-gray-300 hover:text-cj-electric transition-colors">Inicio</a>
-                    <a href="servicios.html" class="text-sm font-medium text-cj-electric">Servicios</a>
-                    <a href="cotizacion.html" class="text-sm font-medium text-gray-300 hover:text-cj-electric transition-colors">Cotización</a>
-                    <a href="nosotros.html" class="text-sm font-medium text-gray-300 hover:text-cj-electric transition-colors">Nosotros</a>
-                    <a href="blog.html" class="text-sm font-medium text-gray-300 hover:text-cj-electric transition-colors">Blog</a>
-                    <a href="index.html#contacto" class="text-sm font-medium text-cj-electric hover:text-cj-accent transition-colors">Contacto</a>
-                    <a href="cotizacion.html" class="px-5 py-2 bg-gradient-to-r from-cj-electric to-cj-accent text-white rounded-full font-semibold text-sm hover:scale-105 transition-transform">Cotizar</a>
+                    <a href="index.html" class="text-sm font-medium text-cj-silver hover:text-cj-gold transition-colors">Inicio</a>
+                    <a href="servicios.html" class="text-sm font-medium text-cj-gold">Servicios</a>
+                    <a href="cotizacion.html" class="text-sm font-medium text-cj-silver hover:text-cj-gold transition-colors">Cotización</a>
+                    <a href="nosotros.html" class="text-sm font-medium text-cj-silver hover:text-cj-gold transition-colors">Nosotros</a>
+                    <a href="blog.html" class="text-sm font-medium text-cj-silver hover:text-cj-gold transition-colors">Blog</a>
+                    <a href="cotizacion.html" class="px-5 py-2 bg-gradient-to-r from-cj-gold to-cj-gold-light text-cj-blue rounded-full font-semibold text-sm hover:scale-105 transition-transform">Cotizar</a>
                 </div>
                 
                 <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-white hover:bg-white/10">
@@ -79,14 +83,14 @@
             </div>
             
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden lg:hidden mt-4 p-4 glass rounded-2xl border border-cj-electric/20">
+            <div id="mobile-menu" class="hidden lg:hidden mt-4 p-4 glass rounded-2xl border border-cj-gold/20">
                 <div class="flex flex-col gap-2">
                     <a href="index.html" class="px-4 py-3 rounded-xl hover:bg-white/10 text-base">🏠 Inicio</a>
-                    <a href="servicios.html" class="px-4 py-3 rounded-xl bg-cj-electric/20 text-cj-electric text-base font-semibold">🔧 Servicios</a>
+                    <a href="servicios.html" class="px-4 py-3 rounded-xl bg-cj-gold/20 text-cj-gold text-base font-semibold">🔧 Servicios</a>
                     <a href="cotizacion.html" class="px-4 py-3 rounded-xl hover:bg-white/10 text-base">💰 Cotización</a>
                     <a href="nosotros.html" class="px-4 py-3 rounded-xl hover:bg-white/10 text-base">👤 Nosotros</a>
                     <a href="blog.html" class="px-4 py-3 rounded-xl hover:bg-white/10 text-base">📚 Blog</a>
-                    <a href="cotizacion.html" class="px-4 py-3 bg-gradient-to-r from-cj-electric to-cj-accent rounded-xl text-center font-semibold text-base mt-2">📝 Cotizar</a>
+                    <a href="cotizacion.html" class="px-4 py-3 bg-gradient-to-r from-cj-gold to-cj-gold-light text-cj-blue rounded-xl text-center font-semibold text-base mt-2">📝 Cotizar</a>
                 </div>
             </div>
         </div>
@@ -107,7 +111,7 @@
                 <h1 class="text-5xl md:text-7xl lg:text-8xl font-black font-montserrat mb-6">
                     <span class="gradient-text">Procedimientos</span>
                 </h1>
-                <p class="text-2xl md:text-3xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                <p class="text-2xl md:text-3xl text-cj-silver max-w-4xl mx-auto leading-relaxed">
                     Documentamos y optimizamos tus procesos de negocio para eliminar ineficiencias y maximizar la productividad
                 </p>
             </div>
@@ -123,31 +127,31 @@
                     <h2 class="text-3xl md:text-4xl font-black mb-8">¿Qué incluye?</h2>
                     <ul class="space-y-6">
                         <li class="flex items-start gap-4">
-                            <span class="w-10 h-10 rounded-full bg-cj-electric/20 flex items-center justify-center text-cj-accent text-xl flex-shrink-0">1</span>
+                            <span class="w-10 h-10 rounded-full bg-cj-gold/20 flex items-center justify-center text-cj-gold text-xl flex-shrink-0">1</span>
                             <div>
                                 <h3 class="font-bold text-xl mb-2">Mapeo de Procesos</h3>
-                                <p class="text-gray-400">Diagramamos flujos de trabajo actuales identificando cuellos de botella y redundancias.</p>
+                                <p class="text-cj-silver">Diagramamos flujos de trabajo actuales identificando cuellos de botella y redundancias.</p>
                             </div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <span class="w-10 h-10 rounded-full bg-cj-electric/20 flex items-center justify-center text-cj-accent text-xl flex-shrink-0">2</span>
+                            <span class="w-10 h-10 rounded-full bg-cj-gold/20 flex items-center justify-center text-cj-gold text-xl flex-shrink-0">2</span>
                             <div>
                                 <h3 class="font-bold text-xl mb-2">Manuales de Procedimientos</h3>
-                                <p class="text-gray-400">Documentación clara y estructurada que cualquier empleado puede seguir.</p>
+                                <p class="text-cj-silver">Documentación clara y estructurada que cualquier empleado puede seguir.</p>
                             </div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <span class="w-10 h-10 rounded-full bg-cj-electric/20 flex items-center justify-center text-cj-accent text-xl flex-shrink-0">3</span>
+                            <span class="w-10 h-10 rounded-full bg-cj-gold/20 flex items-center justify-center text-cj-gold text-xl flex-shrink-0">3</span>
                             <div>
                                 <h3 class="font-bold text-xl mb-2">Indicadores KPI</h3>
-                                <p class="text-gray-400">Definimos métricas clave para medir el desempeño de cada proceso.</p>
+                                <p class="text-cj-silver">Definimos métricas clave para medir el desempeño de cada proceso.</p>
                             </div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <span class="w-10 h-10 rounded-full bg-cj-electric/20 flex items-center justify-center text-cj-accent text-xl flex-shrink-0">4</span>
+                            <span class="w-10 h-10 rounded-full bg-cj-gold/20 flex items-center justify-center text-cj-gold text-xl flex-shrink-0">4</span>
                             <div>
                                 <h3 class="font-bold text-xl mb-2">Optimización</h3>
-                                <p class="text-gray-400">Rediseñamos procesos para eliminar desperdicios y mejorar tiempos.</p>
+                                <p class="text-cj-silver">Rediseñamos procesos para eliminar desperdicios y mejorar tiempos.</p>
                             </div>
                         </li>
                     </ul>
@@ -160,27 +164,27 @@
                         <div class="grid grid-cols-2 gap-4">
                             <div class="text-center p-4 rounded-2xl bg-white/5">
                                 <p class="text-4xl font-black gradient-text">-40%</p>
-                                <p class="text-sm text-gray-400">Tiempo en tareas</p>
+                                <p class="text-sm text-cj-silver">Tiempo en tareas</p>
                             </div>
                             <div class="text-center p-4 rounded-2xl bg-white/5">
                                 <p class="text-4xl font-black gradient-text">+60%</p>
-                                <p class="text-sm text-gray-400">Eficiencia</p>
+                                <p class="text-sm text-cj-silver">Eficiencia</p>
                             </div>
                             <div class="text-center p-4 rounded-2xl bg-white/5">
                                 <p class="text-4xl font-black gradient-text">100%</p>
-                                <p class="text-sm text-gray-400">Trabajo estandarizado</p>
+                                <p class="text-sm text-cj-silver">Trabajo estandarizado</p>
                             </div>
                             <div class="text-center p-4 rounded-2xl bg-white/5">
                                 <p class="text-4xl font-black gradient-text">24h</p>
-                                <p class="text-sm text-gray-400">Onboarding empleados</p>
+                                <p class="text-sm text-cj-silver">Onboarding empleados</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="glass-card rounded-3xl p-8 border border-cj-electric/50">
+                    <div class="glass-card rounded-3xl p-8 border border-cj-gold/50">
                         <h3 class="text-2xl font-bold mb-4">¿Listo para ordenar tus procesos?</h3>
-                        <p class="text-gray-400 mb-6">Primera consulta diagnóstica gratuita. Sin compromiso.</p>
-                        <a href="index.html#contacto" class="block w-full py-4 bg-gradient-to-r from-cj-electric to-cj-accent text-white rounded-xl font-bold text-center hover:shadow-lg hover:shadow-cj-electric/30 transition-all">
+                        <p class="text-cj-silver mb-6">Primera consulta diagnóstica gratuita. Sin compromiso.</p>
+                        <a href="cotizacion.html" class="block w-full py-4 bg-gradient-to-r from-cj-gold to-cj-gold-light text-cj-blue rounded-xl font-bold text-center hover:shadow-lg hover:shadow-cj-gold/30 transition-all">
                             Agendar consulta gratuita →
                         </a>
                     </div>
@@ -188,13 +192,13 @@
                     <!-- Caso de éxito -->
                     <div class="glass-card rounded-3xl p-8">
                         <div class="flex items-center gap-4 mb-4">
-                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center font-bold">AD</div>
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cj-gold to-cj-electric flex items-center justify-center font-bold text-cj-blue">AD</div>
                             <div>
                                 <p class="font-bold">ADIS Diseño</p>
-                                <p class="text-sm text-gray-400">Caso de éxito</p>
+                                <p class="text-sm text-cj-silver">Caso de éxito</p>
                             </div>
                         </div>
-                        <blockquote class="text-gray-300 italic">
+                        <blockquote class="text-cj-silver italic">
                             "Documentamos todos nuestros procesos de venta y producción. Ahora un empleado nuevo aprende en 3 días lo que antes tomaba 3 semanas."
                         </blockquote>
                     </div>
@@ -204,8 +208,8 @@
     </section>
 
     <!-- Footer simple -->
-    <footer class="py-8 border-t border-cj-electric/20">
-        <div class="max-w-7xl mx-auto px-4 text-center text-gray-500">
+    <footer class="py-8 border-t border-cj-gold/20">
+        <div class="max-w-7xl mx-auto px-4 text-center text-cj-silver">
             <p>© 2024 CJ Consultoría - Ing. Carlos Urbina</p>
         </div>
     </footer>

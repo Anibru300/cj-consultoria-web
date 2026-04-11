@@ -9,10 +9,10 @@
     
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐺</text></svg>">
     
-    <!-- Fonts -->
+    <!-- Fonts: Solo 3 tipografías -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
     
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -30,10 +30,14 @@
                         'cj-electric': '#2E7DE8',
                         'cj-dark': '#0a1628',
                         'cj-accent': '#00D4FF',
+                        'cj-gold': '#D4AF37',
+                        'cj-gold-light': '#F4D03F',
+                        'cj-platinum': '#E5E4E2',
                     },
                     fontFamily: {
                         'montserrat': ['Montserrat', 'sans-serif'],
                         'opensans': ['Open Sans', 'sans-serif'],
+                        'playfair': ['Playfair Display', 'serif'],
                     }
                 }
             }
@@ -41,39 +45,66 @@
     </script>
     
     <style>
-        * { font-family: 'Open Sans', sans-serif; box-sizing: border-box; }
-        html { font-size: 16px; scroll-behavior: smooth; }
+        /* TIPOGRAFÍA: Solo 3 fuentes permitidas */
+        * { 
+            font-family: 'Open Sans', sans-serif; 
+            box-sizing: border-box; 
+        }
+        
+        html { 
+            font-size: 16px; 
+            scroll-behavior: smooth; 
+        }
+        
         @media (min-width: 1400px) { html { font-size: 17px; } }
         @media (max-width: 640px) { html { font-size: 15px; } }
         
-        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { 
+            font-family: 'Montserrat', sans-serif; 
+        }
+        
+        .font-playfair { 
+            font-family: 'Playfair Display', serif; 
+        }
         
         .container-main {
             width: 100%; max-width: 1280px;
             margin-left: auto; margin-right: auto;
             padding-left: 1rem; padding-right: 1rem;
         }
+        
         @media (min-width: 640px) { .container-main { padding-left: 1.5rem; padding-right: 1.5rem; } }
         @media (min-width: 1024px) { .container-main { padding-left: 2rem; padding-right: 2rem; max-width: 1200px; } }
         
         .bg-consulting {
             background-color: #0a1628;
             background-image: 
-                radial-gradient(ellipse 800px 600px at 100% 0%, rgba(46, 125, 232, 0.5), transparent 60%),
-                radial-gradient(ellipse 600px 500px at 0% 100%, rgba(0, 212, 255, 0.4), transparent 60%),
+                radial-gradient(ellipse 800px 600px at 100% 0%, rgba(212, 175, 55, 0.15), transparent 60%),
+                radial-gradient(ellipse 600px 500px at 0% 100%, rgba(46, 125, 232, 0.3), transparent 60%),
                 linear-gradient(180deg, #0B1F3A 0%, #071225 50%, #0a1628 100%);
             background-attachment: fixed;
             min-height: 100vh;
         }
         
-        .glass { background: rgba(11, 31, 58, 0.9); backdrop-filter: blur(20px); }
+        .glass { 
+            background: rgba(11, 31, 58, 0.9); 
+            backdrop-filter: blur(20px); 
+        }
+        
         .glass-card {
-            background: linear-gradient(135deg, rgba(46, 125, 232, 0.08), rgba(0, 212, 255, 0.04));
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08), rgba(46, 125, 232, 0.04));
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(46, 125, 232, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.15);
         }
         
         .gradient-text {
+            background: linear-gradient(135deg, #D4AF37, #F4D03F);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gradient-blue {
             background: linear-gradient(135deg, #2E7DE8, #00D4FF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -94,8 +125,8 @@
         }
         .particle {
             position: absolute; width: 4px; height: 4px;
-            background: #2E7DE8; border-radius: 50%;
-            box-shadow: 0 0 10px #2E7DE8, 0 0 20px #2E7DE8;
+            background: #D4AF37; border-radius: 50%;
+            box-shadow: 0 0 10px #D4AF37, 0 0 20px rgba(212, 175, 55, 0.5);
             animation: float 15s infinite;
         }
         @keyframes float {
@@ -110,41 +141,41 @@
                 display: flex; position: fixed; bottom: 0; left: 0; right: 0;
                 background: linear-gradient(90deg, #0B1F3A, #1a365d);
                 padding: 0.75rem 1rem; z-index: 9998; gap: 0.75rem;
-                border-top: 1px solid rgba(46, 125, 232, 0.3);
+                border-top: 1px solid rgba(212, 175, 55, 0.3);
             }
             body { padding-bottom: 70px; }
         }
         
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #0B1F3A; }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #2E7DE8, #00D4FF); border-radius: 5px; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #D4AF37, #2E7DE8); border-radius: 5px; }
         
         /* Form styles */
         input, select, textarea {
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(46, 125, 232, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.3);
             color: white;
             transition: all 0.3s;
         }
         input:focus, select:focus, textarea:focus {
             outline: none;
-            border-color: #2E7DE8;
-            box-shadow: 0 0 0 3px rgba(46, 125, 232, 0.2);
+            border-color: #D4AF37;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
         }
         input::placeholder, textarea::placeholder { color: rgba(255, 255, 255, 0.4); }
         
         .checkbox-custom {
             appearance: none; width: 20px; height: 20px;
-            border: 2px solid rgba(46, 125, 232, 0.5);
+            border: 2px solid rgba(212, 175, 55, 0.5);
             border-radius: 4px; cursor: pointer; position: relative;
         }
         .checkbox-custom:checked {
-            background: linear-gradient(135deg, #2E7DE8, #00D4FF);
+            background: linear-gradient(135deg, #D4AF37, #F4D03F);
             border-color: transparent;
         }
         .checkbox-custom:checked::after {
             content: '✓'; position: absolute; top: 50%; left: 50%;
-            transform: translate(-50%, -50%); color: white; font-size: 12px;
+            transform: translate(-50%, -50%); color: #0B1F3A; font-size: 12px; font-weight: bold;
         }
     </style>
 </head>
@@ -162,22 +193,21 @@
         <div class="container-main">
             <div class="flex items-center justify-between">
                 <a href="index.html" class="flex items-center gap-3 group">
-                    <div class="w-12 h-12 rounded-xl overflow-hidden border-2 border-cj-electric bg-white group-hover:scale-110 transition-transform">
+                    <div class="w-12 h-12 rounded-xl overflow-hidden border-2 border-cj-gold bg-white group-hover:scale-110 transition-transform">
                         <img src="logo-cj.png" alt="CJ Consultoría" class="w-full h-full object-contain">
                     </div>
                     <div>
-                        <span class="text-lg lg:text-xl font-black tracking-tight font-montserrat group-hover:text-cj-electric transition-colors">CJ Consultoría</span>
-                        <span class="block text-xs text-cj-electric font-medium tracking-wider">TRANSFORMAMOS PROCESOS</span>
+                        <span class="text-lg lg:text-xl font-black tracking-tight font-montserrat group-hover:text-cj-gold transition-colors">CJ Consultoría</span>
+                        <span class="block text-xs text-cj-gold font-medium tracking-wider">TRANSFORMAMOS PROCESOS</span>
                     </div>
                 </a>
                 
                 <div class="hidden lg:flex items-center gap-5 xl:gap-6">
-                    <a href="index.html" class="text-sm xl:text-base font-medium text-gray-300 hover:text-cj-electric transition-colors">Inicio</a>
-                    <a href="servicios.html" class="text-sm xl:text-base font-medium text-gray-300 hover:text-cj-electric transition-colors">Servicios</a>
-                    <a href="cotizacion.html" class="text-sm xl:text-base font-medium text-cj-electric relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-cj-electric">Cotización</a>
-                    <a href="nosotros.html" class="text-sm xl:text-base font-medium text-gray-300 hover:text-cj-electric transition-colors">Nosotros</a>
-                    <a href="blog.html" class="text-sm xl:text-base font-medium text-gray-300 hover:text-cj-electric transition-colors">Blog</a>
-                    <a href="index.html#contacto" class="text-sm xl:text-base font-medium text-cj-electric hover:text-cj-accent transition-colors">Contacto</a>
+                    <a href="index.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-cj-gold transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-gold after:transition-all hover:after:w-full">Inicio</a>
+                    <a href="servicios.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-cj-gold transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-gold after:transition-all hover:after:w-full">Servicios</a>
+                    <a href="cotizacion.html" class="text-sm xl:text-base font-medium text-cj-gold relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-cj-gold">Cotización</a>
+                    <a href="nosotros.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-cj-gold transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-gold after:transition-all hover:after:w-full">Nosotros</a>
+                    <a href="blog.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-cj-gold transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-gold after:transition-all hover:after:w-full">Blog</a>
                     
                     <a href="https://wa.me/524776940272" target="_blank" class="px-5 py-2.5 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-full font-semibold text-sm transition-all hover:scale-105 shadow-lg">
                         💬 WhatsApp
@@ -193,13 +223,13 @@
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden glass mt-4 mx-4 rounded-2xl p-4 border border-cj-electric/20">
+        <div id="mobile-menu" class="hidden lg:hidden glass mt-4 mx-4 rounded-2xl p-4 border border-cj-gold/20">
             <div class="flex flex-col gap-2">
-                <a href="index.html" class="px-4 py-3 rounded-xl hover:bg-white/10 text-base">🏠 Inicio</a>
-                <a href="servicios.html" class="px-4 py-3 rounded-xl hover:bg-white/10 text-base">🔧 Servicios</a>
-                <a href="cotizacion.html" class="px-4 py-3 rounded-xl bg-cj-electric/20 text-cj-electric text-base font-semibold">💰 Cotización</a>
-                <a href="nosotros.html" class="px-4 py-3 rounded-xl hover:bg-white/10 text-base">👤 Nosotros</a>
-                <a href="blog.html" class="px-4 py-3 rounded-xl hover:bg-white/10 text-base">📚 Blog</a>
+                <a href="index.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">🏠 Inicio</a>
+                <a href="servicios.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">🔧 Servicios</a>
+                <a href="cotizacion.html" class="px-4 py-3 rounded-xl bg-cj-gold/20 text-cj-gold transition-colors text-base font-semibold">💰 Cotización</a>
+                <a href="nosotros.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">👤 Nosotros</a>
+                <a href="blog.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">📚 Blog</a>
                 <a href="https://wa.me/524776940272" target="_blank" class="px-4 py-3 bg-gradient-to-r from-green-500 to-green-600 rounded-xl text-center font-semibold text-base mt-2">💬 WhatsApp</a>
             </div>
         </div>
@@ -209,14 +239,14 @@
     <section class="relative min-h-[50vh] flex items-center pt-24 pb-12">
         <div class="container-main relative z-10">
             <div class="text-center" data-aos="fade-up">
-                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-cj-electric/50 mb-6">
+                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-cj-gold/50 mb-6">
                     <span class="text-xl">💰</span>
-                    <span class="text-sm font-semibold text-cj-electric">Cotización gratuita</span>
+                    <span class="text-sm font-semibold text-cj-gold">Cotización gratuita</span>
                 </span>
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black font-montserrat mb-6">
                     Solicita tu <span class="gradient-text">presupuesto</span>
                 </h1>
-                <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+                <p class="text-lg text-cj-silver max-w-2xl mx-auto">
                     Cuéntanos sobre tu proyecto y te enviaremos una cotización personalizada en menos de 24 horas.
                 </p>
             </div>
@@ -232,7 +262,7 @@
                     <div class="text-4xl mb-4">📊</div>
                     <h3 class="font-bold text-lg mb-2">Excel & BI</h3>
                     <p class="text-3xl font-black gradient-text mb-2">$5k</p>
-                    <p class="text-sm text-gray-400">Desde $5,000 MXN</p>
+                    <p class="text-sm text-cj-silver">Desde $5,000 MXN</p>
                 </div>
                 
                 <!-- Procedimientos -->
@@ -240,7 +270,7 @@
                     <div class="text-4xl mb-4">📋</div>
                     <h3 class="font-bold text-lg mb-2">Procedimientos</h3>
                     <p class="text-3xl font-black gradient-text mb-2">$8k</p>
-                    <p class="text-sm text-gray-400">Desde $8,000 MXN</p>
+                    <p class="text-sm text-cj-silver">Desde $8,000 MXN</p>
                 </div>
                 
                 <!-- Mejora Continua -->
@@ -248,16 +278,16 @@
                     <div class="text-4xl mb-4">📈</div>
                     <h3 class="font-bold text-lg mb-2">Mejora Continua</h3>
                     <p class="text-3xl font-black gradient-text mb-2">$10k</p>
-                    <p class="text-sm text-gray-400">Desde $10,000 MXN</p>
+                    <p class="text-sm text-cj-silver">Desde $10,000 MXN</p>
                 </div>
                 
                 <!-- ISO -->
-                <div class="glass-card rounded-2xl p-6 text-center border-2 border-cj-electric relative" data-aos="fade-up" data-aos-delay="300">
-                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-cj-electric to-cj-accent text-white text-xs px-3 py-1 rounded-full font-bold">MÁS POPULAR</span>
+                <div class="glass-card rounded-2xl p-6 text-center border-2 border-cj-gold relative" data-aos="fade-up" data-aos-delay="300">
+                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-cj-gold to-cj-gold-light text-cj-blue text-xs px-3 py-1 rounded-full font-bold">MÁS POPULAR</span>
                     <div class="text-4xl mb-4">⚙️</div>
                     <h3 class="font-bold text-lg mb-2">ISO & Sistemas</h3>
                     <p class="text-3xl font-black gradient-text mb-2">$15k</p>
-                    <p class="text-sm text-gray-400">Desde $15,000 MXN</p>
+                    <p class="text-sm text-cj-silver">Desde $15,000 MXN</p>
                 </div>
             </div>
         </div>
@@ -269,7 +299,7 @@
             <div class="max-w-3xl mx-auto">
                 <div class="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-10" data-aos="fade-up">
                     <h2 class="text-2xl sm:text-3xl font-bold font-montserrat mb-2 text-center">Formulario de cotización</h2>
-                    <p class="text-gray-400 text-center mb-8">Campos marcados con * son obligatorios</p>
+                    <p class="text-cj-silver text-center mb-8">Campos marcados con * son obligatorios</p>
                     
                     <form id="cotizacion-form" class="space-y-6">
                         <!-- Datos de contacto -->
@@ -363,26 +393,26 @@
                             <label class="block text-sm font-medium mb-2">¿Cómo prefieres que te contactemos?</label>
                             <div class="flex gap-4">
                                 <label class="flex items-center gap-2 cursor-pointer">
-                                    <input type="radio" name="contacto_pref" value="whatsapp" checked class="accent-cj-electric">
+                                    <input type="radio" name="contacto_pref" value="whatsapp" checked class="accent-cj-gold">
                                     <span class="text-sm">WhatsApp</span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer">
-                                    <input type="radio" name="contacto_pref" value="email" class="accent-cj-electric">
+                                    <input type="radio" name="contacto_pref" value="email" class="accent-cj-gold">
                                     <span class="text-sm">Email</span>
                                 </label>
                                 <label class="flex items-center gap-2 cursor-pointer">
-                                    <input type="radio" name="contacto_pref" value="llamada" class="accent-cj-electric">
+                                    <input type="radio" name="contacto_pref" value="llamada" class="accent-cj-gold">
                                     <span class="text-sm">Llamada</span>
                                 </label>
                             </div>
                         </div>
                         
                         <!-- Submit -->
-                        <button type="submit" class="w-full py-4 bg-gradient-to-r from-cj-electric to-cj-accent text-white rounded-xl font-bold text-lg hover:scale-[1.02] transition-transform shadow-xl btn-shimmer">
+                        <button type="submit" class="w-full py-4 bg-gradient-to-r from-cj-gold to-cj-gold-light text-cj-blue rounded-xl font-bold text-lg hover:scale-[1.02] transition-transform shadow-xl btn-shimmer">
                             📩 Enviar solicitud de cotización
                         </button>
                         
-                        <p class="text-xs text-gray-400 text-center">
+                        <p class="text-xs text-cj-silver text-center">
                             Al enviar este formulario aceptas nuestra política de privacidad. 
                             Te contactaremos en menos de 24 horas hábiles.
                         </p>
@@ -393,63 +423,63 @@
     </section>
 
     <!-- Info Section -->
-    <section class="py-12 border-t border-cj-electric/20">
+    <section class="py-12 border-t border-cj-gold/20">
         <div class="container-main">
             <div class="grid md:grid-cols-3 gap-8 text-center">
                 <div data-aos="fade-up" data-aos-delay="0">
                     <div class="text-4xl mb-3">⚡</div>
                     <h3 class="font-bold mb-2">Respuesta rápida</h3>
-                    <p class="text-sm text-gray-400">Cotización en menos de 24 horas hábiles</p>
+                    <p class="text-sm text-cj-silver">Cotización en menos de 24 horas hábiles</p>
                 </div>
                 <div data-aos="fade-up" data-aos-delay="100">
                     <div class="text-4xl mb-3">🎯</div>
                     <h3 class="font-bold mb-2">Personalizado</h3>
-                    <p class="text-sm text-gray-400">Cada proyecto es único, adaptamos la solución</p>
+                    <p class="text-sm text-cj-silver">Cada proyecto es único, adaptamos la solución</p>
                 </div>
                 <div data-aos="fade-up" data-aos-delay="200">
                     <div class="text-4xl mb-3">💬</div>
                     <h3 class="font-bold mb-2">Consulta gratuita</h3>
-                    <p class="text-sm text-gray-400">Primera sesión de diagnóstico sin costo</p>
+                    <p class="text-sm text-cj-silver">Primera sesión de diagnóstico sin costo</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-cj-electric/20 pt-12 pb-6">
+    <footer class="border-t border-cj-gold/20 pt-12 pb-6">
         <div class="container-main">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
                 <div class="col-span-2 md:col-span-1">
                     <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 rounded-lg overflow-hidden border border-cj-electric bg-white">
+                        <div class="w-10 h-10 rounded-lg overflow-hidden border border-cj-gold bg-white">
                             <img src="logo-cj.png" alt="CJ Consultoría" class="w-full h-full object-contain">
                         </div>
                         <div>
                             <span class="font-bold text-base">CJ Consultoría</span>
-                            <span class="block text-xs text-cj-electric">TRANSFORMAMOS PROCESOS</span>
+                            <span class="block text-xs text-cj-gold">TRANSFORMAMOS PROCESOS</span>
                         </div>
                     </div>
-                    <p class="text-xs text-gray-400">Transformamos procesos en resultados sostenibles.</p>
+                    <p class="text-xs text-cj-silver">Transformamos procesos en resultados sostenibles.</p>
                 </div>
                 <div>
                     <h4 class="font-semibold mb-4 text-sm">Enlaces</h4>
-                    <ul class="space-y-2 text-xs text-gray-400">
-                        <li><a href="index.html" class="hover:text-cj-accent transition-colors">Inicio</a></li>
-                        <li><a href="servicios.html" class="hover:text-cj-accent transition-colors">Servicios</a></li>
-                        <li><a href="nosotros.html" class="hover:text-cj-accent transition-colors">Nosotros</a></li>
-                        <li><a href="blog.html" class="hover:text-cj-accent transition-colors">Blog</a></li>
+                    <ul class="space-y-2 text-xs text-cj-silver">
+                        <li><a href="index.html" class="hover:text-cj-gold transition-colors">Inicio</a></li>
+                        <li><a href="servicios.html" class="hover:text-cj-gold transition-colors">Servicios</a></li>
+                        <li><a href="nosotros.html" class="hover:text-cj-gold transition-colors">Nosotros</a></li>
+                        <li><a href="blog.html" class="hover:text-cj-gold transition-colors">Blog</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="font-semibold mb-4 text-sm">Contacto</h4>
-                    <ul class="space-y-2 text-xs text-gray-400">
+                    <ul class="space-y-2 text-xs text-cj-silver">
                         <li>📱 +52 477 694 0272</li>
                         <li>✉️ cj.consultoria.sgc@gmail.com</li>
                         <li>📍 León, Gto.</li>
                     </ul>
                 </div>
             </div>
-            <div class="pt-6 border-t border-cj-electric/20 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="pt-6 border-t border-cj-gold/20 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-xs text-gray-500">© 2024 CJ Consultoría</p>
             </div>
         </div>
@@ -499,8 +529,6 @@
             const formData = new FormData(e.target);
             const nombre = formData.get('nombre');
             
-            // Aquí normalmente enviarías los datos a un servidor
-            // Por ahora mostramos un mensaje de confirmación
             alert(`¡Gracias ${nombre}! 🎉\n\nTu solicitud de cotización ha sido recibida. Te contactaremos en menos de 24 horas vía ${formData.get('contacto_pref')}.`);
             
             e.target.reset();
