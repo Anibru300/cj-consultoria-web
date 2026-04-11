@@ -53,15 +53,39 @@
     <nav class="fixed w-full z-50 glass py-4">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between">
-                <a href="index.html" class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-lg overflow-hidden border-2 border-cj-electric bg-white">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-lg overflow-hidden border-2 border-cj-electric bg-white group-hover:scale-110 transition-transform">
                         <img src="logo-cj.png" alt="CJ Consultoría" class="w-full h-full object-contain">
                     </div>
-                    <span class="text-lg font-black font-montserrat">CJ Consultoría</span>
+                    <span class="text-lg font-black font-montserrat group-hover:text-cj-electric transition-colors">CJ Consultoría</span>
                 </a>
-                <a href="index.html#servicios" class="px-6 py-2 border border-cj-electric text-cj-electric rounded-full hover:bg-cj-electric hover:text-white transition-all">
-                    ← Volver a Servicios
-                </a>
+                
+                <div class="hidden lg:flex items-center gap-5">
+                    <a href="index.html" class="text-sm font-medium text-gray-300 hover:text-cj-electric transition-colors">Inicio</a>
+                    <a href="servicios.html" class="text-sm font-medium text-cj-electric">Servicios</a>
+                    <a href="cotizacion.html" class="text-sm font-medium text-gray-300 hover:text-cj-electric transition-colors">Cotización</a>
+                    <a href="nosotros.html" class="text-sm font-medium text-gray-300 hover:text-cj-electric transition-colors">Nosotros</a>
+                    <a href="blog.html" class="text-sm font-medium text-gray-300 hover:text-cj-electric transition-colors">Blog</a>
+                    <a href="index.html#contacto" class="text-sm font-medium text-cj-electric hover:text-cj-accent transition-colors">Contacto</a>
+                    <a href="cotizacion.html" class="px-5 py-2 bg-gradient-to-r from-cj-electric to-cj-accent text-white rounded-full font-semibold text-sm hover:scale-105 transition-transform">Cotizar</a>
+                </div>
+                
+                <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="lg:hidden p-2 rounded-lg text-white hover:bg-white/10">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div id="mobile-menu" class="hidden lg:hidden mt-4 p-4 glass rounded-2xl border border-cj-electric/20">
+                <div class="flex flex-col gap-2">
+                    <a href="index.html" class="px-4 py-3 rounded-xl hover:bg-white/10 text-base">🏠 Inicio</a>
+                    <a href="servicios.html" class="px-4 py-3 rounded-xl bg-cj-electric/20 text-cj-electric text-base font-semibold">🔧 Servicios</a>
+                    <a href="cotizacion.html" class="px-4 py-3 rounded-xl hover:bg-white/10 text-base">💰 Cotización</a>
+                    <a href="nosotros.html" class="px-4 py-3 rounded-xl hover:bg-white/10 text-base">👤 Nosotros</a>
+                    <a href="blog.html" class="px-4 py-3 rounded-xl hover:bg-white/10 text-base">📚 Blog</a>
+                    <a href="cotizacion.html" class="px-4 py-3 bg-gradient-to-r from-cj-electric to-cj-accent rounded-xl text-center font-semibold text-base mt-2">📝 Cotizar</a>
+                </div>
             </div>
         </div>
     </nav>
