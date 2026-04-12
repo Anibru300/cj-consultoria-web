@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es-MX" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.15, minimum-scale=1, maximum-scale=2, viewport-fit=cover">
+    <meta name="description" content="Productos CJ Consultoría: StockWolf ERP de inventarios y Guía ISO 9001:2015. Herramientas profesionales para tu empresa.">
+    <meta name="theme-color" content="#0B1F3A">
+    <title>Productos | CJ Consultoría - StockWolf & Guía ISO 9001</title>
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐺</text></svg>">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'cj-blue': '#0B1F3A',
+                        'cj-blue-dark': '#071225',
+                        'cj-silver': '#C0C0C0',
+                        'cj-electric': '#2E7DE8',
+                        'cj-electric-light': '#00D4FF',
+                        'cj-dark': '#0a1628',
+                        'cj-gray': '#6B7280',
+                    },
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                        'opensans': ['Open Sans', 'sans-serif'],
+                        'playfair': ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        * { font-family: 'Open Sans', sans-serif; box-sizing: border-box; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+        @media (min-width: 1400px) { html { font-size: 17px; } }
+        @media (max-width: 640px) { html { font-size: 15px; } }
+        
+        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; font-weight: 700; color: white; }
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        
+        .container-main { width: 100%; max-width: 1280px; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
+        @media (min-width: 640px) { .container-main { padding-left: 1.5rem; padding-right: 1.5rem; } }
+        @media (min-width: 1024px) { .container-main { padding-left: 2rem; padding-right: 2rem; max-width: 1200px; } }
+        
+        .bg-consulting {
+            background-color: #0a1628;
+            background-image: 
+                radial-gradient(ellipse 800px 600px at 100% 0%, rgba(46, 125, 232, 0.5), transparent 60%),
+                radial-gradient(ellipse 600px 500px at 0% 100%, rgba(0, 212, 255, 0.4), transparent 60%),
+                radial-gradient(ellipse 400px 300px at 50% 50%, rgba(46, 125, 232, 0.15), transparent),
+                linear-gradient(180deg, #0B1F3A 0%, #071225 50%, #0a1628 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        .particles-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
+        .particle { position: absolute; width: 4px; height: 4px; background: #2E7DE8; border-radius: 50%; box-shadow: 0 0 10px #2E7DE8, 0 0 20px #2E7DE8, 0 0 30px #00D4FF; animation: float-particle 15s infinite; }
+        .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; animation-duration: 12s; }
+        .particle:nth-child(2) { left: 20%; top: 80%; animation-delay: 1s; animation-duration: 18s; width: 6px; height: 6px; }
+        .particle:nth-child(3) { left: 30%; top: 40%; animation-delay: 2s; animation-duration: 14s; }
+        .particle:nth-child(4) { left: 40%; top: 60%; animation-delay: 3s; animation-duration: 16s; width: 5px; height: 5px; }
+        .particle:nth-child(5) { left: 50%; top: 30%; animation-delay: 4s; animation-duration: 13s; }
+        
+        @keyframes float-particle {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+        }
+        
+        .connection-lines { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+        .connection-line { position: absolute; height: 2px; background: linear-gradient(90deg, transparent, rgba(46, 125, 232, 0.4), rgba(0, 212, 255, 0.6), rgba(46, 125, 232, 0.4), transparent); transform-origin: left center; animation: pulse-line 4s ease-in-out infinite; }
+        .connection-line:nth-child(1) { width: 300px; top: 20%; left: 5%; transform: rotate(25deg); animation-delay: 0s; }
+        .connection-line:nth-child(2) { width: 250px; top: 40%; right: 10%; transform: rotate(-15deg); animation-delay: 1s; }
+        .connection-line:nth-child(3) { width: 350px; top: 60%; left: 15%; transform: rotate(10deg); animation-delay: 2s; }
+        
+        @keyframes pulse-line {
+            0%, 100% { opacity: 0.2; box-shadow: 0 0 5px rgba(46, 125, 232, 0.3); }
+            50% { opacity: 0.8; box-shadow: 0 0 20px rgba(46, 125, 232, 0.6), 0 0 40px rgba(0, 212, 255, 0.4); }
+        }
+        
+        .pulse-circles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+        .pulse-circle { position: absolute; border: 2px solid rgba(46, 125, 232, 0.3); border-radius: 50%; animation: pulse-ring 4s ease-out infinite; }
+        .pulse-circle:nth-child(1) { width: 100px; height: 100px; top: 15%; left: 10%; animation-delay: 0s; }
+        .pulse-circle:nth-child(2) { width: 150px; height: 150px; top: 60%; right: 15%; animation-delay: 1.5s; }
+        
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.8; border-color: rgba(46, 125, 232, 0.6); }
+            100% { transform: scale(2); opacity: 0; border-color: rgba(0, 212, 255, 0); }
+        }
+        
+        .glass { background: rgba(11, 31, 58, 0.9); backdrop-filter: blur(20px); }
+        .glass-card { background: linear-gradient(135deg, rgba(46, 125, 232, 0.08), rgba(0, 212, 255, 0.04)); backdrop-filter: blur(12px); border: 1px solid rgba(46, 125, 232, 0.15); }
+        .glass-card-silver { background: linear-gradient(135deg, rgba(192, 192, 192, 0.08), rgba(46, 125, 232, 0.04)); backdrop-filter: blur(12px); border: 1px solid rgba(192, 192, 192, 0.15); }
+        
+        .gradient-text { background: linear-gradient(135deg, #2E7DE8, #00D4FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        
+        .hover-lift { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .hover-lift:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(46, 125, 232, 0.15); }
+        
+        .btn-shimmer { position: relative; overflow: hidden; }
+        .btn-shimmer::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); animation: shimmer 2s infinite; }
+        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+        
+        .mobile-sticky-cta { display: none; }
+        @media (max-width: 768px) { .mobile-sticky-cta { display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: linear-gradient(90deg, #0B1F3A, #1a365d); padding: 0.75rem 1rem; z-index: 9998; gap: 0.75rem; border-top: 1px solid rgba(46, 125, 232, 0.3); } body { padding-bottom: 70px; } }
+        
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0B1F3A; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #2E7DE8, #00D4FF); border-radius: 5px; }
+        
+        .product-card { background: linear-gradient(135deg, rgba(46, 125, 232, 0.1), rgba(0, 212, 255, 0.05)); border: 1px solid rgba(46, 125, 232, 0.2); transition: all 0.3s ease; }
+        .product-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(46, 125, 232, 0.2); border-color: rgba(46, 125, 232, 0.4); }
+        
+        .price-tag { position: relative; }
+        .price-original { text-decoration: line-through; opacity: 0.6; }
+        .price-promo { color: #fbbf24; font-weight: 800; }
+        .price-web { color: #22c55e; font-weight: 900; font-size: 1.3em; }
+        
+        .preview-section { border: 2px dashed rgba(46, 125, 232, 0.3); background: rgba(46, 125, 232, 0.05); }
+        
+        .bank-info { background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05)); border: 1px solid rgba(34, 197, 94, 0.3); }
+        
+        .file-upload { border: 2px dashed rgba(46, 125, 232, 0.4); transition: all 0.3s ease; }
+        .file-upload:hover { border-color: #2E7DE8; background: rgba(46, 125, 232, 0.1); }
+    </style>
+</head>
+<body class="bg-consulting text-white overflow-x-hidden">
+    <!-- Fondo animado -->
+    <div class="particles-container">
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
+    </div>
+    <div class="connection-lines">
+        <div class="connection-line"></div><div class="connection-line"></div><div class="connection-line"></div>
+    </div>
+    <div class="pulse-circles">
+        <div class="pulse-circle"></div><div class="pulse-circle"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-[9997] transition-all duration-500 py-4">
+        <div class="container-main">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-xl overflow-hidden border-2 border-cj-electric bg-white group-hover:scale-110 transition-transform">
+                        <img src="logo-cj.png" alt="CJ Consultoría" class="w-full h-full object-contain">
+                    </div>
+                    <div>
+                        <span class="text-lg lg:text-xl font-black tracking-tight font-montserrat text-white group-hover:text-cj-electric transition-colors">CJ Consultoría</span>
+                        <span class="block text-xs text-cj-electric font-medium tracking-wider">TRANSFORMAMOS PROCESOS</span>
+                    </div>
+                </a>
+                
+                <div class="hidden lg:flex items-center gap-5 xl:gap-6">
+                    <a href="index.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Inicio</a>
+                    <a href="productos.html" class="text-sm xl:text-base font-medium text-white relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-cj-electric">Productos</a>
+                    <a href="casos.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Casos</a>
+                    <a href="recursos.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Recursos</a>
+                    <a href="servicios.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Servicios</a>
+                    <a href="cotizacion.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Cotización</a>
+                    
+                    <a href="cotizacion.html" class="px-5 py-2.5 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-full font-semibold text-sm transition-all hover:scale-105 shadow-lg shadow-cj-electric/30 btn-shimmer">Cotizar</a>
+                </div>
+                
+                <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-white hover:bg-white/10" aria-label="Menú">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden lg:hidden glass mt-4 mx-4 rounded-2xl p-4 border border-cj-electric/20">
+            <div class="flex flex-col gap-2">
+                <a href="index.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">🏠 Inicio</a>
+                <a href="productos.html" class="px-4 py-3 rounded-xl bg-cj-electric/20 text-cj-electric-light transition-colors text-base font-semibold">🛍️ Productos</a>
+                <a href="casos.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">📊 Casos</a>
+                <a href="recursos.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">📚 Recursos</a>
+                <a href="servicios.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">🔧 Servicios</a>
+                <a href="cotizacion.html" class="px-4 py-3 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-xl text-center font-semibold text-base mt-2">📝 Cotizar</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative min-h-[50vh] flex items-center pt-24 pb-12">
+        <div class="container-main relative z-10">
+            <div class="text-center max-w-4xl mx-auto" data-aos="fade-up">
+                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-cj-electric/50 mb-6">
+                    <span class="text-xl">🛍️</span>
+                    <span class="text-sm font-semibold text-cj-electric-light">Nuestros Productos</span>
+                </span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black font-montserrat mb-6 text-white">
+                    Herramientas <span class="gradient-text">profesionales</span> para tu empresa
+                </h1>
+                <p class="text-lg lg:text-xl text-cj-silver max-w-3xl mx-auto">
+                    Sistema ERP de inventarios y Guía ISO 9001:2015. Soluciones listas para implementar.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Producto 1: StockWolf -->
+    <section class="py-16 relative">
+        <div class="container-main">
+            <div class="product-card rounded-3xl p-8 lg:p-12" data-aos="fade-up">
+                <div class="grid lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-5xl">🐺</span>
+                            <div>
+                                <span class="px-3 py-1 rounded-full bg-gradient-to-r from-cj-electric to-cj-electric-light text-white text-xs font-bold">SISTEMA ERP</span>
+                            </div>
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-montserrat mb-4 text-white">StockWolf</h2>
+                        <p class="text-cj-silver text-lg mb-6">
+                            Sistema profesional de control de inventarios para PYMEs. Gestiona tu stock, proveedores, 
+                            órdenes de compra y genera reportes en tiempo real.
+                        </p>
+                        
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3 text-cj-silver">
+                                <span class="w-6 h-6 rounded-full bg-cj-electric/20 flex items-center justify-center text-cj-electric text-sm">✓</span>
+                                Control de inventarios multi-almacén
+                            </li>
+                            <li class="flex items-center gap-3 text-cj-silver">
+                                <span class="w-6 h-6 rounded-full bg-cj-electric/20 flex items-center justify-center text-cj-electric text-sm">✓</span>
+                                Gestión de proveedores y órdenes de compra
+                            </li>
+                            <li class="flex items-center gap-3 text-cj-silver">
+                                <span class="w-6 h-6 rounded-full bg-cj-electric/20 flex items-center justify-center text-cj-electric text-sm">✓</span>
+                                Dashboards y reportes automáticos
+                            </li>
+                            <li class="flex items-center gap-3 text-cj-silver">
+                                <span class="w-6 h-6 rounded-full bg-cj-electric/20 flex items-center justify-center text-cj-electric text-sm">✓</span>
+                                Acceso desde cualquier dispositivo
+                            </li>
+                        </ul>
+                        
+                        <a href="https://inventory-pro-z81e.onrender.com/" target="_blank" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-xl btn-shimmer">
+                            🚀 Ver StockWolf
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+                    </div>
+                    
+                    <div class="glass-card rounded-2xl p-6 relative">
+                        <div class="absolute -top-4 -right-4 px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full text-sm font-bold shadow-lg">
+                            ¡Activo!
+                        </div>
+                        <div class="aspect-video bg-gradient-to-br from-cj-blue/50 to-cj-electric/20 rounded-xl flex items-center justify-center mb-4">
+                            <span class="text-8xl">🐺</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 text-center">
+                            <div>
+                                <div class="text-2xl font-bold text-cj-electric-light">100%</div>
+                                <div class="text-xs text-cj-silver">Web</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-cj-electric-light">24/7</div>
+                                <div class="text-xs text-cj-silver">Disponible</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-cj-electric-light">PYMEs</div>
+                                <div class="text-xs text-cj-silver">Enfocado</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Producto 2: Guía ISO 9001 -->
+    <section class="py-16 relative">
+        <div class="container-main">
+            <div class="product-card rounded-3xl p-8 lg:p-12 border-amber-500/30" data-aos="fade-up">
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Info del producto -->
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-5xl">📘</span>
+                            <div>
+                                <span class="px-3 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-bold">GUÍA DIGITAL</span>
+                            </div>
+                        </div>
+                        
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-montserrat mb-4 text-white">Guía Completa ISO 9001:2015</h2>
+                        
+                        <p class="text-cj-silver text-lg mb-6">
+                            80 páginas de contenido profesional con navegación interactiva. 
+                            El único manual que necesitas para entender e implementar ISO 9001 en tu empresa.
+                        </p>
+                        
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3 text-cj-silver">
+                                <span class="w-6 h-6 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-500 text-sm">✓</span>
+                                Índice clickeable con hipervínculos
+                            </li>
+                            <li class="flex items-center gap-3 text-cj-silver">
+                                <span class="w-6 h-6 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-500 text-sm">✓</span>
+                                Botón "ÍNDICE" en cada página
+                            </li>
+                            <li class="flex items-center gap-3 text-cj-silver">
+                                <span class="w-6 h-6 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-500 text-sm">✓</span>
+                                Los 10 requisitos explicados paso a paso
+                            </li>
+                            <li class="flex items-center gap-3 text-cj-silver">
+                                <span class="w-6 h-6 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-500 text-sm">✓</span>
+                                Ejemplos prácticos para PYMEs mexicanas
+                            </li>
+                        </ul>
+                        
+                        <!-- Precios -->
+                        <div class="glass-card-silver rounded-2xl p-6 mb-6">
+                            <h3 class="text-lg font-bold text-white mb-4">💰 Precios</h3>
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-cj-silver">Precio regular</span>
+                                    <span class="price-original text-lg">$800 MXN</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-cj-silver">Promoción</span>
+                                    <span class="price-promo text-lg">$600 MXN</span>
+                                </div>
+                                <div class="flex justify-between items-center pt-2 border-t border-white/10">
+                                    <span class="text-white font-semibold">🔥 Precio web (aquí)</span>
+                                    <span class="price-web text-2xl">$499 MXN</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Preview y Formulario de compra -->
+                    <div>
+                        <!-- Preview Gratuito -->
+                        <div class="preview-section rounded-2xl p-6 mb-6">
+                            <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                                <span>👁️</span> Preview Gratuito
+                            </h3>
+                            <p class="text-sm text-cj-silver mb-4">
+                                Explora el índice y el capítulo 4 antes de comprar:
+                            </p>
+                            <div class="grid grid-cols-2 gap-3 mb-4">
+                                <div class="glass-card rounded-lg p-3 text-center">
+                                    <div class="text-2xl mb-1">📑</div>
+                                    <div class="text-xs text-cj-silver">Índice interactivo</div>
+                                </div>
+                                <div class="glass-card rounded-lg p-3 text-center">
+                                    <div class="text-2xl mb-1">📖</div>
+                                    <div class="text-xs text-cj-silver">Capítulo 4 completo</div>
+                                </div>
+                            </div>
+                            <a href="guia-iso-9001-preview.pdf" target="_blank" class="w-full py-3 bg-white/10 hover:bg-white/20 text-white rounded-xl font-semibold transition-colors flex items-center justify-center gap-2 border border-cj-electric/30">
+                                <span>👁️</span> Ver preview gratuito
+                            </a>
+                        </div>
+                        
+                        <!-- Formulario de compra -->
+                        <div class="glass-card rounded-2xl p-6">
+                            <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                                <span>💳</span> Comprar Guía Completa
+                            </h3>
+                            
+                            <!-- Datos bancarios -->
+                            <div class="bank-info rounded-xl p-4 mb-4">
+                                <h4 class="font-semibold text-green-400 mb-2 text-sm">🏦 Datos para transferencia</h4>
+                                <div class="space-y-1 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-cj-silver">Banco:</span>
+                                        <span class="text-white font-medium">Mercado Pago</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-cj-silver">Beneficiario:</span>
+                                        <span class="text-white font-medium">Maria Jimena Mena Prado</span>
+                                    </div>
+                                    <div class="flex flex-col gap-1">
+                                        <span class="text-cj-silver">CLABE:</span>
+                                        <div class="flex items-center gap-2">
+                                            <code class="bg-black/30 px-2 py-1 rounded text-green-400 text-xs break-all" id="clabe">722969020205392763</code>
+                                            <button onclick="copyClabe()" class="text-xs text-cj-electric hover:text-cj-electric-light">📋 Copiar</button>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between pt-1 border-t border-white/10 mt-2">
+                                        <span class="text-green-400 font-semibold">Monto:</span>
+                                        <span class="text-green-400 font-bold">$499 MXN</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Formulario -->
+                            <form id="purchaseForm" onsubmit="handlePurchase(event)">
+                                <div class="space-y-3 mb-4">
+                                    <div>
+                                        <label class="block text-xs text-cj-silver mb-1">Nombre completo *</label>
+                                        <input type="text" name="nombre" required class="w-full px-3 py-2 rounded-lg bg-white/10 border border-cj-electric/30 text-white placeholder-cj-gray focus:outline-none focus:border-cj-electric text-sm" placeholder="Tu nombre">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs text-cj-silver mb-1">Correo electrónico *</label>
+                                        <input type="email" name="email" required class="w-full px-3 py-2 rounded-lg bg-white/10 border border-cj-electric/30 text-white placeholder-cj-gray focus:outline-none focus:border-cj-electric text-sm" placeholder="tu@email.com">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs text-cj-silver mb-1">WhatsApp *</label>
+                                        <input type="tel" name="whatsapp" required class="w-full px-3 py-2 rounded-lg bg-white/10 border border-cj-electric/30 text-white placeholder-cj-gray focus:outline-none focus:border-cj-electric text-sm" placeholder="477 123 4567">
+                                    </div>
+                                </div>
+                                
+                                <!-- Upload comprobante -->
+                                <div class="mb-4">
+                                    <label class="block text-xs text-cj-silver mb-2">Comprobante de pago *</label>
+                                    <div class="file-upload rounded-xl p-4 text-center cursor-pointer" onclick="document.getElementById('comprobante').click()">
+                                        <input type="file" id="comprobante" name="comprobante" accept="image/*,.pdf" required class="hidden" onchange="handleFileSelect(this)">
+                                        <div id="filePreview" class="text-cj-silver">
+                                            <span class="text-3xl">📎</span>
+                                            <p class="text-sm mt-2">Haz clic para subir captura o PDF</p>
+                                            <p class="text-xs opacity-60">JPG, PNG o PDF (máx. 5MB)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="w-full py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-xl font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+                                    <span>🚀</span> Enviar solicitud
+                                </button>
+                                
+                                <p class="text-xs text-cj-silver text-center mt-3">
+                                    Recibirás el PDF en tu correo en menos de 24 horas
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 relative">
+        <div class="container-main">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl sm:text-4xl font-black font-montserrat mb-8 text-center text-white" data-aos="fade-up">
+                    Preguntas <span class="gradient-text">frecuentes</span>
+                </h2>
+                
+                <div class="space-y-4" data-aos="fade-up">
+                    <div class="glass-card rounded-xl p-6">
+                        <h3 class="font-bold text-white mb-2">¿En qué formato viene la guía?</h3>
+                        <p class="text-cj-silver text-sm">PDF interactivo con hipervínculos funcionales. Funciona en cualquier lector de PDF (Adobe Reader, navegador, móvil).</p>
+                    </div>
+                    
+                    <div class="glass-card rounded-xl p-6">
+                        <h3 class="font-bold text-white mb-2">¿Cuánto tardan en enviarme la guía después de pagar?</h3>
+                        <p class="text-cj-silver text-sm">Verificamos tu pago y enviamos el PDF a tu correo en menos de 24 horas (generalmente en 2-4 horas en horario laboral).</p>
+                    </div>
+                    
+                    <div class="glass-card rounded-xl p-6">
+                        <h3 class="font-bold text-white mb-2">¿Puedo compartir la guía con mi equipo?</h3>
+                        <p class="text-cj-silver text-sm">La licencia es para uso interno de tu empresa. Puedes compartirla con tu equipo directo, pero no redistribute públicamente.</p>
+                    </div>
+                    
+                    <div class="glass-card rounded-xl p-6">
+                        <h3 class="font-bold text-white mb-2">¿Tienen garantía?</h3>
+                        <p class="text-cj-silver text-sm">Sí. Si la guía no cumple con lo prometido, te devolvemos tu dinero en los primeros 7 días.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="py-20">
+        <div class="container-main">
+            <div class="glass-card rounded-3xl p-8 lg:p-16 text-center" data-aos="fade-up">
+                <span class="text-6xl mb-6 block">💬</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-montserrat mb-6 text-white">
+                    ¿Tienes <span class="gradient-text">dudas</span>?
+                </h2>
+                <p class="text-lg text-cj-silver max-w-2xl mx-auto mb-8">
+                    Escríbenos por WhatsApp y te respondemos en minutos.
+                </p>
+                <a href="https://wa.me/524776940272" target="_blank" class="inline-flex items-center gap-2 px-10 py-5 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-xl">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    WhatsApp: 477 694 0272
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-cj-electric/20 pt-12 pb-6">
+        <div class="container-main">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg overflow-hidden border border-cj-electric bg-white">
+                            <img src="logo-cj.png" alt="CJ Consultoría" class="w-full h-full object-contain">
+                        </div>
+                        <div>
+                            <span class="font-bold text-base text-white">CJ Consultoría</span>
+                            <span class="block text-xs text-cj-electric">TRANSFORMAMOS PROCESOS</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-cj-silver">Productos y servicios para PYMEs manufactureras.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4 text-sm text-white">Productos</h4>
+                    <ul class="space-y-2 text-xs text-cj-silver">
+                        <li><a href="#" class="hover:text-cj-electric transition-colors">🐺 StockWolf</a></li>
+                        <li><a href="#" class="hover:text-cj-electric transition-colors">📘 Guía ISO 9001</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4 text-sm text-white">Enlaces</h4>
+                    <ul class="space-y-2 text-xs text-cj-silver">
+                        <li><a href="index.html" class="hover:text-cj-electric transition-colors">🏠 Inicio</a></li>
+                        <li><a href="servicios.html" class="hover:text-cj-electric transition-colors">🔧 Servicios</a></li>
+                        <li><a href="cotizacion.html" class="hover:text-cj-electric transition-colors">💰 Cotizar</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4 text-sm text-white">Contacto</h4>
+                    <ul class="space-y-2 text-xs text-cj-silver">
+                        <li>📱 +52 477 694 0272</li>
+                        <li>✉️ cj.consultoria.sgc@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-6 border-t border-cj-electric/20 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-cj-gray">© 2024 CJ Consultoría. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp -->
+    <div class="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-[9996]">
+        <a href="https://wa.me/524776940272" target="_blank" class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-green-500 to-green-600 text-white shadow-2xl hover:scale-110 transition-transform">
+            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+    </div>
+
+    <div class="mobile-sticky-cta">
+        <a href="https://wa.me/524776940272" class="flex-1 py-3 bg-green-500 text-white rounded-xl font-semibold text-center text-sm">💬 WhatsApp</a>
+        <a href="cotizacion.html" class="flex-1 py-3 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-xl font-semibold text-center text-sm">📅 Cotizar</a>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 50 });
+        
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) { navbar.classList.add('glass'); navbar.classList.remove('py-4'); navbar.classList.add('py-2'); }
+            else { navbar.classList.remove('glass'); navbar.classList.remove('py-2'); navbar.classList.add('py-4'); }
+        });
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Copiar CLABE
+        function copyClabe() {
+            const clabe = document.getElementById('clabe').textContent;
+            navigator.clipboard.writeText(clabe).then(() => {
+                alert('CLABE copiada al portapapeles');
+            });
+        }
+
+        // Manejar selección de archivo
+        function handleFileSelect(input) {
+            const file = input.files[0];
+            const preview = document.getElementById('filePreview');
+            
+            if (file) {
+                preview.innerHTML = `
+                    <span class="text-3xl">✅</span>
+                    <p class="text-sm mt-2 text-green-400">${file.name}</p>
+                    <p class="text-xs opacity-60">Haz clic para cambiar</p>
+                `;
+            }
+        }
+
+        // Manejar envío del formulario
+        function handlePurchase(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const file = document.getElementById('comprobante').files[0];
+            
+            if (!file) {
+                alert('Por favor sube tu comprobante de pago');
+                return;
+            }
+            
+            // Aquí normalmente enviarías los datos a un servidor
+            // Por ahora mostramos un mensaje de confirmación
+            alert(`¡Gracias por tu compra!\n\nHemos recibido tu solicitud.\nVerificaremos tu pago y te enviaremos la Guía ISO 9001 a ${formData.get('email')} en menos de 24 horas.\n\nSi tienes dudas, escríbenos por WhatsApp.`);
+            
+            e.target.reset();
+            document.getElementById('filePreview').innerHTML = `
+                <span class="text-3xl">📎</span>
+                <p class="text-sm mt-2">Haz clic para subir captura o PDF</p>
+                <p class="text-xs opacity-60">JPG, PNG o PDF (máx. 5MB)</p>
+            `;
+        }
+    </script>
+</body>
+</html>
