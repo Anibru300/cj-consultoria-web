@@ -46,8 +46,12 @@
         @media (min-width: 1400px) { html { font-size: 17px; } }
         @media (max-width: 640px) { html { font-size: 15px; } }
         
-        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; font-weight: 700; color: white; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; font-weight: 700; color: white !important; position: relative; z-index: 10; }
         .font-playfair { font-family: 'Playfair Display', serif; }
+        
+        /* Asegurar visibilidad de titulos */
+        .section-title { position: relative; z-index: 20; display: block; width: 100%; }
+        .card-title { position: relative; z-index: 15; }
         
         .container-main { width: 100%; max-width: 1280px; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
         @media (min-width: 640px) { .container-main { padding-left: 1.5rem; padding-right: 1.5rem; } }
@@ -201,7 +205,7 @@
                     <span class="text-xl">🛍️</span>
                     <span class="text-sm font-semibold text-cj-electric-light">Nuestros Productos</span>
                 </span>
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black font-montserrat mb-6 text-white">
+                <h1 class="section-title text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black font-montserrat mb-6 text-white">
                     Herramientas <span class="gradient-text">profesionales</span> para tu empresa
                 </h1>
                 <p class="text-lg lg:text-xl text-cj-silver max-w-3xl mx-auto">
@@ -223,7 +227,7 @@
                                 <span class="px-3 py-1 rounded-full bg-gradient-to-r from-cj-electric to-cj-electric-light text-white text-xs font-bold">SISTEMA ERP</span>
                             </div>
                         </div>
-                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-montserrat mb-4 text-white">StockWolf</h2>
+                        <h2 class="card-title text-3xl sm:text-4xl lg:text-5xl font-black font-montserrat mb-4 text-white">StockWolf</h2>
                         <p class="text-cj-silver text-lg mb-6">
                             Sistema profesional de control de inventarios para PYMEs. Gestiona tu stock, proveedores, 
                             órdenes de compra y genera reportes en tiempo real.
@@ -295,7 +299,7 @@
                             </div>
                         </div>
                         
-                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-montserrat mb-4 text-white">Guía Completa ISO 9001:2015</h2>
+                        <h2 class="card-title text-3xl sm:text-4xl lg:text-5xl font-black font-montserrat mb-4 text-white">Guía Completa ISO 9001:2015</h2>
                         
                         <p class="text-cj-silver text-lg mb-6">
                             80 páginas de contenido profesional con navegación interactiva. 
@@ -368,7 +372,7 @@
                         
                         <!-- Formulario de compra -->
                         <div class="glass-card rounded-2xl p-6">
-                            <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                            <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2 card-title">
                                 <span>💳</span> Comprar Guía Completa
                             </h3>
                             
@@ -388,7 +392,7 @@
                                         <span class="text-cj-silver">CLABE:</span>
                                         <div class="flex items-center gap-2">
                                             <code class="bg-black/30 px-2 py-1 rounded text-green-400 text-xs break-all" id="clabe">722969020205392763</code>
-                                            <button onclick="copyClabe()" class="text-xs text-cj-electric hover:text-cj-electric-light">📋 Copiar</button>
+                                            <button type="button" onclick="copyClabe()" class="text-xs text-cj-electric hover:text-cj-electric-light">📋 Copiar</button>
                                         </div>
                                     </div>
                                     <div class="flex justify-between pt-1 border-t border-white/10 mt-2">
@@ -398,8 +402,11 @@
                                 </div>
                             </div>
                             
-                            <!-- Formulario -->
-                            <form id="purchaseForm" onsubmit="handlePurchase(event)">
+                            <!-- Formulario con Formspree -->
+                            <form id="purchaseForm" action="https://formspree.io/f/xnqkwnyl" method="POST" enctype="multipart/form-data">
+                                <input type="hidden" name="producto" value="Guia ISO 9001:2015">
+                                <input type="hidden" name="precio" value="$499 MXN">
+                                
                                 <div class="space-y-3 mb-4">
                                     <div>
                                         <label class="block text-xs text-cj-silver mb-1">Nombre completo *</label>
@@ -447,7 +454,7 @@
     <section class="py-16 relative">
         <div class="container-main">
             <div class="max-w-3xl mx-auto">
-                <h2 class="text-3xl sm:text-4xl font-black font-montserrat mb-8 text-center text-white" data-aos="fade-up">
+                <h2 class="section-title text-3xl sm:text-4xl font-black font-montserrat mb-8 text-center text-white" data-aos="fade-up">
                     Preguntas <span class="gradient-text">frecuentes</span>
                 </h2>
                 
@@ -481,7 +488,7 @@
         <div class="container-main">
             <div class="glass-card rounded-3xl p-8 lg:p-16 text-center" data-aos="fade-up">
                 <span class="text-6xl mb-6 block">💬</span>
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-montserrat mb-6 text-white">
+                <h2 class="section-title text-3xl sm:text-4xl lg:text-5xl font-black font-montserrat mb-6 text-white">
                     ¿Tienes <span class="gradient-text">dudas</span>?
                 </h2>
                 <p class="text-lg text-cj-silver max-w-2xl mx-auto mb-8">
@@ -570,7 +577,16 @@
         function copyClabe() {
             const clabe = document.getElementById('clabe').textContent;
             navigator.clipboard.writeText(clabe).then(() => {
-                alert('CLABE copiada al portapapeles');
+                alert('✅ CLABE copiada al portapapeles');
+            }).catch(() => {
+                // Fallback para navegadores que no soportan clipboard API
+                const textarea = document.createElement('textarea');
+                textarea.value = clabe;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                alert('✅ CLABE copiada al portapapeles');
             });
         }
 
@@ -580,36 +596,63 @@
             const preview = document.getElementById('filePreview');
             
             if (file) {
+                // Validar tamaño (max 5MB)
+                if (file.size > 5 * 1024 * 1024) {
+                    alert('❌ El archivo es demasiado grande. Máximo 5MB.');
+                    input.value = '';
+                    return;
+                }
+                
                 preview.innerHTML = `
                     <span class="text-3xl">✅</span>
-                    <p class="text-sm mt-2 text-green-400">${file.name}</p>
-                    <p class="text-xs opacity-60">Haz clic para cambiar</p>
+                    <p class="text-sm mt-2 text-green-400 font-medium">${file.name}</p>
+                    <p class="text-xs text-cj-silver opacity-80">${(file.size / 1024 / 1024).toFixed(2)} MB</p>
+                    <p class="text-xs opacity-60 mt-1">Haz clic para cambiar</p>
                 `;
             }
         }
 
-        // Manejar envío del formulario
-        function handlePurchase(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(e.target);
+        // Manejar envío del formulario con Formspree
+        document.getElementById('purchaseForm').addEventListener('submit', function(e) {
             const file = document.getElementById('comprobante').files[0];
             
             if (!file) {
-                alert('Por favor sube tu comprobante de pago');
-                return;
+                e.preventDefault();
+                alert('❌ Por favor sube tu comprobante de pago');
+                return false;
             }
             
-            // Aquí normalmente enviarías los datos a un servidor
-            // Por ahora mostramos un mensaje de confirmación
-            alert(`¡Gracias por tu compra!\n\nHemos recibido tu solicitud.\nVerificaremos tu pago y te enviaremos la Guía ISO 9001 a ${formData.get('email')} en menos de 24 horas.\n\nSi tienes dudas, escríbenos por WhatsApp.`);
+            // Validar tamaño antes de enviar
+            if (file.size > 5 * 1024 * 1024) {
+                e.preventDefault();
+                alert('❌ El archivo es demasiado grande. Máximo 5MB.');
+                return false;
+            }
             
-            e.target.reset();
-            document.getElementById('filePreview').innerHTML = `
-                <span class="text-3xl">📎</span>
-                <p class="text-sm mt-2">Haz clic para subir captura o PDF</p>
-                <p class="text-xs opacity-60">JPG, PNG o PDF (máx. 5MB)</p>
-            `;
+            // Mostrar mensaje de carga
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<span>⏳</span> Enviando...';
+            btn.disabled = true;
+            
+            // El formulario se enviará normalmente a Formspree
+            // Formspree redirigirá a una página de éxito o mostrará mensaje
+            
+            // Restaurar botón después de 3 segundos (por si hay error)
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }, 3000);
+        });
+        
+        // Detectar si viene de Formspree (parámetro en URL)
+        if (window.location.search.includes('submitted=true') || window.location.hash === '#gracias') {
+            alert('✅ ¡Gracias por tu compra!\n\nHemos recibido tu solicitud y comprobante de pago.\n\nVerificaremos tu pago y te enviaremos la Guía ISO 9001 a tu correo en menos de 24 horas.\n\nSi tienes dudas, escríbenos por WhatsApp: 477 694 0272');
+            
+            // Limpiar URL
+            if (window.history.replaceState) {
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
         }
     </script>
 </body>
