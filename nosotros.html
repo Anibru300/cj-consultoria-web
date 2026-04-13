@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.15, minimum-scale=1, maximum-scale=2, viewport-fit=cover">
     <meta name="description" content="Conoce a CJ Consultoría - Nuestra historia, visión, misión y filosofía. Más de 10 años transformando PYMEs.">
     <meta name="theme-color" content="#0B1F3A">
-    <title>Nosotros | CJ Consultoría - Historia, Visión y Filosofía</title>
+    <title>Nosotros | CJ Consultoría - Historia, Visión y Equipo</title>
     
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐺</text></svg>">
     
-    <!-- Fonts: Solo 3 tipografías -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
@@ -44,17 +44,8 @@
     </script>
     
     <style>
-        /* TIPOGRAFÍA: Solo 3 fuentes permitidas */
-        * { 
-            font-family: 'Open Sans', sans-serif; 
-            box-sizing: border-box; 
-        }
-        
-        html { 
-            font-size: 16px; 
-            scroll-behavior: smooth; 
-        }
-        
+        * { font-family: 'Open Sans', sans-serif; box-sizing: border-box; }
+        html { font-size: 16px; scroll-behavior: smooth; }
         @media (min-width: 1400px) { html { font-size: 17px; } }
         @media (max-width: 640px) { html { font-size: 15px; } }
         
@@ -64,9 +55,7 @@
             color: white;
         }
         
-        .font-playfair { 
-            font-family: 'Playfair Display', serif; 
-        }
+        .font-playfair { font-family: 'Playfair Display', serif; }
         
         .container-main {
             width: 100%; max-width: 1280px;
@@ -77,17 +66,12 @@
         @media (min-width: 640px) { .container-main { padding-left: 1.5rem; padding-right: 1.5rem; } }
         @media (min-width: 1024px) { .container-main { padding-left: 2rem; padding-right: 2rem; max-width: 1200px; } }
         
-        /* FONDO ESPECTACULAR CON PARTÍCULAS Y DIAGRAMAS ANIMADOS */
         .bg-consulting {
             background-color: #0a1628;
             background-image: 
-                /* Blob superior derecho brillante */
                 radial-gradient(ellipse 800px 600px at 100% 0%, rgba(46, 125, 232, 0.5), transparent 60%),
-                /* Blob inferior izquierdo */
                 radial-gradient(ellipse 600px 500px at 0% 100%, rgba(0, 212, 255, 0.4), transparent 60%),
-                /* Centro iluminado */
                 radial-gradient(ellipse 400px 300px at 50% 50%, rgba(46, 125, 232, 0.15), transparent),
-                /* Fondo base */
                 linear-gradient(180deg, #0B1F3A 0%, #071225 50%, #0a1628 100%);
             background-attachment: fixed;
             min-height: 100vh;
@@ -95,7 +79,7 @@
             overflow-x: hidden;
         }
         
-        /* PARTÍCULAS BRILLANTES FLOTANTES */
+        /* Partículas */
         .particles-container {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none; z-index: 0; overflow: hidden;
@@ -118,11 +102,6 @@
         .particle:nth-child(8) { left: 80%; top: 25%; animation-delay: 7s; animation-duration: 19s; width: 5px; height: 5px; }
         .particle:nth-child(9) { left: 90%; top: 75%; animation-delay: 8s; animation-duration: 14s; }
         .particle:nth-child(10) { left: 15%; top: 55%; animation-delay: 9s; animation-duration: 16s; width: 6px; height: 6px; }
-        .particle:nth-child(11) { left: 25%; top: 15%; animation-delay: 10s; animation-duration: 12s; }
-        .particle:nth-child(12) { left: 35%; top: 85%; animation-delay: 11s; animation-duration: 18s; width: 4px; height: 4px; }
-        .particle:nth-child(13) { left: 45%; top: 45%; animation-delay: 12s; animation-duration: 15s; }
-        .particle:nth-child(14) { left: 55%; top: 65%; animation-delay: 13s; animation-duration: 17s; width: 6px; height: 6px; }
-        .particle:nth-child(15) { left: 65%; top: 35%; animation-delay: 14s; animation-duration: 13s; }
         
         @keyframes float-particle {
             0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
@@ -131,57 +110,7 @@
             100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
         }
         
-        /* LÍNEAS DE CONEXIÓN TIPO DIAGRAMA */
-        .connection-lines {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 0;
-        }
-        
-        .connection-line {
-            position: absolute; height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(46, 125, 232, 0.4), rgba(0, 212, 255, 0.6), rgba(46, 125, 232, 0.4), transparent);
-            transform-origin: left center;
-            animation: pulse-line 4s ease-in-out infinite;
-        }
-        
-        .connection-line:nth-child(1) { width: 300px; top: 20%; left: 5%; transform: rotate(25deg); animation-delay: 0s; }
-        .connection-line:nth-child(2) { width: 250px; top: 40%; right: 10%; transform: rotate(-15deg); animation-delay: 1s; }
-        .connection-line:nth-child(3) { width: 350px; top: 60%; left: 15%; transform: rotate(10deg); animation-delay: 2s; }
-        .connection-line:nth-child(4) { width: 280px; top: 80%; right: 20%; transform: rotate(-30deg); animation-delay: 3s; }
-        .connection-line:nth-child(5) { width: 320px; top: 30%; left: 40%; transform: rotate(45deg); animation-delay: 1.5s; }
-        .connection-line:nth-child(6) { width: 200px; top: 70%; left: 60%; transform: rotate(-20deg); animation-delay: 2.5s; }
-        
-        @keyframes pulse-line {
-            0%, 100% { opacity: 0.2; box-shadow: 0 0 5px rgba(46, 125, 232, 0.3); }
-            50% { opacity: 0.8; box-shadow: 0 0 20px rgba(46, 125, 232, 0.6), 0 0 40px rgba(0, 212, 255, 0.4); }
-        }
-        
-        /* CÍRCULOS PULSANTES */
-        .pulse-circles {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 0;
-        }
-        
-        .pulse-circle {
-            position: absolute; border: 2px solid rgba(46, 125, 232, 0.3);
-            border-radius: 50%;
-            animation: pulse-ring 4s ease-out infinite;
-        }
-        
-        .pulse-circle:nth-child(1) { width: 100px; height: 100px; top: 15%; left: 10%; animation-delay: 0s; }
-        .pulse-circle:nth-child(2) { width: 150px; height: 150px; top: 60%; right: 15%; animation-delay: 1.5s; }
-        .pulse-circle:nth-child(3) { width: 80px; height: 80px; top: 40%; left: 70%; animation-delay: 3s; }
-        .pulse-circle:nth-child(4) { width: 120px; height: 120px; bottom: 20%; left: 30%; animation-delay: 2s; }
-        
-        @keyframes pulse-ring {
-            0% { transform: scale(0.8); opacity: 0.8; border-color: rgba(46, 125, 232, 0.6); }
-            100% { transform: scale(2); opacity: 0; border-color: rgba(0, 212, 255, 0); }
-        }
-        
-        .glass { 
-            background: rgba(11, 31, 58, 0.9); 
-            backdrop-filter: blur(20px); 
-        }
+        .glass { background: rgba(11, 31, 58, 0.9); backdrop-filter: blur(20px); }
         
         .glass-card {
             background: linear-gradient(135deg, rgba(46, 125, 232, 0.08), rgba(0, 212, 255, 0.04));
@@ -195,8 +124,21 @@
             border: 1px solid rgba(192, 192, 192, 0.15);
         }
         
+        .glass-card-purple {
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.08), rgba(236, 72, 153, 0.04));
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(147, 51, 234, 0.15);
+        }
+        
         .gradient-text {
             background: linear-gradient(135deg, #2E7DE8, #00D4FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gradient-text-purple {
+            background: linear-gradient(135deg, #9333EA, #EC4899);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -218,14 +160,161 @@
         }
         @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
         
-        .timeline-line {
-            position: absolute; left: 50%; top: 0; bottom: 0;
-            width: 2px; background: linear-gradient(180deg, #2E7DE8, #00D4FF);
-            transform: translateX(-50%);
+        /* TIMELINE HORIZONTAL */
+        .timeline-container {
+            position: relative;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: #2E7DE8 #0B1F3A;
         }
         
-        @media (max-width: 768px) {
-            .timeline-line { left: 20px; }
+        .timeline-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .timeline-container::-webkit-scrollbar-track {
+            background: #0B1F3A;
+            border-radius: 4px;
+        }
+        
+        .timeline-container::-webkit-scrollbar-thumb {
+            background: linear-gradient(90deg, #2E7DE8, #00D4FF);
+            border-radius: 4px;
+        }
+        
+        .timeline-horizontal {
+            display: flex;
+            gap: 2rem;
+            padding: 2rem 1rem;
+            min-width: max-content;
+        }
+        
+        .timeline-item {
+            flex: 0 0 280px;
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 2rem;
+            left: 0;
+            right: -2rem;
+            height: 3px;
+            background: linear-gradient(90deg, #2E7DE8, #00D4FF);
+            z-index: 0;
+        }
+        
+        .timeline-item:last-child::before {
+            display: none;
+        }
+        
+        .timeline-dot {
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2E7DE8, #00D4FF);
+            border: 3px solid #0B1F3A;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-item.active .timeline-dot {
+            box-shadow: 0 0 20px rgba(46, 125, 232, 0.6);
+            animation: pulse-dot 2s infinite;
+        }
+        
+        @keyframes pulse-dot {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        /* Team Card Hover Effects */
+        .team-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .team-card .team-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(11, 31, 58, 0.95) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+        }
+        
+        .team-card:hover .team-overlay {
+            opacity: 1;
+        }
+        
+        .team-card .team-info {
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+        
+        .team-card:hover .team-info {
+            transform: translateY(0);
+        }
+        
+        /* Feature Cards */
+        .feature-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(46, 125, 232, 0.1);
+        }
+        
+        .feature-card:hover {
+            border-color: rgba(46, 125, 232, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(46, 125, 232, 0.1);
+        }
+        
+        .feature-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: #6B7280;
+        }
+        
+        .breadcrumb a {
+            color: #C0C0C0;
+            transition: color 0.2s;
+        }
+        
+        .breadcrumb a:hover {
+            color: #2E7DE8;
+        }
+        
+        .breadcrumb-separator {
+            color: #6B7280;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(46, 125, 232, 0.1), rgba(147, 51, 234, 0.1));
+            border: 1px solid rgba(46, 125, 232, 0.2);
         }
         
         .mobile-sticky-cta { display: none; }
@@ -245,41 +334,10 @@
     </style>
 </head>
 <body class="bg-consulting text-white overflow-x-hidden">
-    <!-- Partículas brillantes -->
+    <!-- Partículas -->
     <div class="particles-container">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
-    
-    <!-- Líneas de conexión tipo diagrama -->
-    <div class="connection-lines">
-        <div class="connection-line"></div>
-        <div class="connection-line"></div>
-        <div class="connection-line"></div>
-        <div class="connection-line"></div>
-        <div class="connection-line"></div>
-        <div class="connection-line"></div>
-    </div>
-    
-    <!-- Círculos pulsantes -->
-    <div class="pulse-circles">
-        <div class="pulse-circle"></div>
-        <div class="pulse-circle"></div>
-        <div class="pulse-circle"></div>
-        <div class="pulse-circle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
     </div>
 
     <!-- Navigation -->
@@ -315,18 +373,15 @@
                     <a href="recursos.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Recursos</a>
                     <a href="nosotros.html" class="text-sm xl:text-base font-medium text-white relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-cj-electric">Nosotros</a>
                     
-                    <a href="cotizacion.html" class="px-5 py-2.5 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-full font-semibold text-sm transition-all hover:scale-105 shadow-lg shadow-cj-electric/30 btn-shimmer">Cotizar</a>
+                    <a href="cotizacion.html" class="px-5 py-2.5 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-full font-semibold text-sm transition-all shadow-lg shadow-cj-electric/30 hover:shadow-cj-electric/50 hover:scale-105 btn-shimmer">Cotizar</a>
                 </div>
                 
                 <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-white hover:bg-white/10" aria-label="Menú">
-                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
                 </button>
             </div>
         </div>
         
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden lg:hidden glass mt-4 mx-4 rounded-2xl p-4 border border-cj-electric/20">
             <div class="flex flex-col gap-2">
                 <a href="index.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">🏠 Inicio</a>
@@ -345,37 +400,95 @@
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="relative min-h-[70vh] flex items-center pt-24 pb-12">
+    <!-- Breadcrumb -->
+    <div class="fixed top-20 left-0 right-0 z-[9996] py-2">
+        <div class="container-main">
+            <nav class="breadcrumb glass rounded-full px-4 py-2 inline-flex">
+                <a href="index.html">Inicio</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="text-cj-electric">Nosotros</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Rediseñado -->
+    <section class="relative min-h-screen flex items-center pt-32 pb-16">
         <div class="container-main relative z-10">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Contenido -->
                 <div data-aos="fade-right">
                     <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-cj-electric/50 mb-6">
                         <span class="text-xl">🐺</span>
-                        <span class="text-sm font-semibold text-cj-electric-light">Nuestra Historia</span>
+                        <span class="text-sm font-semibold text-cj-electric-light">Desde 2014 transformando empresas</span>
                     </span>
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black font-montserrat mb-6">
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black font-montserrat mb-6 leading-tight">
                         De la teoría a la <span class="gradient-text">práctica</span>
                     </h1>
+                    
                     <p class="text-lg text-cj-silver leading-relaxed mb-6">
                         CJ Consultoría nació de una necesidad real: las PYMEs mexicanas necesitaban 
                         consultoría accesible, práctica y orientada a resultados, no a llenar carpetas.
                     </p>
-                    <blockquote class="border-l-4 border-cj-electric pl-4 italic text-cj-silver font-playfair text-lg">
+                    
+                    <blockquote class="border-l-4 border-cj-electric pl-4 italic text-cj-silver font-playfair text-xl mb-8">
                         "No vendo consultoría, vendo resultados. Lo perfecto es enemigo de lo hecho."
+                        <footer class="text-sm text-cj-electric mt-2 not-italic">— Ing. Carlos Urbina</footer>
                     </blockquote>
+                    
+                    <!-- Stats flotantes -->
+                    <div class="flex flex-wrap gap-4">
+                        <div class="glass-card rounded-xl px-6 py-3 text-center">
+                            <p class="text-2xl font-bold gradient-text">+10</p>
+                            <p class="text-xs text-cj-silver">Años de experiencia</p>
+                        </div>
+                        <div class="glass-card rounded-xl px-6 py-3 text-center">
+                            <p class="text-2xl font-bold gradient-text">+500</p>
+                            <p class="text-xs text-cj-silver">PYMEs atendidas</p>
+                        </div>
+                        <div class="glass-card rounded-xl px-6 py-3 text-center">
+                            <p class="text-2xl font-bold gradient-text">98%</p>
+                            <p class="text-xs text-cj-silver">Satisfacción</p>
+                        </div>
+                    </div>
                 </div>
+                
+                <!-- Fotos del equipo - Layout creativo -->
                 <div class="relative" data-aos="fade-left">
-                    <div class="absolute -inset-4 bg-gradient-to-r from-cj-electric/30 to-cj-electric-light/30 rounded-3xl blur-3xl"></div>
-                    <div class="relative">
-                        <div class="w-full max-w-md mx-auto rounded-3xl bg-gradient-to-br from-cj-electric to-cj-electric-light p-1">
-                            <div class="rounded-[1.7rem] overflow-hidden bg-cj-dark aspect-[3/4]">
-                                <img src="assets/images/foto porfesional.jpeg" alt="Ing. Carlos Urbina" class="w-full h-full object-cover object-top">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-cj-electric/20 to-purple-500/20 rounded-3xl blur-3xl"></div>
+                    
+                    <div class="relative grid grid-cols-2 gap-4">
+                        <!-- Carlos - Grande -->
+                        <div class="col-span-2 sm:col-span-1 team-card glass-card rounded-2xl overflow-hidden aspect-[3/4]">
+                            <img src="assets/images/foto porfesional.jpeg" alt="Ing. Carlos Urbina" class="w-full h-full object-cover">
+                            <div class="team-overlay">
+                                <div class="team-info">
+                                    <h3 class="text-xl font-bold text-white">Ing. Carlos Urbina</h3>
+                                    <p class="text-cj-electric text-sm">Director General</p>
+                                    <p class="text-cj-silver text-xs mt-1">ISO 9001 • Lean • Procesos</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="absolute -bottom-4 -right-4 bg-gradient-to-br from-cj-electric to-cj-electric-light text-white px-6 py-3 rounded-2xl shadow-xl">
-                            <span class="font-bold">+10 años</span>
-                            <span class="block text-xs opacity-90">de experiencia</span>
+                        
+                        <!-- Guadalupe - Grande -->
+                        <div class="col-span-2 sm:col-span-1 team-card glass-card-purple rounded-2xl overflow-hidden aspect-[3/4] border-purple-500/30">
+                            <img src="assets/images/dra-guadalupe-munoz.jpeg" alt="Dra. Ma. Guadalupe Muñoz" class="w-full h-full object-cover">
+                            <div class="team-overlay">
+                                <div class="team-info">
+                                    <h3 class="text-xl font-bold text-white">Dra. Ma. Guadalupe Muñoz</h3>
+                                    <p class="text-purple-400 text-sm">Directora RH & Psicología</p>
+                                    <p class="text-cj-silver text-xs mt-1">Desarrollo Humano • RH</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Badge flotante -->
+                        <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 glass-card rounded-xl px-6 py-3 flex items-center gap-3 shadow-xl">
+                            <span class="text-3xl">🐺</span>
+                            <div>
+                                <p class="text-white font-bold text-sm">Trabajo en manada</p>
+                                <p class="text-cj-silver text-xs">El liderazgo de un equipo</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -383,110 +496,150 @@
         </div>
     </section>
 
-    <!-- Timeline -->
-    <section class="py-16 relative">
+    <!-- ¿Por qué elegirnos? -->
+    <section class="py-20 bg-gradient-to-b from-cj-dark via-cj-blue to-cj-dark">
         <div class="container-main">
-            <h2 class="text-3xl sm:text-4xl font-black font-montserrat text-center mb-16" data-aos="fade-up">
-                Nuestra <span class="gradient-text">trayectoria</span>
-            </h2>
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric-light text-sm font-semibold mb-4">DIFERENCIADORES</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-montserrat mb-4">
+                    ¿Por qué <span class="gradient-text">elegirnos</span>?
+                </h2>
+                <p class="text-lg text-cj-silver max-w-2xl mx-auto">
+                    No somos una consultoría tradicional. Esto es lo que nos hace diferentes.
+                </p>
+            </div>
             
-            <div class="relative max-w-4xl mx-auto">
-                <div class="timeline-line"></div>
-                
-                <!-- 2014 -->
-                <div class="relative mb-12 md:mb-0" data-aos="fade-up">
-                    <div class="md:flex items-center">
-                        <div class="md:w-1/2 md:pr-12 md:text-right">
-                            <div class="glass-card rounded-2xl p-6 inline-block">
-                                <span class="text-cj-electric font-bold text-lg">2014</span>
-                                <h3 class="font-bold text-xl mt-2 text-white">Los inicios</h3>
-                                <p class="text-cj-silver text-sm mt-2">Comencé como auditor de calidad en una empresa manufacturera, viendo de primera mano los problemas de las PYMEs.</p>
-                            </div>
-                        </div>
-                        <div class="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-cj-electric border-4 border-cj-dark z-10"></div>
-                        <div class="md:w-1/2 md:pl-12 mt-4 md:mt-0">
-                            <span class="text-4xl">🏭</span>
-                        </div>
-                    </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Feature 1 -->
+                <div class="feature-card glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="0">
+                    <div class="feature-icon w-14 h-14 rounded-xl bg-gradient-to-br from-cj-electric to-cj-electric-light flex items-center justify-center text-2xl mb-4">📊</div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Resultados Medibles</h3>
+                    <p class="text-cj-silver text-sm">No entregamos reportes bonitos, entregamos números reales. Reducción de mermas, incremento de productividad, mejoras tangibles.</p>
                 </div>
                 
-                <!-- 2016 -->
-                <div class="relative mb-12 md:mb-0 md:mt-16" data-aos="fade-up" data-aos-delay="100">
-                    <div class="md:flex items-center">
-                        <div class="md:w-1/2 md:pr-12 md:text-right order-1">
-                            <span class="text-4xl">📊</span>
-                        </div>
-                        <div class="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-cj-electric-light border-4 border-cj-dark z-10"></div>
-                        <div class="md:w-1/2 md:pl-12 order-2 mt-4 md:mt-0">
-                            <div class="glass-card rounded-2xl p-6 inline-block">
-                                <span class="text-cj-electric-light font-bold text-lg">2016</span>
-                                <h3 class="font-bold text-xl mt-2 text-white">Primeros clientes</h3>
-                                <p class="text-cj-silver text-sm mt-2">Primera consultoría independiente. Ayudé a una mueblería a reducir sus mermas en 25%.</p>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Feature 2 -->
+                <div class="feature-card glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon w-14 h-14 rounded-xl bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center text-2xl mb-4">🛠️</div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Consultoría Práctica</h3>
+                    <p class="text-cj-silver text-sm">Lo hecho vale más que lo perfecto. Implementamos soluciones que funcionan desde el día 1, no teorías que se quedan en el cajón.</p>
                 </div>
                 
-                <!-- 2019 -->
-                <div class="relative mb-12 md:mb-0 md:mt-16" data-aos="fade-up" data-aos-delay="200">
-                    <div class="md:flex items-center">
-                        <div class="md:w-1/2 md:pr-12 md:text-right">
-                            <div class="glass-card rounded-2xl p-6 inline-block">
-                                <span class="text-cj-electric font-bold text-lg">2019</span>
-                                <h3 class="font-bold text-xl mt-2 text-white">Certificación ISO</h3>
-                                <p class="text-cj-silver text-sm mt-2">Me certifiqué como auditor interno ISO 9001:2015 y amplié los servicios a sistemas de gestión.</p>
-                            </div>
-                        </div>
-                        <div class="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-cj-electric border-4 border-cj-dark z-10"></div>
-                        <div class="md:w-1/2 md:pl-12 mt-4 md:mt-0">
-                            <span class="text-4xl">⚙️</span>
-                        </div>
-                    </div>
+                <!-- Feature 3 -->
+                <div class="feature-card glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-2xl mb-4">🤝</div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Atención Personalizada</h3>
+                    <p class="text-cj-silver text-sm">No somos una fábrica de consultoría. Cada proyecto es único, con seguimiento directo de los socios fundadores.</p>
                 </div>
                 
-                <!-- 2022 -->
-                <div class="relative mb-12 md:mb-0 md:mt-16" data-aos="fade-up" data-aos-delay="300">
-                    <div class="md:flex items-center">
-                        <div class="md:w-1/2 md:pr-12 md:text-right order-1">
-                            <span class="text-4xl">🐺</span>
-                        </div>
-                        <div class="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-cj-electric-light border-4 border-cj-dark z-10"></div>
-                        <div class="md:w-1/2 md:pl-12 order-2 mt-4 md:mt-0">
-                            <div class="glass-card rounded-2xl p-6 inline-block">
-                                <span class="text-cj-electric-light font-bold text-lg">2022</span>
-                                <h3 class="font-bold text-xl mt-2 text-white">Nace CJ Consultoría</h3>
-                                <p class="text-cj-silver text-sm mt-2">Formalicé la consultoría con una identidad clara: el lobo como símbolo de trabajo en manada y liderazgo.</p>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Feature 4 -->
+                <div class="feature-card glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon w-14 h-14 rounded-xl bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center text-2xl mb-4">⚡</div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Experiencia Comprobada</h3>
+                    <p class="text-cj-silver text-sm">+500 PYMEs transformadas en 10 años. Sabemos lo que funciona porque lo hemos probado en la realidad.</p>
                 </div>
                 
-                <!-- 2024 -->
-                <div class="relative md:mt-16" data-aos="fade-up" data-aos-delay="400">
-                    <div class="md:flex items-center">
-                        <div class="md:w-1/2 md:pr-12 md:text-right">
-                            <div class="glass-card rounded-2xl p-6 inline-block border-2 border-cj-electric">
-                                <span class="text-cj-electric font-bold text-lg">2024</span>
-                                <h3 class="font-bold text-xl mt-2 text-white">+500 PYMEs</h3>
-                                <p class="text-cj-silver text-sm mt-2">Hemos ayudado a más de 500 empresas a transformar sus procesos. Nace StockWolf ERP.</p>
-                            </div>
-                        </div>
-                        <div class="hidden md:block absolute left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-r from-cj-electric to-cj-electric-light border-4 border-cj-dark z-10 animate-pulse"></div>
-                        <div class="md:w-1/2 md:pl-12 mt-4 md:mt-0">
-                            <span class="text-5xl">🚀</span>
-                        </div>
-                    </div>
+                <!-- Feature 5 -->
+                <div class="feature-card glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon w-14 h-14 rounded-xl bg-gradient-to-br from-cj-silver to-white flex items-center justify-center text-2xl mb-4 text-cj-blue">🐺</div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Metodología Propia</h3>
+                    <p class="text-cj-silver text-sm">Desarrollamos herramientas como StockWolf ERP y metodologías adaptadas a la realidad de las PYMEs mexicanas.</p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="feature-card glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-icon w-14 h-14 rounded-xl bg-gradient-to-br from-blue-400 to-indigo-600 flex items-center justify-center text-2xl mb-4">🔄</div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Seguimiento Post-Proyecto</h3>
+                    <p class="text-cj-silver text-sm">No te dejamos solo. Capacitamos a tu equipo para que pueda mantener los resultados sin depender de nosotros.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Nuestro Equipo -->
-    <section class="py-16 bg-gradient-to-b from-cj-dark via-cj-blue to-cj-dark">
+    <!-- Timeline Horizontal -->
+    <section class="py-20 relative">
+        <div class="container-main">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric-light text-sm font-semibold mb-4">NUESTRA HISTORIA</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-montserrat mb-4">
+                    Trayectoria de <span class="gradient-text">éxito</span>
+                </h2>
+                <p class="text-lg text-cj-silver max-w-2xl mx-auto">
+                    10 años de evolución constante, aprendiendo y creciendo junto a nuestras empresas clientes.
+                </p>
+            </div>
+            
+            <!-- Timeline Carrusel Horizontal -->
+            <div class="timeline-container" data-aos="fade-up">
+                <div class="timeline-horizontal">
+                    <!-- 2014 -->
+                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="0">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card rounded-2xl p-6 h-full">
+                            <span class="text-4xl mb-4 block">🏭</span>
+                            <span class="text-cj-electric font-bold text-xl">2014</span>
+                            <h3 class="font-bold text-xl mt-2 text-white mb-2">Los inicios</h3>
+                            <p class="text-cj-silver text-sm">Comencé como auditor de calidad en una empresa manufacturera, viendo de primera mano los problemas de las PYMEs.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 2016 -->
+                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card rounded-2xl p-6 h-full">
+                            <span class="text-4xl mb-4 block">📊</span>
+                            <span class="text-cj-electric-light font-bold text-xl">2016</span>
+                            <h3 class="font-bold text-xl mt-2 text-white mb-2">Primeros clientes</h3>
+                            <p class="text-cj-silver text-sm">Primera consultoría independiente. Ayudé a una mueblería a reducir sus mermas en 25%.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 2019 -->
+                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card rounded-2xl p-6 h-full">
+                            <span class="text-4xl mb-4 block">⚙️</span>
+                            <span class="text-cj-electric font-bold text-xl">2019</span>
+                            <h3 class="font-bold text-xl mt-2 text-white mb-2">Certificación ISO</h3>
+                            <p class="text-cj-silver text-sm">Me certifiqué como auditor interno ISO 9001:2015 y amplié los servicios a sistemas de gestión.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 2022 -->
+                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card rounded-2xl p-6 h-full">
+                            <span class="text-4xl mb-4 block">🐺</span>
+                            <span class="text-cj-electric-light font-bold text-xl">2022</span>
+                            <h3 class="font-bold text-xl mt-2 text-white mb-2">Nace CJ Consultoría</h3>
+                            <p class="text-cj-silver text-sm">Formalicé la consultoría con identidad clara: el lobo como símbolo de trabajo en manada y liderazgo.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 2024 -->
+                    <div class="timeline-item active" data-aos="fade-right" data-aos-delay="400">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card rounded-2xl p-6 h-full border-2 border-cj-electric">
+                            <span class="text-4xl mb-4 block">🚀</span>
+                            <span class="text-cj-electric font-bold text-xl">2024</span>
+                            <h3 class="font-bold text-xl mt-2 text-white mb-2">+500 PYMEs</h3>
+                            <p class="text-cj-silver text-sm">Hemos ayudado a más de 500 empresas. Nace StockWolf ERP y el área de Psicología Organizacional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="text-center text-cj-silver text-sm mt-4">
+                <span class="inline-block animate-pulse">←</span> Desliza para ver más <span class="inline-block animate-pulse">→</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Nuestro Equipo Detallado -->
+    <section class="py-20 bg-gradient-to-b from-cj-dark via-cj-blue to-cj-dark">
         <div class="container-main">
             <div class="text-center mb-16" data-aos="fade-up">
                 <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric-light text-sm font-semibold mb-4">NUESTRO EQUIPO</span>
-                <h2 class="text-3xl sm:text-4xl font-black font-montserrat mb-4 text-white">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-montserrat mb-4">
                     Expertos en <span class="gradient-text">transformar</span> empresas
                 </h2>
                 <p class="text-lg text-cj-silver max-w-3xl mx-auto">
@@ -496,42 +649,54 @@
             
             <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 <!-- Carlos Urbina -->
-                <div class="glass-card rounded-3xl p-8 hover-lift text-center" data-aos="fade-up" data-aos-delay="0">
-                    <div class="relative mb-6">
-                        <div class="absolute -inset-4 bg-gradient-to-r from-cj-electric/30 to-cj-electric-light/30 rounded-full blur-2xl"></div>
-                        <div class="relative w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-cj-electric">
-                            <img src="assets/images/foto porfesional.jpeg" alt="Ing. Carlos Urbina" class="w-full h-full object-cover object-top">
+                <div class="team-card glass-card rounded-3xl overflow-hidden group" data-aos="fade-up" data-aos-delay="0">
+                    <div class="aspect-[4/5] relative">
+                        <img src="assets/images/foto porfesional.jpeg" alt="Ing. Carlos Urbina" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-cj-dark via-transparent to-transparent opacity-60"></div>
+                        
+                        <!-- Info flotante -->
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <h3 class="text-2xl font-bold text-white mb-1">Ing. Carlos Urbina</h3>
+                            <p class="text-cj-electric font-semibold mb-3">Director General & Consultor Principal</p>
+                            
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 rounded-full text-xs bg-cj-electric/20 text-cj-electric-light border border-cj-electric/30">ISO 9001</span>
+                                <span class="px-3 py-1 rounded-full text-xs bg-cj-electric/20 text-cj-electric-light border border-cj-electric/30">Lean Manufacturing</span>
+                                <span class="px-3 py-1 rounded-full text-xs bg-cj-electric/20 text-cj-electric-light border border-cj-electric/30">Procesos</span>
+                                <span class="px-3 py-1 rounded-full text-xs bg-cj-electric/20 text-cj-electric-light border border-cj-electric/30">Excel Avanzado</span>
+                            </div>
+                            
+                            <p class="text-cj-silver text-sm leading-relaxed">
+                                +10 años de experiencia en optimización de procesos para PYMEs manufactureras. 
+                                Auditor interno ISO 9001:2015 certificado.
+                            </p>
                         </div>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-1">Ing. Carlos Urbina</h3>
-                    <p class="text-cj-electric font-semibold mb-4">Director General & Consultor Principal</p>
-                    <p class="text-cj-silver text-sm mb-4">
-                        +10 años de experiencia en optimización de procesos, sistemas ISO y mejora continua para PYMEs manufactureras.
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-2">
-                        <span class="px-3 py-1 rounded-full text-xs bg-cj-electric/20 text-cj-electric-light">ISO 9001</span>
-                        <span class="px-3 py-1 rounded-full text-xs bg-cj-electric/20 text-cj-electric-light">Lean Manufacturing</span>
-                        <span class="px-3 py-1 rounded-full text-xs bg-cj-electric/20 text-cj-electric-light">Procesos</span>
                     </div>
                 </div>
                 
-                <!-- Dra. Ma. Guadalupe Muñoz -->
-                <div class="glass-card rounded-3xl p-8 hover-lift text-center" data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative mb-6">
-                        <div class="absolute -inset-4 bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-full blur-2xl"></div>
-                        <div class="relative w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-purple-500">
-                            <img src="assets/images/dra-guadalupe-munoz.jpeg" alt="Dra. Ma. Guadalupe Muñoz Campuzano" class="w-full h-full object-cover object-top">
+                <!-- Dra. Guadalupe -->
+                <div class="team-card glass-card-purple rounded-3xl overflow-hidden group border-purple-500/20" data-aos="fade-up" data-aos-delay="100">
+                    <div class="aspect-[4/5] relative">
+                        <img src="assets/images/dra-guadalupe-munoz.jpeg" alt="Dra. Ma. Guadalupe Muñoz" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-cj-dark via-transparent to-transparent opacity-60"></div>
+                        
+                        <!-- Info flotante -->
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <h3 class="text-2xl font-bold text-white mb-1">Dra. Ma. Guadalupe Muñoz Campuzano</h3>
+                            <p class="text-purple-400 font-semibold mb-3">Directora de Psicología Organizacional & RH</p>
+                            
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 rounded-full text-xs bg-purple-500/20 text-purple-300 border border-purple-500/30">Psicología Org.</span>
+                                <span class="px-3 py-1 rounded-full text-xs bg-purple-500/20 text-purple-300 border border-purple-500/30">Recursos Humanos</span>
+                                <span class="px-3 py-1 rounded-full text-xs bg-purple-500/20 text-purple-300 border border-purple-500/30">Capacitación</span>
+                                <span class="px-3 py-1 rounded-full text-xs bg-purple-500/20 text-purple-300 border border-purple-500/30">Evaluaciones</span>
+                            </div>
+                            
+                            <p class="text-cj-silver text-sm leading-relaxed">
+                                Doctora en Desarrollo Humano con especialidad en psicología organizacional, 
+                                clínica y desarrollo del talento humano.
+                            </p>
                         </div>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-1">Dra. Ma. Guadalupe Muñoz Campuzano</h3>
-                    <p class="text-purple-400 font-semibold mb-4">Directora de Psicología Organizacional & RH</p>
-                    <p class="text-cj-silver text-sm mb-4">
-                        Doctora en Desarrollo Humano con especialidad en psicología organizacional, clínica y desarrollo del talento humano.
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-2">
-                        <span class="px-3 py-1 rounded-full text-xs bg-purple-500/20 text-purple-300">Psicología Organizacional</span>
-                        <span class="px-3 py-1 rounded-full text-xs bg-purple-500/20 text-purple-300">Recursos Humanos</span>
-                        <span class="px-3 py-1 rounded-full text-xs bg-purple-500/20 text-purple-300">Capacitación</span>
                     </div>
                 </div>
             </div>
@@ -539,12 +704,12 @@
     </section>
 
     <!-- Misión, Visión, Valores -->
-    <section class="py-16 relative">
+    <section class="py-20 relative">
         <div class="container-main">
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-3 gap-6">
                 <!-- Misión -->
-                <div class="glass-card rounded-2xl p-8 hover-lift" data-aos="fade-up" data-aos-delay="0">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cj-electric to-cj-electric-light flex items-center justify-center text-3xl mb-6 text-white">
+                <div class="glass-card rounded-2xl p-8 hover-lift group" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cj-electric to-cj-electric-light flex items-center justify-center text-3xl mb-6 text-white group-hover:scale-110 transition-transform">
                         🎯
                     </div>
                     <h3 class="text-2xl font-bold font-montserrat mb-4 text-white">Misión</h3>
@@ -555,8 +720,8 @@
                 </div>
                 
                 <!-- Visión -->
-                <div class="glass-card-silver rounded-2xl p-8 hover-lift" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cj-silver to-white flex items-center justify-center text-3xl mb-6 text-cj-blue">
+                <div class="glass-card-silver rounded-2xl p-8 hover-lift group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cj-silver to-white flex items-center justify-center text-3xl mb-6 text-cj-blue group-hover:scale-110 transition-transform">
                         👁️
                     </div>
                     <h3 class="text-2xl font-bold font-montserrat mb-4 text-white">Visión</h3>
@@ -567,60 +732,75 @@
                 </div>
                 
                 <!-- Valores -->
-                <div class="glass-card rounded-2xl p-8 hover-lift" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cj-electric to-cj-silver flex items-center justify-center text-3xl mb-6 text-white">
+                <div class="glass-card rounded-2xl p-8 hover-lift group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cj-electric to-cj-silver flex items-center justify-center text-3xl mb-6 text-white group-hover:scale-110 transition-transform">
                         💎
                     </div>
                     <h3 class="text-2xl font-bold font-montserrat mb-4 text-white">Valores</h3>
                     <ul class="space-y-3 text-cj-silver">
-                        <li class="flex items-center gap-2"><span class="text-cj-electric">▸</span> <strong>Pragmatismo:</strong> Lo hecho vale más que lo perfecto</li>
-                        <li class="flex items-center gap-2"><span class="text-cj-electric">▸</span> <strong>Honestidad:</strong> Decimos lo que necesitas escuchar</li>
-                        <li class="flex items-center gap-2"><span class="text-cj-electric">▸</span> <strong>Compromiso:</strong> Tu éxito es nuestro éxito</li>
-                        <li class="flex items-center gap-2"><span class="text-cj-electric">▸</span> <strong>Mejora continua:</strong> Nunca dejamos de aprender</li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-cj-electric text-lg">▸</span>
+                            <span><strong class="text-white">Pragmatismo:</strong> Lo hecho vale más que lo perfecto</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-cj-electric text-lg">▸</span>
+                            <span><strong class="text-white">Honestidad:</strong> Decimos lo que necesitas escuchar</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-cj-electric text-lg">▸</span>
+                            <span><strong class="text-white">Compromiso:</strong> Tu éxito es nuestro éxito</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-cj-electric text-lg">▸</span>
+                            <span><strong class="text-white">Mejora continua:</strong> Nunca dejamos de aprender</span>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Filosofía -->
-    <section class="py-16">
+    <!-- Filosofía Mejorada -->
+    <section class="py-20 bg-gradient-to-b from-cj-dark via-cj-blue to-cj-dark">
         <div class="container-main">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl sm:text-4xl font-black font-montserrat text-center mb-12" data-aos="fade-up">
-                    Nuestra <span class="gradient-text">filosofía</span> de trabajo
-                </h2>
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric-light text-sm font-semibold mb-4">NUESTRA FILOSOFÍA</span>
+                    <h2 class="text-3xl sm:text-4xl font-black font-montserrat mb-4">
+                        Así es como <span class="gradient-text">trabajamos</span>
+                    </h2>
+                </div>
                 
-                <div class="space-y-6">
-                    <div class="glass-card rounded-2xl p-6 flex gap-4" data-aos="fade-up" data-aos-delay="0">
-                        <div class="text-4xl flex-shrink-0">1️⃣</div>
+                <div class="space-y-4">
+                    <div class="glass-card rounded-2xl p-6 flex gap-4 items-start group hover:border-cj-electric/40 transition-colors" data-aos="fade-up" data-aos-delay="0">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cj-electric to-cj-electric-light flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-110 transition-transform">1️⃣</div>
                         <div>
                             <h3 class="font-bold text-lg mb-2 text-white">Hecho es mejor que perfecto</h3>
                             <p class="text-cj-silver text-sm">No esperamos a tener el 100% de la información para empezar. Un proceso documentado al 70% que se use vale más que uno al 100% que se quede en el cajón.</p>
                         </div>
                     </div>
                     
-                    <div class="glass-card rounded-2xl p-6 flex gap-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="text-4xl flex-shrink-0">2️⃣</div>
+                    <div class="glass-card rounded-2xl p-6 flex gap-4 items-start group hover:border-cj-electric/40 transition-colors" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-110 transition-transform">2️⃣</div>
                         <div>
                             <h3 class="font-bold text-lg mb-2 text-white">El cliente entiende su negocio, nosotros los procesos</h3>
                             <p class="text-cj-silver text-sm">No venimos a enseñar a hacer muebles o vender ropa. Venimos a organizar cómo se hacen esas cosas de manera eficiente.</p>
                         </div>
                     </div>
                     
-                    <div class="glass-card rounded-2xl p-6 flex gap-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="text-4xl flex-shrink-0">3️⃣</div>
+                    <div class="glass-card rounded-2xl p-6 flex gap-4 items-start group hover:border-cj-electric/40 transition-colors" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-110 transition-transform">3️⃣</div>
                         <div>
                             <h3 class="font-bold text-lg mb-2 text-white">Capacitar para independizarse</h3>
-                            <p class="text-cj-silver text-sm">Nuestro objetivo es que tu equipo pueda mantener los procesos sin depender de nosotros permanentemente.</p>
+                            <p class="text-cj-silver text-sm">Nuestro objetivo es que tu equipo pueda mantener los procesos sin depender de nosotros permanentemente. Te dejamos las herramientas, no la dependencia.</p>
                         </div>
                     </div>
                     
-                    <div class="glass-card rounded-2xl p-6 flex gap-4" data-aos="fade-up" data-aos-delay="300">
-                        <div class="text-4xl flex-shrink-0">4️⃣</div>
+                    <div class="glass-card rounded-2xl p-6 flex gap-4 items-start group hover:border-cj-electric/40 transition-colors" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-110 transition-transform">4️⃣</div>
                         <div>
                             <h3 class="font-bold text-lg mb-2 text-white">Resultados medibles o no sirve</h3>
-                            <p class="text-cj-silver text-sm">Si no podemos medir el impacto de nuestra intervención, no estamos haciendo bien nuestro trabajo. Los números no mienten.</p>
+                            <p class="text-cj-silver text-sm">Si no podemos medir el impacto de nuestra intervención, no estamos haciendo bien nuestro trabajo. Los números no mienten y nosotros tampoco.</p>
                         </div>
                     </div>
                 </div>
@@ -628,47 +808,35 @@
         </div>
     </section>
 
-    <!-- Stats -->
-    <section class="py-16 bg-gradient-to-b from-cj-blue to-cj-dark">
+    <!-- CTA Final Impactante -->
+    <section class="py-20">
         <div class="container-main">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="text-center" data-aos="fade-up" data-aos-delay="0">
-                    <p class="text-4xl sm:text-5xl font-black gradient-text">+10</p>
-                    <p class="text-sm text-cj-silver mt-2">Años de experiencia</p>
+            <div class="cta-section rounded-3xl p-8 sm:p-12 lg:p-16 text-center relative overflow-hidden" data-aos="fade-up">
+                <!-- Fondo decorativo -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-cj-electric/20 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl"></div>
+                
+                <div class="relative z-10">
+                    <span class="text-6xl mb-6 block">🐺</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-montserrat mb-6 text-white">
+                        ¿Listo para conocernos en <span class="gradient-text">persona</span>?
+                    </h2>
+                    <p class="text-lg text-cj-silver max-w-2xl mx-auto mb-8">
+                        Agenda una consulta gratuita de 30 minutos sin compromiso. 
+                        Conversemos sobre tu empresa y cómo podemos ayudarte a transformarla.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="cotizacion.html" class="px-10 py-5 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-xl btn-shimmer flex items-center justify-center gap-2">
+                            <span>📅</span> Agendar consulta gratuita
+                        </a>
+                        <a href="https://wa.me/524776940272?text=Hola%20CJ%20Consultoría!%20Vengo%20de%20su%20página%20de%20Nosotros" target="_blank" class="px-10 py-5 bg-white text-cj-blue rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-xl flex items-center justify-center gap-2">
+                            <span>💬</span> WhatsApp directo
+                        </a>
+                    </div>
+                    <p class="text-sm text-cj-silver mt-6">
+                        Respuesta garantizada en menos de 24 horas hábiles.
+                    </p>
                 </div>
-                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
-                    <p class="text-4xl sm:text-5xl font-black gradient-text">+500</p>
-                    <p class="text-sm text-cj-silver mt-2">PYMEs atendidas</p>
-                </div>
-                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                    <p class="text-4xl sm:text-5xl font-black gradient-text">98%</p>
-                    <p class="text-sm text-cj-silver mt-2">Satisfacción</p>
-                </div>
-                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
-                    <p class="text-4xl sm:text-5xl font-black gradient-text">24h</p>
-                    <p class="text-sm text-cj-silver mt-2">Tiempo de respuesta</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="py-16">
-        <div class="container-main text-center" data-aos="fade-up">
-            <h2 class="text-3xl sm:text-4xl font-black font-montserrat mb-6 text-white">
-                ¿Listo para conocernos?
-            </h2>
-            <p class="text-lg text-cj-silver max-w-2xl mx-auto mb-8">
-                Agenda una consulta gratuita de 30 minutos sin compromiso. 
-                Conversemos sobre tu empresa y cómo podemos ayudarte.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="cotizacion.html" class="px-8 py-4 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-xl font-bold hover:scale-105 transition-transform shadow-xl btn-shimmer">
-                    📅 Agendar consulta gratuita
-                </a>
-                <a href="servicios.html" class="px-8 py-4 border-2 border-cj-electric text-cj-electric-light hover:bg-cj-electric hover:text-white rounded-xl font-bold transition-all">
-                    🔧 Ver servicios
-                </a>
             </div>
         </div>
     </section>
@@ -687,43 +855,60 @@
                             <span class="block text-xs text-cj-electric">TRANSFORMAMOS PROCESOS</span>
                         </div>
                     </div>
-                    <p class="text-xs text-cj-silver">Transformamos procesos en resultados sostenibles.</p>
+                    <p class="text-xs text-cj-silver leading-relaxed">Transformamos procesos en resultados sostenibles para PYMEs manufactureras.</p>
                 </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4 text-sm text-white">Servicios</h4>
+                    <ul class="space-y-2 text-xs text-cj-silver">
+                        <li><a href="procedimientos.html" class="hover:text-cj-electric transition-colors">Procedimientos</a></li>
+                        <li><a href="psicologia-organizacional.html" class="hover:text-purple-400 transition-colors">Psicología Organizacional</a></li>
+                        <li><a href="iso.html" class="hover:text-cj-electric transition-colors">ISO y Sistemas</a></li>
+                        <li><a href="excel.html" class="hover:text-cj-electric transition-colors">Excel y BI</a></li>
+                    </ul>
+                </div>
+                
                 <div>
                     <h4 class="font-semibold mb-4 text-sm text-white">Enlaces</h4>
                     <ul class="space-y-2 text-xs text-cj-silver">
                         <li><a href="index.html" class="hover:text-cj-electric transition-colors">Inicio</a></li>
-                        <li><a href="servicios.html" class="hover:text-cj-electric transition-colors">Servicios</a></li>
+                        <li><a href="productos.html" class="hover:text-cj-electric transition-colors">Productos</a></li>
+                        <li><a href="casos.html" class="hover:text-cj-electric transition-colors">Casos de Éxito</a></li>
                         <li><a href="nosotros.html" class="hover:text-cj-electric transition-colors">Nosotros</a></li>
-                        <li><a href="blog.html" class="hover:text-cj-electric transition-colors">Blog</a></li>
                     </ul>
                 </div>
+                
                 <div>
                     <h4 class="font-semibold mb-4 text-sm text-white">Contacto</h4>
                     <ul class="space-y-2 text-xs text-cj-silver">
                         <li>📱 +52 477 694 0272</li>
                         <li>✉️ cj.consultoria.sgc@gmail.com</li>
-                        <li>📍 León, Gto.</li>
+                        <li>📍 León, Gto., México</li>
                     </ul>
                 </div>
             </div>
+            
             <div class="pt-6 border-t border-cj-electric/20 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-xs text-cj-gray">© 2024 CJ Consultoría - Ing. Carlos Urbina</p>
+                <p class="text-xs text-cj-gray">© 2024 CJ Consultoría - Ing. Carlos Urbina. Todos los derechos reservados.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="text-xs text-cj-gray hover:text-white transition-colors">Privacidad</a>
+                    <a href="#" class="text-xs text-cj-gray hover:text-white transition-colors">Términos</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <!-- WhatsApp -->
     <div class="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-[9996]">
-        <a href="https://wa.me/524776940272" target="_blank" class="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-green-500 to-green-600 text-white shadow-2xl hover:scale-110 transition-transform">
-            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <a href="https://wa.me/524776940272?text=Hola%20CJ%20Consultoría!%20Vengo%20de%20su%20página%20de%20Nosotros" target="_blank" class="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-r from-green-500 to-green-600 text-white shadow-2xl transition-all hover:scale-110 animate-pulse">
+            <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         </a>
     </div>
 
     <!-- Mobile Sticky -->
     <div class="mobile-sticky-cta">
-        <a href="https://wa.me/524776940272" class="flex-1 py-3 bg-green-500 text-white rounded-xl font-semibold text-center text-sm">💬 WhatsApp</a>
-        <a href="cotizacion.html" class="flex-1 py-3 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-xl font-semibold text-center text-sm">📅 Cotizar</a>
+        <a href="https://wa.me/524776940272" target="_blank" class="flex-1 py-3 bg-green-500 hover:bg-green-600 text-white rounded-xl font-semibold text-center flex items-center justify-center gap-2 transition-colors text-sm"><span>💬</span> WhatsApp</a>
+        <a href="cotizacion.html" class="flex-1 py-3 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-xl font-semibold text-center flex items-center justify-center gap-2 text-sm"><span>📅</span> Cotizar</a>
     </div>
 
     <script src="js/chatbot.js?v=2"></script>
