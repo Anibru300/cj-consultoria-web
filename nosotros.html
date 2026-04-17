@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.15, minimum-scale=1, maximum-scale=2, viewport-fit=cover">
-    <meta name="description" content="Conoce a CJ Consultoría - Nuestra historia, visión, misión y filosofía. Más de 10 años transformando PYMEs.">
+    <meta name="description" content="Conoce a CJ Consultoría - Dos pilares especializados: Sistemas de Gestión y Desarrollo Organizacional. Elige el que tu empresa necesita.">
     <meta name="theme-color" content="#0B1F3A">
-    <title>Nosotros | CJ Consultoría - Historia, Visión y Equipo</title>
+    <title>Nosotros | CJ Consultoría - Nuestros Pilares</title>
     
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐺</text></svg>">
     
@@ -79,7 +79,6 @@
             overflow-x: hidden;
         }
         
-        /* Partículas */
         .particles-container {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none; z-index: 0; overflow: hidden;
@@ -106,7 +105,7 @@
         @keyframes float-particle {
             0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
             10% { opacity: 1; }
-            90% { opacity: 1; }
+            90% { opacity = 1; }
             100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
         }
         
@@ -116,12 +115,6 @@
             background: linear-gradient(135deg, rgba(46, 125, 232, 0.08), rgba(0, 212, 255, 0.04));
             backdrop-filter: blur(12px);
             border: 1px solid rgba(46, 125, 232, 0.15);
-        }
-        
-        .glass-card-silver {
-            background: linear-gradient(135deg, rgba(192, 192, 192, 0.08), rgba(46, 125, 232, 0.04));
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(192, 192, 192, 0.15);
         }
         
         .glass-card-purple {
@@ -148,7 +141,7 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .hover-lift:hover {
-            transform: translateY(-6px);
+            transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(46, 125, 232, 0.15);
         }
         
@@ -160,161 +153,19 @@
         }
         @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
         
-        /* TIMELINE HORIZONTAL */
-        .timeline-container {
-            position: relative;
-            overflow-x: auto;
-            overflow-y: hidden;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: thin;
-            scrollbar-color: #2E7DE8 #0B1F3A;
-        }
-        
-        .timeline-container::-webkit-scrollbar {
-            height: 8px;
-        }
-        
-        .timeline-container::-webkit-scrollbar-track {
-            background: #0B1F3A;
-            border-radius: 4px;
-        }
-        
-        .timeline-container::-webkit-scrollbar-thumb {
-            background: linear-gradient(90deg, #2E7DE8, #00D4FF);
-            border-radius: 4px;
-        }
-        
-        .timeline-horizontal {
-            display: flex;
-            gap: 2rem;
-            padding: 2rem 1rem;
-            min-width: max-content;
-        }
-        
-        .timeline-item {
-            flex: 0 0 280px;
-            position: relative;
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            top: 2rem;
-            left: 0;
-            right: -2rem;
-            height: 3px;
-            background: linear-gradient(90deg, #2E7DE8, #00D4FF);
-            z-index: 0;
-        }
-        
-        .timeline-item:last-child::before {
-            display: none;
-        }
-        
-        .timeline-dot {
-            width: 1rem;
-            height: 1rem;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #2E7DE8, #00D4FF);
-            border: 3px solid #0B1F3A;
-            position: relative;
-            z-index: 1;
-            margin-bottom: 1rem;
-        }
-        
-        .timeline-item.active .timeline-dot {
-            box-shadow: 0 0 20px rgba(46, 125, 232, 0.6);
-            animation: pulse-dot 2s infinite;
-        }
-        
-        @keyframes pulse-dot {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-        
-        /* Team Card Hover Effects */
-        .team-card {
+        .pillar-card {
             position: relative;
             overflow: hidden;
             transition: all 0.4s ease;
         }
-        
-        .team-card:hover {
-            transform: translateY(-10px);
+        .pillar-card:hover {
+            transform: translateY(-10px) scale(1.01);
         }
-        
-        .team-card .team-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, transparent 40%, rgba(11, 31, 58, 0.95) 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 1.5rem;
+        .pillar-card .pillar-img {
+            transition: transform 0.5s ease;
         }
-        
-        .team-card:hover .team-overlay {
-            opacity: 1;
-        }
-        
-        .team-card .team-info {
-            transform: translateY(20px);
-            transition: transform 0.3s ease;
-        }
-        
-        .team-card:hover .team-info {
-            transform: translateY(0);
-        }
-        
-        /* Feature Cards */
-        .feature-card {
-            transition: all 0.3s ease;
-            border: 1px solid rgba(46, 125, 232, 0.1);
-        }
-        
-        .feature-card:hover {
-            border-color: rgba(46, 125, 232, 0.4);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(46, 125, 232, 0.1);
-        }
-        
-        .feature-icon {
-            transition: transform 0.3s ease;
-        }
-        
-        .feature-card:hover .feature-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-        
-        /* Breadcrumb */
-        .breadcrumb {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.875rem;
-            color: #6B7280;
-        }
-        
-        .breadcrumb a {
-            color: #C0C0C0;
-            transition: color 0.2s;
-        }
-        
-        .breadcrumb a:hover {
-            color: #2E7DE8;
-        }
-        
-        .breadcrumb-separator {
-            color: #6B7280;
-        }
-        
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, rgba(46, 125, 232, 0.1), rgba(147, 51, 234, 0.1));
-            border: 1px solid rgba(46, 125, 232, 0.2);
+        .pillar-card:hover .pillar-img {
+            transform: scale(1.05);
         }
         
         .mobile-sticky-cta { display: none; }
@@ -400,310 +251,94 @@
         </div>
     </nav>
 
-    <!-- Breadcrumb -->
-    <div class="fixed top-20 left-0 right-0 z-[9996] py-2">
-        <div class="container-main">
-            <nav class="breadcrumb glass rounded-full px-4 py-2 inline-flex">
-                <a href="index.html">Inicio</a>
-                <span class="breadcrumb-separator">/</span>
-                <span class="text-cj-electric">Nosotros</span>
-            </nav>
-        </div>
-    </div>
-
-    <!-- Hero Rediseñado -->
-    <section class="relative min-h-screen flex items-center pt-32 pb-16">
+    <!-- Hero Lobby -->
+    <section class="relative min-h-screen flex items-center pt-28 pb-16">
         <div class="container-main relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <!-- Contenido -->
-                <div data-aos="fade-right">
-                    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-cj-electric/50 mb-6">
-                        <span class="text-xl">🐺</span>
-                        <span class="text-sm font-semibold text-cj-electric-light">Desde 2014 transformando empresas</span>
-                    </span>
-                    
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black font-montserrat mb-6 leading-tight">
-                        De la teoría a la <span class="gradient-text">práctica</span>
-                    </h1>
-                    
-                    <p class="text-lg text-cj-silver leading-relaxed mb-6">
-                        CJ Consultoría nació de una necesidad real: las PYMEs mexicanas necesitaban 
-                        consultoría accesible, práctica y orientada a resultados, no a llenar carpetas.
-                    </p>
-                    
-                    <blockquote class="border-l-4 border-cj-electric pl-4 italic text-cj-silver font-playfair text-xl mb-8">
-                        "No vendo consultoría, vendo resultados. Lo perfecto es enemigo de lo hecho."
-                        <footer class="text-sm text-cj-electric mt-2 not-italic">— Ing. Carlos Urbina</footer>
-                    </blockquote>
-                    
-                    <!-- Stats flotantes -->
-                    <div class="flex flex-wrap gap-4">
-                        <div class="glass-card rounded-xl px-6 py-3 text-center">
-                            <p class="text-2xl font-bold gradient-text">+10</p>
-                            <p class="text-xs text-cj-silver">Años de experiencia</p>
-                        </div>
-                        <div class="glass-card rounded-xl px-6 py-3 text-center">
-                            <p class="text-2xl font-bold gradient-text">+500</p>
-                            <p class="text-xs text-cj-silver">PYMEs atendidas</p>
-                        </div>
-                        <div class="glass-card rounded-xl px-6 py-3 text-center">
-                            <p class="text-2xl font-bold gradient-text">98%</p>
-                            <p class="text-xs text-cj-silver">Satisfacción</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="text-center max-w-4xl mx-auto mb-16" data-aos="fade-up">
+                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-cj-electric/50 mb-6">
+                    <span class="text-xl">🐺</span>
+                    <span class="text-sm font-semibold text-cj-electric-light">Conoce a CJ Consultoría</span>
+                </span>
                 
-                <!-- Fotos del equipo - Layout creativo -->
-                <div class="relative" data-aos="fade-left">
-                    <div class="absolute -inset-4 bg-gradient-to-r from-cj-electric/20 to-purple-500/20 rounded-3xl blur-3xl"></div>
-                    
-                    <div class="relative grid grid-cols-2 gap-4">
-                        <!-- Carlos - Grande -->
-                        <div class="col-span-2 sm:col-span-1 team-card glass-card rounded-2xl overflow-hidden aspect-[3/4]">
-                            <img src="assets/images/foto porfesional.jpeg" alt="Ing. Carlos Urbina" class="w-full h-full object-cover">
-                            <div class="team-overlay">
-                                <div class="team-info">
-                                    <h3 class="text-xl font-bold text-white">Ing. Carlos Urbina</h3>
-                                    <p class="text-cj-electric text-sm">Director General</p>
-                                    <p class="text-cj-silver text-xs mt-1">ISO 9001 • Lean • Procesos</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Guadalupe - Grande -->
-                        <div class="col-span-2 sm:col-span-1 team-card glass-card-purple rounded-2xl overflow-hidden aspect-[3/4] border-purple-500/30">
-                            <img src="assets/images/dra-guadalupe-munoz.jpeg" alt="Dra. Ma. Guadalupe Muñoz Campuzano" class="w-full h-full object-cover">
-                            <div class="team-overlay">
-                                <div class="team-info">
-                                    <h3 class="text-xl font-bold text-white">Dra. Ma. Guadalupe Muñoz Campuzano</h3>
-                                    <p class="text-purple-400 text-sm">Directora de Psicología Organizacional & RH</p>
-                                    <p class="text-cj-silver text-xs mt-1">20 años · CONOCER · IECA · LSM · Tanatología</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Badge flotante -->
-                        <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 glass-card rounded-xl px-6 py-3 flex items-center gap-3 shadow-xl">
-                            <span class="text-3xl">🐺</span>
-                            <div>
-                                <p class="text-white font-bold text-sm">Trabajo en manada</p>
-                                <p class="text-cj-silver text-xs">El liderazgo de un equipo</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ¿Por qué elegirnos? -->
-    <section class="py-20 bg-gradient-to-b from-cj-dark via-cj-blue to-cj-dark">
-        <div class="container-main">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric-light text-sm font-semibold mb-4">DIFERENCIADORES</span>
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-montserrat mb-4">
-                    ¿Por qué <span class="gradient-text">elegirnos</span>?
-                </h2>
-                <p class="text-lg text-cj-silver max-w-2xl mx-auto">
-                    No somos una consultoría tradicional. Esto es lo que nos hace diferentes.
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black font-montserrat mb-6 leading-tight">
+                    Dos pilares. Una <span class="gradient-text">manada</span>.
+                </h1>
+                
+                <p class="text-lg lg:text-xl text-cj-silver max-w-3xl mx-auto">
+                    En CJ Consultoría combinamos experiencia en <strong class="text-white">procesos operativos</strong> y <strong class="text-white">capital humano</strong>. 
+                    Elige el pilar que tu empresa necesita y conoce al experto que te acompañará.
                 </p>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Feature 1 -->
-                <div class="feature-card glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="0">
-                    <div class="feature-icon w-14 h-14 rounded-xl bg-gradient-to-br from-cj-electric to-cj-electric-light flex items-center justify-center text-2xl mb-4">📊</div>
-                    <h3 class="text-xl font-bold mb-2 text-white">Resultados Medibles</h3>
-                    <p class="text-cj-silver text-sm">No entregamos reportes bonitos, entregamos números reales. Reducción de mermas, incremento de productividad, mejoras tangibles.</p>
-                </div>
-                
-                <!-- Feature 2 -->
-                <div class="feature-card glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="feature-icon w-14 h-14 rounded-xl bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center text-2xl mb-4">🛠️</div>
-                    <h3 class="text-xl font-bold mb-2 text-white">Consultoría Práctica</h3>
-                    <p class="text-cj-silver text-sm">Lo hecho vale más que lo perfecto. Implementamos soluciones que funcionan desde el día 1, no teorías que se quedan en el cajón.</p>
-                </div>
-                
-                <!-- Feature 3 -->
-                <div class="feature-card glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="feature-icon w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-2xl mb-4">🤝</div>
-                    <h3 class="text-xl font-bold mb-2 text-white">Atención Personalizada</h3>
-                    <p class="text-cj-silver text-sm">No somos una fábrica de consultoría. Cada proyecto es único, con seguimiento directo de los socios fundadores.</p>
-                </div>
-                
-                <!-- Feature 4 -->
-                <div class="feature-card glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="feature-icon w-14 h-14 rounded-xl bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center text-2xl mb-4">⚡</div>
-                    <h3 class="text-xl font-bold mb-2 text-white">Experiencia Comprobada</h3>
-                    <p class="text-cj-silver text-sm">+500 PYMEs transformadas en 10 años. Sabemos lo que funciona porque lo hemos probado en la realidad.</p>
-                </div>
-                
-                <!-- Feature 5 -->
-                <div class="feature-card glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="feature-icon w-14 h-14 rounded-xl bg-gradient-to-br from-cj-silver to-white flex items-center justify-center text-2xl mb-4 text-cj-blue">🐺</div>
-                    <h3 class="text-xl font-bold mb-2 text-white">Metodología Propia</h3>
-                    <p class="text-cj-silver text-sm">Desarrollamos herramientas como StockWolf ERP y metodologías adaptadas a la realidad de las PYMEs mexicanas.</p>
-                </div>
-                
-                <!-- Feature 6 -->
-                <div class="feature-card glass-card rounded-2xl p-6" data-aos="fade-up" data-aos-delay="500">
-                    <div class="feature-icon w-14 h-14 rounded-xl bg-gradient-to-br from-blue-400 to-indigo-600 flex items-center justify-center text-2xl mb-4">🔄</div>
-                    <h3 class="text-xl font-bold mb-2 text-white">Seguimiento Post-Proyecto</h3>
-                    <p class="text-cj-silver text-sm">No te dejamos solo. Capacitamos a tu equipo para que pueda mantener los resultados sin depender de nosotros.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Timeline Horizontal -->
-    <section class="py-20 relative">
-        <div class="container-main">
-            <div class="text-center mb-12" data-aos="fade-up">
-                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric-light text-sm font-semibold mb-4">NUESTRA HISTORIA</span>
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-montserrat mb-4">
-                    Trayectoria de <span class="gradient-text">éxito</span>
-                </h2>
-                <p class="text-lg text-cj-silver max-w-2xl mx-auto">
-                    10 años de evolución constante, aprendiendo y creciendo junto a nuestras empresas clientes.
-                </p>
-            </div>
-            
-            <!-- Timeline Carrusel Horizontal -->
-            <div class="timeline-container" data-aos="fade-up">
-                <div class="timeline-horizontal">
-                    <!-- 2014 -->
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="0">
-                        <div class="timeline-dot"></div>
-                        <div class="glass-card rounded-2xl p-6 h-full">
-                            <span class="text-4xl mb-4 block">🏭</span>
-                            <span class="text-cj-electric font-bold text-xl">2014</span>
-                            <h3 class="font-bold text-xl mt-2 text-white mb-2">Los inicios</h3>
-                            <p class="text-cj-silver text-sm">Comencé como auditor de calidad en una empresa manufacturera, viendo de primera mano los problemas de las PYMEs.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- 2016 -->
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
-                        <div class="timeline-dot"></div>
-                        <div class="glass-card rounded-2xl p-6 h-full">
-                            <span class="text-4xl mb-4 block">📊</span>
-                            <span class="text-cj-electric-light font-bold text-xl">2016</span>
-                            <h3 class="font-bold text-xl mt-2 text-white mb-2">Primeros clientes</h3>
-                            <p class="text-cj-silver text-sm">Primera consultoría independiente. Ayudé a una mueblería a reducir sus mermas en 25%.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- 2019 -->
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
-                        <div class="timeline-dot"></div>
-                        <div class="glass-card rounded-2xl p-6 h-full">
-                            <span class="text-4xl mb-4 block">⚙️</span>
-                            <span class="text-cj-electric font-bold text-xl">2019</span>
-                            <h3 class="font-bold text-xl mt-2 text-white mb-2">Certificación ISO</h3>
-                            <p class="text-cj-silver text-sm">Me certifiqué como auditor interno ISO 9001:2015 y amplié los servicios a sistemas de gestión.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- 2022 -->
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
-                        <div class="timeline-dot"></div>
-                        <div class="glass-card rounded-2xl p-6 h-full">
-                            <span class="text-4xl mb-4 block">🐺</span>
-                            <span class="text-cj-electric-light font-bold text-xl">2022</span>
-                            <h3 class="font-bold text-xl mt-2 text-white mb-2">Nace CJ Consultoría</h3>
-                            <p class="text-cj-silver text-sm">Formalicé la consultoría con identidad clara: el lobo como símbolo de trabajo en manada y liderazgo.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- 2024 -->
-                    <div class="timeline-item active" data-aos="fade-right" data-aos-delay="400">
-                        <div class="timeline-dot"></div>
-                        <div class="glass-card rounded-2xl p-6 h-full border-2 border-cj-electric">
-                            <span class="text-4xl mb-4 block">🚀</span>
-                            <span class="text-cj-electric font-bold text-xl">2024</span>
-                            <h3 class="font-bold text-xl mt-2 text-white mb-2">+500 PYMEs</h3>
-                            <p class="text-cj-silver text-sm">Hemos ayudado a más de 500 empresas. Nace StockWolf ERP y el área de Psicología Organizacional.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <p class="text-center text-cj-silver text-sm mt-4">
-                <span class="inline-block animate-pulse">←</span> Desliza para ver más <span class="inline-block animate-pulse">→</span>
-            </p>
-        </div>
-    </section>
-
-    <!-- Nuestro Equipo Detallado -->
-    <section class="py-20 bg-gradient-to-b from-cj-dark via-cj-blue to-cj-dark">
-        <div class="container-main">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric-light text-sm font-semibold mb-4">NUESTRO EQUIPO</span>
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-montserrat mb-4">
-                    Expertos en <span class="gradient-text">transformar</span> empresas
-                </h2>
-                <p class="text-lg text-cj-silver max-w-3xl mx-auto">
-                    Combinamos experiencia en procesos operativos y capital humano para ofrecer soluciones integrales.
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <!-- Carlos Urbina -->
-                <div class="team-card glass-card rounded-3xl overflow-hidden group" data-aos="fade-up" data-aos-delay="0">
-                    <div class="aspect-[4/5] relative">
-                        <img src="assets/images/foto porfesional.jpeg" alt="Ing. Carlos Urbina" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-gradient-to-t from-cj-dark via-transparent to-transparent opacity-60"></div>
+            <!-- Pilares Grid -->
+            <div class="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
+                <!-- Pilar 1: Sistemas de Gestión -->
+                <a href="pilar-sistemas-gestion.html" class="pillar-card glass-card rounded-3xl overflow-hidden group" data-aos="fade-up" data-aos-delay="0">
+                    <div class="aspect-[4/3] relative overflow-hidden">
+                        <img src="assets/images/foto porfesional.jpeg" alt="Ing. Carlos Urbina - Sistemas de Gestión" class="pillar-img w-full h-full object-cover object-top">
+                        <div class="absolute inset-0 bg-gradient-to-t from-cj-dark via-cj-dark/60 to-transparent"></div>
                         
-                        <!-- Info flotante -->
-                        <div class="absolute bottom-0 left-0 right-0 p-6">
-                            <h3 class="text-2xl font-bold text-white mb-1">Ing. Carlos Urbina</h3>
-                            <p class="text-cj-electric font-semibold mb-3">Director General & Consultor Principal</p>
-                            
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 rounded-full text-xs bg-cj-electric/20 text-cj-electric-light border border-cj-electric/30">ISO 9001</span>
-                                <span class="px-3 py-1 rounded-full text-xs bg-cj-electric/20 text-cj-electric-light border border-cj-electric/30">Lean Manufacturing</span>
-                                <span class="px-3 py-1 rounded-full text-xs bg-cj-electric/20 text-cj-electric-light border border-cj-electric/30">Procesos</span>
-                                <span class="px-3 py-1 rounded-full text-xs bg-cj-electric/20 text-cj-electric-light border border-cj-electric/30">Excel Avanzado</span>
-                            </div>
-                            
-                            <p class="text-cj-silver text-sm leading-relaxed">
-                                +10 años de experiencia en optimización de procesos para PYMEs manufactureras. 
-                                Auditor interno ISO 9001:2015 certificado.
-                            </p>
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 rounded-full bg-cj-electric/20 text-cj-electric-light text-xs font-bold border border-cj-electric/30">PILAR 1</span>
                         </div>
-                    </div>
-                </div>
-                
-                <!-- Dra. Guadalupe -->
-                <div class="team-card glass-card-purple rounded-3xl overflow-hidden group border-purple-500/20" data-aos="fade-up" data-aos-delay="100">
-                    <div class="aspect-[4/5] relative">
-                        <img src="assets/images/dra-guadalupe-munoz.jpeg" alt="Dra. Ma. Guadalupe Muñoz" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-gradient-to-t from-cj-dark via-transparent to-transparent opacity-60"></div>
                         
-                        <!-- Info flotante -->
-                        <div class="absolute bottom-0 left-0 right-0 p-6">
-                            <h3 class="text-2xl font-bold text-white mb-1">Dra. Ma. Guadalupe Muñoz Campuzano</h3>
-                            <p class="text-purple-400 font-semibold mb-3">Directora de Psicología Organizacional & RH</p>
-                            
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-3 py-1 rounded-full text-xs bg-purple-500/20 text-purple-300 border border-purple-500/30">Psicología Org.</span>
-                                <span class="px-3 py-1 rounded-full text-xs bg-purple-500/20 text-purple-300 border border-purple-500/30">Recursos Humanos</span>
-                                <span class="px-3 py-1 rounded-full text-xs bg-purple-500/20 text-purple-300 border border-purple-500/30">Capacitación</span>
-                                <span class="px-3 py-1 rounded-full text-xs bg-purple-500/20 text-purple-300 border border-purple-500/30">Evaluaciones</span>
-                            </div>
-                            
-                            <p class="text-cj-silver text-sm leading-relaxed">
-                                Psicóloga con Doctorado en Desarrollo Humano y formación de posgrado en Desarrollo Organizacional, Psicología Clínica y de la Salud. Cuenta con una trayectoria de 20 años liderando procesos de capacitación y docencia, certificada por CONOCER e IECA. Especialista en Tanatología, Psicoterapia Cognitivo-Conductual y Psicosexualidad, con sólida experiencia en consulta privada y perfilación criminal, conocimientos en la Lengua de Señas Mexicana (LSM), lo que aporta un enfoque inclusivo a su práctica profesional.
-                            </p>
+                        <div class="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
+                            <h2 class="text-2xl lg:text-3xl font-black text-white mb-2">Sistemas de Gestión & Procesos</h2>
+                            <p class="text-cj-electric font-semibold mb-3">Ing. Carlos Urbina</p>
+                            <p class="text-cj-silver text-sm mb-4">ISO 9001 · Lean · Excel · ERP · Procedimientos</p>
+                            <span class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-xl font-semibold text-sm group-hover:scale-105 transition-transform">
+                                Explorar este pilar <span>→</span>
+                            </span>
                         </div>
                     </div>
+                </a>
+                
+                <!-- Pilar 2: Desarrollo Organizacional -->
+                <a href="psicologia-organizacional.html" class="pillar-card glass-card-purple rounded-3xl overflow-hidden group border-purple-500/20" data-aos="fade-up" data-aos-delay="100">
+                    <div class="aspect-[4/3] relative overflow-hidden">
+                        <img src="assets/images/dra-guadalupe-munoz.jpeg" alt="Dra. Ma. Guadalupe Muñoz - Desarrollo Organizacional" class="pillar-img w-full h-full object-cover object-top">
+                        <div class="absolute inset-0 bg-gradient-to-t from-cj-dark via-cj-dark/60 to-transparent"></div>
+                        
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 text-xs font-bold border border-purple-500/30">PILAR 2</span>
+                        </div>
+                        
+                        <div class="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
+                            <h2 class="text-2xl lg:text-3xl font-black text-white mb-2">Desarrollo Organizacional & RH</h2>
+                            <p class="text-purple-400 font-semibold mb-3">Dra. Ma. Guadalupe Muñoz Campuzano</p>
+                            <p class="text-cj-silver text-sm mb-4">Psicología Org. · Capacitación · LSM · Tanatología</p>
+                            <span class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl font-semibold text-sm group-hover:scale-105 transition-transform">
+                                Explorar este pilar <span>→</span>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Stats -->
+            <div class="flex flex-wrap justify-center gap-4 mt-12" data-aos="fade-up" data-aos-delay="200">
+                <div class="glass-card rounded-xl px-6 py-3 text-center">
+                    <p class="text-2xl font-bold gradient-text">+10</p>
+                    <p class="text-xs text-cj-silver">Años de experiencia</p>
+                </div>
+                <div class="glass-card rounded-xl px-6 py-3 text-center">
+                    <p class="text-2xl font-bold gradient-text">+500</p>
+                    <p class="text-xs text-cj-silver">PYMEs atendidas</p>
+                </div>
+                <div class="glass-card rounded-xl px-6 py-3 text-center">
+                    <p class="text-2xl font-bold gradient-text">2</p>
+                    <p class="text-xs text-cj-silver">Pilares especializados</p>
+                </div>
+                <div class="glass-card rounded-xl px-6 py-3 text-center">
+                    <p class="text-2xl font-bold gradient-text">98%</p>
+                    <p class="text-xs text-cj-silver">Satisfacción</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Misión, Visión, Valores -->
-    <section class="py-20 relative">
+    <section class="py-20 bg-gradient-to-b from-cj-dark via-cj-blue to-cj-dark">
         <div class="container-main">
             <div class="grid md:grid-cols-3 gap-6">
                 <!-- Misión -->
@@ -719,7 +354,7 @@
                 </div>
                 
                 <!-- Visión -->
-                <div class="glass-card-silver rounded-2xl p-8 hover-lift group" data-aos="fade-up" data-aos-delay="100">
+                <div class="glass-card rounded-2xl p-8 hover-lift group border-cj-silver/20" data-aos="fade-up" data-aos-delay="100" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.08), rgba(46, 125, 232, 0.04)); border: 1px solid rgba(192, 192, 192, 0.15);">
                     <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cj-silver to-white flex items-center justify-center text-3xl mb-6 text-cj-blue group-hover:scale-110 transition-transform">
                         👁️
                     </div>
@@ -759,82 +394,30 @@
         </div>
     </section>
 
-    <!-- Filosofía Mejorada -->
-    <section class="py-20 bg-gradient-to-b from-cj-dark via-cj-blue to-cj-dark">
-        <div class="container-main">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-12" data-aos="fade-up">
-                    <span class="inline-block px-4 py-1 rounded-full glass border border-cj-electric/50 text-cj-electric-light text-sm font-semibold mb-4">NUESTRA FILOSOFÍA</span>
-                    <h2 class="text-3xl sm:text-4xl font-black font-montserrat mb-4">
-                        Así es como <span class="gradient-text">trabajamos</span>
-                    </h2>
-                </div>
-                
-                <div class="space-y-4">
-                    <div class="glass-card rounded-2xl p-6 flex gap-4 items-start group hover:border-cj-electric/40 transition-colors" data-aos="fade-up" data-aos-delay="0">
-                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cj-electric to-cj-electric-light flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-110 transition-transform">1️⃣</div>
-                        <div>
-                            <h3 class="font-bold text-lg mb-2 text-white">Hecho es mejor que perfecto</h3>
-                            <p class="text-cj-silver text-sm">No esperamos a tener el 100% de la información para empezar. Un proceso documentado al 70% que se use vale más que uno al 100% que se quede en el cajón.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="glass-card rounded-2xl p-6 flex gap-4 items-start group hover:border-cj-electric/40 transition-colors" data-aos="fade-up" data-aos-delay="100">
-                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-110 transition-transform">2️⃣</div>
-                        <div>
-                            <h3 class="font-bold text-lg mb-2 text-white">El cliente entiende su negocio, nosotros los procesos</h3>
-                            <p class="text-cj-silver text-sm">No venimos a enseñar a hacer muebles o vender ropa. Venimos a organizar cómo se hacen esas cosas de manera eficiente.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="glass-card rounded-2xl p-6 flex gap-4 items-start group hover:border-cj-electric/40 transition-colors" data-aos="fade-up" data-aos-delay="200">
-                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-110 transition-transform">3️⃣</div>
-                        <div>
-                            <h3 class="font-bold text-lg mb-2 text-white">Capacitar para independizarse</h3>
-                            <p class="text-cj-silver text-sm">Nuestro objetivo es que tu equipo pueda mantener los procesos sin depender de nosotros permanentemente. Te dejamos las herramientas, no la dependencia.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="glass-card rounded-2xl p-6 flex gap-4 items-start group hover:border-cj-electric/40 transition-colors" data-aos="fade-up" data-aos-delay="300">
-                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-110 transition-transform">4️⃣</div>
-                        <div>
-                            <h3 class="font-bold text-lg mb-2 text-white">Resultados medibles o no sirve</h3>
-                            <p class="text-cj-silver text-sm">Si no podemos medir el impacto de nuestra intervención, no estamos haciendo bien nuestro trabajo. Los números no mienten y nosotros tampoco.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Final Impactante -->
+    <!-- CTA Final -->
     <section class="py-20">
         <div class="container-main">
-            <div class="cta-section rounded-3xl p-8 sm:p-12 lg:p-16 text-center relative overflow-hidden" data-aos="fade-up">
-                <!-- Fondo decorativo -->
+            <div class="glass-card rounded-3xl p-8 sm:p-12 lg:p-16 text-center relative overflow-hidden" data-aos="fade-up">
                 <div class="absolute top-0 right-0 w-64 h-64 bg-cj-electric/20 rounded-full blur-3xl"></div>
                 <div class="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl"></div>
                 
                 <div class="relative z-10">
                     <span class="text-6xl mb-6 block">🐺</span>
                     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-montserrat mb-6 text-white">
-                        ¿Listo para conocernos en <span class="gradient-text">persona</span>?
+                        ¿Listo para transformar tu <span class="gradient-text">empresa</span>?
                     </h2>
                     <p class="text-lg text-cj-silver max-w-2xl mx-auto mb-8">
-                        Agenda una consulta gratuita de 30 minutos sin compromiso. 
-                        Conversemos sobre tu empresa y cómo podemos ayudarte a transformarla.
+                        Elige el pilar que necesitas o agenda una consulta gratuita de 30 minutos. 
+                        Te orientamos sin compromiso.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="cotizacion.html" class="px-10 py-5 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-xl btn-shimmer flex items-center justify-center gap-2">
-                            <span>📅</span> Agendar consulta gratuita
+                        <a href="pilar-sistemas-gestion.html" class="px-8 py-4 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-xl btn-shimmer">
+                            ⚙️ Ver Sistemas de Gestión
                         </a>
-                        <a href="https://wa.me/524776940272?text=Hola%20CJ%20Consultoría!%20Vengo%20de%20su%20página%20de%20Nosotros" target="_blank" class="px-10 py-5 bg-white text-cj-blue rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-xl flex items-center justify-center gap-2">
-                            <span>💬</span> WhatsApp directo
+                        <a href="psicologia-organizacional.html" class="px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-xl">
+                            🧠 Ver Desarrollo Organizacional
                         </a>
                     </div>
-                    <p class="text-sm text-cj-silver mt-6">
-                        Respuesta garantizada en menos de 24 horas hábiles.
-                    </p>
                 </div>
             </div>
         </div>
@@ -858,12 +441,10 @@
                 </div>
                 
                 <div>
-                    <h4 class="font-semibold mb-4 text-sm text-white">Servicios</h4>
+                    <h4 class="font-semibold mb-4 text-sm text-white">Pilares</h4>
                     <ul class="space-y-2 text-xs text-cj-silver">
-                        <li><a href="procedimientos.html" class="hover:text-cj-electric transition-colors">Procedimientos</a></li>
-                        <li><a href="psicologia-organizacional.html" class="hover:text-purple-400 transition-colors">Psicología Organizacional</a></li>
-                        <li><a href="iso.html" class="hover:text-cj-electric transition-colors">ISO y Sistemas</a></li>
-                        <li><a href="excel.html" class="hover:text-cj-electric transition-colors">Excel y BI</a></li>
+                        <li><a href="pilar-sistemas-gestion.html" class="hover:text-cj-electric transition-colors">⚙️ Sistemas de Gestión</a></li>
+                        <li><a href="psicologia-organizacional.html" class="hover:text-purple-400 transition-colors">🧠 Desarrollo Organizacional</a></li>
                     </ul>
                 </div>
                 
