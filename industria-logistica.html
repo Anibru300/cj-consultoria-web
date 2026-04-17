@@ -139,11 +139,11 @@
     </div>
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-[9997] transition-all duration-500 py-4">
-        <div class="container-main">
+        <nav id="navbar" class="fixed w-full z-[9997] transition-all duration-500 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between">
                 <a href="index.html" class="flex items-center gap-3 group">
-                    <div class="w-12 h-12 rounded-xl overflow-hidden border-2 border-cj-electric bg-white group-hover:scale-110 transition-transform">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl overflow-hidden border-2 border-cj-electric bg-white group-hover:scale-110 transition-transform">
                         <img src="assets/images/logo-cj.png" alt="CJ Consultoría" class="w-full h-full object-contain">
                     </div>
                     <div>
@@ -152,23 +152,47 @@
                     </div>
                 </a>
                 
-                <div class="hidden lg:flex items-center gap-5 xl:gap-6">
+                <div class="hidden lg:flex items-center gap-5 xl:gap-8">
                     <a href="index.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Inicio</a>
+                    <a href="productos.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Productos</a>
+                    <a href="casos.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Casos</a>
+                    
                     <div class="relative group">
-                        <button class="text-sm xl:text-base font-medium text-white relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-cj-electric flex items-center gap-1">
-                            Industrias <span class="text-xs">▼</span>
+                        <button class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors flex items-center gap-1">
+                            Servicios <span class="text-xs">▼</span>
                         </button>
-                        <div class="absolute top-full left-0 mt-2 w-56 glass rounded-xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                            <a href="industria-manufactura.html" class="block px-4 py-2 rounded-lg hover:bg-white/10 text-cj-silver text-sm">🏭 Manufactura</a>
-                            <a href="industria-retail.html" class="block px-4 py-2 rounded-lg hover:bg-white/10 text-cj-silver text-sm">🛒 Retail y Comercio</a>
-                            <a href="industria-logistica.html" class="block px-4 py-2 rounded-lg hover:bg-white/10 text-white text-sm">📦 Logística</a>
+                        <div class="absolute top-full left-0 mt-2 w-72 glass rounded-xl p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all border border-cj-electric/20">
+                            <div class="mb-2 pb-2 border-b border-white/10">
+                                <a href="pilar-sistemas-gestion.html" class="block px-3 py-1.5 rounded-lg hover:bg-white/10 text-cj-electric-light text-sm font-semibold">⚙️ Sistemas de Gestión</a>
+                                <a href="procedimientos.html" class="block px-3 py-1.5 rounded-lg hover:bg-white/10 text-cj-silver text-sm pl-6">📋 Procedimientos</a>
+                                <a href="iso.html" class="block px-3 py-1.5 rounded-lg hover:bg-white/10 text-cj-silver text-sm pl-6">⚙️ ISO y Sistemas</a>
+                                <a href="mejora.html" class="block px-3 py-1.5 rounded-lg hover:bg-white/10 text-cj-silver text-sm pl-6">📈 Mejora Continua</a>
+                                <a href="excel.html" class="block px-3 py-1.5 rounded-lg hover:bg-white/10 text-cj-silver text-sm pl-6">📊 Excel y BI</a>
+                            </div>
+                            <div>
+                                <a href="psicologia-organizacional.html" class="block px-3 py-1.5 rounded-lg hover:bg-white/10 text-purple-300 text-sm font-semibold">🧠 Desarrollo Organizacional</a>
+                                <a href="psicologia-organizacional.html" class="block px-3 py-1.5 rounded-lg hover:bg-white/10 text-cj-silver text-sm pl-6">🧠 Psicología Organizacional</a>
+                            </div>
                         </div>
                     </div>
-                    <a href="casos.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Casos</a>
-                    <a href="recursos.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Recursos</a>
-                    <a href="cotizacion.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Cotizar</a>
                     
-                    <a href="cotizacion.html" class="px-5 py-2.5 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-full font-semibold text-sm transition-all hover:scale-105 shadow-lg shadow-cj-electric/30 btn-shimmer">Cotizar</a>
+                    <div class="relative group">
+                        <button class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors flex items-center gap-1">
+                            Industrias <span class="text-xs">▼</span>
+                        </button>
+                        <div class="absolute top-full left-0 mt-2 w-56 glass rounded-xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all border border-cj-electric/20">
+                            <a href="industria-manufactura.html" class="block px-4 py-2 rounded-lg hover:bg-white/10 text-cj-silver text-sm">🏭 Manufactura</a>
+                            <a href="industria-logistica.html" class="block px-4 py-2 rounded-lg hover:bg-white/10 text-cj-silver text-sm">🚛 Logística</a>
+                            <a href="industria-retail.html" class="block px-4 py-2 rounded-lg hover:bg-white/10 text-cj-silver text-sm">🛒 Retail</a>
+                        </div>
+                    </div>
+                    
+                    <a href="recursos.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Recursos</a>
+                    <a href="nosotros.html" class="text-sm xl:text-base font-medium text-cj-silver hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-cj-electric after:transition-all hover:after:w-full">Nosotros</a>
+                    
+                    <a href="cotizacion.html" class="px-5 py-2.5 xl:px-6 xl:py-3 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-full font-semibold text-sm xl:text-base transition-all shadow-lg shadow-cj-electric/30 hover:shadow-cj-electric/50 hover:scale-105">
+                        Cotizar
+                    </a>
                 </div>
                 
                 <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-white hover:bg-white/10" aria-label="Menú">
@@ -178,14 +202,30 @@
         </div>
         
         <div id="mobile-menu" class="hidden lg:hidden glass mt-4 mx-4 rounded-2xl p-4 border border-cj-electric/20">
-            <div class="flex flex-col gap-2">
-                <a href="index.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">🏠 Inicio</a>
-                <a href="industria-manufactura.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">🏭 Manufactura</a>
-                <a href="industria-retail.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">🛒 Retail</a>
-                <a href="industria-logistica.html" class="px-4 py-3 rounded-xl bg-cj-electric/20 text-cj-electric-light transition-colors text-base font-semibold">📦 Logística</a>
-                <a href="casos.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">📊 Casos</a>
+            <div class="flex flex-col gap-2 max-h-[80vh] overflow-y-auto">
+                <a href="index.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base font-semibold">🏠 Inicio</a>
+                <a href="productos.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">🛍️ Productos</a>
+                <a href="casos.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">📊 Casos de Éxito</a>
+                
+                <div class="px-4 py-2 text-cj-electric-light text-sm font-semibold uppercase tracking-wider">Servicios</div>
+                <a href="pilar-sistemas-gestion.html" class="px-4 py-2 rounded-xl hover:bg-white/10 transition-colors text-sm font-medium text-cj-electric-light">⚙️ Sistemas de Gestión</a>
+                <a href="procedimientos.html" class="px-4 py-2 rounded-xl hover:bg-white/10 transition-colors text-sm pl-8">📋 Procedimientos</a>
+                <a href="iso.html" class="px-4 py-2 rounded-xl hover:bg-white/10 transition-colors text-sm pl-8">⚙️ ISO y Sistemas</a>
+                <a href="mejora.html" class="px-4 py-2 rounded-xl hover:bg-white/10 transition-colors text-sm pl-8">📈 Mejora Continua</a>
+                <a href="excel.html" class="px-4 py-2 rounded-xl hover:bg-white/10 transition-colors text-sm pl-8">📊 Excel y BI</a>
+                
+                <a href="psicologia-organizacional.html" class="px-4 py-2 rounded-xl hover:bg-purple-500/20 text-purple-300 transition-colors text-sm font-medium">🧠 Desarrollo Organizacional</a>
+                <a href="psicologia-organizacional.html" class="px-4 py-2 rounded-xl hover:bg-purple-500/20 text-purple-300 transition-colors text-sm pl-8">🧠 Psicología Organizacional</a>
+                
+                <div class="px-4 py-2 text-cj-electric-light text-sm font-semibold uppercase tracking-wider mt-1">Industrias</div>
+                <a href="industria-manufactura.html" class="px-4 py-2 rounded-xl hover:bg-white/10 transition-colors text-sm pl-8">🏭 Manufactura</a>
+                <a href="industria-logistica.html" class="px-4 py-2 rounded-xl hover:bg-white/10 transition-colors text-sm pl-8">🚛 Logística</a>
+                <a href="industria-retail.html" class="px-4 py-2 rounded-xl hover:bg-white/10 transition-colors text-sm pl-8">🛒 Retail</a>
+                
                 <a href="recursos.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">📚 Recursos</a>
-                <a href="cotizacion.html" class="px-4 py-3 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-xl text-center font-semibold text-base mt-2">📝 Cotizar</a>
+                <a href="nosotros.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">👤 Nosotros</a>
+                <a href="cotizacion.html" class="px-4 py-3 rounded-xl hover:bg-white/10 transition-colors text-base">💰 Cotizar</a>
+                <a href="cotizacion.html" class="px-4 py-3 bg-gradient-to-r from-cj-electric to-cj-electric-light text-white rounded-xl text-center font-semibold text-base mt-2">📝 Cotizar Ahora</a>
             </div>
         </div>
     </nav>
@@ -404,11 +444,11 @@
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-cj-electric/20 pt-12 pb-6">
-        <div class="container-main">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
-                <div class="col-span-2 md:col-span-1">
-                    <div class="flex items-center gap-3 mb-4">
+        <footer class="border-t border-cj-electric/20 pt-12 pb-6 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 mb-8">
+                <div class="col-span-2 md:col-span-3 lg:col-span-1">
+                    <div class="flex items-center gap-3 mb-4 sm:mb-6">
                         <div class="w-10 h-10 rounded-lg overflow-hidden border border-cj-electric bg-white">
                             <img src="assets/images/logo-cj.png" alt="CJ Consultoría" class="w-full h-full object-contain">
                         </div>
@@ -417,27 +457,70 @@
                             <span class="block text-xs text-cj-electric">TRANSFORMAMOS PROCESOS</span>
                         </div>
                     </div>
-                    <p class="text-xs text-cj-silver">Especialistas en logística y cadena de suministro en León y Celaya.</p>
+                    <p class="text-xs sm:text-sm text-cj-silver leading-relaxed mb-4">Reducimos las mermas de tu empresa hasta 25%. Consultoría práctica y orientada a resultados para PYMEs manufactureras.</p>
+                    <div class="flex gap-3">
+                        <a href="https://wa.me/524776940272" target="_blank" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-green-500/20 flex items-center justify-center text-cj-silver hover:text-green-400 transition-colors text-lg">💬</a>
+                        <a href="mailto:cj.consultoria.sgc@gmail.com" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-cj-electric/20 flex items-center justify-center text-cj-silver hover:text-cj-electric-light transition-colors text-lg">✉️</a>
+                    </div>
                 </div>
+                
                 <div>
-                    <h4 class="font-semibold mb-4 text-sm text-white">Industrias</h4>
-                    <ul class="space-y-2 text-xs text-cj-silver">
-                        <li><a href="industria-manufactura.html" class="hover:text-cj-electric transition-colors">🏭 Manufactura</a></li>
-                        <li><a href="industria-retail.html" class="hover:text-cj-electric transition-colors">🛒 Retail</a></li>
-                        <li><a href="industria-logistica.html" class="hover:text-cj-electric transition-colors">📦 Logística</a></li>
+                    <h4 class="font-semibold mb-4 text-sm sm:text-base text-white">Sistemas de Gestión</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm text-cj-silver">
+                        <li><a href="pilar-sistemas-gestion.html" class="hover:text-cj-electric transition-colors">⚙️ Pilar Sistemas</a></li>
+                        <li><a href="procedimientos.html" class="hover:text-cj-electric transition-colors">Procedimientos</a></li>
+                        <li><a href="iso.html" class="hover:text-cj-electric transition-colors">ISO y Sistemas</a></li>
+                        <li><a href="mejora.html" class="hover:text-cj-electric transition-colors">Mejora Continua</a></li>
+                        <li><a href="excel.html" class="hover:text-cj-electric transition-colors">Excel y BI</a></li>
                     </ul>
                 </div>
+                
                 <div>
-                    <h4 class="font-semibold mb-4 text-sm text-white">Contacto</h4>
-                    <ul class="space-y-2 text-xs text-cj-silver">
+                    <h4 class="font-semibold mb-4 text-sm sm:text-base text-white">Desarrollo Organizacional</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm text-cj-silver">
+                        <li><a href="psicologia-organizacional.html" class="hover:text-purple-400 transition-colors">Psicología Organizacional</a></li>
+                        <li><a href="psicologia-organizacional.html#servicios" class="hover:text-purple-400 transition-colors">Evaluaciones Psicométricas</a></li>
+                        <li><a href="psicologia-organizacional.html#servicios" class="hover:text-purple-400 transition-colors">Capacitación</a></li>
+                        <li><a href="psicologia-organizacional.html#servicios" class="hover:text-purple-400 transition-colors">Bienestar Emocional</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4 text-sm sm:text-base text-white">Páginas</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm text-cj-silver">
+                        <li><a href="index.html" class="hover:text-cj-electric transition-colors">Inicio</a></li>
+                        <li><a href="productos.html" class="hover:text-cj-electric transition-colors">Productos</a></li>
+                        <li><a href="casos.html" class="hover:text-cj-electric transition-colors">Casos de Éxito</a></li>
+                        <li><a href="recursos.html" class="hover:text-cj-electric transition-colors">Recursos</a></li>
+                        <li><a href="nosotros.html" class="hover:text-cj-electric transition-colors">Nosotros</a></li>
+                        <li><a href="blog.html" class="hover:text-cj-electric transition-colors">Blog</a></li>
+                        <li><a href="proceso.html" class="hover:text-cj-electric transition-colors">Nuestro Proceso</a></li>
+                        <li><a href="cotizacion.html" class="hover:text-cj-electric transition-colors">Cotizar</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4 text-sm sm:text-base text-white">Industrias</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm text-cj-silver mb-4">
+                        <li><a href="industria-manufactura.html" class="hover:text-cj-electric transition-colors">🏭 Manufactura</a></li>
+                        <li><a href="industria-logistica.html" class="hover:text-cj-electric transition-colors">🚛 Logística</a></li>
+                        <li><a href="industria-retail.html" class="hover:text-cj-electric transition-colors">🛒 Retail</a></li>
+                    </ul>
+                    <h4 class="font-semibold mb-2 text-sm sm:text-base text-white">Contacto</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm text-cj-silver">
                         <li>📱 +52 477 694 0272</li>
                         <li>✉️ cj.consultoria.sgc@gmail.com</li>
                         <li>📍 León, Gto., México</li>
                     </ul>
                 </div>
             </div>
-            <div class="pt-6 border-t border-cj-electric/20 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-xs text-cj-gray">© 2024 CJ Consultoría</p>
+            
+            <div class="pt-6 sm:pt-8 border-t border-cj-electric/20 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs sm:text-sm text-cj-gray">© 2024 CJ Consultoría - Ing. Carlos Urbina. Todos los derechos reservados.</p>
+                <div class="flex gap-4 sm:gap-6">
+                    <a href="#" class="text-xs sm:text-sm text-cj-gray hover:text-white transition-colors">Privacidad</a>
+                    <a href="#" class="text-xs sm:text-sm text-cj-gray hover:text-white transition-colors">Términos</a>
+                </div>
             </div>
         </div>
     </footer>
